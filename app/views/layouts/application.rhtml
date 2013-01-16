@@ -102,7 +102,7 @@
 				<% end %>
 
 	      		<div id="version">
-	      	 		Version: <%= ENV['MATERIAL_TRACKER_VERSION'] %> | <%= render :partial => "shared/version" %>
+	      	 		<!--Version:  ENV['MATERIAL_TRACKER_VERSION']  render :partial => "shared/version" -->
 	      		</div>
 
 	      		<% unless params[:controller] == 'home' && ['index', 'superuser'].include?(params[:action]) %>

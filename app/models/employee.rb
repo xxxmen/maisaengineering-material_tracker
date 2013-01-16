@@ -132,17 +132,17 @@ end
   belongs_to :group
 
   # Thinking Sphinx Config
-  define_index do
-	indexes :badge_no
-	indexes :first_name
-	indexes :mi
-	indexes :last_name
-	indexes :login
-	indexes :email
-	indexes :telephone
+ #  define_index do
+	# indexes :badge_no
+	# indexes :first_name
+	# indexes :mi
+	# indexes :last_name
+	# indexes :login
+	# indexes :email
+	# indexes :telephone
 
-  set_property :delta => true
-  end
+ #  set_property :delta => true
+ #  end
 
   attr_accessor :password_confirmation, :password
   attr_writer :page

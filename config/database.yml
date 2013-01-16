@@ -1,7 +1,7 @@
 development:
   #adapter: sqlite3
   #database: db/dev.sqlite3
-   adapter: mysql
+   adapter: mysql2
    database: po_tracker
    username: root
    password: 
@@ -23,6 +23,6 @@ test:
 production:
   adapter: mysql
   database: po_tracker
-  username: po_tracker
-  password: po_tracker
+  username: root
+  password: 
   host: localhost

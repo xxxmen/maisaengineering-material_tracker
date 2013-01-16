@@ -72,23 +72,23 @@ class MaterialRequest < ActiveRecord::Base
   end
   
   # Thinking Sphinx Config
-  define_index do
-	# Columns
-	indexes :tracking
-#	indexes :ptm_no
-	indexes reference_number_type
-	indexes reference_number
-	indexes :notes
-	indexes :deliver_to
-	indexes :suggested_vendor
-	# Associations
-	indexes items(:material_description), :as => :line_item_descriptions
-	indexes unit(:description), :as => :unit_description
-	indexes [requester(:first_name), requester(:mi), requester(:last_name)], :as => :requester_name
-	set_property :delta => :datetime, 
-		:threshold => 1.minute, 
-		:delta_column => :updated_at
-  end
+#   define_index do
+# 	# Columns
+# 	indexes :tracking
+# #	indexes :ptm_no
+# 	indexes reference_number_type
+# 	indexes reference_number
+# 	indexes :notes
+# 	indexes :deliver_to
+# 	indexes :suggested_vendor
+# 	# Associations
+# 	indexes items(:material_description), :as => :line_item_descriptions
+# 	indexes unit(:description), :as => :unit_description
+# 	indexes [requester(:first_name), requester(:mi), requester(:last_name)], :as => :requester_name
+# 	set_property :delta => :datetime, 
+# 		:threshold => 1.minute, 
+# 		:delta_column => :updated_at
+#   end
   
   validates_presence_of :tracking, :unit_id, :requested_by_id
   validates_uniqueness_of :tracking

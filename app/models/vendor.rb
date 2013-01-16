@@ -51,12 +51,12 @@ class Vendor < ActiveRecord::Base
 	############################################################################
   	
 	# Thinking Sphinx Config
-	define_index do
-		indexes :vendor_no
-		indexes :name
-		indexes :account_no
-		set_property :delta => true
-	end
+	# define_index do
+	# 	indexes :vendor_no
+	# 	indexes :name
+	# 	indexes :account_no
+	# 	set_property :delta => true
+	# end
 	
 	############################################################################
 	# CALLBACKS

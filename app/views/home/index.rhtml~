@@ -141,7 +141,7 @@ div.info-view-popv {
 </style>
 
 
-<% if 0 !=1 -%>
+<% if a != 0 -%>
 <div id="login-area">
 
   <!-- <img src="/graphics/bp.gif" id="login-bp-logo" /> -->
