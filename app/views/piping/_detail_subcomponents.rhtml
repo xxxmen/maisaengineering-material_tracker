@@ -1,0 +1,9 @@
+<% if detail_subcomponents.size > 0 %>
+	<tr><th colspan=2>PIPING SUBCOMPONENTS</th></tr>
+	<% detail_subcomponents.each do |sub_c| %>
+	<tr>
+		<td>Description</td>
+		<td><%= h sub_c.description %></td>
+	</tr> 
+	 <% end %>
+<% end %>

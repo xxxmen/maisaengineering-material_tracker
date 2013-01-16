@@ -1,0 +1,619 @@
+<style>
+    form#edit_order_<%= @order.id %> {width: 980px;}
+
+   label { font-size: 85%; }
+    form.edit input.text { padding: 1px; margin: 1px; }
+    table td.lbl { width: 80px; }
+    table input.text { width: 100%; }
+    table td.checks { padding: 2px 6px; }
+    table td.checks label { margin-right: 4px; }
+    table.information { width: 100%; border: 1px solid #CCC;}
+    table.information th, table.information td { padding: 2px 5px; border: 0;}
+    table.information { width: 100%; }
+    table.information tr:hover td { background-color: #fff; color: #000; }
+    table.information tr:hover td a { color: #336633; } 
+    table.information tr:hover td a:hover { color: #336633; background-color: #fff; }
+
+    th.center {
+        text-align: center;
+    }
+    
+    #addtl_info {
+        float: left;
+        width: 270px;
+/*        position: absolute;
+        top: 20px;
+        left: 10px;
+*/  
+    
+    }
+    #main_info {
+        float: right;
+        width: 700px;
+/*        position: absolute; 
+        left: 10px;
+*/    }
+    
+    * html #addtl_info { width: 266px; }
+    * html #date_info { width: 266px; top: 284px;}
+    div[id=addtl_info] { width: 248px; }
+    div[id=date_info] { top: 266px; width: 248px; position: relative; z-index: 3;}
+    
+/*    #main_info { position: absolute; top: 20px; z-index: 2;}*/
+    #issue_info { position: absolute; z-index: 1; }
+    
+    * html #main_info { left: 286px; width: 695px; }
+    * html #issue_info { top: 284px; left: 286px; width: 695px; }
+    div[id=main_info] { left: 268px; width: 730px; }
+    div[id=issue_info] { top: 266px; left: 268px; width: 730px; }
+    
+    div.auto_complete ul {
+		background-color: #fff;
+        position: absolute;
+		z-index: 200;
+    }
+    
+    div.auto_complete {z-index: 1000;}
+
+	div.calendar { z-index: 200;}
+
+	table#line_items_header { width: 980px; padding:5px;
+	}
+	table#line_items { padding:5px; width: 100%; margin-bottom: 20px;}
+	/* Line Items Table */
+    
+    form.ordered_line_item {width: 980px; background-color: #CCC;}
+/*    #edit_ordered_line_item_form {margin-top: 10px; width: 1000px; background-color: #CCC;}*/
+        
+    
+
+    
+    .line_items_list_flash {
+        float: left; 
+        width: 500px; 
+        text-align: center; 
+        background-color: #ccffcc; 
+        color: #006600;
+    }
+    
+    .line_item_links a {
+        padding-left: 20px; 
+        font-size: 80%;
+        text-decoration: none;
+    } 
+
+    .line_item_links a:hover {
+        padding-left: 20px; 
+        font-size: 80%;
+        text-decoration: none;
+    } 
+    
+
+    
+    a.create_ordered_line_item_link {
+/*        padding-left: 20px; */
+        background: url(/images/icons/add.png) no-repeat scroll center left;
+    } 
+    
+     #delete_ordered_line_item a {
+         background: url(/images/icons/delete.png) no-repeat scroll center left;
+     }
+     
+     .show_link {
+         background: transparent url(/images/icons/asterisk_orange.png) no-repeat scroll center left;         
+     }
+     .hide_link {
+         background: url(/images/icons/cross.png) no-repeat scroll center left;         
+     }     
+     .receive_all_link {
+         background: url(/images/icons/arrow_down.png) no-repeat scroll center left;         
+     }
+     .issue_all_link {
+         background: url(/images/icons/user_go.png) no-repeat scroll center left;         
+     }
+    
+</style>
+
+<!--[if IE 7]>
+<style type="text/css" media="screen">
+    html #addtl_info { width: 266px; }
+    html #date_info { width: 266px; top: 280px;}    
+    
+    html #main_info { left: 286px; width: 695px; }
+    html #issue_info { top: 280px; left: 286px; width: 695px; }
+</style>
+<![endif]--> 
+
+<div id="box" style="display:none">
+    <span>New Line Item</span>
+    <a id="close" onclick="hideBox()" title="Close this window" />Cancel</a>
+</div>
+
+<div class="orders" style="width: 980px;">
+
+<% form_for @order, :html => { :class => "edit full main_form"} do |f| %>
+    <div id="addtl_info">
+    	<div class="header"><h2>Purchase Info</h2></div>
+        <table class="information" id="addtl">
+            <tr>
+                <td class="lbl" style="width: 40%"><label>PO #</label></td>
+                <td style="width: 60%"><%= f.text_field :po_no, :class => "text", :readonly => @warehouse %></td>
+            </tr>
+            <tr>
+                <td class="lbl" style="width: 40%">
+                    <label>Tracking #</label>
+                </td>
+                <% if !@order.material_requests.empty? %>
+                <td>
+                    <% @order.material_requests.each_with_index do |material_request, loop_index| %>
+                        <%= link_to(material_request.tracking, {:controller => "material_requests", :id => material_request.id, :action => "edit"}) %>  
+                        <%= loop_index + 1 < @order.material_requests.length ? "," : nil %>
+                    <% end %>           
+                  </td>
+                <% else %>
+                <td><%= f.text_field :tracking, :class => "text", :readonly => @warehouse %></td>
+                <% end %>
+            </tr>
+            <tr>
+                <td class="lbl" style="width: 40%"><label>Reference #</label></td>
+                <td><%= f.text_field :ptm_no, :class => "text", :readonly => @warehouse %></td>
+            </tr>
+            <tr>
+                <td class="lbl" style="width: 40%"><label>ETA</label></td>
+                <td><%= f.text_field :date_eta, :class => "text", :id => "date_eta", :readonly => @warehouse %></td>
+            </tr>
+			<% if current_employee.need_details? %>
+            <tr>
+                <td class="lbl" style="width: 40%"><label>Total Cost</label></td>
+                <td><%= f.text_field :total_cost, :class => "text", :readonly => @warehouse %></td>
+            </tr>
+			<% end %>
+            <tr>
+                <td class="lbl" style="width: 40%"><label>Work Orders</label></td>
+                <td><%= f.text_field :work_orders, :class => "text", :readonly => @warehouse %></td>
+            </tr>
+            <tr>
+                <td class="lbl" style="width: 40%"><label>Deliver To</label></td>
+                <td><%= f.text_field :deliver_to, :class => "text", :readonly => @warehouse %></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="checks">
+                    <%= f.check_box :completed, :class => "checkbox", :disabled => @warehouse %> <label class="inline">Completed</label>
+                    <%= f.check_box :closed, :class => "checkbox", :disabled => @warehouse %> <label class="inline">Closed</label>
+                    <%= f.check_box :awr, :class => "checkbox", :disabled => @warehouse %> <label class="inline">AWR</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id="main_info">
+    
+    	<div class="header">
+    		<h2 class="left">Main Info</h2>
+    		<h3 class="right">Group: <%= select_tag 'order[group_id]', options_for_select(Group.list_all_for_select('-- None --'), @order.get_group), :disabled => (!current_employee.admin? && !@order.new_record?), :readonly => @warehouse, :style => 'width: 150px;' %>
+    		</h3>
+    	
+    	</div>
+        <table class="information">
+            <tr>
+                <td class="lbl" style="width: 80px;"><label>Unit</label></td>
+                <td style="width: 400px;"><%= text_field_with_auto_complete :unit, :description, :value => @order.unit_description, :class => "required text", :title => "Unit can't be blank", :name => "unit[description]", :readonly => @warehouse   %></td>
+                <td class="lbl" style="width: 80px;"><label>Year</label></td>
+                <td style="width: 120px;"><%= f.select :turnaround_year, @order.year_selection, {}, { :disabled => @warehouse } %></td>
+				<% if @order.new_record? %>
+					<script>
+						$('order_turnaround_year').value = new Date().getFullYear();
+					</script>
+				<% end %>
+            </tr>
+            <tr>
+                <td class="lbl"><label>Status</label></td>
+                <td><%= f.select :status_id, PoStatus.list_status, {}, :id => "po_status", :disabled => @warehouse %></td>
+                <td class="lbl"><label>Created</label></td>
+                <td><%= f.text_field :created, :class => "text", :readonly => true, :id => 'order_date_created' %></td>
+                  <script type="text/javascript" charset="utf-8">
+                    changeDateFormat('order_date_created');
+                  </script>
+            </tr>
+            <tr>
+                <td class="lbl"><label>Description</label></td>
+                <td colspan="3"><%= f.text_area :description, :style => "width: 100%;", :readonly => @warehouse %></td>
+            </tr>
+            <tr>
+                <td class="lbl"><label>Correspondence and Activity</label></td>
+                <td colspan="3"><%= f.text_area :activity, :style => "width: 100%; height: 30px;", :readonly => @warehouse %></td>
+            </tr>
+            <tr>
+                <td class="lbl"><label>Vendor</label></td>
+                <td><%= text_field_with_auto_complete :vendor, :name, :id => 'vendor_name', :value => "#{@order.supplier}", :class => "text", :onblur => (current_employee.need_details? ? remote_function(:url => complete_vendor_orders_path, :method => :get, :with => "Form.serialize('#{form_id @order}')") : ""), :disabled => @warehouse  %></td>
+				<% if current_employee.need_details? %>
+                <td class="lbl"><label>Contact</label></td>
+                <td id="order_vendor_contact" style="font-size: 90%; padding: 1px;"><%= @order.vendor ? @order.vendor.contact_name : '' %></td>
+				<% end %>
+            </tr>
+			<% if current_employee.need_details? %>
+            <tr>
+                <td class="lbl"><label>Vendor #</label></td>
+                <td><input type="text" name="vendor_no" id="order_vendor_id_text" class="text" readonly="readonly" onclick="$(this).activate()" value="<%= @order.vendor ? @order.vendor.vendor_no : '' %>" /></td>
+                <td class="lbl"><label>Phone</label></td>
+                <td id="order_vendor_phone" style="font-size: 90%; padding: 1px;"><%= @order.vendor ? @order.vendor.telephone : '' %></td>
+            </tr>
+			<% end %>
+        </table>
+    </div> <!-- end desc/vendor block -->
+    <br class='clear'/>
+    <br/>
+    
+    <div class='header'>
+    	<h2>
+            Location & Issue To History  <span id="show_extra_order_info_link">[ <a href='' onclick='showExtraOrderInfo(); return false;' id="delete_ordered_line_item_link" class='show_link'>Show</a>]</span><span id="hide_extra_order_info_link" style="display:none;">[ <a href='' onclick='hideExtraOrderInfo(); return false;' id="delete_ordered_line_item_link"  class='hide_link'>Hide</a>]</span>
+        </h2>
+    </div>
+    
+    <table class="information" style='width: 980px; display: none;' id='location_and_issued_to_history_table'>
+        <tr>
+            <td style='width: 285px; font-weight: bold;'>Location</td>
+            <td style='font-weight: bold;'>Issue To History</td>
+        </tr>
+        <tr>
+            <td style='vertical-align: top;'><%= f.text_field :location, :class => "text", :style => "margin-left: 2px;" %></td>
+            <td><%= f.text_area :issued_to_history, :style => "width: 95%; height: 90px;", :id => "issue_to_history" %></td>
+        </tr>
+    </table>
+<% end %>    
+
+<% unless @order.new_record? %>
+
+    <br/>
+    <!-- Editing Line Items -->
+    <div class="header" style="width: 980px;">
+        <h2 class='left' style='width: 400px;'>
+            <span id='ordered_line_item_form_header'>Creating Line Item</span> 
+            [ 
+                <a href='#ordered_line_item_form' onclick='newOrderedLineItem()'  class='create_ordered_line_item_link' id="show_new_ordered_line_item_link">Add New</a> 
+            ] 
+            <span id="delete_ordered_line_item" style="display:none;">
+                [ <a href='#ordered_line_item_form' onclick='if(!confirm("Are you sure you want to delete selected line item(s)?")){return false;} ' id="delete_ordered_line_item_link">Delete</a>]
+            </span>
+        </h2>
+        <h2 class='right'>
+            [ <a href='#line_items_list' onclick='issueAllOrderedLineItems(); return false;' class='issue_all_link'>Issue All</a> ]
+        </h2>
+        <br class='clear'/>
+    </div>
+    
+    <%= render :partial => 'ordered_line_item_form_header' %>
+    <% form_for :ordered_line_item, @ordered_line_item, 
+            :url => { :action => "create_ordered_line_item", :id => @order }, 
+            :html => { :id => "ordered_line_item_form", :class => "edit ordered_line_item", :autocomplete => 'off' } do |f| 
+    %>
+        <%= render :partial => 'ordered_line_item_form' %>
+    <% end %>
+    <br/>
+    <!-- Line Items Header -->
+    <div id='line_items_list' class='header'>
+        <h2 class='left'>
+            Line Items
+        </h2> 
+        <% flash_display = flash[:line_items] ? '' : 'display:none;' %>
+        <div class='line_items_list_flash' style='<%= flash_display %>'>
+            <%= flash[:line_items] %>
+        </div>
+        <h2 class='right'>
+            [ <a href='/orders/mark_remaining_as_received/<%= @order.id %>#line_items_list' class='receive_all_link'>Receive All</a> ]
+        </h2>
+        <br class='clear'/>
+    </div>
+
+    <!-- Line Items Table Header -->
+    <%= render :partial => 'ordered_line_item_form_header' %>
+
+    <!-- Line Items Table -->    
+    <div style='overflow-y: scroll; height: 300px; width: 980px; '>
+        <table id="line_items" class="information line_items">
+            <%
+                # For the ordered line items list, sort by line item number
+				OrderedLineItem.filter(@order.id) do
+				    @ordered_line_items = OrderedLineItem.list(params, :order => "line_item_no")
+				end
+			    @ordered_line_items ||= []
+            %>
+            <% @ordered_line_items.each_with_index do |item, index| %>
+                <tr class="<%= cycle(:even, :odd) %>" id='something-<%= item.id %>'>
+                    <td class="no"><%= h item.line_item_no %></td>
+                    <td class="desc">
+                        <a href='#ordered_line_item_form' class='ordered_line_item_description_link' itemId="<%= item.id %>">
+                            <%= h item.description %>
+                        </a>
+                        <% unless item.requested_line_item.blank? %>
+                        
+                          <%= link_to "(REQ #{item.requested_line_item.material_request.tracking})", edit_material_request_path(item.requested_line_item.material_request) + "##{item.requested_line_item.id}" , :style => "margin-left:10px;" 
+                          %>
+                        <% end %>
+                    </td>
+                    <td class="unit"><%= h item.unit_of_measure %></td>
+                    <td class="qty" id="<%= dom_id(item, 'quantities') %>">
+                        <%= h item.quantities_for_list %>
+                    </td>
+                    <td class="date" id="<%= dom_id(item, 'date_received') %>">
+                        <% if item.date_received.blank? %>
+                            <%= link_to_remote "Today", :url => url_for(:action => "mark_line_item_as_received", :id => item.id), :method => :get %>
+                        <% else %>
+                            <%= format_date(item.date_received) %>
+                        <% end %>
+                        <br/>
+                        <%= format_date(item.date_back_ordered) %>
+                    </td>
+                    <!-- <td class="link">
+                        <%# if item.requested_line_item && item.requested_line_item.material_request %>
+                           item no. #<%#= item.requested_line_item.item_no %>
+                            <%#= link_to "##{item.requested_line_item.material_request.tracking}", edit_material_request_path(item.requested_line_item.material_request) + "##{item.requested_line_item.id}" %>
+                        <%# end %>
+                    </td> -->
+                    <td class="location"><span style='font-weight: bold;'><%=h item.location %></span><br/><%=h item.notes  %></td>
+                    <td class="issued_small"><%=h item.issued_to_name %><br/><%=h item.issued_to_company %><br/><%=h format_date(item.issued_date) %> <% if item.issued_quantity %>, Qty: <%=h item.issued_quantity %><% end %></td>
+                </tr>
+            <% end %>
+        </table>        
+    </div>
+    
+<% end %> 
+
+</div>
+<script type="text/javascript" charset="utf-8">
+
+    var editingForm = false;
+
+    // Binds to some issued line item form fields.
+    jQuery(document).ready(function(){
+        jQuery('#employee_list_employee_names').change(checkForIssued);
+        jQuery('#company_list_companies_for_autocomplete').change(checkForIssued);
+        jQuery('a.ordered_line_item_description_link').click(editOrderedLineItem);
+    });
+    
+    // Show the Location and Issued To History divs.
+    function showExtraOrderInfo() {
+        jQuery('#show_extra_order_info_link').hide();
+        jQuery('#hide_extra_order_info_link').show();
+        jQuery('#location_and_issued_to_history_table').show();
+        return false;
+    }
+    
+    // Hides the Location and Issued To History divs.
+    function hideExtraOrderInfo() {
+        jQuery('#show_extra_order_info_link').show();
+        jQuery('#hide_extra_order_info_link').hide();
+        jQuery('#location_and_issued_to_history_table').hide();
+        return false;
+    }
+    function checkIfReceivedIsNotBlank() {
+      if(($('ordered_line_item_quantity_received').value != "") && 
+        ($('ordered_line_item_date_received').value == "")){
+        $('ordered_line_item_date_received').value = '<%= format_date(Date.today, "%m/%d/%Y") %>';
+      }
+    };
+    
+    // Submits the Issued information to apply to all line items.
+    function issueAllOrderedLineItems() {
+        var issuedToName = jQuery('#ordered_line_item_form [name="ordered_line_item[issued_to_name]"]').val();            
+        var issuedToCompany = jQuery('#ordered_line_item_form [name="ordered_line_item[issued_to_company]"]').val();            
+        var issuedDate = jQuery('#ordered_line_item_form [name="ordered_line_item[issued_date]"]').val();            
+
+        if ( issuedToName == "" && issuedToCompany == "") {
+            alert('Please fill in the "Issued To" or "Issued To Company" fields.');
+            return;
+        }
+        if ( issuedDate == "" ) issuedDate = '<%= format_date(Date.today, "%m/%d/%Y") %>';
+        
+        confirmString = 'All non-issued line items will be marked as issued with the following info:\n';
+        confirmString += '\nIssued To: ' + issuedToName;
+        confirmString += '\nIssued To Company: ' + issuedToCompany;
+        confirmString += '\nIssued Date: ' + issuedDate;
+        confirmString += '\n\nContinue?';
+
+        var answer = confirm(confirmString);
+        
+        if (answer) {
+            var newUrl = '/orders/mark_remaining_as_issued/<%= @order.id %>#line_items_list';
+            var form = jQuery('#ordered_line_item_form');
+            form.attr('action', newUrl);
+            form[0].submit();            
+        }
+    }
+    
+    // Checks if the issued_date or issued_quantity were filled out. If not, it autofills them.
+    function checkForIssued() {
+        var current_date = '<%= format_date(Date.today, "%m/%d/%Y") %>';
+        var date = jQuery('#ordered_line_item_issued_date')[0];
+        var issued_quantity = jQuery('#ordered_line_item_issued_quantity')[0];
+        var received_quantity = jQuery('#ordered_line_item_quantity_received')[0];
+        if (date.value == "") {
+            date.value = current_date;
+        }
+        if (issued_quantity.value == "" && received_quantity.value != "" && received_quantity.value != 0) {
+            issued_quantity.value = received_quantity.value;
+        }
+    }
+
+    // Resets the form for adding a new ordered line item.
+    function newOrderedLineItem() {
+        var newFunction = function() {
+            // Renames the div header
+            jQuery('#ordered_line_item_form_header').html('Creating Line Item');
+            // Hides the 'Delete Line Item' link.
+            jQuery('#delete_ordered_line_item').hide();
+            
+            // Resets the form.
+            var form = jQuery('#ordered_line_item_form');
+            form[0].reset();
+            form.attr('action', '/orders/create_ordered_line_item/<%= @order.id %>');        
+            highlightForm();
+            editingForm = false;
+        }
+
+        // Asks for confirmation if currently editing a line item.
+        if (editingForm == true) {
+            var answer = confirm('This will erase any changes you have to the current line item. Proceed?');
+            if (answer) {
+                newFunction();
+            }            
+        } else {
+            newFunction();
+        }
+    }
+
+    // Highlights the background of the form with a yellow for 1.5 seconds.
+    function highlightForm() {
+        jQuery('#ordered_line_item_form').animate({ backgroundColor: '#FF0' }, 500).animate( { backgroundColor: '#CCC' }, 1000);        
+    }
+
+    // Puts the Ordered Line Item form into line item editing mode.
+    function editOrderedLineItem() {        
+        // Flag used for checking whether in edit mode or not in the newOrderedLineItem method.
+        editingForm = true;
+
+        // Grabs the link clicked on.
+        var el = jQuery(this);
+        
+        // Grabs the line item id stored in each line item description link.
+        id = el.attr('itemid');
+        
+        // If it can find an id, sets the form url for updating that line item.
+        if (id != "") {
+            var new_url = '/orders/destroy_ordered_line_item/' + id;
+            
+            jQuery('#delete_ordered_line_item a').attr('href', new_url);
+            jQuery('#delete_ordered_line_item').show();
+        }
+
+        jQuery('#ordered_line_item_form_header').html('Editing Line Item');
+        jQuery('#delete_ordered_line_item').show();
+
+        
+        
+        // Makes an Ajax request to grab the line item info for populating the form with.
+        var url = '/orders/edit_line_item/' + id + '#line_items_list'
+        new Ajax.Request(url, {
+          onSuccess: function(response) {
+              var result = eval('(' + response.responseText + ')');
+              if (result.success == true) {
+                  updateEditOrderedLineItemForm(result.record);                  
+              }
+          }
+        });        
+    }
+    
+    
+    // Updates the editing form with the returned values stored in +record+.
+    function updateEditOrderedLineItemForm(record) {
+        Object.keys(record).each(function(key) {                
+            var el = jQuery('#ordered_line_item_form [name="ordered_line_item[' + key + ']"]');
+            if(record[key]){
+              el.val(record[key]);
+            }
+            else{
+              el.val('');
+            }
+        });
+        // Updates the submit button text
+        jQuery('#submit_ordered_line_item').attr('value', 'Update Ordered Line Item');
+        // Sets the order
+        jQuery('#ordered_line_item_form').attr('action', '/orders/update_ordered_line_item/' + record.id);
+        highlightForm();
+    }
+
+    
+  function set_issue_to_history(partial) {
+    <% unless current_employee.warehouse? %>
+    if(!confirm("Only warehouse personnel should update the 'Issued To' field, are you sure you want to continue?")){return false;}
+    <% end %>
+    var issued = new Array(4);
+    issued[0] = $('issued_to_date').value;
+    issued[1] = $('issued_to_employee').value;
+    issued[2] = $('issued_to_company').value;
+    issued[3] = $('issued_to_note').value;
+    issued[4] = "Delivery Point : " + $('issued_to_location').value;
+    
+    // use short date
+    if(issued[0].match(/(\d\d)\/(\d\d)\/\d\d(\d\d)/)) {
+        var month = RegExp.$1;
+        var day = RegExp.$2;
+        var year = RegExp.$3;
+        issued[0] = month + "/" + day + "/" + year;
+    }
+    
+    if(partial == 'partial') {
+      issued[5] = "Partial"
+    }
+    var items = new Array();
+    for (var i=0; i < issued.length; i++) {
+      if(issued[i] != "") items.push(issued[i]);
+    };
+    
+    if(partial == 'note') {
+      $('issue_to_history').value = issued[0] + " NOTE: " + $('issued_to_note').value + "\n\n" + $F('issue_to_history');
+    }
+    else {
+    	$('issue_to_history').value = items.join(": ") + "\n\n" + $F('issue_to_history');
+	}
+    if(partial == 'issued') {
+      $('issued_to_location').value = "ISSUED";
+    }        
+    
+    
+    new Ajax.Request('/orders/<%= @order.id %>', 
+                     { asynchronous:true, 
+                       evalScripts:true, 
+                       parameters: Form.serialize('issued_to_history_form') });
+                       
+    $('issued_to_employee').value = "";
+    $('issued_to_company').value = "";
+    $('issued_to_note').value = "";
+  }
+  
+  function add_new_employee () {
+    selection = $('issued_to_employee');
+    text_box = $('issued_to_employee_hiding');
+    
+    selection.hide();
+    text_box.show();
+    $('add_new_link').hide();
+    $('select_from_link').show();
+    
+    selection.id = 'issued_to_employee_hiding';
+    text_box.id = 'issued_to_employee';
+    
+    text_box.focus();
+            
+    return false;
+  }
+  
+  function select_employee() {
+    selection = $('issued_to_employee_hiding');
+    text_box = $('issued_to_employee');
+    
+    selection.show();
+    text_box.hide();
+    $('select_from_link').hide();
+    $('add_new_link').show();
+    
+    selection.id = 'issued_to_employee';
+    text_box.id = 'issued_to_employee_hiding';
+    
+    selection.focus();
+    
+    return false;
+  }
+
+  // Binds the JS calendar so the specified input fields.
+  setup_calendar_for(['date_eta', 'ordered_line_item_date_received', 'ordered_line_item_date_back_ordered', 'ordered_line_item_issued_date']);
+  
+  // Watches the form fields for changes, highlights the save button if changed.
+  $$('form.edit.full input[type=text], form.edit.full textarea, form.edit.full select, form.edit.full input[type=checkbox]').each(function(element){
+    if(element.id != 'issued_to_note'){
+    		Event.observe(element, 'change', function() { Telaeris.formChange() });
+	}
+  });
+
+  window.onbeforeunload = Telaeris.confirmCancel;
+</script>

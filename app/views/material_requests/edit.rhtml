@@ -1,0 +1,523 @@
+<% if @material_request.deleted %>
+  <h2>This material request has been deleted</h2>
+<% else %>
+<% form_for @material_request, :html => { :class => "edit full validate main_form", :onsubmit =>  m_disabled_then('return false'), :enctype => "multipart/form-data" } do |f| %>
+
+  <% if @material_request.new_record? %>
+  <input type="hidden" value="0" id="material_request_id" name="material_request_id">
+  <% else %>
+  <input type="hidden" value="<%= @material_request.id %>" id="material_request_id" name="material_request_id" />
+  <% end %>
+
+  <div id="errorExplanation" style="display: none;">
+  </div>
+	
+  <div class="left">
+    <div class="left" style="width: 74%">
+      <div class="left">
+      <p>
+        <label>Tracking <% if @material_request.new_record? %><span class="description" style="display: inline;">(Auto-assigned if not specified)</span><% elsif @material_request.bill %><span class="description" style="display: inline; margin-left: 10px;">(BOM #: <%= @material_request.bill.tracking %>)</span><% end %></label>
+        <%= f.text_field :tracking, :class => "text" %>
+      </p>
+      </div>
+
+      <div class="right">
+      <p>
+		<% if @material_request.date_requested %>
+	        <label title="<%= @material_request.date_requested.strftime('%m/%d/%y %I:%M%p') %>">Req. At</label>
+	        <%= f.text_field :date_requested, :readonly => true, :class => "text", :title => @material_request.date_requested.strftime('%m/%d/%y %I:%M%p'), :value => @material_request.date_requested.strftime('%m/%d/%y %I:%M%p') %>
+		<% else %>
+			<label>Req. At <span class="description" style="display: inline;">(Auto-assigned)</span></label>
+			<%= f.text_field :date_requested, :disabled => true, :class => "text" %>
+		<% end %>
+      </p>
+      </div>
+
+      <div class="left clear">
+      <p>
+        <label>Unit <span class="required">(required)</span></label>
+		<%= f.select :unit_id, Unit.list_units, {}, :class => "required text", :title => "Unit can't be blank" %>
+        <!-- <%= text_field_with_auto_complete :unit, :description, :value => @material_request.unit_description, :class => "required text", :title => "Unit can't be blank", :name => "unit[description]"   %> -->
+
+        <span style="display: none;"></span>
+        <%= error_message_on(:material_request, :unit_id) %>
+      </p>
+      </div>
+      <div class="right">
+      <p>
+        <label>Work Orders</label>
+        <%= text_field_with_auto_complete :material_request, :work_orders, :value => @material_request.work_orders, :class => "text" %>
+      </p>
+
+      </div>
+
+      <p class="clear">
+        <label>Description<span class="required">(required)</span></label>
+        <%= f.text_field :description, :class => "text", :onkeydown => "" %>
+      </p>
+	  <p class="clear">
+
+
+    <!--  Attachments -->
+    <div>
+      
+	
+    <% if @material_request.material_request_attachments.size > 0 %>
+    <p class="clear">
+    <label>Attachments:</label>  
+      
+          <ul style="margin-top: 0px; margin-left: 2px;">
+          <% @material_request.material_request_attachments.each do |material_request_attachment| %>
+            <li>
+                <%= link_to material_request_attachment.filename, url_for(:controller => "material_requests", :action => "material_request_file", :id => material_request_attachment.id, :vendor_id => params[:vendor_id], :access_key => params[:access_key]), :method => :get %>
+                <% if current_employee.admin? %>
+                  <%= link_to "(delete)", url_for(:controller => "material_requests", :action => "del_material_request_file", :id => @material_request.id, :material_request_attachment_id => material_request_attachment.id), :id => "test", :onclick => 'return confirmDelete(this)', :style => "margin-left: 3px; font-size: 85%;" %>
+                <% end %>
+            </li>
+          <% end %>
+          </ul>
+      
+    </p>
+    <% end %>
+      <div id="file-upload-fields">
+      <p class="menu">
+        <label>Attach a File (Ex: Engineering Drawings):</label>
+        <input type="file" name="uploaded_material_request_attachments[]"/>
+      </p>
+    </div>
+    <a href="#" id="add-file-link">Add Another File</a>
+
+    </div>
+      </p>
+
+	    <p class="clear">
+	      <label>Notes</label>
+	      <%= f.text_field :notes, :class => "text" %>
+	    </p>
+	  	<p id="activity_link" style="">
+			<%= img_button_function "Show Activity", "magnifier_zoom_in.png", "$('check_status').hide(); $('activity').show(); $('check_status_link').show(); $('activity_link').hide(); return false;", :style => "z-index: 0; position: relative;" %>
+		</p>
+		<p id="check_status_link" style="display: none;">
+			<%= img_button_function "Show Status", "magnifier_zoom_out.png", "$('check_status').show(); $('activity').hide(); $('check_status_link').hide(); $('activity_link').show(); return false;" %>
+		</p>
+
+		<br class="clear"/>
+    </div>
+    <div class="right" style="width: 24%">
+      	<p>
+	    	<label>Need By <a href="#" onclick="$('date_need_by').onclick(); return false;">Calendar</a></label>
+        	<%= f.text_field :date_need_by, :id => "date_need_by", :class => "text" %>
+      	</p>
+
+      	<p>
+        	<label>Year</label>
+        	<%= f.select :year, MaterialRequest.list_years, :selected => @material_request.year.to_s %>
+      	</p>
+
+<!--        <p style="position: relative; bottom: 26px;">
+		<p>
+        	<label title='Procedure, Ticket, MES #'>PTM #</label>
+        	<%= f.text_field :ptm_no, :class => "text", :title => 'Procedure, Ticket, MES #' %>
+      	</p>
+-->
+		<p>
+        	<label title='Procedure, Ticket, MES, etc.'>Reference Type</label>
+        	<%= text_field_with_auto_complete :reference_number_type, :name,  :value => @material_request.reference_number_type, :class => "text", :title => 'Enter your own or use the auto-complete to find a default type.' %>
+      	</p>
+		<p>
+        	<label title='Reference Number Value'>Reference #</label>
+        	<%= f.text_field :reference_number, :class => "text", :title => 'Reference Number Value' %>
+      	</p>
+
+    </div>
+
+    <div id="check_status">
+    	<div class="left clear">
+		    <p>
+		      <%= f.check_box :acknowledged, :id => "acknowledged", :disabled => not_purchaser?, :class => "track_check" %>
+		      <label class="inline" style="font-size: 90%;" for="acknowledged">Acknowledged</label> <span class="by"><%= @material_request.show_acknowledged_by %></span>
+		    </p>
+
+		    <p>
+		      <%= f.check_box :partially_authorized, :id => "partially_authorized", :onclick => "Telaeris.checkAcknowledged(this)", :disabled => not_purchaser?, :class => "track_check" %>
+		      <label class="inline" style="font-size: 90%;" for="partially_authorized">Partially Auth</label> <span class="by"><%= @material_request.show_partially_authorized_by %></span>
+		    </p>
+
+		    <p>
+		      <%= f.check_box :authorized, :id => "authorized", :onclick => "Telaeris.checkAcknowledged(this);", :disabled => not_purchaser?, :class => "track_check" %>
+		      <label class="inline" style="font-size: 90%;" for="authorized">Fully Authorized</label> <span class="by"><%= @material_request.show_authorized_by %></span>
+		    </p>
+
+		    <p>
+		      <%= f.check_box :declined, :id => "declined", :onclick => "Telaeris.checkAcknowledged(this);", :disabled => not_purchaser?, :class => "track_check" %>
+		      <label class="inline" style="font-size: 90%;" for="declined">Declined</label> <span class="by red"><%= @material_request.show_declined_by %></span>
+		    </p>
+	    </div>
+
+	    <div class="right">
+		    <p>
+		      <%= f.check_box :quote_requested, :id => "quote_requested", :disabled => not_purchaser?, :class => "track_check" %>
+		      <label class="inline" style="font-size: 90%;" for="quote_requested">Out For Quote</label> <span class="by"><%= @material_request.show_quote_requested_by %></span>
+		    </p>
+
+		    <p>
+		      <%= f.check_box :issued_from_main, :id => "issued_from_main", :disabled => not_purchaser?, :class => "track_check" %>
+		      <label class="inline" style="font-size: 90%;" for="issued_from_main">Issued from Main</label> <span class="by"><%= @material_request.show_issued_from_main_by %></span>
+		    </p>
+
+		    <p>
+		      <%= f.check_box :completed, :id => "completed", :disabled => not_purchaser?, :class => "track_check", :onclick => "
+		      $('acknowledged').checked = true;$('authorized').checked = true;
+		      "%>
+		      <label class="inline" style="font-size: 90%;" for="completed">Ordered</label>
+		    </p>
+
+		    <p>
+		      <%= f.check_box :surplus , :id => "surplus", :disabled => not_purchaser?, :class => "track_check" %>
+		      <label class="inline" style="font-size: 90%;" for="surplus">Surplus</label>
+		    </p>
+    </div>
+    </div> <!-- end check_status -->
+
+    <div id="activity" style="display: none;">
+        <p>
+            <label>Correspondence and Activity</label>
+            <%= f.text_area :activity %>
+        </p>
+    </div>
+
+
+  </div> <!-- end left -->
+
+  <div class="right">
+    <div class="left">
+    <p>
+      <label>Requester <span class="required">(required)</span></label>
+	  <%= f.select :requested_by_id, Employee.list_employees, {}, :class => "required", :title => "Requester can't be blank", :onblur => "getContactTelephone(this, 'contact_telephone')" %>
+      <!-- <%= text_field_with_auto_complete_custom :employee, :list_requester_names, :value => @material_request.requester_name(true), :style => "width: 96%;", :class => "text required", :title => "Requester can't be blank", :onblur => "getContactTelephone(this, 'contact_telephone')" %> -->
+    </p>
+
+    <p>
+      <label>Purchaser</label>
+      <%= f.select :purchaser_id, Employee.list_purchasers, {}, :disabled => (!current_employee.admin? && !@material_request.new_record?), :onchange => "Telaeris.updateGroupFromPurchaser();" %>
+    </p>
+
+    <p>
+      <label>Planner</label>
+      <%= f.select :planner_id, Employee.list_planners(@material_request.planner_id), {}, :disabled => (!current_employee.admin? && !@material_request.new_record?) %>
+    </p>
+    <p>
+      <label>Group</label>
+      <%= select_tag 'material_request[group_id]', options_for_select(Group.list_all_for_select('-- None --'), @material_request.get_group), :disabled => (!current_employee.admin? && !@material_request.new_record?) %>
+    </p>
+
+    </div>
+
+    <div class="right">
+    <p>
+      <label class="inline">Contact Telephone</label>
+	  <label class="inline" style="font-size: 85%; color: #222;" title="Saves this contact telephone to the requester's profile">
+		<input type="checkbox" name="save_phone" value="1" />Save #</label>
+      <%= f.text_field :telephone, :id => "contact_telephone", :class => "text" %>
+    </p>
+
+    <p>
+      <label>Deliver To</label>
+       <%= text_field_with_auto_complete_custom :employee, :list_employee_names, {:name => "employee[list_employee_names]", :value => (@material_request.deliver_to || "" ), :style => "width: 96%;", :class => "text"}   %>
+    </p>
+
+    <p>
+      <label>Suggested Vendor <% if @suggested_vendor && current_employee.need_details? %><a href="#show_vendor_no" onclick="$('vendor_name').toggle(); $('suggested_vendor_no').toggle(); $('suggested_vendor_no').activate();">vendor no</a><% end %></label>
+      <%= text_field_with_auto_complete :vendor, :name, :value => (h(@material_request.suggested_vendor) || ""), :class => "text" %>
+	  <% if @suggested_vendor %>
+		  <input type="text" class="text" value="<%= @suggested_vendor.vendor_no %>" style="display: none;" id="suggested_vendor_no" />
+	  <% end %>
+    </p>
+	<p>
+	    <label>Stage Location</label>
+	    <%= f.text_field :stage_location, :class => "text", :onkeydown => "" %>
+	</p>
+
+    	<% unless @material_request.new_record? %>
+		    <p class="clear">
+		      	<label class="inline">Created By</label> <span class="by"><%= @material_request.created_by_name %></span>
+		    </p>
+		    <p>
+				<label class="inline">Updated</label> <span class="by"><%= @material_request.updated_at.strftime('%m/%d/%Y %H:%I%p') %></span>
+			</p>
+	    <% end %>
+    </div>
+
+    <% unless @material_request.new_record? %>
+<!--		<div class="left clear">
+		    <p class="clear">
+		      <label class="inline">Created By</label> <span class="by"><%= @material_request.created_by_name %></span>
+		    </p>
+		</div>
+		<div class="right">
+			<p>
+				<label class="inline">Updated</label> <span class="by"><%= @material_request.updated_at.strftime('%m/%d/%Y %H:%I%p') %></span>
+			</p>
+		</div>
+
+	-->
+		<% if @material_request.quotes.size > 0 && current_employee.need_details? %>
+		    <p>
+				<strong style="font-weight: bold; font-size: 95%;">Quotes (<%= @material_request.quotes.size %>) : </strong>
+				<%= link_to_quotes @material_request %>
+        <% if @material_request.quotes.size > 1 %>
+				  <%= link_to_quotes_comparison @material_request %>
+        <% end %>
+		    </p>
+	    <% end %>
+
+	    <%= render :partial => 'links_to_orders', :locals => {:material_request => @material_request} %>
+
+
+    <% end %>
+
+	<p>
+		<% if @material_request.new_record? %>
+	      <label>Checked Line Items</label>
+	    <%= f.submit "Delete Items", :onclick => "Telaeris.skipConfirm = true; return removeLineItems();", :style => "display: inline;", :disabled => true, :id => "delete_button" %>
+	    <% elsif !m_disabled? %>
+	      <label>Checked Line Items <span style="font-size: 85%; color: #f00;">enter a new PO# or leave blank to create a new PO</span></label>
+	      <%= f.submit "Delete Items", :onclick => "return confirm('This will save your entry first before deleting any line items, is this OK?');", :style => "display: inline;", :disabled => true, :id => "delete_button" %>
+	      <%= f.submit "Assign To", :onclick => "if(confirm('This will save your entry first before assigning them to an order, is this OK?')){Telaeris.skipConfirm = true;return true;} else{return false;}", :style => "display: inline;", :disabled => true, :id => "assign_to_button" %>
+		   <b>PO#</b>
+		  <%= text_field_with_auto_complete :order, :po_no, :value => "", :class => "text", :name => "order[po_no]", :title => "Enter PO#, leave blank to assign to a new order", :style => "display: inline; width: 200px;" %>
+			<span style="font-size: 85%; font-weight: bold; color: #666;" id="assign_reminder">request must be acknowledged and authorized before assigning</span>
+	    <% end %>
+	</p>
+  </div>
+
+  <p class="error clear">
+    <%= error_message_on(:material_request, :items) %>
+  </p>
+
+    <table class="information clear items">
+      <tr>
+        <th class="item_no">No.</th>
+        <th class="req_qty">Qty <span class="required">*</span></th>
+        <th class="uom">UoM.</th>
+        <th class="item_description">Description <span class="required">(required)</span> <% if !@material_request.new_record? %><%= link_to "(sort items)", {:action => "sort", :id => @material_request}  %><% end %></th>
+        <th class="notes">Notes</th>
+		    <th class="btn"></th>
+        <th class="s_chk"><input type="checkbox" onclick="Telaeris.checkAll(this);"></th>
+        <th class="radio"><input type="radio" name="pipe_builder" /></th>
+		    <th class="rem_link"></th>
+        <th class="req_link"></th>
+      </tr>
+
+    <% for item in @material_request.items_sorted %>
+      <%= render :partial => "line_item", :locals => { :item => item } %>
+    <% end %>
+      <tr id="last_row"></tr>
+    </table>
+
+    <% if resource_enabled?(:popv) %>
+      <%= render :partial => "pipe_materials" %>
+    <% end %>
+  <div class="right" style="text-align: right; width: 50%">
+  <p class="menu noprint">
+    <input type="hidden" value="<%= @material_request.item_count %>" id="item_count" name="item_count" />
+    <input type="text" value="1" name="row_count" id="row_count" style="width: 20px;" maxlength="2" />
+    <%= remote_button "New Line Item(s)", "/material_requests/new_line_item/", "loading", { :id => "new_blank_button", :style => "display: inline;", :disabled => m_disabled? }, [:material_request_id, :item_count, :row_count] %>
+    <input type="button" value="Upload Item List" style="display: inline;" onclick="return false;" id="show-button">
+  </p>
+
+
+
+
+
+
+  </div>
+
+  <div class="left" style="width: 48%">
+	<p class="menu noprint">
+	  <% if @material_request.is_draft? || @material_request.new_record? %>
+		  <% if @material_request.new_record? %>
+			  <b>You are editing an <span style="color: #f00;">unsaved</span> request, please click "Save Draft" when ready</b><br />
+		  <% else %>
+			  <b>This request is a <span style="color: #f00;">draft</span>, please submit to purchaser when ready</b><br />
+		  <% end %>
+	      <%= f.submit "Save Draft", :disabled => m_disabled?, :onClick => "Telaeris.skipConfirm = true;" %>
+		  <%= f.submit "Submit Request to Purchaser", :disabled => m_disabled?, :onClick => "Telaeris.skipConfirm = true;" %>
+	  <% elsif !@material_request.new_record? %>
+		  <b>This request was <span style="color: #f00;">submitted</span> on <%= @material_request.date_requested.strftime("%m/%d/%Y") %></b><br />
+  		  <% if (@current_employee.id == @material_request.submitted_by) && !@material_request.acknowledged? %>
+			<%= f.submit "Revert to Draft" %>
+		  <% end %>
+
+		  <% if (@current_employee.admin? || @current_employee.purchasing? || @current_employee.planning? || @material_request.is_draft?) %>
+			<%= f.submit "Resubmit Request" %>
+		  <% end %>
+	  <% end %>
+	  <!-- if user is an ADMIN or the material request is a DRAFT, and it's not a new material request, show the delete link -->
+	  <% if (@current_employee.admin? || @material_request.is_draft?) && !@material_request.new_record? %>
+			<%= link_to "Delete Request", material_request_path(@material_request), :method => :delete, :confirm => "You are about to remove this request forever, are you sure that's what you want to do?" %>
+	  <% end %>
+	</p>
+  </div>
+<% end %>  <!-- end form -->
+    <div id="dialog-form" style="display:none">
+    <form id="upload_form" name="upload_form" action="/material_requests/parse_new_line_item/1" method="post" enctype="multipart/form-data">
+      <p>
+      <input type="hidden" name="row_count" id="row_count" />
+      <input type="file" name="new_line_item_csv_file" id="new_line_item_csv_file" style="float:left;" />
+    </form>
+      <br/>
+      <br/>
+      <ul class="directions" style="text-align:left">
+      
+      <br/>
+        <li><a href="/material_requests/sample_csv" onclick="Telaeris.skipConfirm = true;">Sample CSV</a></li>
+          <li>The CSV should use the following format:
+            <BR>
+              quantity,uom,description,notes
+            <BR>
+               2,EA,Desk,"Mahogany Desk"
+          </li>
+        </ul>
+        </p>
+    
+    </div>
+
+	<!-- ui-dialog -->
+	<div id="dialog" title="Duplicate Material Request">
+		<p>Do you want to duplicate all line items as well?</p>
+	</div>
+
+
+<script type="text/javascript">
+	function changeValuesFromCsvUploader(row_count){
+		$('item_count').value = parseInt($F('item_count')) + row_count;
+		$$('input[type=radio]').last().click();
+		resetLineItemNumbers();
+	}
+	function getRowCount(){
+		return $('item_count').value;
+	}
+	function addParsedRows(rowsMarkup){
+		jQuery('#last_row').parent().append(rowsMarkup);
+	}
+</script>
+<script>
+  setup_calendar_for(['date_need_by']);
+
+  $$('form.edit.full input[type=text],input[type=file], form.edit.full textarea, form.edit.full select, form.edit.full input[type=checkbox]').each(function(element){
+    Event.observe(element, 'change', function() { Telaeris.formChange() });
+  });
+
+  window.onbeforeunload = Telaeris.confirmCancel;
+
+  <% if @material_request.items.size == 0 %>
+    $('new_blank_button').onclick();
+    setTimeout(function(){$('new_blank_button').enable();}, 100);
+  <% end %>
+
+  Event.observe(window, 'load', function(){
+    Telaeris.monitorAddFileLink("uploaded_material_request_attachments");
+      $$('form.edit.full input, form.edit.full textarea, form.edit.full select').each(function(element){
+         Telaeris.enterToTab(element);
+      });
+  });
+
+  function resetLineItemNumbers(){
+	var items = $$('table.items td.item_no');
+	for(var i = 0; i < items.length; i++){
+		items[i].innerHTML = String(i + 1);
+	}
+  };
+
+	jQuery(function(){
+		// Dialog
+		jQuery('#dialog').dialog({
+			autoOpen: false,
+			bgiframe: true,
+			buttons: {
+				"Yes": function() {
+					jQuery(this).dialog("close");
+					window.location = "/material_requests/<%= @material_request.id %>/duplicate_with_items";
+				},
+				"No": function() {
+					jQuery(this).dialog("close");
+					window.location = "/material_requests/<%= @material_request.id %>/duplicate";
+				},
+				"Cancel": function() {
+					jQuery(this).dialog("close");
+				}
+			},
+			draggable: false,
+			resizable: false,
+			width: 400
+		});
+
+		// Dialog Link
+		jQuery('#duplicate-material-request').click(function(){
+			jQuery('#dialog').dialog('open');
+			return false;
+		});
+
+   
+    
+    jQuery("#dialog-form").dialog({
+      title:"Upload Multiple Items",
+      autoOpen: false,
+      height: 250,
+      width: 400,
+      modal: true,
+      buttons: {
+        "Upload": function() {
+           var options = { 
+              url:        '/material_requests/parse_new_line_item/', 
+              success:    function(responseText, statusText) { 
+                var response = jQuery.parseJSON(responseText);
+                if(response.success == true){
+                  var markup = response['markup'];
+                  window.parent.addParsedRows(markup['markupa']);
+                  window.parent.changeValuesFromCsvUploader(response.count);
+                  Telaeris.formChange();
+                  
+                }
+                else{
+                  alert(response.errors);
+                }
+                jQuery("#new_line_item_csv_file").val('');
+                
+              } 
+            };
+
+            jQuery("#upload_form").ajaxSubmit(options);            
+            jQuery( this ).dialog( "close" );
+          
+        },
+        Cancel: function() {
+          jQuery( this ).dialog( "close" );
+        }
+      },
+      close: function() {
+        //allFields.val( "" ).removeClass( "ui-state-error" );
+      }
+    });
+    jQuery("#dialog-form").show();
+    
+    jQuery( "#show-button" )
+      .click(function() {
+        jQuery( "#dialog-form" ).dialog( "open" );
+      });
+	});
+  function confirmDelete (link) {
+      link = $(link);
+          if (confirm('Are you sure you want to remove this attachment?')) {
+              new Ajax.Request(link.href, {
+                  method: 'delete',
+                  onSuccess: function () {
+                      $(link).up('li').hide();
+                  }
+              })
+          }
+          return false;
+      }
+</script>
+<% end %>

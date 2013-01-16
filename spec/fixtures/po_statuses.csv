@@ -1,0 +1,10 @@
+id,status
+1,Planning
+2,Submitted to Purchasing
+3,Out for Quote
+4,Out for Multiple Quotes
+5,Ordered
+6,Partially Received
+7,Fully Received
+8,Inactive
+9,Waiting for PMI

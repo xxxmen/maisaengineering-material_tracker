@@ -1,0 +1,10 @@
+<% if current_employee.profile_admin? %>
+<li><%= img_button "Create a New User", "user_add.png", new_employee_path %></li>
+<% end %>
+<li><%= img_button "Show All Users", "user.png", employees_path %></li>
+<li><%= img_button "Show Users with Logins", "user.png", employees_path(:users_only => true) %></li>
+<li><%= img_button "Show Archived Users", "user.png", employees_path(:archived => true) %></li>
+<li><%= img_button_function("Print", "print.png", "window.print()") %></li>
+<% if (params[:action] == "edit" || params[:action] == "new") && current_employee.edit_login?(@employee) %>
+  <li class="save-button"><%= img_button_function("Save Entry", "save.png", "$('#{form_id(@employee)}').submit()") %></li>
+<% end %>

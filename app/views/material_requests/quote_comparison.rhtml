@@ -1,0 +1,202 @@
+<style>
+	.comparison_table td {
+		padding:10px;
+		text-align:center;
+	}
+	
+	.comparison_table .right_title_td {
+		background-color:#8BA4A4;
+		font-style:italic;
+		
+		-moz-border-radius: 10px 10px 0px 0px; /* mozilla */
+    -webkit-border-radius: 10px 10px 0px 0px; /* safari-chrome */
+    -khtml-border-radius: 10px 10px 0px 0px; /* konqueror */
+    border-radius: 10px 10px 0px 0px; /* css3-standard */
+	}
+	
+	.comparison_table .left_title_td {
+		background-color:#8BA4A4;
+	}
+
+	.comparison_table .left_title_td_corner {
+		-moz-border-radius: 10px 0px 0px 0px; /* mozilla */
+    -webkit-border-radius: 10px 0px 0px 0px; /* safari-chrome */
+    -khtml-border-radius: 10px 0px 0px 0px; /* konqueror */
+    border-radius: 10px 0px 0px 0px; /* css3-standard */
+	}
+
+	.comparison_table .vendor_name_td {
+		border:1px solid #888;
+		font-size:14px;
+	}
+
+	.comparison_table .vendor_name_td_odd {
+		background-color:#efcf81;
+	}
+
+	.comparison_table .vendor_name_td_even {
+		background-color:#efee9f;
+	}
+
+	.comparison_table .vendor_sub_title_td {
+		border:1px solid #888;
+	}
+
+	.comparison_table .vendor_sub_title_td_odd {
+		background-color:#efcf81;
+	}
+
+	.comparison_table .vendor_sub_title_td_even {
+		background-color:#efee9f;
+	}
+
+	.comparison_table .vendor_item_td {
+		border:0px solid #fff;
+	}
+
+	.comparison_table .vendor_item_td_odd {
+		background-color:#f5dfaa;
+	}
+
+	.comparison_table .vendor_item_td_even {
+		background-color:#f4f4c1;
+	}
+
+	.comparison_table .requested_line_item_td {
+		background-color:#e4e4e4;
+	}
+
+	.comparison_table .bottom_row {
+		background-color:#8BA4A4;
+	}
+
+	.comparison_table .bottom_row_corner_left {
+		-moz-border-radius: 0px 0px 0px 10px; /* mozilla */
+    -webkit-border-radius: 0px 0px 0px 10px; /* safari-chrome */
+    -khtml-border-radius: 0px 0px 0px 10px; /* konqueror */
+    border-radius: 0px 0px 0px 10px; /* css3-standard */
+	}
+
+	.comparison_table .bottom_row_corner_right {
+		-moz-border-radius: 0px 0px 10px 0px; /* mozilla */
+    -webkit-border-radius: 0px 0px 10px 0px; /* safari-chrome */
+    -khtml-border-radius: 0px 0px 10px 0px; /* konqueror */
+    border-radius: 0px 0px 10px 0px; /* css3-standard */
+	}
+	
+	.comparison_table .total_price {
+		padding:4px 10px;
+		background-color:#fff;
+		
+		-moz-border-radius: 5px; /* mozilla */
+    -webkit-border-radius: 5px; /* safari-chrome */
+    -khtml-border-radius: 5px; /* konqueror */
+    border-radius: 5px; /* css3-standard */
+	}
+</style>
+
+<div style="font-size:15px; font-weight:bold;">
+	Comparing Quotes
+</div>
+
+<br/>
+
+<div class="left">
+	<div style="margin-bottom:20px;">
+		<b>Material Request Information</b>
+	</div>
+	
+	<table style="margin-left:40px;">
+		<tr>
+			<td><b>Tracking</b></td>
+			<td>&nbsp;:&nbsp;</td>
+			<td><%= @material_request.tracking %></td>
+		</tr>
+		<tr>
+			<td><b>Unit</b></td>
+			<td>&nbsp;:&nbsp;</td>
+			<td><%= @material_request.unit.description %></td>
+		</tr>
+		<tr>
+			<td><b>Stage Location</b></td>
+			<td>&nbsp;:&nbsp;</td>
+			<td><%= @material_request.stage_location %></td>
+		</tr>
+		<tr>
+			<td><b>Notes</b></td>
+			<td>&nbsp;:&nbsp;</td>
+			<td><%= @material_request.notes %></td>
+		</tr>
+	</table>
+</div>
+
+<div class="left" style="margin:20px 0px;">
+	<div style="margin-bottom:20px;"><b>Quotes</b></div>
+	
+	<table class="comparison_table">
+		<tr>
+			<td colspan="3"></td>
+			<td colspan="<%= (@material_request.quotes.size * 4).to_s %>" class="right_title_td">Received Quotes From Vendors</td>
+		</tr>
+		<tr>
+			<td rowspan="2" class="left_title_td left_title_td_corner">Requested Items</td>
+			<td rowspan="2" class="left_title_td">Quantity</td>
+			<td rowspan="2" class="left_title_td">UoM</td>
+			<% reset_cycle %>
+			<% @material_request.quotes.each do |quote| %>
+				<td colspan="4" class="vendor_name_td vendor_name_td_<%= cycle('odd', 'even') %>"><b><%= quote.vendor.name %></b></td>
+			<% end %>
+		</tr>
+		<tr>
+			<% reset_cycle %>
+			<% @material_request.quotes.each do |quote| %>
+				<% odd_or_even = cycle('odd', 'even') %>
+				
+				<td class="vendor_sub_title_td vendor_sub_title_td_<%= odd_or_even %>">Quantity</td>
+				<td class="vendor_sub_title_td vendor_sub_title_td_<%= odd_or_even %>">Price</td>
+				<td class="vendor_sub_title_td vendor_sub_title_td_<%= odd_or_even %>">Total Price</td>
+				<td class="vendor_sub_title_td vendor_sub_title_td_<%= odd_or_even %>">Notes</td>
+			<% end %>
+		</tr>
+		
+		<% @material_request.items.each do |requested_line_item| %>
+			<tr>
+				<td class="requested_line_item_td"><%= requested_line_item.material_description %></td>
+				<td class="requested_line_item_td"><%= requested_line_item.quantity %></td>
+				<td class="requested_line_item_td"><%= requested_line_item.unit_of_measure %></td>
+				
+				<% reset_cycle %>
+				<% @material_request.quotes.each do |quote| %>
+					<% 
+						quote_item = quote.quote_items.find_by_requested_line_item_id(requested_line_item.id)
+						odd_or_even = cycle('odd', 'even')
+					%>
+					<% if not quote_item.nil? %>
+						<td class="vendor_item_td vendor_item_td_<%= odd_or_even %>"><%= quote_item.quantity %></td>
+						<td class="vendor_item_td vendor_item_td_<%= odd_or_even %>">$<%= quote_item.price %></td>
+						<td class="vendor_item_td vendor_item_td_<%= odd_or_even %>">$<%= quote_item.ext_price %></td>
+						<td class="vendor_item_td vendor_item_td_<%= odd_or_even %>"><%= quote_item.notes %></td>
+					<% else %>
+						<td class="vendor_item_td vendor_item_td_<%= odd_or_even %>" colspan="4">-na-</td>
+					<% end %>
+				<% end %>
+			</tr>
+		<% end %>
+		
+		<tr>
+			<td colspan="3" class="bottom_row bottom_row_corner_left">Total Quote Price</td>
+			<%
+				total_no_of_quotes = @material_request.quotes.size
+				i = 0
+			%>
+			<% @material_request.quotes.each do |quote| %>
+				<% i+= 1 %>
+				<td colspan="4" class="bottom_row <%= i == total_no_of_quotes ? 'bottom_row_corner_right' : '' %>">
+					<span class="total_price">
+						$<%= quote.total_price %>
+					</span>
+				</td>
+			<% end %>
+		</tr>
+	</table>
+</div>

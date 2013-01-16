@@ -1,0 +1,66 @@
+# == Schema Information
+# Schema version: 20090710194800
+#
+# Table name: inventory_items
+#
+#  id                   :integer(4)    not null, primary key
+#  warehouse_name       :string(50)    
+#  stock_no_id          :integer(4)    
+#  stock_no             :string(30)    default("Untitled")
+#  description          :string(75)    default("Untitled")
+#  unit_of_measure      :string(50)    default("Each")
+#  picture_path         :string(255)   
+#  consignment_count    :decimal(15, 2 
+#  high_level           :integer(10)   
+#  low_level            :integer(10)   
+#  on_hand              :decimal(15, 2 
+#  target_level         :integer(10)   
+#  total_count          :decimal(15, 2 
+#  reordered_qty        :integer(10)   
+#  requested_reorder_at :datetime      
+#  date_counted         :datetime      
+#  vendor_name          :string(80)    default("Untitled")
+#  vendor_no            :string(40)    default("Untitled")
+#  vendor_part_no       :string(40)    default("Untitled")
+#  consumable           :boolean(1)    
+#  rented               :boolean(1)    
+#  record_weight        :boolean(1)    
+#  daily_rate           :float         
+#  hourly_rate          :float         
+#  monthly_rate         :float         
+#  weekly_rate          :float         
+#  last_purchase_price  :float         
+#  aisle                :string(12)    default("Untitled")
+#  bin                  :string(12)    default("Untitled")
+#  shelf                :string(12)    default("Untitled")
+#  created_at           :datetime      
+#  updated_at           :datetime      
+#  building             :string(255)   
+#  shortcut_no          :string(255)   
+#
+
+chocobos:
+  id: 1
+  warehouse_name: Farm
+  stock_no_id: 1
+  description: A yellow bird that's commonly used for races
+  consignment_count: 2
+  on_hand: 2
+
+buster_sword:
+  id: 2
+  warehouse_name: Armory
+  stock_no_id: 1
+  description: A very large sword
+
+wziard_staff:
+  id: 3
+  warehouse_name: Armory
+  stock_no_id: 2
+  description: A magical staff used by Harry Potter himself
+
+fire_materia:
+  id: 4
+  warehouse_name: Magic Shop
+  stock_no_id: 1
+  description: Gives people the power to produce fire

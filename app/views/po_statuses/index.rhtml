@@ -1,0 +1,34 @@
+<style type="text/css" media="screen">
+    th.no, td.no { width: 200px; }
+    th.name, td.name { }
+    th.order, td.order {  width: 200px; }
+</style>
+
+<table class="information" cellspacing="0">
+  <tr>
+    <th class="order">
+      <%= link_to_sort "Order", "po_statuses.order" %>
+    </th>
+    <th class="status">
+      <%= link_to_sort "Status", "po_statuses.status" %>
+    </th>
+    
+  </tr>
+</table>
+
+<div id="maininfo">
+<table class="information" cellspacing="0">  
+  <% @po_statuses.each do |v| %>
+    <tr class="<%= cycle(:even, :odd) %>">
+        <td class="order">
+          <%= link_to_desc v, :default => "", :method => :order %>
+        </td>
+        <td class="status">
+          <%= link_to_desc v, :default => "", :method => :status %>
+        </td>
+    </tr>
+  <% end %>
+</table>
+</div>
+
+<%= render :partial => "shared/paginate", :locals => { :collection => @po_statuses } %>

@@ -1,0 +1,281 @@
+<style>  
+  #content {
+    position: absolute;
+    bottom: 10px;
+  }
+  
+  #fixed_bill {
+    position: absolute;
+    top: 10px;
+    height: 50px;
+    left: 10px;
+    right: 10px;
+    width: 98%;
+  }
+  
+  #fixed_table_header {
+    position: absolute;
+    top: 60px;
+    height: 30px;
+    left: 10px;
+    right: 10px;
+    width: 98%;
+  }
+  
+  #fixed_table {
+    position: absolute;
+    top: 100px;
+    bottom: 92px;
+    right: 10px;
+    left: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 98%;
+  }
+  
+  #fixed_pipe_builder {
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    right: 10px;
+    width: 98%;
+    height: 82px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  #notes_and_valve {
+    display: none;
+  }
+    
+  table th.x-small, table td.x-small {
+    width: 35px;
+  }
+  
+  table th.small, table td.small {
+    width: 75px;
+  }
+  
+  table#bill_items tr.selected {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  table#bill_items tr:hover {
+    cursor: pointer;
+  }
+  
+  #all_actions {
+    position: absolute;
+    right: 15px;
+  }
+</style>
+<div id="fixed_bill">
+<% form_for :bill, @bill, :url => url_for(:action => :update), :html => { :class => "edit full"} do |f1| %>
+	<%= f1.text_area :description %>
+	<%= submit_tag "Save Description" %>
+<% end %>
+</div>
+
+<div id="fixed_table_header">
+  <table class="information">
+    <tr>
+      <th class="x-small">No.</th>
+      <th class="x-small">Qty.</th>
+      <th class="x-small">Unit</th>
+      <th>Description 
+        <span id="all_actions">
+        <a href="#" onclick="clearLineItem(); return false;">New</a> |
+        <a href="#" onclick="switchNewForms(); return false;">Switch</a> |
+        <a href="#" onclick="deleteLineItem(); return false;">Delete Selected</a></span></th>
+    </tr>
+  </table>
+</div>
+
+<div id="fixed_table">
+<table class="information" id="bill_items">
+  <% @bill.bill_items.find(:all, :order => "id ASC").each_with_index do |item, index| %>
+  <tr id="<%= item.id %>" <% if item.manual? %>class="manual"<% end %>>
+    <td class="x-small item_no"><%= index + 1 %></td>
+    <td class="x-small quantity"><%= item.quantity %></td>
+    <td class="x-small unit_of_measure"><%= item.unit_of_measure %></td>
+    <td class="description"><%= item.display %></td>
+  </tr>
+  <% end %>
+</table>
+</div>
+
+<div id="fixed_pipe_builder">
+<% form_for :bill_item, BillItem.new, :url => url_for(:action => :create), :html => { :class => "edit full", :id => "new_bill_item", :style => "display: none;" } do |f| %>
+  <input type="hidden" id="bill_id" name="bill_id" value="<%= @bill.id %>" />
+  <table class="noprint information">
+    <tr>
+    <th class="x-small">No</th>
+    <th class="x-small">Qty</th>
+    <th class="x-small">Unit</th>
+    <th>Description</th>
+    <th class="x-small"></th>
+    </tr>
+    <tr>
+      <td class="item_no_cell"></td>
+      <td><%= f.text_field :quantity %></td>
+      <td><%= f.text_field :unit_of_measure %></td>
+      <td><%= f.text_field :description %></td>
+      <td><%= submit_tag "Save Changes" %></td>
+    </tr>
+  </table>
+<% end %>
+
+<form id="new_bill_item_pipe">
+  <%= render :partial => "pipe_materials" %>
+</form>
+</div>
+
+
+<script>
+  $$('#bill_items tr').each(function(tr){
+    Event.observe(tr, 'click', function(event){
+      var row = Event.findElement(event, 'TR');
+      
+      $$('#bill_items tr.selected').invoke('removeClassName', 'selected');
+      row.addClassName('selected');
+      
+      $('piping_update').value = row.id;
+      
+      if(row.hasClassName('manual')) {     
+        $('new_bill_item').show();
+        $('new_bill_item_pipe').hide();
+        $('new_bill_item').down('td.item_no_cell').update(row.down('td.item_no').innerHTML);
+        $('bill_item_quantity').value = row.down('td.quantity').innerHTML;
+        $('bill_item_unit_of_measure').value = row.down('td.unit_of_measure').innerHTML;
+        $('bill_item_description').value = row.down('td.description').innerHTML;      
+        $('bill_item_description').focus();
+      } else {
+        $('new_bill_item').hide();
+        $('new_bill_item_pipe').show();
+        new Ajax.Request('/bill_items/' + row.id,
+                    { method: "get",
+                      onComplete: function(transport) {
+                        var json = transport.responseText.evalJSON();
+                        $('piping_quantity').value = json['piping_quantity'];
+                        $('piping_class').value = json['piping_class'];
+                        $('piping_class').onchange();
+
+                        setPipingComponent(json);
+                        setPipingClassDetailAndSizes(json);
+                      }
+                    });
+      }
+    });
+  });
+  
+  function setPipingComponent(json) {
+    setTimeout(function(){
+      if($('piping_component').onchange == null) {
+        setPipingComponent(json);
+      }
+      else {
+        $('piping_component').value = json['piping_component'];
+        $('piping_component').onchange();
+      }
+    }, 1200);
+  }
+  
+  function setPipingClassDetailAndSizes(json) {
+    setTimeout(function(){
+      if($('piping_class_detail').onchange == null) {
+        setPipingClassDetailAndSizes(json);
+      }
+      else {
+        $('piping_class_detail').value = json['piping_class_detail'];
+        $('piping_size_1').value = json['piping_size_1'];
+        $('piping_size_2').value = json['piping_size_2'];
+        $('piping_class_detail').onchange();
+      }
+    }, 1200);
+  }
+  
+  function updateLineItem() {
+    new Ajax.Request('/bill_items/' + $$('tr.selected')[0].id,
+                     { method: "put",
+                       parameters: $('new_bill_item').serialize(),
+                       onFailure: function(transport) {
+                         alert(transport.responseText || "There was an error");
+                       },
+                       onSuccess: function() {
+                         var row = $$('tr.selected')[0];
+                         $w("quantity unit_of_measure description").each(function(field){
+                           row.down('td.' + field).update($F('bill_item_' + field));
+                         });
+                       } });
+  }
+  
+  function createLineItem() {
+    new Ajax.Request('/bill_items',
+                    { method: "post",
+                      parameters: $('new_bill_item').serialize(),
+                      onFailure: function(transport) {
+                        alert(transport.responseText || "There was an error");
+                      },
+                      onSuccess: function() {
+                        window.location.reload();
+                      } });
+  }
+  
+    
+  function clearLineItem() {
+    $$('tr.selected').invoke("removeClassName", "selected");
+    $('piping_update').value = 0;
+    $$('.item_no_cell')[0].update('');
+    $w('quantity unit_of_measure description').each(function(field){
+      $('bill_item_' + field).value = '';
+    });
+    $('bill_item_quantity').value = "1";
+    $('bill_item_unit_of_measure').value = "EA";
+    $('bill_item_description').focus();
+    $('piping_quantity').value = "1";
+    PipeBuilder.reset('piping_class');
+  }
+  
+  function deleteLineItem() {
+    if($$('tr.selected').length == 0) {
+      alert("You must select a line item to delete first.");
+      return false;
+    }
+    if($$('#bill_items tr').length == 1) {
+      alert("Cannot delete the last line item, all bills must have at least one.");
+      return false;
+    }
+    if(!confirm("This will delete your selected item, are you sure this is what you want to do?")) {
+      return false;
+    }
+    new Ajax.Request('/bill_items/' + $$('tr.selected')[0].id,
+                    { method: "delete",
+                      onSuccess: function(){
+                        window.location.reload();
+                      }});
+  }
+  
+  function switchNewForms() {
+    $('piping_update').value = 0;
+    if($('new_bill_item').visible()) {
+      $('new_bill_item').hide();
+      $('new_bill_item_pipe').show();
+    } else {
+      $('new_bill_item').show();
+      $('new_bill_item_pipe').hide();
+    }
+    $$('tr.selected').invoke('removeClassName', 'selected');
+    clearLineItem();
+  }
+  
+  Event.observe($('new_bill_item'), 'submit', function(event){
+    if($$('tr.selected').length > 0) updateLineItem();
+    else createLineItem();
+    
+    Event.stop(event);
+  });
+  
+  clearLineItem();
+  $('bill_item_description').activate();    
+</script>

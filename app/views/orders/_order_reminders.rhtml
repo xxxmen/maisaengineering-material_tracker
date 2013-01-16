@@ -1,0 +1,47 @@
+<!-- Reminders Header -->
+<div style="clear: left;">
+    <div id='line_items_list' class='information line_item_links'>
+        <div class='line_items_list_left'>
+            Current Reminders  <%= link_to "View List", "/reminders/search?q=#{@order.po_no}" %>
+        </div> 
+        <div class='line_items_list_right'>
+            [ 
+                <a href="<%= "/orders/clear_reminders/#{@order.id}"%>" onclick="if(confirm('This will permanently remove all reminders.  Are you sure?')){return true;}else{return false;}"  class='clear_reminders_line_item_link' id="clear_reminders_line_item_link">Clear All</a> 
+            ]
+            </div> 
+        <% flash_display = flash[:line_items] ? '' : 'display:none;' %>
+        <div class='line_items_list_flash' style='<%= flash_display %>'>
+            <%= flash[:line_items] %>
+        </div>
+
+        <br class='clear'/>
+    </div>
+<!-- Reminders Table -->    
+        <table id="line_items" class="information line_items">
+            <tr>
+                    <th class="location">Scheduled For</th>
+                    <th>Email To</th>
+                    <th class="location">Sent On</th>
+                    <th class="location">Notes</th>
+                    <th class="location">Creator</th>
+                    <th class="location">Updated</th>
+                    <th></th>
+                    <!-- <th style="display: none;"></th> -->
+            </tr>
+            <% @reminders.each_with_index do |item, index| %>
+                <tr class="<%= cycle(:even, :odd) %>" id='something-<%= item.id %>'>
+                    <td class="location" id="<%= dom_id(item, 'date_received') %>">
+                        <%= format_date(item.send_reminder_on) %>
+                    </td>
+                    <td><%= h item.email_to %></td>
+                    <td class="location"><%=h item.sent_on %></td>
+                    <td class="location"><%=h item.notes %></td>
+                    <td class="location"><%= h item.creator %></td>
+                    <td class="location"><%= h item.updated_at %></td>
+                    <td class="link">
+                        <%= link_to "Delete", {:controller => 'orders', :action =>'remove_reminder', :id => item.id} , {:onClick => "if(confirm('This will permanently remove this reminder.  Are you sure?')){return true;}else{return false;}"}%>
+                    </td>
+                </tr>
+            <% end %>
+        </table>        
+</div>

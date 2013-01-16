@@ -1,0 +1,79 @@
+AttributesFor
+=============
+
+ * SVN:  http://svn.hughbien.com/attributes_for
+ * Site: http://projects.hughbien.com/attributes_for
+ 
+Installation and Setup
+======================
+
+    ruby script/plugin install -x http://svn.hughbien.com/attributes_for
+
+***IMPORTANT***
+ 
+Inside your spec_helper.rb, under the line `SpecRunner.configure do |config|` put this:
+
+    config.include(AttributesFor)
+
+If you're using the built in Rails testing, be sure to include AttributesFor inside test_helper.rb:
+
+    class Test::Unit::TestCase
+      include AttributesFor
+    end
+
+***END IMPORTANT STUFF***
+
+
+What is It?
+===========
+
+Ever define helper methods for your specifications like this?
+
+ * `valid_book(attrs = {})`  
+ * `create_book(attrs = {})`   
+ * `new_book(attrs = {})`      
+
+The attributes_for plugin simplifies this process into one line, so you no longer have to define three helper methods for each resource you have:
+
+    # Make sure to setup AttributesFor by including it into your Spec::Runner inside spec_helper.rb or TestHelper
+    # Spec::Runner.configure do { |config| config.include(AttributesFor) }
+    AttributesFor.valid :book, :title => "Agile Web Development"
+    AttributesFor.invalid :book, :title => nil
+    
+Those two calls give you six methods:
+
+ * `valid_book(attrs = {})`, `create_book(attrs = {})`, `new_book(attrs = {})`
+ * `invalid_book(attrs = {})`, `create_invalid_book(attrs = {})`, `new_invalid_book(attrs = {})`
+
+Let's take a look at some of these methods.
+
+ * `valid_book` returns a hash of valid attributes for a book.   You can pass a hash to override any attributes.
+ * `create_book` will actually return Book.create(valid_book).  You can also pass in a hash to override any attributes.
+ * `new_book` will let you instantiate a Book without saving it to the database.  Useful to speed up your tests.
+  
+
+Example
+=======
+
+    # Inside spec_helper.rb
+    Spec::Runner.configure do |config|
+      config.include(AttributesFor)
+    end
+
+    # Inside your user_spec.rb
+    AttributesFor.valid :user, :login => "hugh", :password => "chocobo", :password_confirmation => "chocobo"
+    AttributesFor.invalid :user, :login => "hugh", :password => nil
+    
+    describe User do
+      it "should be valid given a login, password, and password_confirmation" do
+        user = create_user
+        user.should be_valid
+      end
+      
+      it "should be invalid without a password" do
+        user = create_invalid_user
+        user.should have(1).error_on(:password)
+      end
+    end
+
+Copyright (c) 2007 Hugh Bien, released under the MIT license

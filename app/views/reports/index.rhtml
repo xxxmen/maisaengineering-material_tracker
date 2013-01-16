@@ -1,0 +1,345 @@
+<script>
+  function changeReports(id) {
+    $w("omni_orders purchase_orders orders_due orders_overdue ptm_by_unit graph-this-week received_by_date work_orders material_request expediting_by_vendor inventory_items inventory_reorder_items_by_vendor omni_orders_wo cost_wo_vendor unit_stats unit_stats_week unit_stats_2week unit_stats_30day unit_stats_month").each(function(e) { $(e).hide() });
+    $(id).show();
+  }
+  
+  function getIDs() {
+    var ids = $F('reportman_material_request_ids').join(",");
+    $('reportman_mrids').value = ids;
+  }
+  
+  Event.observe(window, 'load', function(){
+    $('select_report').onchange();
+  });
+</script>
+
+<h2 style="font-style: italic; font-size: 100%;">Please Choose Report to Run</h2>
+
+<form id="form" class="edit" action="/reports/show/" method="post" style="width: 700px;" onsubmit="getIDs()">
+  <div id="reports" class="left">
+    <select size="16" style="font-size: 145%; width: 350px;" name="report" onchange="changeReports(this.value);" id="select_report">
+      <optgroup label="Purchase Orders">
+        <option value="purchase_orders" selected>Search POs</option>
+        <option value="omni_orders">Orders By Unit, Vendor, ETA</option>
+        <option value="omni_orders_wo">Orders By WO #</option>
+        <option value="orders_due">Orders Due</option>
+        <option value="orders_overdue">Orders Overdue</option>
+        <option value="received_by_date">Received By Date</option>
+        <option value="ptm_by_unit">PTM by Unit</option>
+        <option value="expediting_by_vendor">Expediting By Vendor</option>
+        <option value="work_orders">Work Orders</option>
+      </optgroup>
+	  <optgroup label="PO Stats">
+        <option value="cost_wo_vendor">Cost By Work Order By Vendor</option>	  	
+        <option value="unit_stats">Unit Stats</option>	  	
+		<option value="unit_stats_week">Unit Stats Latest Week</option>
+		<option value="unit_stats_2week">Unit Stats Latest 2 Weeks</option>
+		<option value="unit_stats_30day">Unit Stats Latest 30 Days</option>
+		<option value="unit_stats_month">Unit Stats By Month</option>
+	  </optgroup>
+      <optgroup label="Requests">
+        <option value="material_request">Material Requests</option>        
+      </optgroup>
+      <optgroup label="Inventory">
+        <option value="inventory_items">Items by Stock or Vendor</option>
+        <option value="inventory_reorder_items_by_vendor">Reorder Items By Vendor</option>        
+      </optgroup>
+      <% if RAILS_ENV == "development" %>
+      <optgroup label="Graphs">
+        <option value="graph-this-week">Graph - This Week's POs</option>
+        <option value="graph-this-month-by-week">Graph - This Month's Weekly POs</option>
+        <option value="graph-this-month-by-day">Graph - This Month's Daily POs</option>        
+      </optgroup>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="right">
+      <div id="purchase_orders">
+          <p>
+              <label>Search PO #s:</label>
+              <input type="text" class="text" name="reportman[purchase_orders][ponos]" />
+              <span class="description">Separated by spaces or commas</span>
+          </p>
+      </div>
+      
+      <div id="cost_wo_vendor" style="display: none;">
+        <p>
+            <label>Vendor:</label>
+            <input type="text" name="reportman[cost_wo_vendor][pvendor]" />
+        </p>
+        <p>
+            <label>Work Order:</label>
+            <input type="text" name="reportman[cost_wo_vendor][pwono]" />
+        </p>
+      </div>
+      
+	  <div id="unit_stats" style="display: none;">
+	  	<p>
+	  		<label>Unit name:</label>
+		     <input type="text" name="reportman[unit_stats][punit]" />
+	  	</p>
+		<p>
+			<label>Start Date:</label>
+			<input type="text" name="reportman[unit_stats][pstartdate]" value="<%= 7.days.ago.strftime('%m/%d/%Y') %>" id="unit_stats_pstartdate" />
+		</p>
+		<p>
+			<label>End Date:</label>
+			<input type="text" name="reportman[unit_stats][penddate]" value="<%= Date.today.strftime('%m/%d/%Y') %>" id="unit_stats_penddate" />
+		</p>
+	  </div>
+	
+	   <div id="unit_stats_week">
+	     <p>
+	     	<label>Unit name:</label>
+		    <input type="text" name="reportman[unit_stats_week][punit]" />
+	     </p>
+	   </div>
+	
+	   <div id="unit_stats_2week">
+	     <p>
+	     	<label>Unit name:</label>
+		    <input type="text" name="reportman[unit_stats_2week][punit]" />
+	     </p>
+	   </div>
+	
+	   <div id="unit_stats_30day">
+	     <p>
+	     	<label>Unit name:</label>
+		    <input type="text" name="reportman[unit_stats_30day][punit]" />
+	     </p>
+	   </div>
+	
+		<div id="unit_stats_month">
+			<p>
+				<label>Unit name:</label>
+				<input type="text" name="reportman[unit_stats_month][punit]" />
+			</p>
+			<p>
+				<label>Select month:</label>
+				<select name="reportman[unit_stats_month][pmonth]">
+					<%= options_for_select [["January", 1], ["February", 2], ["March", 3],
+											["April", 4], ["May", 5], ["June", 6], ["July", 7],
+											["August", 8], ["September", 9], ["October", 10], ["November", 11],
+											["December", 12]], Date.today.month %>
+				</select>
+			</p>
+			<p>
+				<label>Select year:</label>
+				<select name="reportman[unit_stats_month][pyear]">
+					<%= options_for_select Order.all_turnaround_years.delete_if { |y| y.blank? }.map { |y| [y, y] }, Date.today.year.to_s %>
+				</select>
+			</p>
+		</div>
+	
+
+    <div id="inventory_items" style="display: none;">
+      <p>
+        <label>For Vendor</label>
+		<%= select_tag "reportman[inventory_items][psearchvendor]", options_for_select(InventoryItem.select_vendor_names(false)) %>
+      </p>
+	  <p>
+	  	<label>Search Inventory Item</label>
+		<input type="text" class="text" name="reportman[inventory_items][psearchitem]" />
+	  </p>
+      <p>
+        <label>Order by</label>
+      </p>
+      <p>
+        <input type="radio" name="reportman[inventory_items][orderby]" checked="checked" value="stockno" /> <label class="inline">Stock No</label>
+      </p>
+      <p>
+        <input type="radio" name="reportman[inventory_items][orderby]" value="vendor" /> <label class="inline">Vendor</label>
+      </p>
+    </div>
+        
+    <div id="inventory_reorder_items_by_vendor" style="display: none;">
+      <p>
+        <label>Vendors available for reorder:</label>
+		<%= select_tag "inventory_reorder_items_by_vendor[vendor_name]", options_for_select(InventoryItem.select_vendor_names(true)) %>
+      </p>
+    </div>
+    
+    <div id="omni_orders_wo" style="display: none;">
+      <p>
+        <label>Search Work Order Numbers:</label>
+        <input type="text" class="text" name="reportman[omni_orders_wo][psearchvalue]" />
+      </p>
+      <p>
+          <label>Only Show:</label>
+          <select name="reportman[omni_orders_wo][pocc]">
+              <option value="Open">Open</option>
+              <option value="Completed">Completed</option>
+              <option value="Closed">Closed</option>
+              <option value="All">All</option>
+          </select>        
+      </p>
+    </div>    
+    
+    <div id="omni_orders" style="display: none;">
+    <p>
+      <label>Sort By:</label>
+      <select name="reportman[psorter]">
+        <option value="units.description">Unit</option>
+        <option value="vendors.name">Vendor</option>
+        <option value="purchase_orders.date_eta">ETA</option>
+      </select>
+    </p>  
+    <p>
+      <label>Search Term:</label>
+      <input type="text" class="text" name="reportman[psearchvalue]" />
+    </p>
+    <p>
+      <label>Search In:</label>
+      <select name="reportman[psearchfield]">
+        <option value="units">Units</option>
+        <option value="vendors">Vendors</option>
+        <option value="all">All</option>
+      </select>
+    </p>
+    <p>
+        <label>Only Show:</label>
+        <select name="reportman[omni_orders][pocc]">
+            <option value="Open">Open</option>
+            <option value="Completed">Completed</option>
+            <option value="Closed">Closed</option>
+            <option value="All">All</option>
+        </select>
+    </p>
+    </div>
+    
+    <div id="expediting_by_vendor" style="display: none;">
+      <label>Search Vendors:</label>
+      <input type="text" class="text" name="reportman[vendor_name]" />
+    </div>
+    
+    <div id="orders_due" style="display: none;">
+      <p><label>Orders due</label></p>
+      <p>
+      <input type="radio" name="reportman[orders_due][timeframe]" value="today" checked="checked"> <label class="inline">Today</label>
+      </p>
+      <p>
+      <input type="radio" name="reportman[orders_due][timeframe]" value="thisweek" /> <label class="inline">This Week</label>
+      </p>
+    </div>
+    
+    <div id="orders_overdue" style="display: none;">
+	  <p><label>Vendors:</label>
+		<%= select_tag "reportman[orders_overdue][psearchvendor]", options_for_select(Vendor.options_for_overdue), :size => 8 %>
+	  </p>
+		
+	  <p><label>Sort by:</label></p>
+      <p>
+      <input type="radio" class="sortby" name="reportman[orders_overdue][sortby]" id="sortby_vendor" value="vendor" checked="checked"> <label class="inline">Vendor</label>
+      </p>
+
+	   <p id="sortby_vendor_option" style="margin-left: 16px;">
+		   <input type="checkbox" name="reportman[orders_overdue][pvendorfreshpage]" value="1" checked="checked" />
+			<label class="inline">Print each vendor on a separate page</label>
+	   </p>
+		
+      <p>
+      <input type="radio" class="sortby" name="reportman[orders_overdue][sortby]" value="po" /> <label class="inline">PO #</label>
+      </p>
+      <p>
+      <input type="radio" class="sortby" name="reportman[orders_overdue][sortby]" value="eta" /> <label class="inline">ETA</label>
+      </p>
+
+		
+		<script type="text/javascript" charset="utf-8">
+			$$('input[type=radio].sortby').each(function(input){
+				Event.observe(input, 'click', function(event){
+					if($F(input) == "vendor") {
+						$('sortby_vendor_option').show();
+					} else {
+						$('sortby_vendor_option').hide();
+					}
+				});
+			});
+			$('sortby_vendor').click();
+		</script>
+    </div>
+        
+    <div id="graph-this-week" style="display: none;"></div>
+    
+    <div id="work_orders" style="display: none;">
+        <p>
+      <label>Please enter in a work order:</label>
+      <input type="text" class="text" name="reportman[pwono]" />
+      </p>
+      
+      <p>
+        <label>Year:</label>
+        <select name="reportman[work_orders][pyear]">
+          <option value="<%= Order.all_turnaround_years.delete_if { |y| y.blank? }.join(',') %>">All</option>
+          <% Order.all_turnaround_years.each do |year| next if year.blank?; %>
+            <option value="<%= year %>"><%= year %></option>
+          <% end %>
+        </select>    
+      </p>
+    </div>
+    
+    <div id="ptm_by_unit" style="display: none;">
+    <p>
+      <label>Unit:</label>
+      <select name="reportman[punit]">
+          <option value="all">All</option>
+        <% Unit.find(:all, :order => "description").each do |unit| %>
+          <option value="<%= unit.description %>"><%= unit.description %></option>
+        <% end %>
+      </select>
+    </p>  
+    <p>
+      <label>Year:</label>
+      <select name="reportman[pyear]">
+        <option value="all">All</option>
+        <% Order.all_turnaround_years.each do |y| %>
+          <option value="<%= y %>" <%= "selected" if y == "2007" %>><%= y %></option>
+        <% end %>
+      </select>
+    </p>
+    <p>
+      <label>Status (Completed?):</label>
+      <select name="reportman[pstatus]">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="All">All</option>
+      </select>
+    </p>
+    </div>
+    
+    <div id="material_request" style="display: none;">
+      <label>Material Requests</label>
+      <select size="10" multiple="multiple" name="reportman[material_request_ids]" id="reportman_material_request_ids">
+        <% MaterialRequest.find(:all, :order => "tracking", :conditions => ["deleted = ?", false]).each do |material_request| %>
+        <option value="<%= material_request.id %>" id="<%= material_request.id %>"><%= material_request.tracking %>, <%= material_request.requester.full_name %></option>
+        <% end %>
+      </select>
+      <input type="hidden" id="reportman_mrids" name="reportman[mrids]" />
+      <p class="description">Hold down ctrl to select multiple items</p>
+	  <p>
+	  	<label><input type="radio" value="landscape" name="direction" checked="checked" /> Landscape</label>
+		<label><input type="radio" value="portrait" name="direction" /> Portrait</label>
+	  </p>
+    </div>
+    
+    <div id="received_by_date" style="display: none;">
+        <p>
+          <label>Start Date:</label>
+          <input type="text" class="text" name="reportman[pstartdate]" id="pstartdate" value="<%= Date.today.to_s(:db) %>"/>
+        </p>
+        <p>
+          <label>End Date:</label>
+          <input type="text" class="text" name="reportman[penddate]" id="penddate" value="<%= 7.days.from_now.to_date.to_s(:db) %>" />
+        </p>
+    </div>
+  
+  <input type="submit" value="Generate Report" />
+  </div>
+</form>
+
+<script type="text/javascript" charset="utf-8">
+  setup_calendar_for(['pstartdate', 'penddate', 'unit_stats_pstartdate', 'unit_stats_penddate'])
+</script>
+

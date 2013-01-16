@@ -1,0 +1,6 @@
+<li><%= img_button "Create a PO Status", "vendor_add.png", new_po_status_path %></li>
+<li><%= img_button "List PO Statuses", "vendor.png", po_statuses_path %></li>
+<li><%= img_button_function("Print", "print.png", "window.print()") %></li>
+<% if params[:action] == "edit" || params[:action] == "new" %>
+  <li><%= img_button_function("Save Entry", "save.png", "$('#{form_id(@po_status)}').submit()") %></li>
+<% end %>

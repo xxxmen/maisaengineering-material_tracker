@@ -1,0 +1,37 @@
+<% form_for @po_status, :html => { :class => "edit full" } do |f| %>
+
+
+<% if [PoStatus::FULLY_RECEIVED, PoStatus::PARTIALLY_RECEIVED, PoStatus::WAITING_PMI].include?(@po_status.status) %>
+    
+    <p style="color:orange">
+    This Status Contains a Keyword.  You Can Not Change the name.
+    </p>
+
+    <div class="left">
+    <p>
+
+    <label>Status</label>
+    <label style="color:red"><%= @po_status.status %></label><br/>
+
+<% else %>
+    <div class="left">
+    <p>
+
+    <label>Status <span class="required">(required)</span></label>
+    <%= f.text_field :status, :class => "text" %>
+    <%= error_message_on(:po_status, :status) %>
+<% end %>
+    <label>Order <span class="required">(required)</span></label>
+    <%= f.text_field :order, :class => "text" %>
+    <%= error_message_on(:po_status, :order) %>
+  </p>
+</div>
+
+
+<p class="menu noprint clear">
+  <%= submit_tag "Save PO Status", :class => "submit" %> or 
+  <%= link_to_back %>
+
+</p>
+
+<% end %>

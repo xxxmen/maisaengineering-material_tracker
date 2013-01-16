@@ -1,0 +1,57 @@
+# == Schema Information
+# Schema version: 20090710194800
+#
+# Table name: requested_line_items
+#
+#  id                   :integer(4)    not null, primary key
+#  item_no              :integer(4)    
+#  quantity             :integer(4)    
+#  unit_of_measure      :string(255)   
+#  material_description :text          
+#  notes                :string(255)   
+#  material_request_id  :integer(4)    
+#  klass                :string(255)   
+#  component            :string(255)   
+#  size                 :string(255)   
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+pipes_1:
+  id: 1
+  item_no: 1
+  quantity: 2
+  unit_of_measure: EA
+  material_description: 1 X 3/4 XH BLK CS SMLS CONC SWAGE NIPPLE PLE X TSE A234-WPB SP95
+  material_request_id: 1
+  
+pipes_2:
+  id: 2
+  item_no: 1
+  quantity: 1
+  unit_of_measure: EA
+  material_description: 1/2" x 1/2" X THRD TEE A105 (1" SOCWD X SOCWD RUN - 1/2" THD"
+  material_request_id: 2
+
+pipes_3:
+  id: 3
+  item_no: 1
+  quantity: 4
+  unit_of_measure: EA
+  material_description: 2/8 X 1/4 XH BLK CS SMLS CONC SWAGE NIPPLE PLE X TSE A234-WPB SP95
+  material_request_id: 3
+
+pipes_4:
+  id: 4
+  item_no: 1
+  quantity: 2
+  unit_of_measure: EA
+  material_description: 1" x 1" x 1/2" SW X SW X THRD TEE A105 (1" SOCWD X SOCWD RUN - 1/2" THD BRANCH)"
+  material_request_id: 4
+
+pipes_5:
+  id: 5
+  item_no: 1
+  quantity: 2
+  unit_of_measure: EA
+  material_description: 1 X 3/4 XH BLK CS SMLS CONC SWAGE NIPPLE PLE X TSE A234-WPB SP95
+  material_request_id: 5

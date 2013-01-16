@@ -1,0 +1,5 @@
+<li><%= img_button "New Bill", "order_add.png", url_for(:action => "new") %></li>
+<li><%= img_button "List All", "order_list.png", url_for(:action => "index") %></li>
+<% if params[:action] == "edit" %>
+<li><%= img_button "Email for Quote", "email.png", url_for(:action => "mail_for_quote", :id => params[:id]) %></li>
+<% end %>

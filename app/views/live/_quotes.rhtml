@@ -1,0 +1,7 @@
+<% quotes.each do |quote| %>
+	<li id="<%= dom_id(quote) %>" class="quote resource" <% if hide %>style="display: none;"<% end %>>
+		<span class="id"><%= link_to quote.material_request.tracking, url_for(:controller => "material_requests", :action => "quote", :id => quote.material_request_id, :vendor_id => quote.vendor_id, :access_key => quote.vendor.access_key) %></span>
+		<span class="name"><%= h quote.vendor.name %></span>
+		<span class="desc"><%= h quote.material_request.description %></span>
+	</li>
+<% end %>

@@ -1,0 +1,86 @@
+<table class="index orders" cellspacing="0">
+  <tr class="header">
+    <th class="bottomless">
+      <%= link_to "PO #", :q => params[:q], :action => params[:action], :order_by => "po_no", :desc => get_order(params, "po_no"), :year => params[:year] %> 
+      <%= get_order_image(params, "po_no") %>
+    </th>
+    <th rowspan="3">
+      <%= link_to "Description", :q => params[:q], :action => params[:action], :order_by => "description", :desc => get_order(params, "description"), :year => params[:year] %> 
+      <%= get_order_image(params, "description") %>      
+    </th>
+    <th rowspan="3">
+      <%= link_to "Issued To History", :q => params[:q], :action => params[:action], :order_by => "issued_to_history", :desc => get_order(params, "issued_to_history"), :year => params[:year] %> 
+      <%= get_order_image(params, "issued_to_history") %>      
+    </th>
+    <th rowspan="3" style="width: 155px;">
+      <%= link_to "Location", :q => params[:q], :action => params[:action], :order_by => "location", :desc => get_order(params, "location"), :year => params[:year] %> 
+      <%= get_order_image(params, "location") %>      
+    </th>
+  </tr>
+  <tr class="header">
+    <th class="topless bottomless" style="background: #000;">
+      <%= link_to "Tracking", :q => params[:q], :action => params[:action], :order_by => "tracking", :desc => get_order(params, "tracking"), :year => params[:year] %> 
+      <%= get_order_image(params, "tracking") %>
+    </th>
+  </tr>
+  <tr class="header">
+    <th class="topless" style="background: #000;">
+      <%= link_to "Reference #", :q => params[:q], :action => params[:action], :order_by => "ptm_no", :desc => get_order(params, "ptm_no"), :year => params[:year] %> 
+      <%= get_order_image(params, "ptm_no") %>
+    </th>
+  </tr>
+  <% @orders.each_with_index do |order, index| %>
+    <% tr_class = index % 2 == 1 ? "odd" : "even"  %>
+    <tr class="<%= tr_class %>">
+      <td class="bottomless"><%= nbsp order.po_no %></td>
+      <td rowspan="3" class="description"><%= link_to order.show_description, edit_order_path(order) %></td>
+      <td rowspan="3"><div id="<%= dom_id order, :location %>"><%= order.show_issued_to_history %></div></td>
+      <td rowspan="3">
+        <% remote_form_for :order, order, :url => { :controller => "orders", :action => "set_location", :id => order }, :html => { :method => :put, :style => "display: none;", :id => dom_id(order, :edit), :class => "edit_order" } do |f| %>
+          
+          <%= f.text_field :location, :style => "width: 150px;", :id => dom_id(order, :location) %>
+            <%= submit_tag "Save" %> <%= link_to_toggle "Cancel", order, :edit, :show %>
+        <% end %>
+        
+        <%= link_to_toggle order.show_location, order, :edit, :show, :id => dom_id(order, :show), :focus => order %>
+      </td>
+    </tr>
+    <tr class="<%= tr_class %>">
+      <td class="topless bottomless"><%= nbsp order.tracking %></td>
+    </tr>
+    <tr class="<%= tr_class %>">
+      <td class="topless"><%= nbsp order.ptm_no %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<h1>Listing inventory_items</h1>
+
+<table>
+  <tr>
+    <th>Warehouse name</th>
+    <th>Stock no</th>
+    <th>Description</th>
+    <th>Unit of measure</th>
+    <th>Consignment count</th>
+    <th>On hand</th>
+    <th>Total count</th>
+    <th>Aisle / Bin / Shelf</th>
+  </tr>
+  
+<% for inventory_item in @inventory_items %>
+  <tr>
+    <td><%=h inventory_item.warehouse_name %></td>
+    <td><%=h inventory_item.stock_no %></td>
+    <td><%=h inventory_item.description %> <%= link_to 'Show', inventory_item_path(inventory_item) %></td>
+    <td><%=h inventory_item.unit_of_measure %></td>
+    <td><%=h inventory_item.consignment_count %></td>
+    <td><%=h inventory_item.on_hand %></td>
+    <td><%=h inventory_item.total_count %></td>
+    <td><%=h inventory_item.aisle %> / <%=h inventory_item.bin %> / <%=h inventory_item.shelf %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

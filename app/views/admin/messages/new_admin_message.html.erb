@@ -1,0 +1,25 @@
+<div class="admin-messages">
+	<% form_tag '/admin/new_message' do %>
+		<h1>New Message</h1>
+		
+		<p>
+			This is where you can set messages to be displayed for a 24 hour period<br/>
+			on EVERY page (it doesn't go away!). Mainly for maintenance downtime<br/>
+			posting. Use wisely!
+		</p>
+		
+		<p>
+			<label>Text:</label>
+			<br/>
+			<%= text_field_tag 'message[text]', nil, :style => 'width: 300px;' %>
+		</p>
+		
+		<p>
+			<label>Display Until:</label>
+			<br/>
+			<%= datetime_select :message, :display_until_time, :default => 24.hours.from_now %>
+		</p>
+		
+		<%= submit_tag 'Create Message' %> or <%= submit_tag 'Delete Message' %>
+	<% end %>
+</div>

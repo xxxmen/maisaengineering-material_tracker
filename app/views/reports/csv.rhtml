@@ -1,0 +1,13 @@
+<% report_orders_tag = 'url_for(:controller => \'reports\', :action => \'upload\', :id => \'orders\')' %>
+
+<p>
+  Place your *.csv files into /home/applications/po_tracker/db/.
+</p>
+
+<hr />
+
+<%= button_to "Load CSV Files", {:controller => 'reports',  :action => "load_fixtures"}, :method => :post, :confirm => "Are you sure?  This will load all fixtures in /db/*.csv and overwrite anything in the database.", :style => "font-size: 120%;" %>
+
+<%= button_to "Rebuild Search Indices", { :action => "rebuild_index"}, :method => :post, :style => "font-size: 120%;", :confirm => "Are you sure?  This may take a while." %>
+
+<%= button_to "Download CSV Files", { :action => "download_database"}, :method => :get, :style => "font-size: 120%;" %>

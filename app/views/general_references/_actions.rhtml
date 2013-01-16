@@ -1,0 +1,2 @@
+<li><%= img_button "Show All Files", "file.png", general_references_path %></li>
+<% if current_employee.admin? || current_employee.purchasing? %><li><%= img_button "Upload File", "add.png", new_general_reference_path %></li><% end %>

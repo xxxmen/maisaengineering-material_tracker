@@ -1,0 +1,183 @@
+body {
+
+	background: #BBBBBB url('/graphics/background-gradient.jpg') repeat-x;	
+}
+
+.visible {
+	border: 1px solid black;
+}
+
+
+a.link-through {
+	color: #FFF;
+	font-size: 140%;
+	font-weight: bold;
+}
+
+.back {
+	background-color: blue;
+}
+.container {
+	height: 800px;
+}
+
+/* Header */
+
+.header {
+	height: 120px;
+	background: transparent url('/graphics/bp-half.gif') no-repeat 0px -30px;	
+}
+
+.header #main-title {
+	position: relative;
+	top: 20px;
+	color: #009905;
+	font-weight: bold;
+/*	width: 100%;*/
+	text-align: center;
+	
+
+}
+
+.header #telaeris-logo {
+	float: right;
+	position: relative;
+	right: 10px;
+	top: 5px;
+}
+
+/* Body */
+
+.body {
+	background-color: #000;
+	border: 10px solid #DDD;
+	padding-bottom: 20px;
+}
+
+/* Left Column */
+
+.body #left-col {
+
+}
+
+#left-col h2 {
+
+	height: 50px;
+	width: 100%;
+	text-align: center;
+	padding-top: 7px;
+	color: #FFF;
+	float: left;
+	margin-bottom: 0;
+	font-weight: bold;
+}
+
+#left-col a {
+	display: block;
+	width: 400px;
+	height: 50px;
+	margin-bottom: 20px;
+	text-decoration: none;
+	color: #FFF;
+}
+
+#left-col a:hover {
+/*	background: transparent url('/graphics/vista-button-highlight.gif') no-repeat;*/
+	text-decoration: none;
+}
+
+.cool-button {
+
+	background: transparent url('/graphics/vista-button.gif') no-repeat;
+}
+.cool-button-hover {
+	background: transparent url('/graphics/vista-button-green.gif') no-repeat;
+}
+
+.cool-button-selected {
+	background: transparent url('/graphics/vista-button-highlight-green.gif') no-repeat;
+}
+
+/* Left Column */
+#left-col a:hover h2 {
+	font-weight: bold;
+}
+
+
+
+
+/* Right Column */
+
+#right-col {
+	color: #FFF;
+	border: 3px solid #CCC;
+	background-color: #555;
+	padding: 20px;
+}
+
+#right-col h2 {
+	font-size: 3em;
+	text-align: center;
+	color: #FFF;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+#right-col fieldset {
+	border: none;
+	text-align: right;
+}
+
+#right-col label {
+	font-size: 2em;
+	margin-left: 10px;
+	line-height: 2em;
+}
+
+#right-col input {
+	font-size: 150%;
+}
+
+#right-col input {
+	margin-left: 10px;
+	padding: 4px;
+	width: 180px;
+}
+
+#right-col .button {
+	font-size: 1.5em;
+	text-align: center;
+	margin-top: 10px;
+	width: 188px;
+}
+
+.body hr {
+	margin-top: 20px;
+	width: 94%;
+	color: #FFF;
+	margin-left: 40px;
+	height: 5px;
+	border: none;
+}
+
+
+/* Bottom Information Section */
+
+#information {
+	padding-left: 40px;
+}
+
+#information h2 {
+	color: #FFF;
+}
+
+p {
+	color: #FFF;
+	font-size: 140%;
+}
+
+.icon-delete {
+	background: #FBE3E4 url("/img/silk/icons/delete.png") no-repeat scroll 8px 10px;
+	padding-left: 30px;
+}
+

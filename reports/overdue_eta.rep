@@ -1,0 +1,1087 @@
+object TRpReport
+  GridWidth = 72
+  GridHeight = 72
+  PageOrientation = rpOrientationLandscape
+  Pagesize = rpPageSizeUser
+  PagesizeQt = 2
+  PageHeight = 7639
+  PageWidth = 5903
+  CustomPageHeight = 15840
+  CustomPageWidth = 12240
+  PageBackColor = 16777215
+  PreviewStyle = spEntirePage
+  PreviewWindow = spwMaximized
+  LeftMargin = 576
+  TopMargin = 576
+  RightMargin = 576
+  BottomMargin = 576
+  SubReports = <
+    item
+      SubReport = TRpSubReport0
+    end>
+  DataInfo = <
+    item
+      Alias = 'MTR'
+      DatabaseAlias = 'MSCONNECTION'
+      SQL = 
+        'SELECT  purchase_orders.po_no, purchase_orders.work_orders, purc' +
+        'hase_orders.description, '#13#10'purchase_orders.date_eta, vendors.nam' +
+        'e AS vendor, units.description AS unit, purchase_orders.status_i' +
+        'd, po_statuses.status'#13#10'FROM ((purchase_orders LEFT JOIN vendors ' +
+        'ON purchase_orders.vendor_id = vendors.id) LEFT JOIN units ON pu' +
+        'rchase_orders.unit_id = units.id) LEFT JOIN po_statuses ON purch' +
+        'ase_orders.status_id = po_statuses.id'#13#10#13#10'WHERE purchase_orders.s' +
+        'tatus_id <> 7 AND po_statuses.status <> '#39'INACTIVE'#39#13#10'ORDER BY pur' +
+        'chase_orders.date_eta ASC'
+    end>
+  DatabaseInfo = <
+    item
+      Alias = 'MSCONNECTION'
+      LoadParams = True
+      LoadDriverParams = True
+      LoginPrompt = False
+      Driver = rpdataado
+      ReportTable = 'REPMAN_REPORTS'
+      ReportSearchField = 'REPORT_NAME'
+      ReportField = 'REPORT'
+      ReportGroupsTable = 'REPMAN_GROUPS'
+      ADOConnectionString = 
+        'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Documents and Se' +
+        'ttings\telaeris\Desktop\Material Tracker\MaterialTracker_be.m' +
+        'db;Persist Security Info=False'
+    end>
+  Params = <
+    item
+      AllowNulls = False
+      Value = ''
+      Datasets.Strings = (
+        'DSINVENTORYACTIVITY')
+      Description = ''
+      Hint = ''
+      Search = ''
+      ErrorMessage = ''
+      Validation = ''
+    end
+    item
+      Name = 'HEADERLEFT'
+      AllowNulls = False
+      Value = ''
+      Datasets.Strings = (
+        'DSINVENTORYACTIVITY')
+      Description = ''
+      Hint = ''
+      Search = ''
+      ErrorMessage = ''
+      Validation = ''
+    end
+    item
+      Name = 'HEADERRIGHT'
+      AllowNulls = False
+      Value = ''
+      Datasets.Strings = (
+        'DSINVENTORYACTIVITY')
+      Description = ''
+      Hint = ''
+      Search = ''
+      ErrorMessage = ''
+      Validation = ''
+    end
+    item
+      Name = 'DEFAULTHEADERLEFT'
+      AllowNulls = False
+      Value = ''
+      Datasets.Strings = (
+        'DSINVENTORYACTIVITY')
+      Description = ''
+      Hint = ''
+      Search = ''
+      ErrorMessage = ''
+      Validation = ''
+    end
+    item
+      Name = 'DEFAULTHEADERRIGHT'
+      AllowNulls = False
+      Value = ''
+      Datasets.Strings = (
+        'DSINVENTORYACTIVITY')
+      Description = ''
+      Hint = ''
+      Search = ''
+      ErrorMessage = ''
+      Validation = ''
+    end
+    item
+      Name = 'PSEARCHID'
+      AllowNulls = False
+      Value = 285954
+      ParamType = rpParamInteger
+      Datasets.Strings = (
+        'MTR')
+      Description = ''
+      Hint = ''
+      Search = ''
+      ErrorMessage = ''
+      Validation = ''
+    end>
+  TwoPass = True
+  StreamFormat = rpStreamText
+  ReportAction = []
+  Type1Font = poHelvetica
+  WFontName = 'Arial'
+  LFontName = 'Helvetica'
+  object TRpSubReport0: TRpSubReport
+    Sections = <
+      item
+        Section = TRpSection0
+      end
+      item
+        Section = TRpSection4
+      end
+      item
+        Section = TRpSection2
+      end
+      item
+        Section = TRpSection12
+      end
+      item
+        Section = TRpSection3
+      end
+      item
+        Section = TRpSection5
+      end
+      item
+        Section = TRpSection1
+      end>
+    Alias = 'MTR'
+  end
+  object TRpSection12: TRpSection
+    Width = 14688
+    Height = 360
+    SubReport = TRpSubReport0
+    ChangeBool = False
+    PageRepeat = False
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecdetail
+    Components = <
+      item
+        Component = TRpExpression0
+      end
+      item
+        Component = TRpExpression1
+      end
+      item
+        Component = TRpExpression2
+      end
+      item
+        Component = TRpExpression3
+      end
+      item
+        Component = TRpExpression4
+      end
+      item
+        Component = TRpExpression5
+      end
+      item
+        Component = TRpExpression6
+      end>
+    AutoExpand = True
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = ''
+    BeginPageExpression = ''
+    ChangeExpression = ''
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpSection0: TRpSection
+    Width = 14688
+    Height = 1008
+    SubReport = TRpSubReport0
+    ChangeBool = False
+    PageRepeat = False
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecpheader
+    Components = <
+      item
+        Component = TRpShape8
+      end
+      item
+        Component = TRpShape7
+      end
+      item
+        Component = TRpShape6
+      end
+      item
+        Component = TRpShape5
+      end
+      item
+        Component = TRpShape4
+      end
+      item
+        Component = TRpLabel0
+      end
+      item
+        Component = TRpShape0
+      end
+      item
+        Component = TRpLabel2
+      end
+      item
+        Component = TRpLabel3
+      end
+      item
+        Component = TRpLabel4
+      end
+      item
+        Component = TRpLabel5
+      end
+      item
+        Component = TRpLabel6
+      end
+      item
+        Component = TRpLabel7
+      end
+      item
+        Component = TRpLabel8
+      end>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = ''
+    BeginPageExpression = ''
+    ChangeExpression = ''
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpSection1: TRpSection
+    Width = 14688
+    Height = 432
+    SubReport = TRpSubReport0
+    ChangeBool = False
+    PageRepeat = False
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecpfooter
+    Components = <
+      item
+        Component = TRpShape11
+      end
+      item
+        Component = TRpShape10
+      end
+      item
+        Component = TRpShape9
+      end
+      item
+        Component = TRpExpression8
+      end
+      item
+        Component = TRpLabel1
+      end
+      item
+        Component = TRpExpression10
+      end
+      item
+        Component = TRpExpression11
+      end>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = ''
+    BeginPageExpression = ''
+    ChangeExpression = ''
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpSection2: TRpSection
+    Width = 14688
+    Height = 288
+    SubReport = TRpSubReport0
+    GroupName = 'JJ'
+    ChangeBool = False
+    PageRepeat = True
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecgheader
+    Components = <
+      item
+        Component = TRpShape3
+      end
+      item
+        Component = TRpShape2
+      end
+      item
+        Component = TRpExpression7
+      end
+      item
+        Component = TRpShape14
+      end
+      item
+        Component = TRpExpression13
+      end>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = 'MTR.date_eta'
+    BeginPageExpression = ''
+    ChangeExpression = 'MTR.date_eta'
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpSection3: TRpSection
+    Width = 14688
+    Height = 0
+    SubReport = TRpSubReport0
+    GroupName = 'JJ'
+    ChangeBool = False
+    PageRepeat = False
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecgfooter
+    Components = <>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = 'MTR.date_eta'
+    BeginPageExpression = ''
+    ChangeExpression = 'MTR.date_eta'
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpExpression0: TRpExpression
+    Width = 1020
+    Height = 288
+    PosX = 60
+    PosY = 72
+    Type1Font = poHelvetica
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'MTR.po_no'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression1: TRpExpression
+    Width = 1296
+    Height = 288
+    PosX = 1152
+    PosY = 72
+    Type1Font = poHelvetica
+    WordWrap = True
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'MTR.work_orders'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression2: TRpExpression
+    Width = 6540
+    Height = 288
+    PosX = 2544
+    PosY = 72
+    Type1Font = poHelvetica
+    WordWrap = True
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'MTR.description'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression3: TRpExpression
+    Width = 2364
+    Height = 288
+    PosX = 9240
+    PosY = 72
+    Type1Font = poHelvetica
+    WordWrap = True
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'MTR.vendor'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression4: TRpExpression
+    Width = 1176
+    Height = 288
+    PosX = 12228
+    PosY = 72
+    Type1Font = poHelvetica
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'MTR.date_eta'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression5: TRpExpression
+    Width = 1020
+    Height = 288
+    PosX = 13452
+    PosY = 72
+    Type1Font = poHelvetica
+    Alignment = 2
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'TODAY - MTR.date_eta'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression6: TRpExpression
+    Width = 432
+    Height = 288
+    PosX = 11700
+    PosY = 72
+    Type1Font = poHelvetica
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = '2+2'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpLabel0: TRpLabel
+    Width = 4908
+    Height = 348
+    PosX = 348
+    PosY = 156
+    Type1Font = poHelvetica
+    FontSize = 16
+    FontColor = 16777215
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Haettenschweiler'
+    LFontName = 'Helvetica'
+    WideText = 'Material Order Tracking - Overdue ETA'#39's Report'
+  end
+  object TRpExpression8: TRpExpression
+    Width = 1644
+    Height = 216
+    PosX = 216
+    PosY = 72
+    Type1Font = poHelvetica
+    FontColor = 16777215
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Haettenschweiler'
+    LFontName = 'Helvetica'
+    Expression = 'TODAY'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpLabel1: TRpLabel
+    Width = 3552
+    Height = 216
+    PosX = 4536
+    PosY = 72
+    Type1Font = poHelvetica
+    FontColor = 16777215
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Haettenschweiler'
+    LFontName = 'Helvetica'
+    WideText = 'Sorted by ETA, PO Number'
+  end
+  object TRpLabel2: TRpLabel
+    Width = 1680
+    Height = 252
+    PosX = 144
+    PosY = 648
+    Type1Font = poHelvetica
+    FontSize = 12
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Haettenschweiler'
+    LFontName = 'Helvetica'
+    WideText = 'PO'
+  end
+  object TRpLabel3: TRpLabel
+    Width = 1680
+    Height = 252
+    PosX = 1152
+    PosY = 648
+    Type1Font = poHelvetica
+    FontSize = 12
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Haettenschweiler'
+    LFontName = 'Helvetica'
+    WideText = 'WO#'
+  end
+  object TRpLabel4: TRpLabel
+    Width = 1680
+    Height = 252
+    PosX = 2628
+    PosY = 648
+    Type1Font = poHelvetica
+    FontSize = 12
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Haettenschweiler'
+    LFontName = 'Helvetica'
+    WideText = 'DESCRIPTION'
+  end
+  object TRpLabel5: TRpLabel
+    Width = 1680
+    Height = 252
+    PosX = 9288
+    PosY = 648
+    Type1Font = poHelvetica
+    FontSize = 12
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Haettenschweiler'
+    LFontName = 'Helvetica'
+    WideText = 'SUPPLIER'
+  end
+  object TRpLabel6: TRpLabel
+    Width = 372
+    Height = 288
+    PosX = 11712
+    PosY = 648
+    Type1Font = poHelvetica
+    FontSize = 12
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Haettenschweiler'
+    LFontName = 'Helvetica'
+    WideText = 'HOT'
+  end
+  object TRpLabel7: TRpLabel
+    Width = 972
+    Height = 252
+    PosX = 12336
+    PosY = 648
+    Type1Font = poHelvetica
+    FontSize = 12
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Haettenschweiler'
+    LFontName = 'Helvetica'
+    WideText = 'ETA'
+  end
+  object TRpLabel8: TRpLabel
+    Width = 1116
+    Height = 252
+    PosX = 13428
+    PosY = 649
+    Type1Font = poHelvetica
+    FontSize = 12
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Haettenschweiler'
+    LFontName = 'Helvetica'
+    WideText = 'Days Overdue'
+  end
+  object TRpShape0: TRpShape
+    Width = 14256
+    Height = 288
+    PosX = 144
+    PosY = 648
+    BrushColor = 33023
+    PenColor = 33023
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape4: TRpShape
+    Width = 288
+    Height = 288
+    PosX = 0
+    PosY = 649
+    BrushColor = 33023
+    PenColor = 33023
+    Shape = rpsCircle
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape5: TRpShape
+    Width = 288
+    Height = 288
+    PosX = 14256
+    PosY = 648
+    BrushColor = 33023
+    PenColor = 33023
+    Shape = rpsCircle
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape8: TRpShape
+    Width = 504
+    Height = 504
+    PosX = 5040
+    PosY = 73
+    BrushColor = 16744448
+    PenStyle = 5
+    Shape = rpsCircle
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpExpression10: TRpExpression
+    Width = 1032
+    Height = 216
+    PosX = 12888
+    PosY = 72
+    Type1Font = poHelvetica
+    FontColor = 16777215
+    Alignment = 2
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Haettenschweiler'
+    LFontName = 'Helvetica'
+    Expression = #39'Page '#39' + str(Page) + '#39' of '#39
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression11: TRpExpression
+    Width = 576
+    Height = 216
+    PosX = 13896
+    PosY = 72
+    Type1Font = poHelvetica
+    FontColor = 16777215
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Haettenschweiler'
+    LFontName = 'Helvetica'
+    Expression = 'PAGECOUNT'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpShape6: TRpShape
+    Width = 5112
+    Height = 504
+    PosX = 216
+    PosY = 72
+    BrushColor = 16744448
+    PenStyle = 5
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape9: TRpShape
+    Width = 14328
+    Height = 360
+    PosX = 144
+    PosY = 0
+    BrushColor = 16744448
+    PenStyle = 5
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape7: TRpShape
+    Width = 504
+    Height = 504
+    PosX = 0
+    PosY = 73
+    BrushColor = 16744448
+    PenStyle = 5
+    Shape = rpsCircle
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape10: TRpShape
+    Width = 360
+    Height = 360
+    PosX = 0
+    PosY = 0
+    BrushColor = 16744448
+    PenStyle = 5
+    Shape = rpsCircle
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape11: TRpShape
+    Width = 360
+    Height = 360
+    PosX = 14328
+    PosY = 0
+    BrushColor = 16744448
+    PenStyle = 5
+    Shape = rpsCircle
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpExpression13: TRpExpression
+    Width = 1296
+    Height = 276
+    PosX = 7920
+    PosY = 0
+    Type1Font = poHelvetica
+    FontColor = 16777215
+    BackColor = 8388863
+    Alignment = 4
+    VAlignment = 32
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = 'iif(ISINTEGER(Str(Day(MTR.date_eta)/2))==FALSE,TRUE,FALSE)'
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'MTR.date_eta'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpShape14: TRpShape
+    Width = 1800
+    Height = 288
+    PosX = 7632
+    PosY = 0
+    BrushColor = 8388863
+    PenStyle = 5
+    PenColor = 16744703
+    Shape = rpsEllipse
+    PenWidth = 0
+    PrintCondition = 'iif(ISINTEGER(Str(Day(MTR.date_eta)/2))==FALSE,TRUE,FALSE)'
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpSection4: TRpSection
+    Width = 14688
+    Height = 216
+    SubReport = TRpSubReport0
+    GroupName = 'MONTH'
+    ChangeBool = False
+    PageRepeat = False
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecgheader
+    Components = <
+      item
+        Component = TRpShape13
+      end
+      item
+        Component = TRpShape12
+      end
+      item
+        Component = TRpShape1
+      end
+      item
+        Component = TRpExpression9
+      end>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = 'MONTH(MTR.date_eta)'
+    BeginPageExpression = ''
+    ChangeExpression = 'MONTH(MTR.date_eta)'
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpSection5: TRpSection
+    Width = 14688
+    Height = 0
+    SubReport = TRpSubReport0
+    GroupName = 'MONTH'
+    ChangeBool = False
+    PageRepeat = False
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecgfooter
+    Components = <>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = 'MONTH(MTR.date_eta)'
+    BeginPageExpression = ''
+    ChangeExpression = 'MONTH(MTR.date_eta)'
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpShape2: TRpShape
+    Width = 14544
+    Height = 72
+    PosX = 0
+    PosY = 108
+    BrushColor = 8388863
+    PenColor = 8388863
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape1: TRpShape
+    Width = 14544
+    Height = 72
+    PosX = 0
+    PosY = 108
+    BrushColor = 65280
+    PenStyle = 5
+    PenColor = 8388863
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpExpression7: TRpExpression
+    Width = 1296
+    Height = 276
+    PosX = 3096
+    PosY = 0
+    Type1Font = poHelvetica
+    FontColor = 16777215
+    BackColor = 8388863
+    Alignment = 4
+    VAlignment = 32
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = 'iif(ISINTEGER(Str(Day(MTR.date_eta)/2))==TRUE,TRUE,FALSE)'
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'MTR.date_eta'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpShape3: TRpShape
+    Width = 1800
+    Height = 288
+    PosX = 2808
+    PosY = 0
+    BrushColor = 8388863
+    PenStyle = 5
+    PenColor = 16744703
+    Shape = rpsEllipse
+    PenWidth = 0
+    PrintCondition = 'iif(ISINTEGER(Str(Day(MTR.date_eta)/2))==TRUE,TRUE,FALSE)'
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpExpression9: TRpExpression
+    Width = 1296
+    Height = 276
+    PosX = 1800
+    PosY = 0
+    Type1Font = poHelvetica
+    Alignment = 4
+    VAlignment = 32
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 
+      'iif(Month(MTR.date_eta)=1,'#39'January'#39',iif(Month(MTR.date_eta)=2,'#39'F' +
+      'ebruary'#39',iif(Month(MTR.date_eta)=3,'#39'March'#39',iif(Month(MTR.date_et' +
+      'a)=4,'#39'April'#39',iif(Month(MTR.date_eta)=5,'#39'May'#39',iif(Month(MTR.date_' +
+      'eta)=6,'#39'June'#39',iif(Month(MTR.date_eta)=7,'#39'July'#39',iif(Month(MTR.dat' +
+      'e_eta)=8,'#39'August'#39',iif(Month(MTR.date_eta)=9,'#39'September'#39',iif(Mont' +
+      'h(MTR.date_eta)=10,'#39'October'#39',iif(Month(MTR.date_eta)=11,'#39'Novembe' +
+      'r'#39','#39'December'#39' ) ) ) ) ) ) ) ) )))'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpShape12: TRpShape
+    Width = 2880
+    Height = 288
+    PosX = 0
+    PosY = 0
+    BrushColor = 65280
+    PenStyle = 5
+    PenColor = 16744703
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape13: TRpShape
+    Width = 288
+    Height = 288
+    PosX = 2736
+    PosY = 0
+    BrushColor = 65280
+    PenStyle = 5
+    PenColor = 16744703
+    Shape = rpsCircle
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+end

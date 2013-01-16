@@ -1,0 +1,21 @@
+<li>
+  <select onchange="if($F(this) != 'none') window.location=$F(this);">
+    <option value="none">-- View Web Requests --</option>
+      <% [['all', 'All Web Requests'], 
+          ['mine', 'Mine (Requested By Me)'], 
+          ['created_me', 'Created By Me'], 
+          ['submitted', 'Submitted'], 
+          ['received', 'Received']].each do |status, display| %>
+        <option value="<%= url_for(:action => :recent, :status => status) %>" <%= selected_if(status) %>><%= display %></option>
+      <% end %>
+  </select>
+</li>
+<% unless warehouse_view? %>
+<li><%= img_button "Add Items to Web Request", "order_list.png", carts_path %></li>
+<% unless params[:action] == "edit" %>
+<li><%= img_button "Submit Web Request", "cart_issue.png", edit_cart_path('current') %></li>
+<% end %>
+<% end %>
+<% if params[:action] == "edit" || params[:action] == "show" %>
+<li><%= img_button_function("Print", "print.png", "window.print()") %></li>
+<% end %>

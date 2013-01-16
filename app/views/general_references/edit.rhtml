@@ -1,0 +1,18 @@
+<% form_for @reference, :html => { :class => "edit", :multipart => true, :onsubmit => "if($F('upload') == '' || $F('upload') == null) { alert('Please select a file to upload'); return false; }" } do |f| %>
+
+<% unless @reference.new_record? %>
+<h2 style="font-weight: bold; font-size: 105%; margin-bottom: 12px;"><%= @reference.reference_file_name %></h2>
+<% end %>
+
+<p>
+  <label>File<span class="required">(required)</span></label> 
+  <%= f.file_field :reference, :id => "upload" %>
+  <% if !@reference.new_record? %>
+  <span class="description">Replaces existing file</span>
+  <% end %>
+</p>
+
+<p class="menu noprint">
+  <%= submit_tag "Save File", :class => "submit" %> or  <%= link_to_back %>
+</p>
+<% end %>

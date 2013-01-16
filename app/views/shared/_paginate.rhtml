@@ -1,0 +1,44 @@
+<% if collection.page_count != collection.first_page -%>
+
+<div class="pagination noprint" id="pagination">
+	<%= slider_field :current_employee, :page, :range => 1..collection.page_count, :slider_value => collection.page %>
+	<div id="paginate_options">
+	<form class="edit inline" method="get">
+		<% params.each do |name, value| %>
+		    <% if value && !["controller", "action", "id", "p"].include?(name.to_s) %>
+		   		<input type="hidden" name="<%= name %>" value="<%= value %>" />
+			<% end %>
+		<% end %>
+		
+	
+		<input type="hidden" name="p" value="<%= collection.page %>" id="paginate_page" maxlength="4" />
+		<span class="nextpage" style="margin-right: 10px;"><%= link_to_function "go to page &rarr; <span id='new_page'>#{collection.page}</span> of #{collection.page_count}", "$(this).up('form').submit(); return false;" %></span>
+		
+		<span class="disablepage" style="font-weight: bold; margin-right: 10px;">current page &rarr; <%= collection.page %></span>
+		
+     	<% if collection.previous_page? -%>
+	       <span class="nextpage"><%= link_to '&#171; previous', params.merge(:p => collection.previous_page) %></span>
+		<% else -%>
+	       <span class="disablepage">&#171; previous</span>
+		<% end -%>
+		<% if collection.next_page? -%>
+	     <span class="nextpage"><%=  link_to 'next &#187;', params.merge(:p => collection.next_page) %></span>
+	    <% else -%>
+	      <span class="disablepage">next &#187;</span>
+	    <% end -%>
+	</form>
+	</div>
+	<script type="text/javascript" charset="utf-8">
+		$paginate.options.onSlide = function(value) {
+			$('paginate_page').value = parseInt(value);
+			$('new_page').innerHTML = parseInt(value);
+		}
+		$paginate.options.onChange = function(value) {
+			$('paginate_page').focus();
+		}
+	</script>
+	<br class="clear" />
+</div>
+
+
+<% end -%>

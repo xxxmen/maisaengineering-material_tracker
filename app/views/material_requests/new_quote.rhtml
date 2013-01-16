@@ -1,0 +1,27 @@
+<% if !@material_request.authorized? && !@material_request.partially_authorized? %>
+	<div style="text-align: center; font-size: 110%; color: red; background-color: #fcc; border: 1px solid #f66; border-right: 2px solid #f77; border-bottom: 2px solid #f77; width: 70%; padding: 7px; margin-bottom: 12px;">
+		This material request has not been <b>authorized</b> yet, are you sure you want to send out a quote?
+		<span style="font-size: 80%;">
+		<%= link_to "Back to Material Request", edit_material_request_path(@material_request) %>
+		</span>
+	</div>
+<% end %>
+
+
+<form method="post" class="edit full" style="width: 50%;" id="new_quote">
+	<input type="hidden" value="<%= @material_request.id %>" />
+	
+	<p>
+		<label>Which vendor is this quote from?</label>
+	    <%= text_field_with_auto_complete :vendor, :name, :class => "text", :value => (@material_request.suggested_vendor || "") %>
+		<% if flash[:error] %>
+			<span class="error" style="font-weight: bold; color: red;"><%= flash[:error] %></span>
+		<% end %>
+
+		
+    </p>
+    <%= render :partial => "request_attachments_for_quote", :locals => { :material_request => @material_request} %>
+	<p>
+		<input type="submit" value="Create Quote">
+	</p>
+</form>

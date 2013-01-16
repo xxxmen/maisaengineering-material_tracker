@@ -1,0 +1,124 @@
+# == Schema Information
+# Schema version: 20090710194800
+#
+# Table name: ordered_line_items
+#
+#  id                     :integer(4)    not null, primary key
+#  po_id                  :integer(4)    
+#  line_item_no           :integer(4)    
+#  description            :text          
+#  quantity_ordered       :integer(4)    
+#  quantity_received      :integer(4)    
+#  item_price             :integer(10)   
+#  date_received          :date          
+#  date_back_ordered      :date          
+#  notes                  :text          
+#  lock_version           :integer(4)    default(0)
+#  updated_at             :datetime      
+#  unit_of_measure        :string(255)   
+#  details                :string(255)   
+#  requested_line_item_id :integer(4)    
+#  location               :string(255)   
+#  issued_date            :date          
+#  issued_to_name         :string(255)   
+#  issued_to_company      :string(255)   
+#  issued_quantity        :integer(4)    
+#
+
+first_line_item: 
+  id: 1
+  item_price: 10.00
+  updated_at: <%= Time.now %>
+  line_item_no: 1
+  quantity_ordered: 1
+  po_id: 1
+  description: 8" SCH 80 SMLS 9 CR A335-P9, PROC.0420-05, MTR's REQUIRED
+  quantity_received: 0
+ 
+second_line_item: 
+  id: 2
+  item_price: 10.00
+  updated_at: <%= Time.now %>
+  line_item_no: 1
+  quantity_ordered: 1
+  po_id: 2
+  description: "#12 MESH X .043 DIA 321SS WIRE, 5 ROLLS 24\" WIDE TOTAL 392'SQ"
+  date_received: 2002-05-30
+  quantity_received: 1
+ 
+third: 
+  id: 3
+  item_price: 10.00
+  updated_at: <%= Time.now %>
+  line_item_no: 1
+  quantity_ordered: 1
+  po_id: 3
+  description: "LIGHT HYDRO TAR 2006,  RICK BRASWELL, #12 MESH SCREEN .041 WIRE DIA. 347SS"
+  date_received: 2006-01-03
+  quantity_received: 1
+ 
+fourth: 
+  id: 4
+  item_price: 10.00
+  updated_at: <%= Time.now %>
+  line_item_no: 2
+  quantity_ordered: 1
+  po_id: 2
+  description: REACTOR SCREEN SURPLUS IN NORTH CAT STORAGE (PMI'D AS 321SS 2-23-06)
+  date_received: 2006-02-23
+  quantity_received: 1
+ 
+fifth: 
+  id: 5
+  item_price: 10.00
+  updated_at: <%= Time.now %>
+  line_item_no: 1
+  quantity_ordered: 1
+  po_id: 4
+  description: 2 CRUDE TAR 2004, BOVS, CARTA
+  date_received: 2004-09-01
+  quantity_received: 1
+ 
+sixth: 
+  id: 6
+  item_price: 10.00
+  updated_at: <%= Time.now %>
+  line_item_no: 2
+  quantity_ordered: 1
+  po_id: 1
+  description: 52 VACUUM TAR 2004, BOVS, CARTA
+  date_received: 2004-05-25
+  quantity_received: 1
+ 
+seventh: 
+  id: 7
+  item_price: 10.00
+  updated_at: <%= Time.now %>
+  line_item_no: 3
+  quantity_ordered: 1
+  po_id: 2
+  description: 2 COKER 2004, D.FRANCIS, COMMODITY TRAILER-ADV.SEALING
+  date_received: 2004-01-08
+  quantity_received: 1
+ 
+eighth: 
+  id: 8
+  item_price: 10.00
+  updated_at: <%= Time.now %>
+  line_item_no: 2
+  quantity_ordered: 1
+  po_id: 3
+  description: "HDS 2004, RICK BRASWELL FOR JEFF TREXLER, LUBE SENTINEL II, TRACKING # 0423"
+  date_received: 2004-10-13
+  quantity_received: 1
+ 
+ninth: 
+  id: 9
+  item_price: 10.00
+  updated_at: <%= Time.now %>
+  line_item_no: 2
+  quantity_ordered: 1
+  po_id: 4
+  description: 3" S&K INLINE HEATER(MIXING TEE)
+  date_received: 2004-03-09
+  quantity_received: 1

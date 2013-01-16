@@ -1,0 +1,30 @@
+<!--start-->
+<h1 style="padding: 20px; background-color: #444; color: #FFF; text-align: center; margin-bottom: 0px;">
+	<%= "#{ENV['DEPLOY_SITE_NAME']}"%> Material Tracker - New <%= @ticket.category %> Ticket #<%= @ticket.number %>
+</h1>
+
+<h2 style="padding: 10px; background-color: #99FF99; color: #FFF; text-align: center; margin-top: 0px;">
+	<a href="http://<%= DOMAIN %>/tickets/<%= @ticket.id %>">
+		Click here to view the new ticket
+	</a>
+</h2>
+
+<table cellspacing="0" width="100%" style="border: 1px solid #222; padding: 10px; border-collapse: collapse;">
+	<% 	[
+			['Title', @ticket.title],
+			['Body', @ticket.body],
+			['Category', @ticket.category],
+			['Priority', @ticket.priority],
+			['Context', @ticket.context],
+			['Reported By', @ticket.reported_by],
+			['Created', @ticket.created_at]
+		].each do |data|
+	 %>
+    <tr>
+        <th align="left" width="180px" style="border-bottom: 1px solid #222; padding: 10px;"><%= data[0] %>:</th>
+        <td style="border-bottom: 1px solid #222; padding: 10px;"><%= data[1] %></td>
+    </tr>
+    <%- end %>
+</table>
+
+<h3 style="text-align: right; padding: 10px; background-color: #444; color: #FFF; margin-top: 10px;">by <a style="color: #33CC00;" href="http://www.telaeris.com">Telaeris, Inc.</a></h3>

@@ -1,0 +1,2 @@
+page.insert_html :bottom, "line_items_table", :partial => "line_item_fields", :locals => { :ordered_line_item => OrderedLineItem.new(:line_item_no => params[:id]) } 
+page.replace_html "add_item_link", link_to_remote("Add Another Line Item", :url => { :action => "add_line_item", :id => params[:id].to_i + 1 }, :method => :get)

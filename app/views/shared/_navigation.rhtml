@@ -1,0 +1,40 @@
+<% if logged_in? %>
+<ul id="navigation">
+    <% unless current_employee.popv_viewer? %>  
+        <li>
+            <%= link_to "Menu", "/home/menu", :class => class_for("home", params), :accesskey => "1" %>
+        </li>
+        <% if resource_enabled?(:orders) %>
+	        <li>
+	            <%= link_to "Orders", orders_path, :title => "List all orders.", :class => class_for("orders", params), :accesskey => "2" %>
+	        </li>
+        <% end %>
+        <!-- Warehouse does not need to see requests -->
+        <% if resource_enabled?(:material_requests) && !warehouse_view? && !receiving_view? %>
+            <li>
+                <%= link_to "Requests", material_requests_path, :title => "List all material requests", :class => class_for("material_requests", params), :accesskey => "3" %>
+            </li>
+        <% end %>
+
+        <% if resource_enabled?(:carts) %>
+	        <li>
+	            <%= link_to "Web Requests", recent_carts_path(default_request_params), :title => "List all web requests", :class => class_for("carts", params) %>
+	        </li>
+	    <% end %>
+	    
+        <% if resource_enabled?(:reports) %>
+	        <li>
+	            <%= link_to "Reports", reports_path , :title => "List reports.", :class => class_for("reports", params), :accesskey => "7" %>
+	        </li>
+        <% end %>    
+    
+    <% end %>    
+    
+    <% if resource_enabled?(:popv) %>
+	    <li>
+	        <%= link_to "POPV", url_for({:controller => 'popv'}) , :title => "Show POPV", :class => class_for("popv", params), :accesskey => "8" %>
+	    </li>
+	<% end %>    
+      
+</ul>
+<% end %>

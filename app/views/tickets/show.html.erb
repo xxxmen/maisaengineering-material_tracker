@@ -1,0 +1,101 @@
+<div class="col-wrapper">
+	<div class="left-col" style="width: 800px;">
+		<h1>Viewing Ticket</h1>
+		
+		<table class="details header">
+			<tr>
+				<td class="ticket-number">
+					#<%=h @ticket.number %>
+				</td>
+				<td class="ticket-category">
+					<%=h @ticket.state %>
+				</td>
+				<td class="ticket-title">
+					<%=h @ticket.title %>
+				</td>
+			</tr>
+		</table>
+		
+		<p>
+		  <b>Details:</b>
+		  <br/>
+		  <br/>
+		  <%= simple_format(@ticket.body) %>
+		</p>
+		
+		<table class="details">
+			<tr>
+				<th>
+					Category:
+				</th>
+				<td>
+					<%=h @ticket.category %>
+				</td>
+				<th>
+					Context:
+				</th>
+				<td>
+					<%=h @ticket.context %>
+				</td>
+				<th class="<%= @ticket.priority %>">
+					Priority:
+				</th>
+				<td class="<%= @ticket.priority %>">
+					<%=h @ticket.priority %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Assigned to:
+				</th>
+				<td colspan="5">
+					<%=h @ticket.assigned_to %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Reported by:
+				</th>
+				<td colspan="5">
+					<%=h @ticket.reported_by %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Created at:
+				</th>
+				<td colspan="5">
+					<%=h @ticket.created_at %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Updated at:				
+				</th>
+				<td colspan="5">
+					<%=h @ticket.updated_at %>
+				</td>
+			</tr>
+			<% if @ticket.attachment? %>
+			<tr>
+				<th>
+					Attachment:				
+				</th>
+				<td colspan="5">
+					<%= link_to @ticket.attachment_file_name, @ticket.attachment.url %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+
+		<p>
+		  <b>Response:</b>
+		  <br/>
+		  <br/>
+		  <%= simple_format(@ticket.response) %>
+		</p>
+		
+		</div>
+</div>
+
+

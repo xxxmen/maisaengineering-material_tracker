@@ -1,0 +1,256 @@
+<style type="text/css" media="screen">
+    #vendor_filter { color: #888; font-style: italic; width: 240px;}
+    #vendor_filter_submit {}
+</style>
+
+<div style="width: 100%;">
+	
+	<% if !@material_request.acknowledged? %>
+		<div style="text-align: center; font-size: 110%; color: red; background-color: #fcc; border: 1px solid #f66; border-right: 2px solid #f77; border-bottom: 2px solid #f77; width: 70%; padding: 7px; margin-bottom: 12px;">
+			This material request has not been <b>acknowledged</b> yet, are you sure you want to send out a quote?
+			<span style="font-size: 80%;">
+			<%= link_to "Back to Material Request", edit_material_request_path(@material_request) %>
+			</span>
+		</div>
+	<% end %>
+	
+	<div style="float: left; width: 49%">
+		<form id="mail" method="post" class="edit full" enctype="multipart/form-data">
+		  <p>
+		    <label>Message:</label>
+		    <textarea name="message" style="width: 400px; height: 100px;"><%= params[:message] %></textarea>
+		  </p>
+		  <% if !@material_request.suggested_vendor.blank? %>
+		  <p>
+		    <label>Suggested Vendor:</label>
+		    <%= @material_request.suggested_vendor %>
+		  </p>
+		  <% end %>
+		  <div class="left"><label>Vendor Emails:</label></div>
+		  <div class="right"><input type="checkbox" name="save_emails" value="1" /> Save emails</div>
+		  <div id="vendor_emails" class="clear">
+		      <% if !@suggested_vendor.blank? %>
+		        <div class='v-email' id="vendor_mail_<%= @suggested_vendor.id %>">
+		            <div class="left clear" style="text-align: right; font-size: 85%;"><%= @suggested_vendor.name %></div>
+		            <div class="right">
+		                <input type="text" name="emails[<%= @suggested_vendor.id %>]" class="text vendor-email" value="<%= @suggested_vendor.email %>" style="width: 60%" />
+		            <a href="#" style="font-size: 85%" onclick="$(this).up('div').up('div').replace()">delete</a>
+		            </div>
+		        </div>
+		      <% end %>
+		  </div>
+		  <p class="menu clear">
+		  	<%= render :partial => "request_attachments_for_quote", :locals => { :material_request => @material_request} %>
+  	  	  <div>
+
+			  	<div id="file-upload-fields" style="margin-top: 50px;">
+					<p class="menu">
+						<label>Attach a File (Ex: Engineering Drawings):</label>
+						<input type="file" name="uploaded_quote_attachments[]"/>
+					</p>
+				</div>
+				<a href="#" id="add-file-link">Add Another File</a>
+		  </div>
+			
+		</form>
+	</div>
+  
+	<div class="right" style="float: left; width: 49%;">
+		<form class="edit full" onsubmit="return false;">  
+		      <p>
+		          <input type="text" class="text inline" id="vendor_filter" value="Search Vendors" />
+		          <input type="submit" value="Search" id="vendor_filter_submit" class="inline" />
+		          <a href="#reset" id="vendor_filter_reset">Reset</a>
+		      </p>
+		      <p>
+		      <label>Vendors:</label>     
+		      <%= render :partial => "select_vendor", :locals => { :vendors => @vendors, :size => 10 } %>
+		     </p>
+		     <p>
+		     <input type="button" value="&larr; Add Vendor" onclick="addVendor(); return false;" />
+		     </p>
+			 <p>
+			 	<label>Select from vendor groups:</label>				
+				<select size="10" id="uxVendorGroupDropDown" class="clear" ondblclick="addVendorGroup(); return false;">
+				   <% @vendor_groups.each do |v| %>
+				       <option id="vendor_group_<%= v.id %>" value="vendor_group_<%= v.id %>" title="<%= v.vendors[0..10].map{|vendor| vendor.name}.join(', ') %>" /><%= h v.name %> (<%= v.vendors.length %>)</option>
+				   <% end %>
+				</select>
+				<script type="text/javascript">
+					var vendorsOfVendorGroups = <%= @vendor_groups_for_js.to_json %>;
+				</script>
+			 </p>
+			 <p>
+			 	<div id="uxVendorGroupVendorsListPreview"></div>
+			 </p>
+			 <p>
+			 	<input type="button" value="&larr; Add Vendor group" onclick="addVendorGroup(); return false;" />
+			 </p>
+		</form>
+	</div>  
+</div>
+
+<script>
+Telaeris.monitorAddFileLink("uploaded_quote_attachments");
+
+Telaeris.vendorCounter = 0;
+
+jQuery('#uxVendorGroupDropDown').change(function(){
+	var groupMembersPreview = jQuery('#' + jQuery('#uxVendorGroupDropDown').val()).attr('title');
+	if(vendorsOfVendorGroups[jQuery('#uxVendorGroupDropDown').val()].length > 10){
+		groupMembersPreview = groupMembersPreview + "...";
+	}
+	jQuery('#uxVendorGroupVendorsListPreview').html(groupMembersPreview);
+});
+jQuery(document).ready(function(){
+	if(jQuery('#uxVendorGroupDropDown').val() != null){
+		jQuery('#uxVendorGroupDropDown').change();	
+	}
+});
+
+
+function addVendor(){
+    if(!$F('select')) return false;
+    
+    var select = $('select');
+    var name = select.options[select.selectedIndex].innerHTML.unescapeHTML();
+    var email = $F(select).match(/(.*) \(\d+\)$/).last().escapeHTML();
+    var id = $F(select).match(/(\d+)\)$/).last();
+    
+    var template = "<div class='v-email' id='vendor_mail_" + id + "'><div class='left clear' style='text-align: right; font-size: 85%;'>" + name + "</div><div class='right'><input type='text' name='emails[" + id + "]' class='text vendor-email' value='" + email + "' style='width: 60%;' /> <a href='#' style='font-size: 85%;' onclick='$(this).up(\"div\").up(\"div\").replace(); return false;'>delete</a></div></div>";
+    
+	if(!$('vendor_mail_' + id)) {
+	    new Insertion.Bottom('vendor_emails', template);
+	}
+    $(select).focus();
+    
+		//     try {
+		// var count = $$('#select option').length;
+		//         var selectedIndex = select.selectedIndex;
+		//         $(select).options[selectedIndex].remove();
+		//         $(select).selectedIndex = (selectedIndex + 1) % count;
+		//     } catch(error) {}
+}
+
+function addVendorGroup(){	
+	var currentVendorGroup = jQuery('#uxVendorGroupDropDown').val();
+	var vendersForGroup = vendorsOfVendorGroups[currentVendorGroup];	
+	jQuery(vendersForGroup).each(function(){
+		jQuery('#select').val(this.toString());
+		addVendor();
+	});
+	jQuery('#uxVendorGroupDropDown').focus();
+}
+
+function validateAllEmails(){
+    var invalids = [];
+    var emails = [];
+    jQuery('.vendor-email').each(function(elem){
+    	 emailarray = [];
+    	 singleEmails = elem.value.gsub(/;| +/, ',').gsub(/,+/, ',').split(",");
+    	 singleEmails.each(function(elem){ emailarray.push(elem); }); 
+    	}) 
+    jQuery('.vendor-email').each(function(elem){
+        if(!Telaeris.isValidEmail($F(elem))) {
+            invalids.push($F(elem));
+        }
+    });
+    if(invalids.length == 0) return true;
+    else {
+        alert('Invalid or blank email(s) -> ' + invalids.join(', '));
+        return false;
+    }
+        
+}
+
+jQuery('#mail').submit(function(){
+	var invalidEmails = [];
+	if(jQuery('.vendor-email').length == 0){
+		alert("Please add one or more vendors to the list");
+		return false;
+	}
+
+	jQuery('.vendor-email').each(function(index, elem){ 		
+ 	   	//take out spaces and semicolons, replcae with commas, replace multiple commas with a single comma
+ 	   		//var item = jQuery('.vendor-email')[index];
+    		var emails = elem.value.gsub(/;| +/, ',').gsub(/,+/, ',').split(",");  
+    		var invalids = [];
+    		var valids = [];
+    
+    		emails.each(function(email){
+    	    
+    	    	if(Telaeris.isValidEmail(email)) {
+    	        	valids.push(email);
+    	    	}
+    	    	else {
+    	        	invalids.push(email);
+    	    	}
+    		});
+    
+    		if(invalids.length > 0) {
+    	    	invalids.each(function(email){
+    	        	invalidEmails.push(email);
+    	    	});
+    	    	elem.ClassName += " error";
+    		}
+    		else {
+	    	    elem.value = valids.join(", " );
+	    	    
+	    	    elem.className = elem.className.gsub('error','');
+    		}
+	});
+	
+	if(invalidEmails.length > 0) {
+		var alertMessage = '';
+    	    invalidEmails.each(function(email){
+    	        alertMessage += "* '" + email + "' is an invalid email address\n";
+    	    });
+    	alert(alertMessage);
+    	return false;
+	}
+	else {
+		return true;
+	}
+	
+})
+
+
+$('vendor_filter').observe('focus', function(event){
+   var filter = Event.element(event);
+   if($F(filter) == 'Search Vendors') {
+       filter.value = '';
+       filter.setStyle({color: '#000', fontStyle: 'normal'});
+   }
+});
+
+$('vendor_filter').observe('blur', function(event){
+    var filter = Event.element(event);
+    if($F(filter).match(/^\s*$/)){
+        filter.value = 'Search Vendors';
+        filter.setStyle({color: '#888', fontStyle: 'italic'});
+    }
+});
+
+$('vendor_filter').observe('keydown', function(event){
+    if(event.keyCode == 13) {
+        Event.stop(event);
+        setTimeout(function(){
+            var query = $F(Event.element(event));
+            new Ajax.Request('/material_requests/filter_vendors/search/', {method: 'get', parameters: 'query=' + query.escapeHTML()});
+        }, 300);
+    }
+});
+
+$('vendor_filter_submit').observe('click', function(event){
+    Event.stop(event);
+    var query = $F('vendor_filter');
+    if(query == "Search Vendors") { return; }
+    new Ajax.Request('/material_requests/filter_vendors/search/', {method: 'get', parameters: 'query=' + query.escapeHTML()});
+});
+
+$('vendor_filter_reset').observe('click', function(event){
+    Event.stop(event); 
+    new Ajax.Request('/material_requests/filter_vendors/search/', {method: 'get', parameters: 'query='});
+    $('vendor_filter').value = '';
+});
+</script>

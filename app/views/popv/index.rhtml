@@ -1,0 +1,53 @@
+<style type="text/css" media="screen">
+	#content { height: 0px; }
+	.error { color: #ff0000 }
+</style>
+
+<div id="resource_navigation" style="display: none;">
+	<ul>
+
+
+		<% if current_employee.popv_user? %>
+
+    		<li><h1>Bills of Material</h1></li>
+            <li id="current_bom"></li>
+    		<li><a class="icon-report-add" href="#" onclick="createNewBOMWindow(); return false;">Create New BOM</a></li>
+    		<li><a class="icon-report" href="#" onclick="telaeris.openResource('boms', {title:'Bill of Materials(All)', filterParam:'all'}); return false;">All</a></li>
+    		<li><a class="icon-report-edit" href="#" onclick="telaeris.openResource('boms', {title:'Bill of Materials(Drafts)', filterParam:'drafts'}); return false;">Drafts</a></li>
+    		<li><a class="icon-report-user" href="#" onclick="telaeris.openResource('boms', {title:'Bill of Materials(Mine)', filterParam:'mine'}); return false;">Mine</a></li>
+		<% end %>
+
+    		<li><h1>Piping</h1></li>
+
+    		<li><a class="icon-table-multiple" href="#" onclick="telaeris.openResource('piping', {title:'Piping Classes'}); return false;">Classes</a></li>
+    		<li><a class="icon-valve" href="#" onclick="telaeris.openResource('valves'); return false;">Valves</a></li>
+    		<li><a class="icon-valve-comparison" href="#" onclick="telaeris.openResource('valve_comparison'); return false;">Valve Comparison</a></li>
+		    <li><a class="icon-note" href="#" onclick="telaeris.openResource('piping_notes',{title:'Piping Notes'}); return false;">Piping Notes</a></li>
+
+		<%
+		    # Allows only POPV Admins to edit the underlying pipe records.
+		%>
+		<% if current_employee.popv_admin? %>
+
+
+			<li><h1>Administration</h1></li>
+			<li><a class="icon-link" href="#" onclick="telaeris.openResource('piping_components',{title:'Piping Components'}); return false;">Piping Components</a></li>
+			<li><a class="icon-cog" href="#" onclick="telaeris.openResource('valve_components',{title:'Valve Components'}); return false;">Valve Components</a></li>
+			<li><a class="icon-building" href="#" onclick="telaeris.openResource('manufacturers',{title:'Valve Manufacturers'}); return false;">Valve Manufacturers</a></li>
+			<li><a class="icon-user-comment" href="#" onclick="telaeris.openResource('user_notes',{title:'User Notes'}); return false;">User Notes</a></li>
+			<li><a class="icon-folder-link" href="#" onclick="telaeris.openResource('piping_references',{title:'References'}); return false;">References</a></li>
+		<% end %>
+		<li><a class="icon-database-edit" href="#" onclick="telaeris.openResource('record_changelogs'); return false;">Revision History</a></li>
+		<% if true %>
+		<li><a class="icon-link" href="#" onclick="telaeris.openResource('bulk_changes',{title:'Bulk Search and Replace'}); return false;">Bulk Changes</a></li>
+		<% end %>
+		<li><h1>References</h1></li>
+		<% @piping_references.each do |piping_reference| %>
+			<li><a class="icon-application-view-icons" href="#" onclick="window.open('<%= piping_reference.link %>'); return false;"><%= piping_reference.description %></a></li>
+		<% end %>
+	</ul>
+</div>
+
+<!-- Loads the POPV ExtJS
+<script type="text/javascript" src="/javascripts/ui.js"></script>
+-->

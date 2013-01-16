@@ -1,0 +1,6 @@
+<li><%= img_button "Create a New Vendor", "vendor_add.png", new_vendor_path %></li>
+<li><%= img_button "Vendors by Name", "vendor.png", vendors_path %></li>
+<li><%= img_button_function("Print", "print.png", "window.print()") %></li>
+<% if params[:action] == "edit" || params[:action] == "new" %>
+  <li><%= img_button_function("Save Entry", "save.png", "$('#{form_id(@vendor)}').submit()") %></li>
+<% end %>

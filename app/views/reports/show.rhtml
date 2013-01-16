@@ -1,0 +1,46 @@
+<table class="information" cellspacing="0" style="width: 100%">
+  <tr>
+    <td colspan="9" style="background-color: #000; color: #fff; font-size: 120%; text-align: center;">
+      <%= @title || "Showing Report" %>
+    </td>
+  </tr>
+  <tr>
+    <% if %w[purchase_orders.date_eta purchase_orders.vendor_id purchase_orders.unit_id].include?(params[:order_by]) %>
+    <th>#</th>
+    <% end %>
+    <th style="width: 30px;">PO#</th>
+    <th style="width: 30px;">PTM#</th>
+    <th style="width: 30px;">Tracking #</th>
+    <th style="width: 30px;">WO#</th>
+    <th>DESCRIPTION</th>
+    <th>SUPPLIER</th>
+    <th>ETA</th>
+    <th>D.O.</th>
+  </tr>
+  
+  <% @orders.each do |item, orders| %>
+    <% unless [:ptm_no, :po_no].include?(@group) %>
+    <tr>
+      <td colspan="9" style="background-color: #99cc99; color: #222; font-size: 120%; text-align: center; border-bottom: 2px solid #000; border-top: 2px solid #000;">
+        <%= show_item(item, @group) %>
+      </td>
+    </tr>
+    <% end %>
+    <% orders.each_with_index do |order, index| %>
+    <tr>
+      <% if %w[date_eta vendor_id unit_id].include?(params[:order_by]) %>
+      <td><%= h (index + 1) %></td>
+      <% end %>
+      <td style="width: 30px;"><%= h order.po_no %></td>
+      <td style="width: 30px;"><%= h order.ptm_no %></td>
+      <td style="width: 30px;"><%= h order.tracking %></td>
+      <td style="width: 30px;"><%= h order.work_orders %></td>
+      <td><%= h order.description %></td>
+      <td><%= h order.supplier %></td>
+      <td><%= order.date_eta ? h(order.date_eta.strftime("%m/%d/%y")) : "" %></td>
+      <td><%= h days_overdue(order) %></td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>
+

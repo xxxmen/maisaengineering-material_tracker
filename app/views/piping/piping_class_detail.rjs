@@ -1,0 +1,15 @@
+if params[:id].blank?
+  page.hide "notes_and_valve"
+else
+  page.replace "notes_and_valve", :partial => "notes_and_valve"
+  page.visual_effect :highlight, "notes_and_valve"
+
+  if @valve
+    page << "PipeBuilder.build('#{@valve.valve_code}');"
+  else
+    page << "PipeBuilder.build();"
+  end
+end
+
+page << "Telaeris.checkClassDetail()";
+

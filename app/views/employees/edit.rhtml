@@ -1,0 +1,194 @@
+<% form_for @employee, :html => { :class => "edit full validate" } do |f| %>
+<div id="errorExplanation" style="display: none;">
+</div>
+
+<div class="left">
+  <p>
+    <label>Badge Number <span class="description" style="display: inline;">Numbers only: no letters, spaces, or special characters</span></label>
+    <%= f.text_field :badge_no, :readonly => d_prof?(@employee), :class => "numbers_only text", :title => "Badge Number can only be numbers" %>
+  </p>
+
+  <div class="left" style="width: 84%;">
+    <div class="left">
+      <p>
+        <label>First Name <span class="required">(required)</span></label>
+        <%= f.text_field :first_name, :readonly => d_prof?(@employee), :class => "required text", :title => "Last Name can't be blank" %>
+      </p>
+    </div>
+
+    <div class="right">
+      <p>
+        <label>Last Name <span class="required">(required)</span></label>
+        <%= f.text_field :last_name, :readonly => d_prof?(@employee), :class => "required text", :title => "Last Name can't be blank" %>
+      </p>
+    </div>
+  </div>
+
+  <div class="right" style="width: 14%">
+  <p>
+    <label>MI</label>
+    <%= f.text_field :mi, :class => "short text", :readonly => d_prof?(@employee) %>
+  </p>
+  </div>
+
+  <div class="left clear">
+  <p>
+    <label>Company <span class="required">(required)</span></label>
+    <% if d_prof?(@employee) %>
+    <%= text_field_tag :company_name, @employee.company.name, :readonly => true, :class => "required text", :title => "Company can't be blank" %>
+    <% else %>
+    <%= f.select :company_id, Company.list_companies, {}, :class => "required", :title => "Company can't be blank" %>
+    <% end %>
+  </p>
+  </div>
+
+  <div class="right">
+  <p>
+    <label>Start Page</label>
+    <% if d_prof?(@employee) %>
+    <%= text_field_tag :startup_page, @employee.state_for_start_page, :readonly => true , :class => "text"%>
+    <% else %>
+      <% if resource_enabled?(:popv) %>
+      	<%= f.select :start_page, Employee.options_for_start_page %>
+      <% else %>
+        <%= f.select :start_page, Employee.options_for_start_page.reject{|role| role[0] == "POPV" } %>
+      <% end %>
+    <% end %>
+
+
+  </p>
+  </div>
+
+  <div class="left clear">
+  <p>
+    <label>Email</label>
+    <%= f.text_field :email, :readonly => d_login?(@employee), :class => "text" %>
+  </p>
+  </div>
+
+  <div class="right">
+    <p>
+      <label>Contact Telephone</label>
+      <%= f.text_field :telephone, :readonly => d_login?(@employee), :class => "text" %>
+    </p>
+  </div>
+
+  <div class="left clear">
+    <p>
+      <label>Role</label>
+      <% if d_prof?(@employee, :role => true) %>
+      	<%= @employee.state_for_role %>
+        <%= f.hidden_field :role, :value => @employee.role %>
+
+
+      <% else %>
+        <% if resource_enabled?(:popv) %>
+          <%= f.select :role, Employee.options_for_role, {}%>
+        <% else %>
+          <%= f.select :role, Employee.options_for_role.reject{|role| role[0] == "POPV Viewer" || role[0] == "POPV Admin"}, {}%>
+        <% end %>
+      <% end %>
+
+      <%= error_message_on(:employee, :role) %>
+    </p>
+  </div>
+
+  <div class="right">
+    <p>
+      <label>Contact Fax</label>
+      <%= f.text_field :fax, :readonly => d_login?(@employee), :class => "text" %>
+    </p>
+  </div>
+
+  <div class="left clear">
+  <p>
+    <label>Login</label>
+    <%= f.text_field :login, :readonly => d_login?(@employee), :class => "text" %>
+    <%= error_message_on(:employee, :login) %>
+  </p>
+
+  <p>
+    <label>Group</label>
+    <%= select_tag 'employee[group_id]', options_for_select(Group.list_all_for_select(false), @employee.get_group), :readonly => d_login?(@employee) %>
+  </p>
+
+  </div>
+  <div class="right" style="padding-top: 15px;">
+    <%= f.check_box :buyer, :id => "buyer" %>
+    <label class="inline" style="font-size: 90%;" for="buyer">Buyer</label>
+    <%= f.check_box :archived, :id => "archived", :style => 'margin-left: 40px;' %>
+    <label class="inline" style="font-size: 90%;" for="buyer">Archived</label>
+
+
+  </div>
+
+<% if resource_enabled?(:popv) %>
+  <div class="right" style="padding-top: 15px; padding-bottom: 15px;">
+    <p>
+        <% if Employee.current_employee.popv_admin? %>
+    <%= f.check_box :popv_enabled, {:id => "popv_enabled", :onClick => "
+    if($('popv_enabled').checked){
+      $('employee_start_page').value = 5;
+      jQuery('#bom_xls_field').show();
+      }
+    else{
+      jQuery('#bom_xls_field').hide();
+    }"} %>
+    <% else %>
+    <%= f.hidden_field :popv_enabled, {:id => "popv_enabled"} %>
+    <%= f.check_box :popv_enabled, {:id => "popv_enabled", :disabled => true} %>
+
+    <% end %>
+    <label class="inline" style="font-size: 90%;" for="buyer">POPV Enabled</label>
+    </p>
+  </div>
+
+<% if @employee.popv_enabled %>
+  <div id="bom_xls_field" class="right">
+<% else %>
+  <div id="bom_xls_field" class="right" style="display:none;">
+<% end %>
+    <p>
+
+
+    <label class="inline" style="font-size: 90%;" for="buyer">BOM XLS Template</label>
+
+     <%= f.select :bom_xls_file , Bill.options_for_xls %>
+
+
+    </p>
+  </div>
+<% end %>
+
+  <div class="left clear">
+  <p>
+    <label>Password</label>
+    <%= f.password_field :password, :readonly => d_login?(@employee), :class => "password" %>
+    <%= error_message_on(:employee, :password) %>
+  </p>
+  </div>
+
+  <div class="right">
+  <p>
+    <label>Password Confirmation</label>
+    <%= f.password_field :password_confirmation, :readonly => d_login?(@employee), :class => "password" %>
+    <%= error_message_on(:employee, :password_confirmation) %>
+  </p>
+  </div>
+
+  <p class="clear">
+  	<label>When searching yields only one result ...</label>
+	<%= f.select :direct_search, [["I would like the result to be listed out as usual", 0], ["I want to be redirected to the edit page of that result", 1]], {}, :disabled => d_login?(@employee) %>
+  </p>
+</div>
+
+<p class="noprint menu clear">
+<% if current_employee.edit_login?(@employee) %>
+  <%= submit_tag "Save Employee", :class => "submit" %> or
+  <%= link_to_back %>
+<% else %>
+  <%= link_to_back "Back & List All" %>
+<% end %>
+</p>
+
+<% end %>

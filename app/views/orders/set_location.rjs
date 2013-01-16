@@ -1,0 +1,5 @@
+page.replace_html dom_id(@order, :location), :inline => @order.show_issued_to_history
+page.replace_html dom_id(@order, :show), :inline => truncate(@order.location)
+page.toggle dom_id(@order, :edit)
+page.toggle dom_id(@order, :show)
+page.visual_effect :highlight, dom_id(@order, :location)

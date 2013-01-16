@@ -1,0 +1,33 @@
+<div class="ticket">
+		
+	<table class="information">
+	  	<tr>
+		    <th>#</th>
+		    <th><%= link_to_sort "CATEGORY", "tickets.category", :include => [:state] %></th>
+		    <th><%= link_to_sort "PRIORITY", "tickets.priority", :include => [:state] %></th>
+		    <th><%= link_to_sort "STATE", "tickets.state", :include => [:state] %></th>
+		    <th><%= link_to_sort "TITLE", "tickets.title", :include => [:state] %></th>
+		    <th><%= link_to_sort "CONTEXT", "tickets.context", :include => [:state] %></th>
+		    <th><%= link_to_sort "ASSIGNED TO", "tickets.assigned_to", :include => [:state] %></th>
+		    <th><%= link_to_sort "UPDATED", "tickets.updated_at", :include => [:state] %></th>
+		</tr>
+
+	<% @tickets.each do |ticket| %>
+	  	<tr class="<%= ticket.priority %> <%= ticket.state %>">
+		    <td><%=h ticket.number %></td>
+		    <td><%=h ticket.category %></td>
+		    <td><%=h ticket.priority %></td>
+		    <td><%=h ticket.state %></td>
+		    <td><%=link_to ticket.title, ticket_path(ticket) %></td>
+		    <td><%=h ticket.context %></td>
+		    <td><%=h ticket.assigned_to %></td>
+		    <td><%=h ticket.updated_at %></td>
+	  	</tr>
+	<% end %>
+	</table>
+
+	<br />
+	
+	<%= render :partial => "shared/paginate", :locals => { :collection => @tickets } %>
+
+</div>

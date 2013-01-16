@@ -1,0 +1,16 @@
+
+	
+	<% if !material_request.material_request_attachments.blank? %>
+	<p>
+	<label>Import the following Attachments</label>
+<% for attachment in material_request.material_request_attachments %>
+
+<%= check_box("request", "attachments", {:multiple => true}, attachment.id, nil) %>
+<span><%= link_to attachment.filename, url_for(:controller => "material_requests", :action => "material_request_file", :id => attachment.id, :vendor_id => params[:vendor_id], :access_key => params[:access_key]), :method => :get %>
+</span><br/>
+<% end %>
+	</p>	  
+<% end %>
+
+<!-- <input type="checkbox" class="notify_check" value="0" name="request_attachment[<%= "#{attachment.id}"%>]" />  
+-->

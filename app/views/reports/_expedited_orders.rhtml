@@ -1,0 +1,23 @@
+<form id="expedited_orders" action="<%= url_for(:controller => 'reports', :action => 'show', :id => 'expedited') %>" method="get" style="display: none;">
+  <h2>Show Expediting Report</h2>
+  <p>
+    <label>Order By:</label><br />
+    <select name="order_by">
+      <option value="po_no">PO #</option>
+      <option value="ptm_no">PT&amp;M #</option>
+      <option value="date_eta">ETA</option>
+      <option value="vendor_id">Vendor</option>
+      <option value="unit_id">Unit</option>
+    </select>
+  </p>  
+  <p>
+    <label>Search Term #1:</label><br />
+    <input type="text" name="q" />
+  </p>
+  <p>
+    <label>Search Term #2:</label><br />
+    <input type="text" name="q2" />
+  </p>
+  
+  <input type="submit" value="Generate Report" />
+</form>

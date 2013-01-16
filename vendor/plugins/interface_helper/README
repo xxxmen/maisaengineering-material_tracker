@@ -1,0 +1,62 @@
+InterfaceHelper v. 0.0.1
+========================
+
+Includes a few methods for your ERB templates that will help with the interface.
+Most notably there's:
+
+    <%= link_to_toggle "Edit Me", post, :show, :edit %>
+    <%= link_to_help "/faqs/index.html" %>
+    <%= img_button "Edit Me", "edit.png", edit_post_path(1) %>
+
+Installation
+============
+
+You might want to install simply_helpful:
+
+    ./script/plugin install -x simply_helpful
+
+And include the following in your layout:
+
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag :interface_helper %>
+    
+For buttons, include this in your CSS file:
+
+    span.button a {
+      padding: 3px 4px;
+      padding-left: 1px;
+      text-decoration: none;
+    }
+
+    span.button a:hover {
+      background-color: #ffffcc;
+      border-right: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      color: #663300;
+      padding-right: 3px;
+      padding-bottom: 2px;
+    }
+
+    span.button a img {
+      border: none;
+      height: 1.2em;
+      padding-right: 4px;
+      position: relative;
+      top: .2em;
+    }
+
+TODO: List
+==========
+
+* [x] link_to_help
+* [ ] link_to_tip
+* [x] link_to_toggle - :scroll_to option
+* [x] img_button() - generate CSS for buttons?
+* [x] form default values - "no blank option"
+* [ ] FormBuilder for IDs of fields and forms
+* [ ] Generator for CSS and Javascript
+
+LICENSE
+=======
+
+Released under MIT License!

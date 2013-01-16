@@ -1,0 +1,50 @@
+<style type="text/css" media="screen">
+  table th.x-small, table td.x-small {
+    width: 35px;
+  }
+  
+  table th.small, table td.small {
+    width: 75px;
+  }
+  
+  h2 {
+    font-size: 140%;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+</style>
+
+<h2>Bill Description</h2>
+
+<h2>Manually Enter Item</h2>
+<% form_for :bill_item, @bill_item, :url => {:action => "create"}, :html => { :method => "post", :class => "edit full", :id => "new_bill_item" } do |f| %>
+  <table class="noprint information">
+    <tr>
+    <th class="x-small">Qty</th>
+    <th class="x-small">Unit</th>
+    <th>Description</th>
+    <th class="x-small"></th>
+    </tr>
+    <tr>
+      <td><%= f.text_field :quantity %></td>
+      <td><%= f.text_field :unit_of_measure %></td>
+      <td><%= f.text_field :description, :id => "description" %></td>
+      <td><%= submit_tag "Create Bill" %></td>
+    </tr>
+  </table>
+<% end %>
+
+<h2>Or use the Pipe/Valve/Fitting Builder</h2>
+<form>
+  <%= render :partial => "pipe_materials" %>
+</form>
+
+<script>
+  Event.observe($('new_bill_item'), 'submit', function(event){
+    if($F('description') == null || $F('description') == "") {
+      alert('Description cannot be blank');
+      Event.stop(event);
+    }
+  });
+</script>

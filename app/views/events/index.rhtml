@@ -1,0 +1,72 @@
+<style type="text/css" media="screen">
+    th.when, td.when { width: 160px;}
+    th.employee, td.employee { width: 160px;}
+    th.record, td.record { width: 100px; }
+    th.desc, td.desc {}
+    th.link, td.link { width: 120px; }
+</style>
+
+
+<%= render :partial => "filter" %>
+
+<table class="information" id="maininfo_header" cellspacing="0">
+  <tr>
+    <th class="when"><%= link_to_sort "When", "events.updated_at", :sort => "desc", :include => [:employee, :record] %> <a href="#" onclick="$('filter').show(); $('maininfo').hide(); $('maininfo_header').hide(); $('pagination').hide();" style="margin-left: 8px;">filter</a></th>
+    <th class="employee">
+        <select onchange="window.location=$F(this)" style="width: 120px;">
+            <option value="<%= filter_url(:employee => nil) %>">-- EMPLOYEE --</option>
+            <% Event.all_employees.each do |employee| %>
+                <option value="<%= filter_url(:employee => employee.id) %>" <%= select_filter_if(params[:employee] == employee.id.to_s) %>><%= employee.short_name %></option>
+            <% end %>
+        </select>
+    </th>
+    <th class="record">
+        <select onchange="window.location=$F(this)" style="width: 120px;">
+          <option value="<%= filter_url(:record => nil) %>">-- RECORD --</option>
+          <% Event.all_records.each do |record| %>
+              <% if record != "Cart" %>
+                  <option value="<%= filter_url(:record => record) %>" <%= select_filter_if(params[:record] == record) %>><%= record %></option>
+              <% end %>
+          <% end %>
+          <option value="<%= filter_url(:record => 'Cart') %>" <%= select_filter_if(params[:record] == 'Cart') %>>WebRequest</option>
+        </select>
+    </th>
+    <th><%= link_to_sort "Description", "events.description", :include => [:employee, :record] %></th>        
+    <th class="link"></th>
+  </tr>
+</table>
+
+<div id="maininfo">
+<table class="information" cellspacing="0">
+  <% @events.each do |event| %>
+    <% next if event.recordable == nil %>
+    <tr class="<%= cycle(:even, :odd) %>">
+        <td class="when"><%= format_time event.updated_at %></td>
+        <td class="employee"><%= event.employee_name %></td>
+        <td class="record">
+            <% if event.recordable_type == "Cart" %>
+            <b>WebRequest</b>
+            <% else %>
+            <b><%= event.recordable_type %></b>
+            <% end %>
+        </td>
+        <td class="desc"><%= event.description %></td>
+        <td class="link">
+            <% if event.recordable_type == "Order" %>
+                <%= link_to event.show_record, edit_order_path(event.recordable) %>
+            <% elsif event.recordable_type == "MaterialRequest" %>
+                <%= link_to event.show_record, edit_material_request_path(event.recordable) %>
+            <% elsif event.recordable_type == "Email" %>
+                <%= link_to event.show_record, email_path(event.recordable) %>
+            <% elsif event.recordable_type == "Quote" %>
+                <%= link_to event.show_record, url_for(:controller => "material_requests", :action => "quote", :id => event.recordable.material_request, :vendor_id => event.recordable.vendor.id, :access_key => event.recordable.vendor.access_key) %>
+            <% elsif event.recordable_type == "Cart" %>
+                <%= link_to event.show_record, edit_cart_path(event.recordable) %>
+            <% end %>
+        </td>
+  </tr>
+  <% end %>
+</table>
+</div>
+
+<%= render :partial => "shared/paginate", :locals => { :collection => @events } %>

@@ -1,0 +1,19 @@
+<h1>Editing Reference Number Type</h1>
+
+<% form_for(@type) do |f| %>
+  	<%= f.error_messages %>
+
+  	<p>
+    	<%= f.label :name %><br />
+    	<%= f.text_field :name %>
+  	</p>
+
+	<p>
+	    <%= f.label :default %>&nbsp;&nbsp;<%= f.check_box :default %>
+	</p>
+  	<p>
+    	<%= f.submit 'Update' %> or <%= link_to 'Cancel', reference_number_types_path %>
+  	</p>
+  
+<% end %>
+

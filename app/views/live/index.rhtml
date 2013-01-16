@@ -1,0 +1,63 @@
+<style type="text/css" media="screen">
+	h2.resource_header { border: 1px solid #999; background-color: #333; color: #fff; font-weight: bold; font-size: 115%; padding: 4px 6px; width: 100%;}
+	ul.resources { border-bottom: 1px solid #999; width: 100%; }	
+	ul.resources li.resource { border: 1px solid #ccc; border-bottom: none; padding: 4px 6px; width: 100%; }
+	
+	li.resource .id { font-weight: bold; font-size: 115%; margin-right: 6px; }
+	li.resource .name { color: red; font-weight: bold; font-size: 85%; margin-right: 10px; }
+	li.resource .desc { color: #111; font-size: 90%; }
+	
+	div#live_left { float: left; width: 49%; }
+	div#live_right { float: right; width: 49%; }
+</style>
+
+<div id="live_left">
+	<h2 class="resource_header" id="material_request_header">Unacknowledged Material Requests</h2>
+	<ul id="material_requests" class="resources">
+		<%= render :partial => "material_requests", :locals => { :material_requests => @material_requests, :hide => false } %>
+	</ul>
+</div>
+
+<div id="live_right">
+	<h2 class="resource_header" id="quote_header">Unacknowledged Quotes</h2>
+	<ul id="quotes" class="resources">
+		<%= render :partial => "quotes", :locals => { :quotes => @quotes, :hide => false } %>
+	</ul>
+</div>
+
+<script type="text/javascript" charset="utf-8">	
+	var debug = {
+		stop : false
+	}
+	
+	function updatePage(){
+		<% if RAILS_ENV == "development" %>
+			var timeout = 6000;
+		<% else %>
+			var timeout = 22000;
+		<% end %>
+		
+		setTimeout(function(){
+			new Ajax.Request('/live/update_page/', {
+				method: 'get',
+				parameters: 'material_request_ids=' + materialRequestIDs().join(',') + '&quote_ids=' + quoteIDs().join(','),
+				onComplete: function() { 
+					if(!debug.stop) { updatePage(); }
+				}
+			});
+		}, timeout);
+	}
+	
+	function quoteIDs(){
+		var quotes = $$('ul#quotes li.quote').select(function(elem) { return $(elem).visible(); });
+		return quotes.map(function(li) { return li.id.match(/_(\d+)/)[1]; });
+	}
+	
+	function materialRequestIDs(){
+		var materialRequests = $$('ul#material_requests li.material_request').select(function(elem){ return $(elem).visible(); });
+		return materialRequests.map(function(li) { return li.id.match(/_(\d+)/)[1]; });
+	}
+	
+		
+	updatePage();
+</script>

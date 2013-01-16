@@ -1,0 +1,433 @@
+Section_No,Section_Name,Section_Text,Last_Updt_Id,Last_Updt_Date
+0, 0.0 General Revision History                     ,GENERAL REVISION HISTORY\\
+PIPE CLASS SPECIAL NOTES:\\
+\\
+10/16/08 Added note to require inspection isos for Compressor Trim\, Heater Trim and Pump Trim for all line class services that required thickness measurements. --vcamburn\\
+\\
+LINE CLASS SUMMARY NOTES:\\
+\\
+1/14/98  1. Revised Note 147 to clarify use of bellows seal valves.\\
+\\
+1/14/98  2. Added Note 160.\\
+\\
+1/20/04  3. Added Note 456.  Also added Alloy 20 nipples tp pipe classes CAE and DAE.\\
+\\
+\\
+GENERAL NOTES:\\
+\\
+1/14/98  1. Revised paragraphs 9.1.10b 4) & 5) to clarify the use of bellows sealed valves. Added sub-paragraph c in paragraph 9.1.10\, Bellows-Sealed Valves Application (for LAR only)\, to clarify the use of 321 stainless steel and Inconel 625 bellows materials.\\
+\\
+1/14/98  2. Added paragraph 9.1.13 for Disaster Check Valves.\\
+\\
+1/14/98  3. Added tubing installation requirement in paragraph 12.2.\\
+\\
+4/22/99  4. Added \"deadman valve\" requirements in paragraph 9.1.15\\
+\\
+5/6/99    6. Changed the density of valve packing from 90#/cu ft to 75 - 85#/cu ft in paragraph 15.2.\\
+\\
+BRANCH CONNECTION CHART:\\
+\\
+1/14/98  1. Expanded pipe sizes to 48\". \\
+\\
+1/14/98  2. Added Nipolets\\
+\\
+4/22/99  3. Added paragraph 14.4 stating that 2\" and larger elbolets may be used for instrument connections and injection points.\\
+\\
+V-SHEETS\\
+\\
+1/14/98  1. Added Alloy 20 \"HTC\" requirements in the V-sheets for all Alloy 20 valves.                                                                                                                                                          \\
+2/8/99   2. Deleted AOD manufacturing process requirement for Alloy 20 valves. Added ASTM A351 as an acceptable casting manufacturing standard in addition to ASTM A744.\\
+                                                                                                                                                         1/10/99  3. Changed gate and globe valves gear operated sizes to the following:\\
+\\
+    VALVE RATING                GATE VALVE               GLOBE VALVE\\
+        150                               12\" & larger                  8\" & larger\\
+        300                               10\" & larger                  6\" & larger\\
+        600                               8\" & larger                    6\" & larger\\
+        900                               6\" & larger                    4\" & larger\\
+        1500                             4\" & larger                    4\" & larger\\
+        2500                             3\" & larger                    3\" & larger   \\
+\\
+ARCHIVED LINE CLASSES\\
+\\
+\\
+\\
+,CAMBURV1,2008-10-16
+1, 1.0 General                                      ,1.1        Scope \\
+\\
+This specification covers material and component requirements for process\, utility\, instrumentation\, steam tracing\, and sewer piping for the BP Carson Business Unit (hereafter referred to as ARCO\, BP\, BP CBU\, or CBU in this specification) refinery. This specification is to be used concurrently with detailed line class and valve reference sheets contained in a software package.  Line class data and valve specification sheets can be downloaded from the software package but are only as current as the date downloaded.   \\
+\\
+1.2 Deviations\\
+\\
+        1.2.1 Any deviations from this Standard shall be submitted to BP for approval in writing.\\
+\\
+1.2.2 All conflicts between the requirements of this specification\, related specifications\, codes\, standards\, purchase orders\, drawings and data sheets shall be referred to BP CBU Facility Integrity engineering for         clarification before proceeding with design\, procurement\, or the fabrication of the affected parts.\\
+,SILVERM3,2008-12-29
+2, 2.0 References                                   ,\\
+The following BP Engineering Standards supplement this specification: \\
+\\
+CBU-GIS 18-011 Refinery Welding CBU-GIS 18-011-1 Piping Fabrication\, Inspection and Testing \\
+\\
+CBU-GP 42-10-1 Piping Design Specification CBU-GP 42-10-4 Piping Graphics \\
+\\
+CBU-GIS 62-0012 Steel Ball Valves CBU-GIS 62-014-1 Butterfly Valves \\
+\\
+205/205V Piping Material Specification and Valve Specification Sheets\\
+\\
+CBU-GIS 62-0002 Valve Procurement \\
+\\
+CBU-GIS 42-0002 Pipe\, Fittings\, and Flanges Procurement \\
+\\
+CBU-GIS 42-0003 Gasket Procurement \\
+\\
+CBU-GIS 42-0004 Flange Bolting Procurement \\
+\\
+CBU-GIS 06-60 Painting \\
+\\
+CBU-GIS 06-40 Coating for Buried Steel Piping \\
+,SILVERM3,2008-12-29
+3, 3.0 Codes                                        ,3.1         Piping systems other than those listed in Paragraph 3.2 below are based on and are in accordance with ASME B31.3\, \"Process Piping\"\, latest edition\, unless otherwise specified in the individual line classes.\\
+\\
+3.2         \"Boiler External Piping\" within the jurisdiction of ASME Boiler and Pressure Vessel Code Section 1 shall be in accordance with ASME B31.1\, latest edition \"Power Piping\".\\
+\\
+3.3         Codes\, Standards\, or Publications referenced in this Standard shall be the latest approved version of such Code\, Standard\, or Publication unless otherwise indicated.\\
+\\
+3.4         The term \"latest edition\" shall be interpreted as the latest edition         (including latest published addenda) in force at the date of agreement to perform work or purchase.\\
+,SILVERM3,2008-12-29
+4, 4.0 Design Conditions                            ,4.1         Unless otherwise noted\, all pressures and temperatures referred to are maximum design conditions for which the pipe class may be specified. \\
+\\
+4.2         Unless otherwise specified in the individual line classes\, all pressures specified are positive pressures. All piping systems subjected to negative pressures shall be investigated on an individual basis. \\
+\\
+4.3         Piping component wall thicknesses do not include any additional thicknesses that may be required to compensate for such design considerations as thermal loads due to restraints\, live loads\, hydraulic shock\, or loads and forces from other causes\, all of which will be considered in the design of piping systems. \\
+\\
+4.4         Selection of steels exposed to hydrogen environment are in accordance with \"Steels for Hydrogen Service at Elevated Temperatures and Pressures in Petroleum Refineries and Chemical Plants\, API Publication 941\, latest edition. \"Hydrogen Service\" is defined as any fluid stream containing 50 PSIA or greater partial pressure of hydrogen. \\
+\\
+4.5         \"Sour Water Service\" is defined as a fluid stream containing liquid water and at least 50 PPM by weight of hydrogen sulfide\, with or without ammonia. \\
+\\
+4.6         \"Wet Sour Gas Service\" is defined as a fluid stream containing water and gas at a total pressure of 65 PSIA or greater and partial pressure of hydrogen sulfide is greater than 0.05 PSIA at a temperature of 250F or less\, with no amine present. \\
+\\
+4.7         \"Acid Gas\" is defined as a fluid stream containing high concentrations of hydrogen sulfide with water present\, typically overhead streams from an amine regenerator. \\
+\\
+4.8         \"Amines\" are defined as organic alkanolamine solutions\, typically 15-30%\, used to remove acid gases (CO2\, H2S) from refinery process gas streams. They include DEA\, MEA\, MDEA\, DGA\, and DIPA. \\
+\\
+4.9         Lines in \"Sour Water and Wet Sour Gas\" services shall meet the requirements of NACE Standard RP0472 latest edition.  NACE Standard MR-01-75\, latest edition is also acceptable for materials not listed in RP0472.\\
+\\
+4.10         Where a service is designated as \"General Hydrocarbons\" (without having specific quantities of either sulfur or hydrogen sulfide specified)\, it shall be understood that these lines may contain up to 0.2 weight percent of sulfur and/or 0.01 mole percent hydrogen sulfide. \\
+,SILVERM3,2008-12-29
+5, 5.0 Wall Thickness                               ,5.1        The piping component wall thicknesses specified in the individual line classes are based only on design considerations of pressure\, temperature\, corrosion allowance\, allowance for mechanical strength\, manufacturer's minus tolerance\, and threading allowance. Allowances for erosion\, vacuum\, etc.\, are not  included and shall be added as required.\\
+\\
+5.2        The D/t ratio of nominal outside diameter to minimum available thickness (nominal thickness minus mill tolerance minus corrosion allowance minus mechanical allowance) shall not exceed 135 unless provisions are made to prevent unacceptable ovality and deflection of the pipe (reinforcing rings\, decreased support spans\, etc.) and there is no possibility of forming a vacuum.,SILVERM3,2008-12-29
+6, 6.0 Class Identification                         ,The Piping Material Classification Index identifies the proper piping material line class by a code consisting of two or more identification characters\, except for Line Class A. The two or more character designations shall be used to identify the basic carbon steel\, alloy\, and stainless steel line classes for process and utility services. \\
+\\
+6.1        The first character indicates the ASME flange pressure rating as follows:\\
+\\
+\\
+CHARACTER        ASME CLASS RATING\\
+        \\
+A                NONE        \\
+B        125        \\
+C        150 \\
+D        300 \\
+E        400 (rarely used)\\
+F        600\\
+G        900\\
+H        1500 \\
+J        2500 (rarely used)\\
+\\
+\\
+6.2        The second character indicates the piping material as follows.  There is some line classes that do not follow this convention due to line class assignments that did not follow convention:\\
+\\
+\\
+CHARACTER        MATERIAL\\
+        \\
+A                Carbon Steel\\
+B        C - ½ Mo        \\
+C        1 ¼ Cr - ½ Mo\\
+D        2 ¼ Cr - 1 Mo \\
+E        5 Cr - ½ Mo\\
+F        9 Cr - 1 Mo\\
+G        12 Cr (410 SS)\\
+H        304\\
+J        304L\\
+K        316  Pipe and Tubing\\
+L        316L\\
+M        347\\
+N        FRP\\
+P        HF Modified\\
+Q        321\\
+R        Aluminum\\
+S        Plastic Lined CS\\
+T        Cement Lined CS\\
+U        Cast/Ductile Iron\\
+V        PVC and other plastics\\
+W        317L\\
+X        Alloy 20\\
+Y        Hastelloy C-276\\
+Z        Reinforced Concrete\\
+\\
+\\
+\\
+6.3         The third character designates any variation from the basic two character class\, such as different corrosion allowances\, temperature ranges\, gasketing\, flange facing\, etc. \\
+\\
+6.4         The fourth character designates any special variation of a three character line class. \\
+\\
+6.5        An alpha-numeric designation such as S-1 and S-2 is to identify secondary instrument piping beyond the primary block valve. \\
+\\
+6.6         New piping line class shall not be created or used without permission from the BP site Engineering Piping Specialist. This is to avoid conflicts in pipe class designations.\\
+,SILVERM3,2008-12-29
+7, 7.0 Specification Notes                          ,Each piping line class contains a set of notes which are part of that line class.  In order to use the line class properly\, read and use the information contained in these notes.\\
+\\
+,POPV    ,1996-8-15
+8, 8.0 Item Descriptions                            ,8.1        The Item Description shown in the individual line classes is abbreviated\, and may be used for purchasing these items except for valves and specialty items.  Refer to Paragraph 9.1.1 below for purchase descriptions of valves. Specialty items will be provided with complete purchase descriptions or data sheets. Valves that are considered specialty items shall be assigned an \"RW\" number for the Carson Business Unit refinery and a \"CP\" number for the Cherry Point refinery.\\
+\\
+8.2        Manufacturers' names are used only as reference.  Other manufacturers approved per the BP CBU piping and valve approved manufacturers program will also be considered. (Refer to BP CBU Procurement Dept. for currently acceptable vendors.)\\
+,SILVERM3,2008-11-27
+9, 9.0 Specific Item Notes                          ,9.1 Valves \\
+\\
+9.1.1 The valve descriptions indicated in the line classes are abbreviated. For complete valve purchase descriptions and additional requirements\, refer to the Valve Specification Sheets\, Standard 205V.\\
+ \\
+9.1.2 The check valves specified in the individual line classes are of the conventional type and are designed to be installed in vertical (upward flow) or horizontal position unless limited in the line class. \\
+\\
+9.1.3 Check valves at centrifugal compressors operating in ASME class 600 and lower shall be special non-slam\, slow-closing check valves\, Mokveld TKZ or Demag Nozzle Check Valve models. Above ASME class 600 for centrifugal compressors and all pressure classes for reciprocating compressors\, the check valves shall be approved by Engineering.\\
+\\
+9.1.4 Butterfly valves shall not be bolted directly against check valves or to any equipment or piping component that would interfere with the operation of the butterfly valve. \\
+\\
+9.1.5 Flangeless valves (lug type) shall only be used in certain applications approved\, in writing by BP Engineering. If approved\, the valves shall have unthreaded lugs with through-bolt holes. \\
+\\
+9.1.6 Only the valves listed in the line classes shall be used unless identified as exceptions on the P&ID's by assignment of RW numbers. \\
+\\
+9.1.7 Chain wheels\, if approved for certain applications\, shall be impact type for steel valves six inches and larger and mounted directly on the yoke bushing rather than clamped on the hand wheel\\
+ \\
+9.1.8 Valve bypasses\, when required\, shall be installed on the pipe rather than on the valve whenever possible. The bypass valve shall be globe type\, and shall be sized in accordance with the following\, unless otherwise specified on the P&ID.\\
+\\
+                 \\
+MAIN VALVE        BY-PASS VALVE\\
+4\"-8\"                             ¾\"\\
+10\"-14\"                              1\"\\
+16\" and larger               1 ½\"\\
+\\
+\\
+9.1.9 Sample connections shall have a primary block valve at the main line or equipment per the applicable line class. The sampling valve shall be a needle or ball valve per the applicable secondary instrument piping line class. \\
+\\
+9.1.10 Bellows-Sealed Valve Applications\\
+\\
+a.        The basic BACT criteria for all new valves in VOC service are to be of a leakless type (e.g. bellows seal type)\, except those specifically exempted under SCAQMD Rule 1173(l) or as approved by SCAQMD in the following applications. \\
+\\
+b.         BSV Exemption List \\
+\\
+1. Valves in heavy liquid service (i.e. streams with a vapor pressure < 0.1 psia @ 100 ºF (kerosene) based on the most volatile class present >20% by volume) \\
+\\
+2. Control valves \\
+\\
+3. Instrument tubing application (including instrument root valves) - Sealed bellows valves are not required for instrument valves\, including root valves on instrumentation. Instrument root valves include vessel bridle valves\, orifice tap root valves\, pressure tap root valves and analyzer tap root valves. Gauge glass\, level transmitter and level switch connections to the bridle\, and instrument vents and drains do not require sealed bellows valves. Valves in level drain lines piped to a slop oils or other collection system do not require sealed bellows valves. Sample Connections - Treat the same way as instrument valves. \\
+\\
+4. Applications requiring torsional valve stem motion (i.e. 90º - turn valves\, such as butterfly\, ball and plug valves). Examples include but are not limited to:A. Throttling - Process lines that may require throttling such as bypass loops and feed lines.B. Quick Action - Hydraulic Systems; Systems such as dryers which require quick action to accomplish switching between regeneration and drying cycles.C. LPG and Low Temperature ServicesD. Amine\, H2S\, HF\, and H2SO4 containing systemsE. Tight shut-offF. Low Pressure drop \\
+\\
+5. Applications where valve failure could pose a safety hazard (e.g.  with valve stem in horizontal position). \\
+\\
+6. Retrofit/special applications with space limitations (special applications such as skid mounted standard packaged systems). \\
+\\
+7. Valves not commercially available. \\
+\\
+8. Components exclusively handling commercial natural gas. \\
+\\
+9. Components exclusively handling fluids with a VOC concentration of ten percent by weight or less\, determined according to test methods specified in Rule 1173(j)(2). \\
+\\
+10. Components incorporated in lines while operating under negative pressure. \\
+\\
+11. Lubricating fluids. \\
+\\
+12. Components buried below ground. \\
+\\
+13. Pressure vacuum valves on storage tanks. \\
+\\
+\\
+c.        All new process components that will be installed as part of the proposed project will be required to fully comply with the accepted BACT guidelines. Replaced in kind valves that will continue to operate in same service are exempt from BACT requirements. \\
+\\
+d.        For the purpose of this document commercially available BSV valves are items that are usually part of stock on hand at the warehouse of the supplier or manufacturer. The valves are listed in a manufacturer's published catalog and are not considered to be a special order item because of trim or metallurgy. The delivery time is typical for items in stock at the warehouse not including time.\\
+\\
+e.        Bellows sealed valve with 321 stainless steel bellows material is normally required. For services that may cause 321 stainless bellows to crack (i.e.\, chloride stress cracking)\, Inconel 625 bellows material shall be used. Chloride stress cracking may occur at continuous operating temperatures between 150F to 350F. The operating units where chloride stress cracking is likely to occur are the crude and reformer units.\\
+\\
+9.1.11 Block Valves for Pressure Instruments\\
+\\
+The block valve for pressure instrument shall be a piping primary block valve. \\
+\\
+9.1.12 Valves for Hydrogen Servuce\\
+\\
+Critical areas of valve bodies and bonnets in hydrogen service in ASME class 600 and higher shall be radiographed (if made of castings ) or ultrasonically examined (if made of forgings) as specified in the Valve Specification Sheets (Standard 205V).\\
+ \\
+9.1.13 Disaster Check Valves\\
+\\
+Disaster check valves description are available in the V-Sheets. The V-Numbers for these valves are V01890 (Class 150\, 316SS trim)\, V01891 (Class 150\, Alloy 20 Trim)\, V03890 (Class 300\, 316SS trim)\, and V03891 (Class 300\, Alloy 20 trim). The valves with 316SS trim can be used for line classes where 12 chrome trim or 316SS trim have been specifed\, and the valves with Alloy 20 trim can be used in line classes CAE and DAE. Consult Engineering for other service requirements. \\
+\\
+9.1.14 Motor Operated Valves\\
+\\
+Gate valves shall be investigated for the need to have a motor operator in sizes 24\" and larger. Frequency and speed of operation shall be considered.\\
+\\
+9.1.15 Torque Handle Operated Ball Valves (Deadman Valves)\\
+\\
+Torque-Handle operated ball valve (referred to as deadman valve) shall be specified \"spring close\" or \"spring open\"\, as required\, in the item purchase description. The field shall verify the desired position of the torque-handle (spring close or spring return) after installation and before placing the valve in service.If in doubt\, the valve manufacturer or distributor shall be contacted. \\
+\\
+9.2 Pipe\\
+\\
+9.2.1 Where calculated wall thickness is specified in the individual line classes\, it shall be calculated in accordance with ASME B31.3 or ASME B31.1\, latest edition\, as applicable. Refer to the D/t criterion specified in Paragraph 5.2 of this specification. \\
+\\
+9.2.2 Straight-run piping 1 1/2\" and smaller in socketweld classes\, shall be joined by socketwelding the ends together with a coupling; for piping in threaded classes\, use threaded coupling. If needed for a specific application or condition\, 2\" size may be socketwelded for welded classes and threaded for threaded classes. \\
+\\
+9.2.3 Pipe 2\" and larger for field fabrication shall be purchased in double random lengths. Piping 1 1/2\" and smaller shall be purchased in single random lengths.\\
+ \\
+9.2.4 Welded pipe shall not be substituted for seamless pipe without prior BP CBU Facility Integrity engineering approval unless specifically listed in the line class detail. Seamless pipe of the same material specification and grade may be substituted for welded pipe\, if necessary. \\
+\\
+9.3 Fittings\\
+\\
+9.3.1 When buttwelding\,  fitting wall thickness is specified to match.  \\
+,SILVERM3,2008-12-29
+10,10.0 Seal Welding                                 ,10.1      The following threaded joints shall be seal welded in lines for which socketweld construction\\
+             in small piping is specified:\\
+\\
+             a.    Orifice taps\\
+\\
+             b.    UNVALVED hydrostatic test vent and drain connections after hydrotest\\
+\\
+10.2       All thread compounds shall be completely removed from any joint to be seal welded.\\
+\\
+10.3       Seal welds shall cover all exposed threads.\\
+\\
+10.4       Do not seal weld the following:\\
+\\
+             a.  Instrument (S-1\, S-2\, S-3\, etc. line classes) and drain piping downstream of primary\\
+                  block valve.\\
+\\
+             b.  Control valves\, relief valve equipment connections\, instrument connections\, union\\
+                  nuts\, thermowells\, tube fittings and sampling valves.\\
+\\
+             c.  Threaded connections that are needed for disassembly to pumps or other mechanical\\
+                  equipment.\\
+\\
+             d.  Screwed plugs in VALVED vents and drains.\\
+\\
+             e.  Galvanized  pipe and fittings.\\
+,POPV    ,1996-8-15
+11,11.0 Thread Compound                              ,Thread compound shall be RAMCO Anti-Seize 2400 unless otherwise specified.  For oxygen piping use PTFE (Teflon) tape. ,SILVERM3,2008-12-29
+12,12.0 Instrument Piping                            ,12.1   Secondary instrument piping classes (e.g.\, S-1\, S-2\, S-3) shall be used for piping downstream of the primary block valve.\\
+\\
+12.2   For tubing installation\, routing\, and support\, refer to the Instrument Standard 314\, Instrument Piping.    ,PCSSME  ,1997-6-27
+13,13.0 Safety Shields                               ,Spray shields should be considered for flanges and valves in caustic\, acid\,  and other chemical services designated by the refinery Environmental Health and Safety (EH&S) Department.  Specification of spray shields should be based on a risk assessment should a leak occur. ,SILVERM3,2008-11-26
+14,14.0 Branch Connection Chart                      ,14.1      This specification contains three branch connection charts\, BC-9\, BC-10\, and BC-11\, which show the type of fitting to use for a branch connection to a pipe run.  Each line class specifies which chart to use.\\
+\\
+14.2      For field tie-in connections to piping while in service\, refer to MQAC Document MQA-7\, Procedure for Welding on Equipment in Service.\\
+\\
+14.3      Weldolet\, Sockolet\, Elbolet\, etc.\, are registered trademarks of Bonney Forge. Another acceptable manufacturer of reinforced branch connection fittings is WFI.\\
+\\
+14.4      The Elbolets that are specified in the branch connection charts are intended to be welded to elbows and are limited to 1-1/2\" size branch connections. 2\" and larger elbolets may be used for instrument connections and injection points.\\
+\\
+,ASAHIDT ,2004-1-20
+15,15.0 Packing - Gasketing Requirements             ,Packing and gasketing materials shall be in accordance with the following minimum requirements:\\
+\\
+15.1        Type:  Interbraided Graphite Filament Valve Stem Packing Ring (for bottom and top rings only)\\
+\\
+15.1.2 Valve stem packing ring; specify inside diameter of ring to be same as valve stem diameter; specify outside diameter of ring to be same as diameter of bore of stuffing box; specify height of ring to be approximately the same as the width of the ring; interbraided from graphite filament with the following properties\\
+\\
+a. Asbestos Content - None\\
+\\
+b. Carbon Content - 95% minimum per ASTM C-571\\
+\\
+c. Leachable Chlorides - 100 ppm maximum per manufacturer's certification\\
+\\
+d. The packing material shall contain a zinc corrosion inhibitor to prevent electrolytic action after hydrostatic testing\, etc. \\
+\\
+15.2        Type: Graphoil Die-Molded Valve Stem Packing Ring\\
+\\
+15.1.2 Valve stem packing ring: specify inside diameter of ring to be same as valve stem diameter plus 0.005\"; specify outside diameter of ring to be same as diameter of bore of stuffing box plus 0.002\"; specify height of ring to be approximately the same as the width of the ring; ring shall be die molded from a continuous length of flexible graphite Ribbon\, Union Carbide Grafoil Grade GTK or Polycarbon Calgraph-PB and shall have the following properties:\\
+\\
+a.        Density - 70 to 85#/cu.ft. per ASTM C559 \\
+\\
+b.        Asbestos Content - None \\
+\\
+c.        Carbon Content - 95% minimum per ASTM C571 \\
+\\
+d.        Leachable Chlorides - 100 ppm maximum per manufacturer's certification \\
+\\
+e.        Total Chlorides - 500 ppm maximum per ASTM D512 \\
+\\
+f.        Total Fluorides - 300 ppm maximum per ASTM D3761 \\
+\\
+g.        Total Sulfur - 1000 ppm maximum per ASTM D816\\
+\\
+\\
+15.1.3 The manufacturer shall certify that the sheet from which the ribbon is made is resilient; its recovery shall be at least 15% when tested in accordance with ASTM F36\, Method A\, modified to use the measured thickness of the sheet.\\
+\\
+15.1.4  The ring shall contain zinc corrosion inhibitor integrally bonded to the graphite during the manufacture of the ribbon from which the ring is made. Application of the corrosion inhibitor after die-forming of the ribbon is NOTacceptable. \\
+\\
+\\
+15.3        Type: Spiral Wound Gasket with Flexible Graphite Filler\\
+\\
+15.3.1  Gaskets\, circular: specify flange size (NPS); specify pressure class; specify dimensional specification of the flange; spiral-wound\, API Standard 601; metal windings shall be AISI Type 304 or 316; the filler shall be flexible graphite made from Union Carbide Grade GTB or CALGRAPH GRADE B with the following properties.\\
+\\
+                 a. Density - 70#/cu.ft. per ASTM C559\\
+\\
+                 b. Asbestos Content - None\\
+\\
+                 c. Carbon Content - 95% minimum per ASTM C571\\
+\\
+d. Leachable Chlorides - 100 ppm maximum per manufacturer's certification\\
+\\
+                 e. Total Chlorides  - 500 ppm maximum per ASTM D512 \\
+\\
+                 f. Total Fluorides  - 300 ppm maximum per ASTM D3761 \\
+\\
+                 g. Total Sulfur  - 1000 ppm maximum per ASTM D816 \\
+\\
+h. Recovery (Resiliency) - 15% minimum per ASTM F-36 Method A modified to use measured thickness of sheet. \\
+\\
+15.4        Type: Flexible Graphite Gasket with Corrugated Metal Insert\\
+\\
+15.4.1 The gasket shall have a 316 stainless steel corrugated metal insert\, with a minimum thickness of 0.024\". The graphite shall have the following properties:\\
+\\
+a.        Asbestos content -None Carbon content -95% minimum per ASTM C571  b. Leachable Chlorides -100 ppm max.\, per mfr's certification \\
+b.        Total chlorides -500 ppm\, max.\, per ASTM D512 Total fluorides -300 ppm max.\, per ASTM D3761 \\
+c.        Total sulfur -1000 ppm\, max.\, per ASTM D816 Recovery (resiliency) -15% min.\, per ASTM F-36 Method A modified to use the measured thickness of the gasket\\
+\\
+\\
+15.4.2 The gaskets shall be branded with the manufacturer's name and style or grade of flexible graphite and meet ASME B16.21. \\
+\\
+15.5        Type: Compressed Asbestos Sheet Gasket Material\\
+\\
+No longer used. Replacement gasket is a flexible graphite applied to a 304/316 stainless steel 0.002\" foil insert (not tanged insert). \\
+\\
+15.6 Type: Kamprofile Style\\
+\\
+316 ring core 1/8\" thickness\, grooved on OD to accept loose fitting centering ring\, serration groove depth 0.069\"\, 1/16\" carbon steel centering ring zinc gal or powder spray coated\, 0.020\" flexible graphite Polycarbon Graed APX-2 glued to eac sealing face.\\
+\\
+Details:\\
+\\
+ID/D Tolerance 1/32\" Groove depth (top pf peak to bottom of groove) of finished gasket shall be 0.012-0.016\" Each peak shall have a 0.0002-0.0004\" wide flat area Pitch (peak to peak) shall be 0.040\" (25 grooves/inch) Bottom of groove shall have a radious of apparoximately 0.012\" and an angle of the groove shall be 45 deg +/- 2 deg from sealing surface. \\
+,SILVERM3,2008-12-29
+16,16.0 Piping Material Classification Index         ,This specification contains a PIPING MATERIAL CLASSIFICATION INDEX\, which is a summary of the information in each line class.  It can be used as a quick reference or to compare line classes.  The Index may be found following this introductory section.\\
+\\
+A few line classes have been placed on the ARCHIVE LIST and shown on the chart following the Piping Material Classification Index.  The chart also shows the new equivalent line class to use.  The archived line classes are not part of this specification.,SILVERM3,2008-4-5
+17,17.0 Underground Piping                           ,Underground steel piping shall be coated in accordance with BP  Engineering Standard CBU-GIS 06-40.\\
+\\
+,SILVERM3,2008-11-27
+18,18.0 Valves and V-Sheets                          ,The following valve specification sheets are used to purchase valves that are specified in the individual Piping Material Line Classes. Refer to the appropriate line class to determine which valve specification sheet to use. \\
+The valve specification sheets (V-Sheets) provide an outline of the general characteristics for each specific type of valve\, and assign each valve a unique valve number. The sheets provide the applicable manufacturing standard\, the metallurgy of the valve parts\, pressure rating\, end connections\, and the required non-destructive examination\, if applicable. See the VALVE NUMBER INDEX for the list of approved manufacturers and figure numbers of acceptable valves. \\
+The following example is offered as a guideline in ordering valves from the sheets:\\
+\\
+Refer to the P&ID's or piping isometric drawings to determine the applicable piping line class. For this example\, line class \"CA\" is selected. The valve size and type to be considered is a 4\" gate valve. Referring to line class \"CA\"\, this valve has a valve number of \"V01010.\" Find this valve with this number in the valve specification sheets. Use this sheet to purchase the valve. \\
+\\
+In general\, the more unique the valve the more information is required to describe it. However\, in most cases\, the specification sheet provides sufficient detail to describe the valve to a vendor. \\
+\\
+Refer to Section 15 for valve stem packing requirements. \\
+\\
+A valve number system is defined such that the valves are listed numerically by category. They are listed by ASME class rating (designated 01 for class 150\, 03 for class 300\, etc.)\, followed by a three digit number indicating the specific type of valve. The following is a breakdown of the valve number and the three digit designator for a class 600 gate valve.\\
+\\
+\\
+VALVE        VALVE DESIGNATOR TYPE\\
+001-399        Gate\\
+400-499        Globe\\
+500-699        Check\\
+700-799        Plug\\
+800-999        Ball and Miscellaneous\\
+\\
+,SILVERM3,2008-12-29
+19,19.0 Valves                                       ,                                                             \\
+This section has been deleted.  ,SILVERM3,2008-12-29

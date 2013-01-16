@@ -1,0 +1,277 @@
+<h1>Changelog</h1>
+<br/>
+
+
+
+<h2>3.0.22 - 2010-01-28</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV: Fixed piping notes window issues with IE6 & 7. Increased default PCD form height.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.20 - 2010-01-25</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV: Piping Classes combo box now loads when adding the first item to a BOM.
+		</li>
+		<li>
+			General: Fixed the "You are being redirected" message for some users.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.18 - 2010-01-15</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV: Admins can now select and delete multiple Piping Class Detail records. Use wisely!
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.17 - 2010-01-11</h2>
+<p>
+	<ul>
+		<li>
+			Login - Created a new login screen to make it easier to login to POPV.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.16 - 2009-12-22</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV - Valves PDF: Fixed a small bug in the Line Class Valve Sheet PDF where there were duplicate components because of multiple valves for one class.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.15 - 2009-12-18</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV - Valves PDF: Updated the Line Class Valve Sheet PDF to include Manufacturers and Figure Numbers.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.14 - 2009-12-11</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV - Piping Components: Now prevents admins from deleting components that
+			are tied to Class Details. Also prevents deletion if the component has subcomponents.
+		</li>
+		<li>
+			WebPOPV - Valves: Updated the Valve Sheet PDFs to include Manufacturers and Figure Numbers.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.13 - 2009-12-08</h2>
+<p>
+	<ul>
+		<li>
+			Piping Classes: Updated the clone class feature for piping classes so it doesn't record
+			the cloning of all details in the Revision History.
+		</li>
+		<li>
+			Added Manufactures and Figure No to the valves comparison view.
+		</li>
+		<li>
+			Anyone can now view the archived status checkbox for Valves.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.12 - 2009-12-08</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV: Refreshes the Valves drop down when a valve is added or modified.
+		</li>
+		<li>
+			Orders: Set default Status to 'Ordered' when creating a new Order.
+		</li>
+		<li>
+			PipingClassDetails: Fixed an issue where if a valve was set to 0, it would fail.
+		</li>
+		<li>
+			PipingComponent: Now requires a description.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.11 - 2009-12-04</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV: Fixed the Bill of Materials Excel download.
+		</li>
+		<li>
+			Material Requests: Fixed a routing error when a search result doesn't find anything.
+		</li>
+	</ul>
+</p>
+<br/>
+
+
+<h2>3.0.10 - 2009-12-03</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV: Now, when trying to add a new figure_no for a manufacturer that doesn't exist to a valve, the manufacturer drop-down now reloads after having created the Manufacturer. Previously it would not show the new one in the drop-down.
+		</li>
+	</ul>
+</p>
+<br/>
+
+
+<h2>3.0.9 - 2009-12-03</h2>
+<p>
+	<ul>
+		<li>
+			Added the deployment site name to the header, underneath "Material Tracker" so people can distinguish between
+			the different BP web site deployments (Carson, Cherrypoint, etc).
+		</li>
+		<li>
+			WebPOPV: Updated the Piping Class All Valves PDF so it now includes Valve Type, Rating, and Body.
+		</li>
+		<li>
+			WebPOPV: Fixed a bug with the BOM CSV export.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.8 - 2009-12-02</h2>
+<p>
+	<ul>
+		<li>
+			Searching: Added wildcard searching for Purchase Orders and Material Requests.
+		</li>
+		<li>
+			Material Requests: Updated the planners drop-down box so it shows only planners.
+		</li>
+		<li>
+			Material Requests: "Reference Type" field now a textfield with autocomplete functionality.
+		</li>
+		<li>
+			Material Requests: Email now correctly fills in the reference number and it's type.
+		</li>
+		<li>
+			Bill of Materials: CSV now accounts for reference numbers and their types.
+		</li>
+		<li>
+			Reference Number Types: Admins can now define which Type will be the default for 
+			new Material Requests.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.7 - 2009-12-01</h2>
+<p>
+	<ul>
+		<li>
+			Fixed the Purchase Order Reports after the server migration.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.6 - 2009-11-30</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV: Fixed the "All Piping Classes" PDF generation.
+		</li>
+		<li>
+			Fixed a bug with printing Orders.
+		</li>
+		<li>
+			Fixed an issue with editing an Order.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.5 - 2009-11-25</h2>
+<p>
+	<ul>
+		<li>
+			Updated searching to use a new back-end database indexing program.
+		</li>
+		<li>
+			Updated the groups filtering and assignment so it is more robust and less invasive when searching.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.4 - 2009-11-24</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV: Removed viewing restrictions of Valve Preferred Manufacturers, so now
+			everyone can see them. Only Admins can edit though still.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.3 - 2009-11-11</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV: Imported the Piping Subcomponent list.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.2 - 2009-11-09</h2>
+<p>
+	<ul>
+		<li>
+			WebPOPV: Only the "Piping Classes" tab shows up upon startup. Removed
+			"Revision History" to avoid confusion. This can still be accessed by
+			clicking on the "Revision History" link on the left.
+		</li>
+	</ul>
+</p>
+<br/>
+
+<h2>3.0.1 - 2009-11-06</h2>
+<p>
+	<ul>
+		<li>
+			Added Maintenance notifications to alert users 24 hours before
+			we deploy a new version (bug fixes exempt - we deploy as soon as 
+			they are fixed).
+		</li>
+		<li>
+			"Material Tracker" title link now routes to the home page.
+		</li>
+		<li>
+			"Telaeris" logo now routes to creating a new ticket.
+		</li>
+		<li>
+			Fixed the look of this Changelog!
+		</li>
+	</ul>
+</p>

@@ -1,0 +1,235 @@
+/* RESET CODE */
+html, body, div, span, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-weight: inherit;font-style: inherit;font-size: 100%;font-family: inherit;vertical-align: baseline;}
+h1,h2,h3,h4,h5,h6 { font-weight: normal; }
+select, input, textarea {font: 99% arial, helvetica, clean, sans-serif;}
+pre, code {font-family: monospace;}
+body {line-height: 1;color: black;background: white;}
+ol, ul {list-style: none;}
+table {border-collapse: collapse;border-spacing: 0;}
+caption, th, td {text-align: left;font-weight: normal;}
+blockquote:before, blockquote:after,q:before, q:after {content: "";}
+blockquote, q {quotes: "" "";}
+em { font-style: italic; }
+strong { font-weight: bold; }
+a { color: #00688B; }
+a:hover { color: #e67520; }
+p { margin-bottom: 11px; }
+
+/* START SITE CSS */
+body { background-color: #fff; font-family: Trebuchet MS; font-size: 13px; text-align: left; }
+body#prompt { background-color: #333;}
+
+img.doc { margin-right: 10px; margin-bottom: 10px; margin-top: 10px; }
+a.doc, b.doc { margin-right: 7px; margin-left: 7px; position: relative; bottom: 4px;}
+
+.notice { background-color: #cfc; color: #060; font-weight: bold; padding: 1px 2px;}
+.error { background-color: #fcc; color: #600; font-weight: bold; padding: 1px 2px;}
+
+#flash_message {
+    position: absolute;
+    top: 7px;
+    left: 248px;
+    padding: 4px 10px;
+    font-weight: bold;
+    background-color: #ff9;
+    color: #000;
+/*    display: none;
+*/}
+
+/* for the login form */
+form#login_form { border: 2px solid #222; border-right: 4px solid #111; border-bottom: 4px solid #111; background-color: #bbb;
+    margin: 0 auto; margin-top: 10%; width: 400px; padding: 16px 20px; padding-top: 20px; text-align: left; }
+form#login_form label { font-weight: bold; display: block; }
+form#login_form label.inline { display: inline; }
+form#login_form .text, form#login_form .password { width: 95%; }
+form#login_form p.submit { margin-bottom: 1px; }
+
+span.kind.inspection, span.kind.service, span.kind.equipment, span.kind.notice { font-weight: bold; padding: 3px 5px; }
+span.kind.inspection { background-color: #9ff; }
+span.kind.equipment { background-color: #ff9; }
+span.kind.service { background-color: #f9f; }
+span.kind.notice { background-color: #f99; color: #000; }
+
+#resource_navigation { font-size: 85%; margin-left: 2px; margin-right: 4px; }
+#resource_navigation li { padding: 1px 8px; padding-bottom: 4px;}
+#resource_navigation li.header { font-weight: bold; padding-top: 5px; padding-bottom: 1px; font-size: 120%;}
+#resource_navigation li a { text-decoration: none; padding-left: 6px; }
+#resource_navigation li.selected { font-weight: bold; font-size: 105%; color: #fff; background-color: #00688b;}
+#resource_navigation li.selected a { color: #fff; }
+#resource_navigation li a img { position: relative; top: 4px; padding-right: 2px; }
+
+
+.related_data table { position: relative; left: 1px; border-left: 1px solid #ccc; border-top: 1px solid #ccc; padding: 0; font-size: 95%; overflow-x: scroll; width: 95%; border-right: 1px solid #ccc; }
+.related_data table th, .related_data table td { padding: 4px 8px; border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; }
+.related_data table th { background-color: #222; color: #fff; border: 1px solid #111; padding: 6px 8px; }
+
+
+table.dashboard {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 0;
+    width: 100%;
+}
+
+
+table.dashboard th, table.dashboard td {
+    padding: 4px 8px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+table.dashboard th { background-color: #222; color: #fff; border: 1px solid #111; padding: 6px 8px; }
+table.dashboard tr.even td { background-color: #ddd; }
+
+
+#header{
+	margin: 0px;
+	padding: 0px;
+	background: #1e4176;
+	height: 36px;
+	color: #fff;
+}
+
+#header h1 {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    font-size: 110%;
+}
+
+#header_navigation {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    font-size: 95%;
+}
+
+#header_navigation a {
+    color: #fff;
+    font-size: 105%;
+}
+
+#header img{
+	padding-left: 12px;
+}
+
+#orangeBar{
+	margin: 0px;
+	padding: 0px;
+    padding-top: 8px;
+    padding-right: 8px;
+	background-image: url(/images/orangeBar.jpg);
+	background-repeat: repeat-x;
+	height: 39px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;	
+    position: relative;
+    bottom: 14px;
+}
+
+#orangeBar a{
+	text-decoration: underline;
+	color: #FFFFFF;	
+}
+
+#orangeBar a:hover{
+	color: #072A40;
+}
+
+#userWrapper{
+	float: right;
+	margin: 0;
+	padding: 2px 12px 0 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #072A40;	
+}
+
+#userWrapper a{
+	text-decoration: underline;
+	color: #072A40;	
+}
+
+#userWrapper a:hover{
+	color: #F17F33;
+}
+#searchWrapper{
+	float: right;
+	margin: 0;
+	padding: 8px 12px 0 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: white;	
+}
+
+/* MENU ------------------------------ */
+#menuWrapper{
+	clear: both;
+	float: right;
+	position: absolute;
+	top: 18px;
+	right: 12px;
+}
+/* SPRITE NAVIGATION */ 
+#menu { position: relative; top: 48px; }
+#menu li { display: inline; margin-left: 5px; font-weight: bold;}
+#menu li a { text-decoration: none; color: #00688B; margin-right: 4px;}
+#menu li a:hover { color: orangered; }
+/*  #menu {
+        background: url(/images/clientSideNav.jpg) 0 0 no-repeat;
+        width: 589px;       /* Width of entire image 
+        height: 67px;       /* Height of buttons 
+        margin: 0;
+        padding: 0;
+    }
+    #menu span {
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+    #menu li, #menu a {
+        height: 67px;       /* Each button must have the same height, define it here 
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    #menu li {
+        float: left;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    /* margin-left - you will need to adjust this value to "center" your nav, if needed 
+    /* width - width of each button, they will each most likely be unique 
+    #menu-equipment         { width: 73px; margin: 0; padding: 0;}
+    #menu-inspection        { width: 114px; margin: 0; padding: 0;}
+    #menu-serviceHist       { width: 99px; margin: 0; padding: 0;}
+    #menu-projDetails       { width: 94px; margin: 0; padding: 0;}
+    #menu-transactionHist   { width: 122px; margin: 0; padding: 0;}
+    #menu-stiProducts       { width: 86px; margin: 0; padding: 0;}
+    
+    /* Changed values should match sum of "width" numbers specified above  
+    #menu-equipment a:hover, #equipment #menu-equipment a:visited       { background: transparent url(/images/clientSideNav.jpg) 0px -67px no-repeat; }
+    #menu-inspection a:hover, #inspection #menu-inspection a:visited    { background: transparent url(/images/clientSideNav.jpg) -73px -67px no-repeat; }
+    #menu-serviceHist a:hover, #serviceHist #menu-serviceHist a:visited { background: transparent url(/images/clientSideNav.jpg) -187px -67px no-repeat; }
+    #menu-projDetails a:hover, #projDetails #menu-projDetails a:visited { background: transparent url(/images/clientSideNav.jpg) -286px -67px no-repeat; }
+    #menu-transactionHist a:hover, #transactionHist #menu-transactionHist a:visited     { background: transparent url(/images/clientSideNav.jpg) -380px -67px no-repeat; }  
+    #menu-stiProducts a:hover, #stiProducts #menu-stiProducts a:visited { background: transparent url(/images/clientSideNav.jpg) -502px -67px no-repeat; }      
+*/	
+/*-----IE FIXES-----*/
+
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */

@@ -1,0 +1,8 @@
+@modified_line_items.each do |item|
+	page["line_item_#{item.id}"].replace :partial => 'line_item', :locals => {:item => item}
+	page["line_item_#{item.id}"].visual_effect :highlight
+end
+if(@order_found == false)
+	page["links_to_orders"].replace :partial => 'links_to_orders', :locals => {:material_request => @material_request}
+	page["links_to_orders"].visual_effect :highlight
+end

@@ -1,0 +1,20 @@
+#header, #footer, #actions, #bar, .noprint {
+  display: none;
+}
+
+#activity_Table, #lineItemTable {
+  display: block;
+}
+
+a {
+  color: #000;
+}
+
+.description {
+  font-weight: bold;
+}
+
+body{page:landscape}
+
+#pagination { display: none;}
+#maininfo { overflow: visible;}

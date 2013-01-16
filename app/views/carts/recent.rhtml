@@ -1,0 +1,65 @@
+<!-- tracking date-requested description unit requester status -->
+<!-- tracking time issued description unit requester status -->
+<style type="text/css" media="screen">
+    th.tracking, td.tracking { width: 70px; }
+    th.time, td.time { width: 100px; }
+    th.desc, td.desc { }
+    th.unit, td.unit { width: 122px; }
+    th.requestor, td.requestor { width: 122px; }
+    th.status, td.status { width: 75px; }
+    th.submit, td.submit { width: 70px; }
+</style>
+
+<table class="information" cellspacing="0">
+  <tr>
+    <th class="tracking"><%= link_to_sort "Tracking", "carts.tracking_no" %></th>
+    <th class="time"><%= link_to_sort "Submitted", "carts.sent_at" %></th>
+    <th class="desc">Description</th>
+    <th class="unit">
+    <select onchange="window.location=$F(this)" style="width: 120px;">
+      <option value="<%= filter_url(:unit => nil) %>">-- UNITS --</option>
+      <% Cart.all_units.each do |unit| %>
+          <option value="<%= filter_url(:unit => unit.id) %>" <%= select_filter_if(params[:unit] == unit.id.to_s) %>><%= unit.description %></option>
+      <% end %>
+    </select>
+    </th>
+    <th class="requestor">
+      <select onchange="window.location=$F(this)" style="width: 120px;">
+        <option value="<%= filter_url(:requester => nil) %>">-- REQUESTERS --</option>
+        <% Cart.all_requesters.each do |requester| %>
+            <option value="<%= filter_url(:requester => requester.id) %>" <%= select_filter_if(params[:requester] == requester.id.to_s) %>><%= requester.full_name %></option>
+        <% end %>
+      </select>
+    </th>
+    <th class="status"><%= link_to_sort "Status", "carts.state" %></th>
+    <th class="submit"></th>
+  </tr>
+</table>
+
+<div id="maininfo">
+<table class="information" cellspacing="0">
+  <% @carts.each do |cart| %>
+  <tr class="<%= cycle :even, :odd %>">
+    <td class="tracking"><%= cart.tracking_no %></td>
+    <td class="time"><span class="date"><%= format_time(cart.sent_at) %></span></td>
+    <td class="desc"><%= link_to h(cart.description), edit_cart_path(cart) %></td>
+    <td class="unit"><%= cart.unit_description %></td>
+    <td class="requestor"><%= cart.requester_name %></td>
+    <td class="status">
+      <% if cart.sent? %>
+      <span style="color: green;">SUBMITTED</span>
+      <% else %>
+      <span style="color: red;">RECEIVED</span>
+      <% end %>
+    </td>
+    <td class="submit">
+      <% if cart.received? %>
+        <%= link_to "Re-submit", :action => "resend", :id => cart %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+</div>
+
+<%= render :partial => "shared/paginate", :locals => { :collection => @carts } %>

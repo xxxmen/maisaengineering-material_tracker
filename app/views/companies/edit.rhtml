@@ -1,0 +1,13 @@
+<% form_for @company, :html => { :class => "edit full" } do |f| %>
+
+<p>
+  <label>Name <span class="required">(required)</span></label>
+  <%= f.text_field :name, :class => "text", :style => "width: 50%" %>
+  <%= error_message_on(:company, :name) %>
+</p>
+
+<p class="noprint menu">
+  <%= submit_tag "Save Company", :class => "submit" %> or 
+  <%= link_to_back %>
+</p>
+<% end %>

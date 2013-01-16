@@ -1,0 +1,100 @@
+pdf.select_font "Helvetica"
+pdf.text "Material Request ##{@order.tracking}", :font_size => 22, :justfication => :center
+pdf.text " ", :font_size => 20, :justification => :center
+
+PDF::SimpleTable.new do |table|
+  table.column_order.push(*%w{1 2 3 4})
+  table.columns["1"] = PDF::SimpleTable::Column.new("1") { |col| col.heading = "Label" }
+  table.columns["2"] = PDF::SimpleTable::Column.new("2") { |col| col.heading = "Item" }
+  table.columns["3"] = PDF::SimpleTable::Column.new("3") { |col| col.heading = "Label2" }
+  table.columns["4"] = PDF::SimpleTable::Column.new("4") { |col| col.heading = "Item2" }
+  
+  table.show_headings = false
+  table.orientation = :center
+  table.position = :center
+  
+  data = [
+    {
+      "1" => "Tracking #:",
+      "2" => @order.tracking,
+      "3" => "Unit:",
+      "4" => @order.unit_name
+    },
+    {
+      "1" => "Planner:",
+      "2" => @order.planner,
+      "3" => "Year:",
+      "4" => @order.turnaround_year
+    },
+    {
+      "1" => "Requester:",
+      "2" => @order.requester,
+      "3" => "Date of Request:",
+      "4" => @order.date_requested
+    },
+    {
+      "1" => "Telephone:",
+      "2" => "",
+      "3" => "Need By:",
+      "4" => @order.date_need_by
+    },
+    {
+      "1" => "Work Orders #:",
+      "2" => @order.work_orders,
+      "3" => "Deliver To:",
+      "4" => @order.deliver_to
+    },
+    {
+      "1" => "Reference #:",
+      "2" => @order.ptm_no,
+      "3" => "Stage (Y/N):",
+      "4" => (@order.stage? ? "Yes" : "No")
+    },
+    {
+      "1" => "Sugg. Vendor:",
+      "2" => @order.suggested_vendor,
+      "3" => "Acknowledged:",
+      "4" => (@order.acknowledged? ? "Yes" : "No")
+    }
+  ]
+  
+  table.data.replace data
+  table.width = 550
+  table.render_on(pdf)
+end
+
+pdf.text " ", :font_size => 20, :justification => :center
+
+
+PDF::SimpleTable.new do |table|
+  table.column_order.push(*%w{item_no quantity unit_of_measure description class details})
+
+  table.columns["item_no"] = PDF::SimpleTable::Column.new("item_no") { |col| col.heading = "Item No" }
+  table.columns["quantity"] = PDF::SimpleTable::Column.new("quantity") { |col| col.heading = "Quantity" }
+  table.columns["unit_of_measure"] = PDF::SimpleTable::Column.new("unit_of_measure") { |col| col.heading = "Unit Of Measure" }
+  table.columns["description"] = PDF::SimpleTable::Column.new("description") { |col| col.heading = "Description" }
+  table.columns["class"] = PDF::SimpleTable::Column.new("class") { |col| col.heading = "Class" }
+  table.columns["details"] = PDF::SimpleTable::Column.new("details") { |col| col.heading = "Details" }
+  
+  table.show_lines = :all
+  table.show_headings = true
+  table.orientation = :center
+  table.position = :center
+  
+  data = []
+  
+  @order.ordered_line_items.each do |line_item|
+    data << {
+      "item_no" => line_item.line_item_no,
+      "quantity" => line_item.quantity_ordered,
+      "unit_of_measure" => line_item.unit_of_measure,
+      "description" => line_item.description,
+      "class" => line_item.class,
+      "details" => line_item.details
+    }
+  end
+  
+  table.data.replace data
+  table.width = 550
+  table.render_on(pdf)
+end

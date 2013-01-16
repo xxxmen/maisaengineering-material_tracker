@@ -1,0 +1,39 @@
+<% form_for @vendor_group, :html => { :class => "edit full" } do |f| %>
+
+
+<div class="left">
+  <p>
+    <label>Name <span class="required">(required)</span></label>
+    <%= f.text_field :name, :class => "text" %>
+    <%= error_message_on(:vendor_group, :name) %>
+  </p>
+  
+  
+   <div class="left clear">
+		<p>
+		  <label>Last Updated</label>
+		  <%= f.text_field :updated_at, :disabled => true, :class => "text" %>
+		</p>
+	</div>
+	
+	
+	<p class="menu noprint clear">
+		<br />
+	    <%= submit_tag "Save Vendor group", :class => "submit" %> or 
+		<%= link_to_back %>
+	</p>
+
+</div>
+
+<div class="right" style="height:300px; overflow:auto;">
+<p>
+  <label>Choose vendors for group</label>
+  <% @vendors.each do |v| %>
+  	<%= check_box_tag("vendor_" + v.id.to_s, "vendor_" + v.id.to_s, @vendors_of_vendor_group.include?(v)) %>
+	<%= h v.name %><br />
+  <% end %>
+</p>
+</div>
+
+
+<% end %>

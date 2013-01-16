@@ -1,0 +1,79 @@
+<!--start-->
+<h1>POs #<%= @orders.map { |o| o.po_no }.join(', ') %></h1>
+
+<table width="100%">
+<tr>
+<th width="160px">Message:</th>
+<td><b><%= @params[:notes] %></b></td>
+</tr>
+</table>
+
+<table cellspacing="1" border="1" width="100%">
+  <tr>
+    <th width="160px">Deliver To:</th>
+    <td><%= @params[:deliver_to] %></td>
+  </tr>
+  <tr>
+    <th width="160px">Where:</th>
+    <td><%= @params[:where] %></td>
+  </tr>
+  <tr>
+    <th width="160px">When:</th>
+    <td><%= @params[:when] %></td>
+  </tr>
+  <tr>
+    <th width="160px">Phone:</th>
+    <td><%= @params[:phone] %></td>
+  </tr>
+</table>
+<br />
+<% @orders.each do |order| %>
+<h2>Please issue items below for <a href="http://<%= DOMAIN %>/orders/<%= order.id %>/edit/">PO #<%= order.po_no %></a> 
+    (<%= @params[:line_items][order.id.to_s].size %> of <%= order.ordered_line_items.size %>)</h2>
+
+<table cellspacing="1" border="1" width="100%">
+    <tr>
+        <th colspan="2">PO #<%= order.po_no %></th>
+    </tr>
+    <tr>
+      <th width="160px">Tracking #:</th>
+      <td><%= order.tracking %>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="160px"><b>Location:</b></th>
+      <td><b><%= order.location %>&nbsp;</b></td>
+    </tr>
+    <tr>
+      <th width="160px">Unit:</th>
+      <td><%= order.unit.description %> / <%= order.turnaround_year %></td>
+    </tr>
+    <tr>
+      <th width="160px">PO Status:</th>
+      <td><%= order.status.status %></td>
+    </tr>
+    <tr>
+      <th width="160px">Description:</th>
+      <td><%= order.description %>&nbsp;</td>
+    </tr>
+</table>
+<% unless @params[:line_items][order.id.to_s].size == 0 %>
+<table cellspacing="1" border="1" width="100%">
+  <tr align="center">
+    <th width="60" align="center" style="text-align: center;">#</th>
+    <th>Description</th>
+    <th width="80">Qty / Rec'd</th>
+    <th width="80">Date / Rec'd</th>
+    <th width="80">Date / BO'd</th>
+  </tr>
+  <% @params[:line_items][order.id.to_s].each do |item| %>
+  <tr align="center">
+    <td width="60"><%= item.line_item_no %></td>
+    <td align="left"><%= item.description %></td>
+    <td width="80"><%= item.quantity_received.blank? ? '0' : item.quantity_received %> / <%= item.quantity_ordered %></td>
+    <td width="80"><%= item.date_received ? item.date_received.to_date.strftime("%m/%d/%y") : '&nbsp;' %></td>
+    <td width="80"><%= item.date_back_ordered ? item.date_back_ordered.to_date.strftime('%m/%d/%y') : '&nbsp;' %></td>
+  </tr>
+  <% end %>
+</table><% end %><br />
+<% end %>
+

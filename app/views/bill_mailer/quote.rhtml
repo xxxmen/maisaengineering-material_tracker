@@ -1,0 +1,20 @@
+<p>
+  <%= @notes %>
+</p>
+
+<table>
+  <tr>
+    <th>No</th>
+    <th>Qty</th>
+    <th>Unit</th>
+    <th>Description</th>
+  </tr>
+  <% @bill.bill_items.find(:all, :order => "id ASC").each_with_index do |bill_item, index| %>
+  <tr>
+    <td><%= index + 1 %></td>
+    <td><%= bill_item.quantity %></td>
+    <td><%= bill_item.unit_of_measure %></td>
+    <td><%= bill_item.display %></td>
+  </tr>
+  <% end %>
+</table>

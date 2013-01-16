@@ -1,0 +1,147 @@
+<h1>New Inventory Item</h1>
+
+<%= error_messages_for :inventory_item %>
+
+<% form_for(:inventory_item, :url => inventory_items_path) do |f| %>
+  <p>
+    <b>Warehouse name</b><br />
+    <%= f.text_field :warehouse_name %>
+  </p>
+
+  <p>
+    <b>Stock no</b><br />
+    <%= f.text_field :stock_no %>
+  </p>
+
+  <p>
+    <b>Description</b><br />
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <b>Unit of measure</b><br />
+    <%= f.text_field :unit_of_measure %>
+  </p>
+
+  <p>
+    <b>Consignment count</b><br />
+    <%= f.text_field :consignment_count %>
+  </p>
+
+  <p>
+    <b>High level</b><br />
+    <%= f.text_field :high_level %>
+  </p>
+
+  <p>
+    <b>Low level</b><br />
+    <%= f.text_field :low_level %>
+  </p>
+
+  <p>
+    <b>On hand</b><br />
+    <%= f.text_field :on_hand %>
+  </p>
+
+  <p>
+    <b>Target level</b><br />
+    <%= f.text_field :target_level %>
+  </p>
+
+  <p>
+    <b>Total count</b><br />
+    <%= f.text_field :total_count %>
+  </p>
+
+  <p>
+    <b>Reordered qty</b><br />
+    <%= f.text_field :reordered_qty %>
+  </p>
+
+  <p>
+    <b>Requested reorder at</b><br />
+    <%= f.datetime_select :requested_reorder_at %>
+  </p>
+
+  <p>
+    <b>Date counted</b><br />
+    <%= f.datetime_select :date_counted %>
+  </p>
+
+  <p>
+    <b>Vendor name</b><br />
+    <%= f.text_field :vendor_name %>
+  </p>
+
+  <p>
+    <b>Vendor no</b><br />
+    <%= f.text_field :vendor_no %>
+  </p>
+
+  <p>
+    <b>Vendor part no</b><br />
+    <%= f.text_field :vendor_part_no %>
+  </p>
+
+  <p>
+    <b>Consumable</b><br />
+    <%= f.check_box :consumable %>
+  </p>
+
+  <p>
+    <b>Rented</b><br />
+    <%= f.check_box :rented %>
+  </p>
+
+  <p>
+    <b>Record weight</b><br />
+    <%= f.check_box :record_weight %>
+  </p>
+
+  <p>
+    <b>Daily rate</b><br />
+    <%= f.text_field :daily_rate %>
+  </p>
+
+  <p>
+    <b>Hourly rate</b><br />
+    <%= f.text_field :hourly_rate %>
+  </p>
+
+  <p>
+    <b>Monthly rate</b><br />
+    <%= f.text_field :monthly_rate %>
+  </p>
+
+  <p>
+    <b>Weekly rate</b><br />
+    <%= f.text_field :weekly_rate %>
+  </p>
+
+  <p>
+    <b>Last purchase price</b><br />
+    <%= f.text_field :last_purchase_price %>
+  </p>
+
+  <p>
+    <b>Aisle</b><br />
+    <%= f.text_field :aisle %>
+  </p>
+
+  <p>
+    <b>Bin</b><br />
+    <%= f.text_field :bin %>
+  </p>
+
+  <p>
+    <b>Shelf</b><br />
+    <%= f.text_field :shelf %>
+  </p>
+
+
+  <p>
+    <%= submit_tag "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', inventory_items_path %>

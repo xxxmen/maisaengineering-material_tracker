@@ -1,0 +1,274 @@
+
+<style>
+    table td.checks { padding: 2px 6px; }
+    table td.checks label { margin-right: 4px; }
+
+
+    .line_item_links {
+        width: 100%;
+        font-size: 140%;
+        text-align: left;
+        background-color: #CCC;
+        padding: 5px 0px;
+        border-top: 2px solid #444;
+        font-weight: bold;
+    }
+
+    .line_items_list_flash {
+        float: left;
+        width: 100%;
+        text-align: center;
+        background-color: #ccffcc;
+        color: #006600;
+    }
+
+    .line_item_links a {
+        padding-left: 20px;
+        font-size: 80%;
+        text-decoration: none;
+    }
+
+    .line_item_links a:hover {
+        padding-left: 20px;
+        font-size: 80%;
+        text-decoration: none;
+    }
+
+    .line_items_list_left {
+        float: left;
+        width: 300px;
+        padding: 5px;
+    }
+
+    .line_items_list_right {
+        float: right;
+        width: 170px;
+        padding: 5px;
+        text-align: right;
+    }
+	.reminder_label {
+		font-weight: bold;
+	}
+
+    a.clear_reminders_line_item_link {
+        background: url(/images/icons/delete.png) no-repeat scroll center left;
+    }
+
+	.order_info {
+		width: 480px;
+		border-top: 5px solid #999;
+		margin-top: 20px;
+		background-color: #DDD;
+		float: left;
+	}
+
+	.order_info tr {
+		height: 30px;
+		border: 0px;
+		border-bottom: 1px solid #999;
+		border-style: dashed;
+		font-weight: bold;
+	}
+
+	.order_info th {
+		width: 150px;
+		font-size: 130%;
+		padding: 5px;
+		color: #666;
+	}
+
+	.order_info td {
+		font-size: 130%;
+		padding: 5px;
+	}
+
+	.order_warning {
+		color: #F00;
+		font-weight: bold;
+	}
+
+</style>
+
+<form action="/orders/create_reminders/<%= @order.id %>" class="edit full" id="deliver_form" method="post" onsubmit="return checkEmailTo();">
+  <div class="left" style="width: 450px;">
+    <p>
+      <label>Subject</label>
+      <input type="text" disabled="disabled" value="<%= "#{@order.reminder_subject}" %>" class="text" />
+    </p>
+    <p>
+      <label>From</label>
+      <input type="text" disabled="disabled" value="<%= current_employee.email || "no-reply@#{ENV['MAIL_DOMAIN']}" %>" class="text" />
+    </p>
+      <label class="inline" style="float: left; margin-top: 13px;">To</label>
+	  <div style="text-align: right; float: right; width: 350px; margin-right: 45px;">
+		<a href="#" onclick="return Telaeris.changeEmail('email_to', '');">Clear</a>
+		/
+        <% if !current_employee.email.blank? %>
+        	<a href="#" onclick="return Telaeris.changeEmail('email_to', '<%= current_employee.email %>');">
+				<%= current_employee.short_name %>
+			</a>
+        <% end %>
+        /
+		<%= select_tag "buyer_emails", options_for_select(Employee.buyer_list_of_emails_for_select_tag, "Buyer"),
+			:style => 'display: inline; width: 130px;',
+			:onchange => "Telaeris.changeEmail('email_to', $('buyer_emails').value); $('buyer_emails').value = 'Buyer'; return;"
+		  %>
+		</div>
+     <p>
+      <textarea name="email_to" id="email_to"><%= "#{current_employee.email}"%></textarea>
+      <span class="description">Separate email addresses by commas, semi-colons, or spaces</span>
+    </p>
+    <p class="clear">
+      <label>Additional Note</label>
+      <textarea name="notes" style="height: 60px;"></textarea>
+    </p>
+
+    <div>
+      <br/>
+      <%= check_box :reminder, :date_of  %> <label class="inline checkbox">ETA Date</label>
+      <br/>
+      <br/>
+    </div>
+
+    <div class="left">
+      <label>Before ETA</label>
+
+      <%= check_box :reminder, :week_1_before, {:onClick => "checkUsingAll('before'); return;"} %> <label class="inline checkbox">1 Week</label>
+      <br/>
+      <%= check_box :reminder, :week_2_before, {:onClick => "checkUsingAll('before'); return;"}  %> <label class="inline checkbox">2 Weeks</label>
+      <br/>
+      <%= check_box :reminder, :week_3_before, {:onClick => "checkUsingAll('before'); return;"}  %> <label class="inline checkbox">3 Weeks</label>
+      <br/>
+      <%= check_box :reminder, :week_4_before, {:onClick => "checkUsingAll('before'); return;"}  %> <label class="inline checkbox">4 Weeks</label>
+      <br/>
+      <%= check_box :reminder, :week_8_before, {:onClick => "checkUsingAll('before'); return;"}  %> <label class="inline checkbox">8 Weeks</label>
+      <br/>
+      <%= check_box :reminder, :before_all, {:onClick => "toggleUsingAll('before'); return;"} %> <label class="inline">All</label>
+
+    </div>
+
+
+    <div class="right">
+      <label>After ETA</label>
+
+
+
+      <%= check_box :reminder, :week_1_after, {:onClick => "checkUsingAll('after'); return;"}  %> <label class="inline checkbox">1 Week</label>
+      <br/>
+      <%= check_box :reminder, :week_2_after, {:onClick => "checkUsingAll('after'); return;"}  %> <label class="inline checkbox">2 Weeks</label>
+      <br/>
+      <%= check_box :reminder, :week_3_after, {:onClick => "checkUsingAll('after'); return;"}  %> <label class="inline checkbox">3 Weeks</label>
+      <br/>
+      <%= check_box :reminder, :week_4_after, {:onClick => "checkUsingAll('after'); return;"}  %> <label class="inline checkbox">4 Weeks</label>
+      <br/>
+      <%= check_box :reminder, :week_8_after, {:onClick => "checkUsingAll('after'); return;"}  %> <label class="inline checkbox">8 Weeks</label>
+      <br/>
+      <%= check_box :reminder, :after_all, {:onClick => "toggleUsingAll('after'); return;"}  %> <label class="inline">All</label>
+    </div>
+    <p>
+    <br/>
+    <%= text_field :reminder, :custom_date, :class => "text", :id => "date_eta", :style => "width:80px;color: #222;" %><label class="inline" style="padding: 4px;">Custom Date</label>
+    </p>
+
+    <div class="menu clear" style="height: 40px;">
+      <div class="left" style="padding-top: 5px;">
+	      <%= img_button "Return to Order", "previous.png", url_for(:controller => "orders", :action => "edit", :id => @order) %>
+      </div>
+      <div class="left" style="text-align:right;">
+      	<input type="submit" class="submit" value="Create Reminder"/>
+      </div>
+    </div>
+</form>
+
+    <br/>
+
+
+
+
+
+  </div>
+
+	<table class="order_info">
+		<tr>
+			<th>PO #</th>
+			<td><%= @order.po_no %></td>
+		</tr>
+		<tr>
+			<th>Tracking #</th>
+			<td><%= @order.tracking %></td>
+		</tr>
+		<tr>
+			<th>Status</th>
+			<td><%= @order.status_description %></td>
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td><%= @order.description %></td>
+		</tr>
+		<tr>
+			<th>ETA Date</th>
+			<td><%= @order.date_eta.strftime('%m/%d/%Y') %></td>
+		</tr>
+		<% if @order.completed? || @order.closed? %>
+		<tr>
+			<td colspan="2" class="order_warning">Notice: This Order has already been completed and closed. Any reminders created for it will be ignored unless the status changes.</td>
+		</tr>
+		<% end %>
+
+	</table>
+
+    <!-- Reminders Table -->
+    <%= render :partial => 'order_reminders', :order => @order %>
+
+<div id="full_preview" style="display: none;">
+    <a href="#go-back" onclick="$('full_preview').hide(); $('deliver_form').show();">Go Back</a>
+<div id="preview">
+
+</div>
+    <a href="#go-back" onclick="$('full_preview').hide(); $('deliver_form').show();">Go Back</a>
+</div>
+<script type="text/javascript" charset="utf-8">
+    function checkEmailTo(){
+		  var errors = $A([]);
+      if($F('email_to').match(/^\s*$/)){
+          errors.push("Please enter an email address");
+      }
+
+
+    	if(errors.length > 0) {
+    		alert(errors.join("\n"));
+    		return false;
+    	}
+      else {
+          return Telaeris.validateEmails('email_to');
+      }
+    }
+    function toggleUsingAll(before_or_after){
+      if($('reminder_' + before_or_after + '_all').checked == true){
+        $('reminder_week_1_' + before_or_after).checked = true;
+        $('reminder_week_2_' + before_or_after).checked = true;
+        $('reminder_week_3_' + before_or_after).checked = true;
+        $('reminder_week_4_' + before_or_after).checked = true;
+        $('reminder_week_8_' + before_or_after).checked = true;
+
+      }
+      else{
+        $('reminder_week_1_' + before_or_after).checked = false;
+        $('reminder_week_2_' + before_or_after).checked = false;
+        $('reminder_week_3_' + before_or_after).checked = false;
+        $('reminder_week_4_' + before_or_after).checked = false;
+        $('reminder_week_8_' + before_or_after).checked = false;
+      }
+    }
+    function checkUsingAll(before_or_after){
+      if(($('reminder_week_1_' + before_or_after).checked == false) ||
+        ($('reminder_week_2_' + before_or_after).checked == false) ||
+        ($('reminder_week_3_' + before_or_after).checked == false) ||
+        ($('reminder_week_4_' + before_or_after).checked == false) ||
+        ($('reminder_week_8_' + before_or_after).checked == false)){
+          $('reminder_' + before_or_after + '_all').checked = false;
+        }
+
+    }
+    setup_calendar_for(['date_eta']);
+</script>

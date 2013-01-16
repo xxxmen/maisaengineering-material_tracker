@@ -1,0 +1,32 @@
+<style>
+    th.no, td.no { width: 28px; text-align: center; }
+    th.desc, td.desc {}
+    th.qty, td.qty { width: 30px; }
+    th.date, td.date { width: 70px; }
+    th.submit, td.submit { padding: 5px 10px; }
+    th.link, td.link { width: 90px; }
+    th.issued, td.issued {width: 100px;}
+    td.link { text-align: center; padding: 2px;}
+    
+    td.no input { width: 98%; }
+    td.desc textarea { width: 98%; height: 34px; }
+    td.qty input { width: 98%; }
+    td.date input { width: 98%; }
+    td.issued input {width: 98%;}
+        
+    h1#po_no { font-size: 120%; font-weight: bold; margin-bottom: 5px; }
+    
+    table.information tr:hover td { background-color: #fff; color: #000; }
+    table.information tr:hover td a { color: #336633; }
+    table.information a { color: #336633; }
+</style>
+
+
+<h1 id="po_no"><a href="<%= edit_order_path(@order) %>">PO #<%= @order.po_no %></a> Line #<%= @ordered_line_item.line_item_no %></h1>
+
+<%= render :partial => 'create_ordered_line_item' %>
+
+
+  
+<script>setup_calendar_for(['date_received', 'issued_date'])</script>
+

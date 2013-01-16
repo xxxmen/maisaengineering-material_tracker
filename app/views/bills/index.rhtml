@@ -1,0 +1,43 @@
+<table class="information" cellspacing="0">
+  <tr>
+    <th class="med">
+      <%= link_to_sort "ID #", "bills.id" %>
+    </th>
+    <th>
+      <%= link_to_sort "Engineer", "employees.first_name" %>
+    </th>
+    <th class="med">
+      <%= link_to_sort "Reviewed", "bills.reviewed" %>
+    </th>
+    <th class="med">
+      <%= link_to_sort "Requested", "bills.requested" %>
+    </th>
+  </tr>
+  
+  <% @bills.each do |bill| %>
+    <tr class="<%= cycle(:odd, :even) %>">
+      <td class="desc">
+        <%= link_to h(bill.id), url_for(:action => :edit, :id => bill) %>
+      </td>
+      <td>
+        <%= h bill.employee %>
+      </td>
+      <td>
+        <% if bill.reviewed? %>
+        <span style="color: green">Reviewed</span>
+        <% else %>
+        <span style="color: red">Not Reviewed</span>
+        <% end %>
+      </td>
+      <td>
+        <% if bill.requested? %>
+        <span style="color: green">Requested</span>
+        <% else %>
+        <span style="color: red">Not Requested</span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= render :partial => "shared/paginate", :locals => { :collection => @bills } %>

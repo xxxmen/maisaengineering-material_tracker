@@ -1,0 +1,59 @@
+<form enctype="multipart/form-data" method="post" class="edit full" onsubmit="setFile()">
+<div class="left">    
+  <input type="hidden" value="" id="filepath" name="filepath" />
+  
+  <p>
+    <label>The Report File (Linux Version):</label>
+    <input type="file" name="report" id="report" style="width: 100%"/>
+  </p>
+  
+  <p>
+    <label>Last file:</label>
+    <input type="text" style="width: 100%" id="oldreport" />
+  </p>
+  
+  <p>
+    <label>Your parameters (leave blank if none, no line breaks):</label>
+    <textarea name="params" id="params" style="width: 100%; height: 200px;"></textarea>
+  </p>
+  
+  <p>
+    Example params:   -paramPSEARCHID='1' -paramUNIT='ALKY SOMETHING'
+  </p>
+  
+  <p>
+    <input type="submit" value="Get PDF" />
+  </p>
+</div>
+
+<div class="right">
+    <select size="20" id="oldinputs" onchange="setOldInput()">
+    <% @log.each do |path, parameters| %>
+   <!--     <option value="<%#= h(path) %>/////<%#= h(parameters) %>"><%#= h File.basename(path.gsub(/\\/, "/")) %></option> -->
+    <% end %>
+    </select>
+</div>
+</form>
+
+<script type="text/javascript" charset="utf-8">
+    function setFile(){
+        $('filepath').value = $F('report');
+
+        var value = $F('report').escapeHTML() + '/////' + $F('params').escapeHTML();
+        var display = $F('report').match(/[^\\\/]*\.rep$/)[0].escapeHTML();
+        var alreadyExists = false;        
+        
+        $$('#oldinputs option').each(function(opt){
+            if($(opt).readAttribute('value') == value) alreadyExists = true;
+        });
+        if(alreadyExists) return;
+        
+        $('oldinputs').innerHTML = '<option value="' + value + '">' + display + '</option>' + $('oldinputs').innerHTML;        
+    }
+    
+    function setOldInput(){
+        var old = $F('oldinputs').split('/////');                
+        $('params').value = old[1];
+        $('oldreport').value = old[0];
+    }
+</script>

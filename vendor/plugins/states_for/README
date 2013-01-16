@@ -1,0 +1,38 @@
+StatesFor
+=========
+
+The states_for class method takes an ActiveRecord column and turns it into a field that has many states (represented by an INTEGER).
+
+SVN:     svn://hughbien.com/states_for
+Code:    http://public.svn.hughbien.com/browser/states_for
+Site:    http://projects.hughbien.com/states_for
+Email:   hugh@hughbien.com
+
+Example
+=======
+
+    class User < ActiveRecord::BASE
+      # users table should have a 'role' column of type INTEGER
+      states_for :role => ["Client", "Employee", "Admin"]
+      validates_inclusion_of_role :allow_nil => true, :message => "must be a client, employee, or admin"
+    end
+    
+    hugh = User.new(:role => User::CLIENT)
+
+This adds a few methods and constants:
+* User::CLIENT            # => 0
+* User::EMPLOYEE          # => 1
+* User::ADMIN             # => 2
+
+* User.roles              # => [0, 1, 2]
+* User.options_for_role   # => [["Client", 0], ["Employee", 1], ["Admin", 2]]
+
+* hugh.state_for_role     # => "Client"
+* hugh.client?, user.employee?, user.admin?    # => returns true if user.role == User::CONSTANT
+
+Feedback
+========
+
+Please email me at hugh@hughbien.com if you've found any bugs or if you have a feature request.
+
+Copyright (c) 2007 Hugh Bien, released under the MIT license

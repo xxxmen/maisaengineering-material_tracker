@@ -1,0 +1,76 @@
+<!--  
+
+    Modify this document anytime you make changes to Material Tracker.
+    
+-->
+3/5/2009:
+==========
+Orders:
+-------
+* Fixed the issue where order reminders weren't sending correctly.
+* Updated the reminder formatting to include most of the Purchase Order's fields, and included the unit of measurement for each line item in the email.
+* Once sent, reminders are permanently destroyed.
+* Reminders will be checked at the beginning of each day (6:00am), and any that fall on the current day or any day previous will be sent and deleted.
+
+POPV:
+-----
+* Added the "Custom Item" checkbox option back into the BOM Item edit window. Clears out the piping class and piping component fields, allowing you to specify everything in the description field. Whether or not you check the "Custom Item" checkbox, the form will save the text in the "Description" field to the database.
+* Fixed an issue in Internet Explorer 6 where changing tabs causes the form panel's borders and buttons at the bottom of the page to disappear.
+
+2/26/2009:
+==========
+POPV:
+-----
+* Updated the BOM Line Items' CSV and PDF export so the line numbers, sizes, and components show up correctly.
+
+2/25/2009:
+==========
+POPV:
+-----
+* Removed "Custom Item" checkbox option from BOM item window. Now it just uses whatever description is in there.
+
+2/17/2009:
+==========
+POPV:
+-----
+* Updated the Piping Class reports.
+* Added an "Upload" link to the bottom of the navigation panel which allows admins to overwrite the "General Notes" and "Form 58001" documents.
+* Updated the formatting for the material request line items when created from a Bill of Material through the POPV interface.
+
+2/13/2009:
+==========
+POPV: 
+-----
+* Removed the "Valve Note" column from the Valves list.
+* Upon saving any POPV records, the list will reload and auto-select the record you were just editing.
+
+2/12/2009:
+==========
+
+POPV:
+-----
+* A few report changes were made so they are more readable and don't cut off text.
+* The login screen now has login information for how people can log in as a POPV
+viewer only.
+* Added new columns to the valves list for Type, Body, and Rating.
+* If a user doesn't have a current Bill of Materials, the "Create New BOM" window will open if
+you click the "Current BOM" link. Otherwise it will open your current BOM.
+* Creating a Material Request from a Finalized BOM will now create it with Draft status.
+* Units are now sorted by unit_no instead of name.
+
+Material Requests:
+------------------
+* A "Revert to Draft" button was added to the Material Request edit page
+if the request has been submitted but has not yet been acknowledged.
+
+2/2/2009:
+========
+* POPV is deployed.
+* A new user was created for viewing POPV info only:<br/>
+Login/Password: popv/popv
+
+1/06/2009:
+==========
+* Fixed the list of orders not showing the correct location. It will now display the main order location if there is one, or a comma-separated list of the locations from each of the order's line items. "No Location" will be shown if neither of the above exists.
+* Fixed the orders' edit page not showing the vendor's contact name, phone, and vendor #.
+* Fixed the form width when creating a new order.

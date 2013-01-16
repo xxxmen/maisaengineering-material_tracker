@@ -1,0 +1,6 @@
+<li><%= img_button "Create a New Unit", "order_add.png", new_unit_path %></li>
+<li><%= img_button "Recent Units", "order_list.png", units_path %></li>
+<li><%= img_button_function("Print", "print.png", "window.print()") %></li>
+<% if params[:action] == "edit" || params[:action] == "new" %>
+  <li class="save-button"><%= img_button_function("Save Entry", "save.png", "$('#{form_id(@unit)}').submit()") %></li>
+<% end %>

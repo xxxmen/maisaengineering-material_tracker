@@ -1,0 +1,79 @@
+<% if logged_in? %>
+<% if params[:action] != "quote" and params[:action] != "email_quote" %>
+<li>
+	<select onchange="window.location=$F(this)" style="width: 120px;">
+	    <option value="<%= filter_url(:status => nil) %>">-- All Requests --</option>
+	    <option value="<%= filter_url(:status => 'mine') %>" <%= select_filter_if(params[:status] == 'mine') %>>Mine (Requested By Me)</option>
+	    <option value="<%= filter_url(:status => 'created_me') %>" <%= select_filter_if(params[:status] == 'created_me') %>>Created By Me</option>
+	    <option value="<%= filter_url(:status => 'drafts') %>" <%= select_filter_if(params[:status] == 'drafts') %>>My Drafts Only</option>
+	    <option value="<%= filter_url(:status => 'submitted') %>" <%= select_filter_if(params[:status] == 'submitted') %>>Submitted</option>
+	    <option value="<%= filter_url(:status => 'process_acknowledged') %>" <%= select_filter_if(params[:status] == 'process_acknowledged') %>>In Process (Acknowledged)</option>
+	    <option value="<%= filter_url(:status => 'process_out_for_quote') %>" <%= select_filter_if(params[:status] == 'process_out_for_quote') %>>In Process (Out For Quote)</option>
+	    <option value="<%= filter_url(:status => 'authorized') %>" <%= select_filter_if(params[:status] == 'authorized') %>>Authorized</option>
+	    <option value="<%= filter_url(:status => 'declined') %>" <%= select_filter_if(params[:status] == 'declined') %>>Declined</option>
+	    <option value="<%= filter_url(:status => 'completed') %>" <%= select_filter_if(params[:status] == 'completed') %>>Ordered</option>
+	</select>
+</li>
+<% end %>
+
+<% if params[:action] == "index" || params[:action] == "search" %>
+<li>
+	<select onchange="window.location=$F(this)" style="width: 120px;">
+      <% Group.list_all_for_select.each do |group| %>
+		    <% is_a_group_selected = false %>
+      		<% if params[:group].to_s == group[1].to_s %>
+      			<% is_a_group_selected = true %>
+      		<% end %>
+		    <option value="<%= filter_url(:group => group[1]) %>" <%= select_filter_if(is_a_group_selected == true && ((params[:group].to_s == group[1].to_s) || (current_employee.group_id.to_s == group[1].to_s))) %>><%= group[0] %></option>
+	  <% end %>
+	</select>
+</li>
+<% end %>
+<% if params[:action] == 'sort' || params[:action] == "new_quote" %>
+<li><%= img_button "Back to Material Request", "order_edit.png", edit_material_request_path(@material_request) %></li>
+<% else %>
+<% if params[:action] != "quote" && params[:action] != "new" && params[:action] != "update" && params[:action] != "email_quote" %>
+<li><%= img_button "Create", "order_add.png", new_material_request_path %></li>
+<% end %>
+<% end %>
+
+<% if params[:action] == "edit" || params[:action] == "update" %>
+<li><%= img_button "Duplicate", "order_list.png", "#", :id => 'duplicate-material-request' %></li>
+<li><%= img_button "Email", "email.png", url_for(:controller => "material_requests", :action => "mail_to_purchaser", :id => params[:id]) %></li>
+<li><%= img_button "Print", "print.png", pdf_material_request_path(@material_request) + "#" %></li>
+
+<% if current_employee.need_details? %>
+<li><%= img_button "Email Quote", "email.png", url_for(:controller => "material_requests", :action => "email_quote", :id => params[:id]) %></li>
+<li><%= img_button "Create Quote", "order_list.png", url_for(:controller => "material_requests", :action => "new_quote", :id => params[:id]) %></li>
+<% end %>
+<% end %>
+
+<% if ["edit", "update"].include?(params[:action]) %>
+<li class="save-button"><%= img_button_function "Save", "order_save.png", form_save(@material_request), :class => "ignore_confirm_cancel" %></li>
+<% end %>
+
+<% if params[:action] == "quote" %>
+  <% if current_employee.need_details? %>
+  	<li><%= img_button "Back to Material Request", "order_list.png", edit_material_request_path(@material_request) %></li>
+    <li><%= img_button "Synchronize Quote With Request", "add.png", update_items_from_request_material_request_path(@quote) %></li>
+  <% end %>
+  <li class="save-button"><%= img_button_function "Save Quote Changes", "order_save.png", "Telaeris.skipConfirm = true;$('quote_form').submit()" %></li>
+<% end %>
+<% else %>
+  <% if params[:action] == "quote" %>
+    <li class="save-button"><%= img_button_function "Save Quote Changes", "order_save.png", "Telaeris.skipConfirm = true;$('quote_form').submit()" %></li>
+  <% end %>  
+<% end %>
+
+<% if params[:action] == "email_quote" %>
+	<li><%= img_button_function "Request a Quote", "order_list.png","jQuery('#mail').trigger('submit');" %></li>
+	<li><%= img_button "Cancel & Go Back", "cancel.png", edit_material_request_path(@material_request) %></li>
+<% end %>
+
+<% if params[:action] == "quote_comparison" %>
+	<li><%= img_button "Go Back To Request", "left2.gif", url_for(:controller => "material_requests", :action => "edit", :id => params[:id]) %></li>
+<% end %>
+
+
+
+

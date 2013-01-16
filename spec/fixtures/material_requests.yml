@@ -1,0 +1,122 @@
+# == Schema Information
+# Schema version: 20090710194800
+#
+# Table name: material_requests
+#
+#  id                      :integer(4)    not null, primary key
+#  tracking                :string(255)   
+#  unit_id                 :integer(4)    
+#  planner_id              :integer(4)    
+#  year                    :string(255)   
+#  requested_by_id         :integer(4)    
+#  date_requested          :datetime      
+#  telephone               :string(255)   
+#  date_need_by            :date          
+#  work_orders             :string(255)   
+#  deliver_to              :string(255)   
+#  ptm_no                  :string(255)   
+#  suggested_vendor        :string(255)   
+#  notes                   :text          
+#  size                    :string(255)   
+#  klass                   :string(255)   
+#  component               :string(255)   
+#  authorized_by           :integer(4)    
+#  acknowledged_by         :integer(4)    
+#  purchaser_id            :integer(4)    
+#  stage_location          :string(255)   
+#  drafted_by              :integer(4)    
+#  request_state           :integer(4)    default(0)
+#  submitted_by            :integer(4)    
+#  quote_requested_by      :integer(4)    
+#  partially_authorized_by :integer(4)    
+#  declined_by             :integer(4)    
+#  completed               :boolean(1)    
+#  updated_at              :datetime      
+#  created_by              :integer(4)    
+#  issued_from_main_by     :integer(4)    
+#  activity                :text          
+#  deleted                 :boolean(1)    
+#  surplus                 :boolean(1)    
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first_request:
+  id: 1
+  tracking: W00001
+  unit_id: 1
+  planner_id: 4
+  year: 2007
+  requested_by_id: 5
+  date_requested: 2007-07-13
+  telephone: 408-460-1219
+  date_need_by: 2007-07-13
+  work_orders: L141241
+  deliver_to: Hugh Bien
+  ptm_no: L141251
+  suggested_vendor: Newmans Valve
+  created_by: 5
+  
+second_request:
+  id: 2
+  tracking: W00002
+  unit_id: 2
+  planner_id: 4 
+  year: 2006
+  requested_by_id: 2
+  date_requested: 2007-07-13
+  telephone: 858-141-2851
+  date_need_by: 2007-07-13
+  work_orders: L141231
+  deliver_to: Cloud Strife
+  ptm_no: L141231
+  suggested_vendor: Open Office
+  created_by: 2
+  
+third:
+  id: 3
+  tracking: W00003
+  unit_id: 2
+  planner_id: 4 
+  year: 2006
+  requested_by_id: 5
+  date_requested: 2007-07-13
+  telephone: 858-141-2851
+  date_need_by: 2007-07-13
+  work_orders: L141231
+  deliver_to: Cloud Strife
+  ptm_no: L141231
+  suggested_vendor: Open Office
+  created_by: 5
+
+fourth:
+  id: 4
+  tracking: W00004
+  unit_id: 1
+  planner_id: 4
+  year: 2007
+  requested_by_id: 5
+  date_requested: 2007-07-13
+  telephone: 408-460-1219
+  date_need_by: 2007-07-13
+  work_orders: L141241
+  deliver_to: Hugh Bien
+  ptm_no: L141251
+  suggested_vendor: Newmans Valve
+  created_by: 5
+
+fifth:
+  id: 5
+  tracking: W00005
+  unit_id: 1
+  planner_id: 4
+  year: 2007
+  requested_by_id: 5
+  date_requested: 2007-07-13
+  telephone: 408-460-1219
+  date_need_by: 2007-07-13
+  work_orders: L141241
+  deliver_to: Hugh Bien
+  ptm_no: L141251
+  suggested_vendor: Newmans Valve
+  created_by: 5
+

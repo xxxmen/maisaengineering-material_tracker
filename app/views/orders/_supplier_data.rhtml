@@ -1,0 +1,6 @@
+<%= h order.supplier %> 
+<% if params[:vendor].blank? %>
+<br />
+<%= h order.supplier_phone %> <br />
+<input type="text" class="text" value='<%= order.supplier_no %>' onclick="this.activate();" style="width: 75%;" readonly="readonly" />
+<% end %>

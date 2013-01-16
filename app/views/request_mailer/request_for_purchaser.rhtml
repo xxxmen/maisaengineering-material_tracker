@@ -1,0 +1,57 @@
+<!--start-->
+<h1>Material Request - Tracking #<%= @request.tracking %></h1>
+
+<p><b>
+  <%= @params[:message] %>
+</b></p>
+
+
+<p><a href="http://<%= DOMAIN %>/material_requests/<%= @request.id %>/edit">See this Request</a></p>
+<p><a href="http://<%= DOMAIN %>/material_requests/acknowledge/<%= @request.id %>">Acknowledge this Request</a></p>
+
+
+<table cellspacing="1" border="1">
+  <tr>
+    <th>Requester:</th>
+    <td><%= @request.requester.full_name %></td>
+  </tr>
+  <tr>
+    <th>Planner:</th>
+    <td><%= @request.planner_id ? @request.planner.full_name : "None" %></td>
+  </tr>
+  <tr>
+    <th>Suggested Vendor:</th>
+    <td><%= @request.suggested_vendor.blank? ? "None" : @request.suggested_vendor %></td>
+  </tr>
+  <tr>
+    <th>Unit:</th>
+    <td><%= @request.unit.description %></td>
+  </tr>
+  <tr>
+    <th><%= @request.reference_number_type.blank? ? "Process/Ticket/MES" : @request.reference_number_type %>:</th>
+    <td><%= @request.reference_number.blank? ? "None" : @request.reference_number %></td>
+  </tr>
+  <tr>
+    <th>Notes:</th>
+    <td><%= @request.notes %></td>
+  </tr>
+</table>
+
+
+<h2>Requested Line Items:</h2>
+<table cellspacing="1" border="1">
+  <th>No.</th>
+  <th>Qty.</th>
+  <th>UoM.</th>
+  <th>Description</th>
+  <th>Notes</th>
+  <% @request.items.each do |item| %>
+  <tr>
+    <td><%= item.item_no %></td>
+    <td><%= item.quantity %></td>
+    <td><%= item.unit_of_measure %></td>
+    <td><%= item.material_description %></td>
+    <td><%= item.notes %></td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,32 @@
+<% if params[:action] == "edit" || params[:action] == "new" || params[:action] == "update" || params[:action] == "create" %>
+<li><%= img_button "List All", "order_list.png", url_for(:controller => "quotes", :action => "index") %></li>
+<% else %>
+
+<li>
+  <select onchange="if($F(this) != 'none') window.location=$F(this);">
+    <option value="none">-- View Requests --</option>
+      <% [['all', 'All Requests'],
+               ['mine', 'Mine (Requested By Me)'],
+               ['created_me', 'Created By Me'],
+               ['drafts', 'My Drafts Only'],
+               ['submitted', 'Submitted'],
+               ['process_acknowledged', 'In Process (Acknowledged)'],
+               ['process_out_for_quote', 'In Process (Out For Quote)'],
+               ['authorized', 'Authorized'],
+               ['declined', 'Declined'],
+               ['completed', 'Ordered']].each do |status, display| %>
+        <option value="<%= url_for(:action => :index, :status => status) %>" <%= selected_if(status) %>><%= display %></option>
+      <% end %>
+  </select>
+</li>
+
+<li>
+	<select onchange="window.location=$F(this)" style="width: 120px;">
+	    <% Vendor.all_vendors.each do |group| %>
+		    <option value="<%= filter_url(:vendor => group[1]) %>" <%= select_filter_if(params[:vendor].to_s == group[1].to_s) %>><%= group[0] %></option>	    
+	    <% end %>
+	</select>
+</li>
+<% end %>
+
+

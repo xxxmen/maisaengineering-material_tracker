@@ -1,0 +1,9 @@
+<% if requesting_view? %>
+  <%= render :partial => 'requesting_form' %>
+  <script>setup_calendar_for(['date_need_by'])</script>
+<% else %>
+  <%= render :partial => 'form' %>
+  <script type="text/javascript" charset="utf-8">
+    setup_calendar_for(["date_eta"])
+  </script>
+<% end %>

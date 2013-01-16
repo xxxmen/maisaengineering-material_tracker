@@ -1,0 +1,53 @@
+$HTTP["host"] =~ "^(www.vlad.bpcarson.net|vlad.bpcarson.net)" {
+
+    alias.url    = ("/stats" => "/home/httpd/potracker.bpcarson.net/webstats")
+    alias.url    += ("/__lxadmin" => "/home/lxadmin/httpd/script")
+    url.redirect = ("/kkkkkkkkkkkkkkkk" => "/")
+    server.document-root =  "/home/applications/po_tracker_vlad/current/public"
+    server.error-handler-404 = "/dispatch.fcgi"
+    url.rewrite              = ( "^/$" => "index.html", "^([^.]+)$" => "$1.html" )
+
+    fastcgi.server = ( ".fcgi" =>
+        ( "localhost" =>
+            (
+                "min-procs" => 2,
+                "max-procs" => 3,
+                "socket"    => "/home/applications/po_tracker_vlad/shared/log/fcgi.socket",
+                "bin-path"  => "/home/applications/po_tracker_vlad/current/public/dispatch.fcgi",
+                "bin-environment" => ( 
+                    "RAILS_ENV" => "production", 
+                    "MAIL_DOMAIN" => "bpcarson.net" 
+                )
+            )
+        )
+    )
+
+    alias.url += ( "/awstatsicons" => "/home/lxadmin/httpd/awstats/wwwroot/icon/" )
+    alias.url += ( "/awstatscss" => "/home/lxadmin/httpd/awstats/wwwroot/css/" )
+    alias.url += ( "/cgi-bin" => "/home/admin/potracker.bpcarson.net/cgi-bin/")
+    
+    $HTTP["url"] =~ "^/cgi-bin" {
+        cgi.assign = ( "" => "//home/httpd/potracker.bpcarson.net/shsuexec.sh" )
+    }
+
+    accesslog.filename  =   "/home/httpd/potracker.bpcarson.net/stats/potracker.bpcarson.net-custom_log"
+    server.errorlog    =  "/home/httpd/potracker.bpcarson.net/stats/potracker.bpcarson.net-error_log"
+    cgi.assign = ( ".php" => "/home/httpd/potracker.bpcarson.net/phpsuexec.sh" )
+    
+    $HTTP["url"] =~ "^/stats[/$]" {
+        auth.backend = "htpasswd"
+        auth.backend.htpasswd.userfile = "/home/httpd/potracker.bpcarson.net/__dirprotect/__stats"
+        auth.require = ( "/stats" => 
+            (
+                "method" => "basic",
+                "realm" => "stats",
+                "require" => "valid-user"
+            )
+        )
+    }
+    
+    $HTTP["url"] =~ "^/stats" {
+        dir-listing.activate = "enable"
+    }
+}
+

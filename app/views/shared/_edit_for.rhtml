@@ -1,0 +1,8 @@
+<% remote_form_for object, :html => { :class => "edit inline", :style => "display: none;" }, :loading => "$('#{dom_id(object, :load)}').show();", :complete => "$('#{dom_id(object, :load)}').hide();" do |f| %>
+  <%= f.text_field method, :id => dom_id(object, :text_field), :class => "text" %>
+  <%= submit_tag "Save", :class => "submit" %> or <%= link_to_function "Cancel", toggle_edit(object) %>
+  <img src="/images/load.gif" id="<%= dom_id(object, :load) %>" style="display: none">
+  
+  <span id="<%= dom_id(object, :error) %>" class="error">
+  </span>
+<% end %>

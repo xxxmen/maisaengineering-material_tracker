@@ -1,0 +1,90 @@
+<!--start-->
+<h1 style="padding: 20px; background-color: #444; color: #FFF; text-align: center; margin-bottom: 0px;">
+	<%= "#{ENV['DEPLOY_SITE_NAME']}"%> Material Tracker - Request For Quote
+	<br />
+	Tracking #<%= @request.tracking %>
+</h1>
+
+<% if @is_vendor %>
+	<h2 style="padding: 10px; background-color: #99FF99; color: #FFF; text-align: center; margin-top: 0px;">
+		<a href="http://<%= DOMAIN %>/material_requests/quote/<%= @request.id %>?vendor_id=<%= @vendor.id %>&amp;access_key=<%= @vendor.access_key %>">
+			Click here to fill in a quote
+		</a>
+	</h2>
+<% end %>
+
+<% if @is_planner %>
+	<h2>This is to advise you of this material request.</h2>
+	<p>Please contact purchasing if you do not want to move forward with this purchase.</p>
+<% end %>
+
+<table cellspacing="0" width="100%" style="border: 1px solid #222; padding: 10px; border-collapse: collapse;">
+	<% 	
+	@contact = ""
+	
+	if(!@request.requester.telephone.blank?)
+		@contact = "#{@request.requester.telephone} "
+	end
+	if(!@request.requester.telephone.blank?)
+		@contact += "<#{@request.requester.telephone}>"
+	end
+
+	[
+			['Requested By', @request.requester.entire_full_name],
+			['Contact', @contact],
+			['Need by Date', (@request.date_need_by.blank? ? '' : @request.date_need_by.strftime('%m/%d/%Y'))],
+			['Tracking #', @request.tracking],
+			["#{@request.reference_number_type.present? ? @request.reference_number_type : ReferenceNumberType.get_default_type}", @request.reference_number],
+			['Unit', @request.unit.description],
+			['Notes', @request.notes],
+			['Message', @params[:message]]
+		].each do |data|
+	 %>
+	 <% if(!data[0].blank?) && (!data[1].blank?) %>
+    <tr>
+        <th align="left" width="180px" style="border-bottom: 1px solid #222; padding: 10px;"><%= data[0] %>:</th>
+        <td style="border-bottom: 1px solid #222; padding: 10px;"><%= data[1] %></td>
+    </tr>
+    <%- end %>
+    <%- end %>
+
+    
+  	<% if @is_vendor  && !@quote.nil? && (@quote.quote_attachments.size > 0) %>
+  	<tr>
+        <th align="left" width="180px" style="border-bottom: 1px solid #222; padding: 10px;">Quote Attachments:</th>
+        <td style="border-bottom: 1px solid #222; padding: 10px;"></td>
+    </tr>
+  		
+    <% @quote.quote_attachments.each do |quote_attachment| %>
+    	<tr>
+      		<th align="left" width="180px" style="border-bottom: 1px solid #222; padding: 10px;"><%= quote_attachment.filename %></th>
+         	<td style="border-bottom: 1px solid #222; padding: 10px;"><a href="http://<%= DOMAIN %>/material_requests/quote_file/<%= quote_attachment.id %>?vendor_id=<%= @vendor.id %>&amp;access_key=<%= @vendor.access_key %>">
+         		Download Attachment</a></td>
+         </tr>
+      <%- end %>
+  	<%- end %>
+</table>
+
+<br />
+
+<h2 style="padding: 20px; background-color: #444; color: #FFF; margin-bottom: 0px;">Requested Items:</h2>
+<table cellspacing="0" border="1" width="100%" style="border: 1px solid #222; padding: 10px; border-collapse: collapse;">
+	<tr>
+	    <th style="border-bottom: 1px solid #222; padding: 10px;">No.</th>
+	    <th style="border-bottom: 1px solid #222; padding: 10px;">Qty.</th>
+	    <th style="border-bottom: 1px solid #222; padding: 10px;">UoM.</th>
+	    <th style="border-bottom: 1px solid #222; padding: 10px;">Description</th>
+	    <th style="border-bottom: 1px solid #222; padding: 10px;">Notes</th>
+	</tr>
+  	<% @request.items.each do |item| %>
+		<tr>
+		    <td style="border-bottom: 1px solid #222; padding: 10px;"><%= item.item_no %></td>
+		    <td style="border-bottom: 1px solid #222; padding: 10px;"><%= item.quantity %></td>
+		    <td style="border-bottom: 1px solid #222; padding: 10px;"><%= item.unit_of_measure %></td>
+		    <td style="border-bottom: 1px solid #222; padding: 10px;"><%= item.material_description %></td>
+		    <td style="border-bottom: 1px solid #222; padding: 10px;"><%= item.notes %></td>
+		</tr>
+	<% end %>
+</table>
+
+<h3 style="text-align: right; padding: 10px; background-color: #444; color: #FFF; margin-top: 10px;">by <a style="color: #33CC00;" href="http://www.telaeris.com">Telaeris, Inc.</a></h3>

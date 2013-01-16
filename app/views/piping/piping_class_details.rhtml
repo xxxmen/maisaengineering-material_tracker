@@ -1,0 +1,96 @@
+<style type="text/css" media="screen">
+    .img_sort a { padding: 2px; }
+    .img_sort img { display: none; }
+    .img_sort a img { display: inline; }
+    th.description, td.description{ width: 400px;}
+    th.component, td.component{ width: 150px;}
+    th.valve, td.valve{ width: 150px;}
+    th.notes, td.notes{ width: 300px;}
+    th.bc, td.bc{}
+</style>
+<%= render :partial => 'new_piping_class_detail', :locals => {:piping_class_id => params[:id]} %>
+<table class="noprint information clear">
+<tr>
+	<th class="description">Description</th>
+	<th class="component">Component</th>
+	<th class="valve">Valve</th>
+	<th class="notes">Notes</th>
+	<th class="bc">BC</th>
+</tr>
+
+<% @piping_class_details.each do |piping_class_detail| %>
+<tr id="piping_class_detail_<%= "#{piping_class_detail.id}" %>" class="<%= cycle(:odd, :even) %>" >
+	<td class="description">
+		<%= h piping_class_detail.size_and_description %>
+	</td>
+	<td class="component">
+		<% unless piping_class_detail.piping_component.nil? %>
+			<%= h piping_class_detail.piping_component.piping_component %>
+		<% end %>
+	</td>
+	<td class="valve">
+		<% unless piping_class_detail.valve.nil? %>
+			<%= h piping_class_detail.valve.valve_code %>
+		<% end %>
+	</td>
+	<td class="notes">		
+		<% if piping_class_detail.piping_notes.empty? %>
+			<% @expand_style = "display:none" %>
+		<% end %>
+		<span style="float:left">
+	<%= link_to_function("expand notes",nil, {:style => @expand_style, :id => "piping_class_detail_expand_#{piping_class_detail.id}"}) do |page|
+	page["piping_class_detail_notes_#{piping_class_detail.id}"].show
+	page["piping_class_detail_expand_#{piping_class_detail.id}"].hide
+			end %>
+		</span>
+		<div id="piping_class_detail_notes_<%="#{piping_class_detail.id}"%>" style="display:none; float:left">
+		<%= link_to_function("hide notes",nil, :id => "piping_class_detail_hide_#{piping_class_detail.id}") do |page|
+	page["piping_class_detail_notes_#{piping_class_detail.id}"].hide
+	page["piping_class_detail_expand_#{piping_class_detail.id}"].show
+			end %>
+		
+<%= render :partial => 'detail_notes', :locals => {:piping_class_detail => piping_class_detail} %>		
+		</div>
+
+		
+				<span style="float:right">
+					<%= link_to_function("(add note)",nil, 
+							:id => "piping_class_detail_add_#{piping_class_detail.id}") do |page| 
+								page["new_note_#{piping_class_detail.id}"].show
+								page["piping_class_detail_add_#{piping_class_detail.id}"].hide
+							end %>
+				</span>
+					<% form_remote_tag :url => {:action => 'new_note'},
+						:html => {:id => "new_note_#{piping_class_detail.id}",
+						:style => "display:none",
+						:before   => %(Element.show('ajax_loading')), 
+						:success => %(Element.hide('ajax_loading'))} do -%>
+								<br/>
+						<%= text_field_tag('note', nil )%> 
+						<%= hidden_field_tag('piping_class_detail_id',  piping_class_detail.id)%>
+						<%= submit_tag 'Save' %>
+						<%= link_to_function("Cancel",nil) do |page| 
+								page["new_note_#{piping_class_detail.id}"].hide
+								page["piping_class_detail_add_#{piping_class_detail.id}"].show
+							end %>
+					<% end %>
+			
+	</td>
+	<td class="bc">
+		<% if piping_class_detail.bc9? %>
+			<a href="/images/bc9.jpg">BC-9</a>
+		<% elsif(piping_class_detail.bc10?) %>
+			<a href="/images/bc10.jpg">BC-10</a>
+		<% elsif(piping_class_detail.bc11?) %>
+			<a href="/images/bc11.jpg">BC-11</a>
+		<% end %>
+	</td>
+<% render :partial => 'detail_component', :locals => {:piping_class_detail => piping_class_detail} %>
+
+<% render :partial => 'detail_valve', :locals => {:piping_class_detail => piping_class_detail} %>
+
+
+
+</div>
+<% end %>
+</table>

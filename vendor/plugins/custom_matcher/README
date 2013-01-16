@@ -1,0 +1,52 @@
+CustomMatcher
+=============
+
+Short and sweet way to define custom matchers for your specs.
+
+By default, all matchers are defined in the CustomMatcher module.  So you'll want to include that either
+in your describe blocks or your spec_helper.rb (see Spec::Runner.configure).
+
+Example
+=======
+
+    # Inside a spec file    
+    matcher :be_in_zone do |errors, user, zone_number|
+      errors.failure = "expected #{user.login} to be in zone #{zone_number.to_s} but was actually in zone #{user.current_zone.to_s}"
+      errors.negative = "expected #{user.login} to not be in zone #{zone_number.to_s} but he was"
+      
+      user.current_zone == zone_number
+    end
+    
+    describe User, "when first entering the game" do
+      include CustomMatcher
+      
+      it "should be in zone 1" do
+        bob = User.new(:login => "bob")
+        bob.should be_in_zone(1)
+      end
+    end
+
+    # You can also use your own module as an option, so it won't be automatically defined in the CustomMatcher module:
+
+    matcher :be_in_zone => "ZoneSpecHelper" do |errors, user, zone_number|
+      # ...
+    end
+
+    describe User do
+      include ZoneSpecHelper
+
+      it "should be in zone 1" do
+        bob = User.new
+        bob.should be_in_zone(1)
+      end
+    end
+    
+    # The default error messages are pretty good too, so if you don't want to customize them:
+    matcher :be_in_zone do |errors, user, zone_number|      
+      user.current_zone == zone_number
+    end
+    
+    # this defaults to "expected #{user} to be_in_zone #{zone_number}; but it isn't"
+
+
+Copyright (c) 2007 Hugh Bien, released under the MIT license

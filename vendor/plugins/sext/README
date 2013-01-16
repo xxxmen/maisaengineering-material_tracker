@@ -1,0 +1,51 @@
+== LGPL Information
+
+
+== Sext Plugin
+
+The Sext plugin bootstraps an initial Rails project and adds:
+
+a) Generators to add sessions/users functionality for logging in/out
+b) Generators for adding new resources (migrations, models, and controller files)
+c) Generators to add an ExtJS AJAX interface for CRUD operations on the database
+
+All of these generators are rake tasks that are implemented in lib/tasks/sext_tasks.rake.
+
+
+== Applications for Sext
+
+If your application needs a simple admin interface or is just an interface to the backend database, the Sext plugin can generate all your Javascript code for you for a nice AJAXified application.
+
+All code is generated into files (ie. passive generators) so developers can modify them as they see fit.  This is useful to customize your interfaces for those little tweaks.  However, the generated code assumes you have knowledge of ExtJS and Ruby on Rails if you want to modify it.
+
+Maybe in the future, we'll use active generators too (like Django's automatic admin interface) which works great if you never need to modify the interface.
+
+
+== Usage
+
+After installing the plugin, you'll have access to some rake tasks:
+
+	% rake sext:bootstrap
+
+This will generate the necessary media files (erb templates, html files, css files, images, and javascript code) as well as the login/logout system (sessions/users models and controllers).
+
+	% rake db:migrate
+	% rake sext:add_user FIELDS="first_name:Hugh last_name:Bien password:test login:hughbien email:hughbien@telaeris.com"
+
+These tasks will migrate the database, adding the users table, and add your first user to the table.
+
+  	% rake sext:resource RESOURCE=dogs FIELDS="name:string user_id:integer" ASSOCIATIONS="belongs_to:user"
+	% rake db:migrate
+
+This will generate your migration/model/controller (add_dogs.rb, dog.rb, and dogs_controller.rb).  It will also modify your routes.rb to include `map.resources :dogs`.  Running `db:migrate` will migrate the database using the new 002_add_dogs.rb file.
+
+	% rake sext:js RESOURCE=dogs FILE=true
+
+Finally, this task will generate the necessary Javascript code and add it into public/javascripts/resources.js.  This Javascript code will add a new link to your navigation panel which includes all the CRUD features for the `dogs` resource.  If you leave out the `FILE=true` option, the code will be generated to STDOUT instead of piping it straight into resources.js.
+
+
+== Developers
+
+All the plugin's rake tasks are defined under PLUGIN_DIRECTORY/lib/tasks/sext_tasks.rake.
+
+There are also some additional Rake tasks defined in PLUGIN_DIRECTORY/Rakefile for your eyes only.  The Sext plugin should also come with a test application that acts as a sandbox for you to play around with.

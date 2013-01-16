@@ -1,0 +1,8 @@
+<% if params[:action] != 'popv_notes'  %>
+    <li><%= img_button "Show All POPV", "order_list.png", url_for({:controller => 'piping'}) %></li>
+<% end %>
+<% if params[:action] == 'piping_class_details'  %>
+    <li><%= img_button_function "Add Piping Detail", "order_add.png",
+	"Effect.SlideDown('new_piping_class_detail_#{params[:id]}');return false;new Effect.Highlight('new_piping_class_detail_#{params[:id]}');" %></li>
+<% end %>
+
