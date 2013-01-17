@@ -18,12 +18,12 @@ rescue LoadError => e
     puts "You need to 'gem install thinking-sphinx' and 'gem install ts-datetime-delta' buddy!"
 end
 
-begin
-	require 'vlad'
-	Vlad.load({:config => 'config/deploy/deploy.rb'})
-rescue LoadError => e
-	puts e
-	puts "You need to 'sudo gem install vlad' buddy!"
-end
+# begin
+# 	require 'vlad'
+# 	Vlad.load({:config => 'config/deploy/deploy.rb'})
+# rescue LoadError => e
+# 	puts e
+# 	puts "You need to 'sudo gem install vlad' buddy!"
+# end
 
 

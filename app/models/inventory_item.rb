@@ -60,18 +60,18 @@ class InventoryItem < ActiveRecord::Base
   extend Listable::ModelHelper
   
   # Thinking Sphinx Config
- #  define_index do
-	# indexes :warehouse_name
-	# # indexes :stock_no_id
-	# indexes :stock_no
-	# indexes :description
-	# indexes :unit_of_measure
-	# indexes :vendor_name
-	# indexes :vendor_no
-	# indexes :vendor_part_no
-	# indexes :building
- #  set_property :delta => true
- #  end
+  define_index do
+	indexes :warehouse_name
+	# indexes :stock_no_id
+	indexes :stock_no
+	indexes :description
+	indexes :unit_of_measure
+	indexes :vendor_name
+	indexes :vendor_no
+	indexes :vendor_part_no
+	indexes :building
+  set_property :delta => true
+  end
     
   PERPAGE = 100
 

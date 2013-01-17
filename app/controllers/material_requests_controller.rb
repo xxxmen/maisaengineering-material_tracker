@@ -1,4 +1,4 @@
-require 'fastercsv'
+require 'CSV'
 
 class MaterialRequestsController < ApplicationController
   before_filter :resource_enabled?
@@ -396,7 +396,7 @@ end
             @index = -1
             begin                
                 item_no = params[:item_no].to_i
-                parsed_rows = FasterCSV.parse(params[:new_line_item_csv_file])
+                parsed_rows = CSV.parse(params[:new_line_item_csv_file])
               
                parsed_rows.each_with_index do |row, index|
                 @index = index

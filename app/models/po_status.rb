@@ -30,10 +30,10 @@ class PoStatus < ActiveRecord::Base
   ############################################################################
     
   # Thinking Sphinx Config
-  # define_index do
-  #   indexes :status
-  #   set_property :delta => true
-  # end
+  define_index do
+    indexes :status
+    set_property :delta => true
+  end
   ############################################################################
   # VALIDATIONS
   ############################################################################

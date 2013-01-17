@@ -37,19 +37,19 @@ class Quote < ActiveRecord::Base
   
 
    	# Thinking Sphinx Config
-	# define_index do
-	# 	# Columns
-	# 	indexes discussion
-	# 	indexes material_request(:tracking), :as => :tracking
-	# 	indexes vendor(:name), :as => :supplier
-	# 	indexes vendor(:contact_name), :as => :vendor_name
-	# 	indexes vendor(:contact_telephone), :as => :vendor_phone
-	# 	indexes notes
-	# 	indexes acknowledger(:first_name), :as => :acknowledger_first
-	# 	indexes acknowledger(:last_name), :as => :acknowledger_last
-	#     set_property :delta => true
-	# end
- #  	#acts_as_polymorphic_paperclip
+	define_index do
+		# Columns
+		indexes discussion
+		indexes material_request(:tracking), :as => :tracking
+		indexes vendor(:name), :as => :supplier
+		indexes vendor(:contact_name), :as => :vendor_name
+		indexes vendor(:contact_telephone), :as => :vendor_phone
+		indexes notes
+		indexes acknowledger(:first_name), :as => :acknowledger_first
+		indexes acknowledger(:last_name), :as => :acknowledger_last
+	    set_property :delta => true
+	end
+  	#acts_as_polymorphic_paperclip
   	
 	############################################################################
 	# VALIDATIONS

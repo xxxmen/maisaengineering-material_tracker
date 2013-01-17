@@ -74,22 +74,22 @@ class Order < ActiveRecord::Base
 
 
   	# Thinking Sphinx Config
-	# define_index do
-	# 	# Columns
-	# 	indexes :po_no
-	# 	indexes tracking
-	# 	indexes ptm_no
-	# 	indexes description
-	# 	indexes issued_to_history
-	# 	indexes location
-	# 	indexes work_orders
+	define_index do
+		# Columns
+		indexes :po_no
+		indexes tracking
+		indexes ptm_no
+		indexes description
+		indexes issued_to_history
+		indexes location
+		indexes work_orders
 
-	# 	# Associations
-	# 	indexes unit(:description), :as => :unit_name
-	# 	indexes vendor(:name), :as => :supplier
+		# Associations
+		indexes unit(:description), :as => :unit_name
+		indexes vendor(:name), :as => :supplier
 		
- #    set_property :delta => true
-	# end
+    set_property :delta => true
+	end
 
   has_and_belongs_to_many :material_requests
 

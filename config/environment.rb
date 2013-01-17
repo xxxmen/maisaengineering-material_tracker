@@ -1,28 +1,43 @@
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
+#RAILS_GEM_VERSION = '2.3.11' unless defined? RAILS_GEM_VERSION
 
 # Be sure to restart your web server when you modify this file.
 
 #require File.join(File.dirname(__FILE__), 'app_constants')
 
 # Bootstrap the Rails environment, frameworks, and default configuration
-require File.join(File.dirname(__FILE__), 'boot')
+require File.expand_path('../../config/boot', __FILE__)
+
+class Rails::Boot
+  def run
+    load_initializer
+
+    Rails::Initializer.class_eval do
+      def load_gems
+        @bundler_loaded ||= Bundler.require :default, Rails.env
+      end
+    end
+
+    Rails::Initializer.run(:set_load_path)
+  end
+end
+
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here
 
-  #config.gem 'fastercsv', 						:version => '>= 1.5.0'
+  #config.gem 'CSV'
   #config.gem 'bluecloth', 						:version => '>= 2.0.0'
 
   # Be sure to change the gem version reference in RAILS_ROOT/Rakefile
   # if you update this definition at all.
-  #config.gem 'thinking-sphinx',
-  		#:lib => 'thinking_sphinx',
-  		#:source => 'http://gemcutter.org'
+  # config.gem 'thinking-sphinx', :version => '>= 1.4.11',
+  # 		:lib => 'thinking_sphinx',
+  # 		:source => 'http://gemcutter.org'
 
-  #config.gem 'ts-datetime-delta',
-  		#:lib     => 'thinking_sphinx/deltas/datetime_delta',
-  		#:source => 'http://gemcutter.org'
+  # config.gem 'ts-datetime-delta',
+  # 		:lib     => 'thinking_sphinx/deltas/datetime_delta',
+  # 		:source => 'http://gemcutter.org'
 
 
   # Skip frameworks you're not going to use (only works if using vendor/rails)
@@ -80,7 +95,7 @@ end
 #require "acts_as_ferret"
 #require 'bluecloth'
 #require 'thinking_sphinx'
-#require 'thinking_sphinx_extensions' # in RAILS_ROOT/lib
+require 'thinking_sphinx_extensions' # in RAILS_ROOT/lib
 require 'piping_reference_helper' # in RAILS_ROOT/lib
 #require 'report'		# Make sure the extra classes defined in report.rb are loaded.
 #require 'asset'

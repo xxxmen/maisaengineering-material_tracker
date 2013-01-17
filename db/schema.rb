@@ -620,6 +620,23 @@ ActiveRecord::Schema.define(:version => 20120727213629) do
     t.string "name"
   end
 
+  create_table "temporary_piping_class_dtls", :id => false, :force => true do |t|
+    t.string   "Class_Code"
+    t.string   "Section_No"
+    t.string   "Piping_Comp_Name"
+    t.string   "Line_No"
+    t.string   "Size_Desc"
+    t.string   "Description"
+    t.string   "Valve_No"
+    t.string   "Note_No"
+    t.string   "Note_No1"
+    t.string   "Note_No2"
+    t.string   "Note_No3"
+    t.string   "Note_No4"
+    t.string   "Last_Updt_Id"
+    t.datetime "Last_Updt_date"
+  end
+
   create_table "tickets", :force => true do |t|
     t.integer  "number"
     t.string   "title"

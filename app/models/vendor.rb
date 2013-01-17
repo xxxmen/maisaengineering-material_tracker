@@ -23,7 +23,7 @@
 #  access_key        :string(255)   
 #
 
-require 'sha1'
+require 'digest/sha1'
 
 class Vendor < ActiveRecord::Base  
 	############################################################################
@@ -51,12 +51,12 @@ class Vendor < ActiveRecord::Base
 	############################################################################
   	
 	# Thinking Sphinx Config
-	# define_index do
-	# 	indexes :vendor_no
-	# 	indexes :name
-	# 	indexes :account_no
-	# 	set_property :delta => true
-	# end
+	define_index do
+		indexes :vendor_no
+		indexes :name
+		indexes :account_no
+		set_property :delta => true
+	end
 	
 	############################################################################
 	# CALLBACKS
@@ -131,6 +131,6 @@ class Vendor < ActiveRecord::Base
   	private
   
   	def set_access_key
-    	self.access_key = SHA1.hexdigest('--' + self.id.to_s + '--' + Time.now.to_s + '--')
+    	self.access_key = Digest::SHA1.hexdigest('--' + self.id.to_s + '--' + Time.now.to_s + '--')
   	end
 end

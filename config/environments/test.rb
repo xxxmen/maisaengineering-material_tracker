@@ -21,6 +21,3 @@ config.action_mailer.delivery_method = :test
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.perform_deliveries = false
 
-config.gem "rspec", :lib => false, :version => "= 1.2.6"
-config.gem "rspec-rails", :lib => false, :version => "= 1.2.6"
-

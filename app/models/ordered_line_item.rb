@@ -37,13 +37,13 @@ class OrderedLineItem < ActiveRecord::Base
     belongs_to :order, :class_name => "Order", :foreign_key => "po_id"
 
 	# Thinking Sphinx Config
-	# define_index do
-	# 	# Columns
-	# 	indexes :line_item_no
-	# 	indexes :description
-	# 	indexes :unit_of_measure
-	# 	set_property :delta => true
-	# end	
+	define_index do
+		# Columns
+		indexes :line_item_no
+		indexes :description
+		indexes :unit_of_measure
+		set_property :delta => true
+	end	
 	
 	
     after_save :update_order

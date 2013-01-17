@@ -1,6 +1,0 @@
-development:
-   bin_path: '/usr/local/sphinx/bin'
-
-production:
-   bin_path: '/usr/local/sphinx/bin'
-

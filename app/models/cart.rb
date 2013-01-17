@@ -44,17 +44,17 @@ class Cart < ActiveRecord::Base
   has_many :events, :as => :recordable, :dependent => :destroy
 
   # Thinking Sphinx Config
- #  define_index do
+  define_index do
     
- #  set_property :delta => true
-	# indexes :tracking_no
-	# indexes :deliver_to
-	# indexes :year
-	# indexes unit(:description), :as => :unit_description
-	# indexes [requester(:first_name), requester(:mi), requester(:last_name)], :as => :requester_name
+  set_property :delta => true
+	indexes :tracking_no
+	indexes :deliver_to
+	indexes :year
+	indexes unit(:description), :as => :unit_description
+	indexes [requester(:first_name), requester(:mi), requester(:last_name)], :as => :requester_name
 	
- #  set_property :delta => true
- #  end
+  set_property :delta => true
+  end
 
 
   after_update :update_event
