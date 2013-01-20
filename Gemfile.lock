@@ -88,7 +88,7 @@ GEM
       ruby-debug-base19 (>= 0.11.19)
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
-    test-unit (2.5.3)
+    test-unit (2.4.9)
     thinking-sphinx (2.0.0.rc2)
       activerecord (>= 3.0.0.rc)
       riddle (>= 1.0.12)
@@ -110,6 +110,6 @@ DEPENDENCIES
   rake (~> 0.8.3)
   rspec-rails (>= 2.1.0)
   ruby-debug19
-  test-unit (~> 2.5.3)
+  test-unit (~> 2.4.0)
   thinking-sphinx (>= 2.0.0.rc1)
   ts-datetime-delta

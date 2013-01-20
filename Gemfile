@@ -13,7 +13,7 @@ gem 'ts-datetime-delta', :require => 'thinking_sphinx/deltas/datetime_delta'
 
 gem "rake", "~>0.8.3"
 
-gem "test-unit", "~> 2.5.3"
+gem "test-unit", "~> 2.4.0"
 
 
 group :development, :test do
