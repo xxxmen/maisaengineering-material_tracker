@@ -39,10 +39,6 @@ test:
 
 production:
   adapter: mysql
-  encoding: utf8
-  reconnect: false
-  database: material_tracker_production
+  database: mt_prod
   pool: 5
-  username: root
-  password:
-  #socket: /tmp/mysql.sock
+  timeout: 5000
