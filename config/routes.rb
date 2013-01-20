@@ -1,4 +1,62 @@
-ActionController::Routing::Routes.draw do |map|
+MaterialTracker::Application.routes.draw do |map|
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
+
+  # Sample of regular route:
+  #   match 'products/:id' => 'catalog#view'
+  # Keep in mind you can assign values other than :controller and :action
+
+  # Sample of named route:
+  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  # This route can be invoked with purchase_url(:id => product.id)
+
+  # Sample resource route (maps HTTP verbs to controller actions automatically):
+  #   resources :products
+
+  # Sample resource route with options:
+  #   resources :products do
+  #     member do
+  #       get :short
+  #       post :toggle
+  #     end
+  #
+  #     collection do
+  #       get :sold
+  #     end
+  #   end
+
+  # Sample resource route with sub-resources:
+  #   resources :products do
+  #     resources :comments, :sales
+  #     resource :seller
+  #   end
+
+  # Sample resource route with more complex sub-resources
+  #   resources :products do
+  #     resources :comments
+  #     resources :sales do
+  #       get :recent, :on => :collection
+  #     end
+  #   end
+
+  # Sample resource route within a namespace:
+  #   namespace :admin do
+  #     # Directs /admin/products/* to Admin::ProductsController
+  #     # (app/controllers/admin/products_controller.rb)
+  #     resources :products
+  #   end
+
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  # root :to => "welcome#index"
+
+  # See how all your routes lay out with "rake routes"
+
+  # This is a legacy wild controller route that's not recommended for RESTful applications.
+  # Note: This route will make all actions in every controller accessible via GET requests.
+  # match ':controller(/:action(/:id(.:format)))'
+
+
   map.resources :groups
 
 
@@ -30,11 +88,11 @@ ActionController::Routing::Routes.draw do |map|
   #map.connect '/boms/current', :controller => 'boms', :action => 'current'
   #map.connect '/boms/set_current/:id', :controller => 'boms', :action => 'set_current'
   map.resources :bills, :member => { :approve => :post,
-  									 :review => :post,
-  									 :disapprove => :post,
-  									 :unreview => :post,
-  									 :request_for_quote_pdf => :get
-  								   }
+                     :review => :post,
+                     :disapprove => :post,
+                     :unreview => :post,
+                     :request_for_quote_pdf => :get
+                     }
   map.resources :bill_items, :collection => {:create_many => :post}
 
 
@@ -104,17 +162,17 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :bulk_changes, :collection => { :tables => :post, :fields => :post, :search_results => :post, :finalize_replace => :post}
   map.resources :boms, :collection => { :search => :get, :excel => :get}
   map.resources :piping, :collection => { :search => :get,
-  										  :classes_service => :get,
-  										  :classes_only => :get,
+                        :classes_service => :get,
+                        :classes_only => :get,
                         :classes_only_incl_archived => :get,
-  										  :units_for_measure => :get,
-  										  :piping_sizes => :get,
-  										  :piping_class_details => :get,
-  										  :piping_components => :get,
-  										  :all_classes_pdf => :get,
-  										  :notes_pdf => :get
-										},
-						:member => {:details_pdf => :get, :valves_pdf => :get,
+                        :units_for_measure => :get,
+                        :piping_sizes => :get,
+                        :piping_class_details => :get,
+                        :piping_components => :get,
+                        :all_classes_pdf => :get,
+                        :notes_pdf => :get
+                    },
+            :member => {:details_pdf => :get, :valves_pdf => :get,
               :increase_order => :post, :decrease_order => :post,
               :increase_group_order => :post, :decrease_group_order => :post}
   map.resources :piping_class_details, :collection => { :search => :get}, :member => {:add_note => :put}
@@ -128,24 +186,24 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :piping_notes, :collection => { :search => :get }
   map.connect "/valves/clone/:id", :controller => "valves", :action => "clone"
   map.resources :valves,
-  	:collection => {
-  		:search => :get,
-  		:all_pdf => :get,
-  		:comparison_pdf => :get,
-  		:related_valve_components => :get,
-  		:related_manufacturers => :get,
-  		:related_old_manufacturers => :get,
-  		:related_piping_classes => :get,
-  		:related_piping_references => :get,
+    :collection => {
+      :search => :get,
+      :all_pdf => :get,
+      :comparison_pdf => :get,
+      :related_valve_components => :get,
+      :related_manufacturers => :get,
+      :related_old_manufacturers => :get,
+      :related_piping_classes => :get,
+      :related_piping_references => :get,
       :valve_components => :get,
-  		:pdf => :get,
+      :pdf => :get,
       :supersede_manufacturer => :post,
       :undo_supersede_manufacturer => :post,
-  		:add_manufacturer => :post,
-  		:edit_manufacturer => :put,
-  		:delete_manufacturer => :delete
-  	},
-  	:member => { :archive => :put }
+      :add_manufacturer => :post,
+      :edit_manufacturer => :put,
+      :delete_manufacturer => :delete
+    },
+    :member => { :archive => :put }
 
 
   map.resources :popv, :collection => { :search => :get, :upload_reference_documents => :post, :popv_user_guide => :get }
@@ -165,24 +223,24 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :po_statuses, :collection => { :search => :get }
   map.resources :vendor_groups, :collection => { :search => :get }
   map.resources :material_requests,
-  	:collection => { :search => :get },
-  	:member => {
+    :collection => { :search => :get },
+    :member => {
      :update_items_from_request => :get,
       :pdf => :get,
-  		:acknowledge => :get,
-  		:vendor_email => :get,
-  		:new_from_bom => :get,
-  		:duplicate => :get,
-  		:duplicate_with_items => :get,
-  		:get_purchaser_group => :get
-  	}
+      :acknowledge => :get,
+      :vendor_email => :get,
+      :new_from_bom => :get,
+      :duplicate => :get,
+      :duplicate_with_items => :get,
+      :get_purchaser_group => :get
+    }
   map.resources :requested_line_items
 
   map.resources :piping_references
   map.resources :piping_reference_attachings,
-  	:collection => {
-  		:create_with_piping_reference => :post
-  	}
+    :collection => {
+      :create_with_piping_reference => :post
+    }
 
   map.resources :tickets, :collection => { :search => :get }
   map.resources :links

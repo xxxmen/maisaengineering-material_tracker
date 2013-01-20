@@ -1,34 +1,44 @@
-source :gemcutter
-gem "rails", "~> 2.3.14"
+source 'http://rubygems.org'
 
-gem 'mysql2', '<0.3'
+gem 'rails', '3.0.0.rc'
 
-gem 'thinking-sphinx',  '1.4.11'
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'ts-datetime-delta'
+gem 'mysql'
 
-gem "rake", "~> 0.8.3"
+gem 'thinking-sphinx','>=2.0.0.rc1', :require => 'thinking_sphinx'
+
+gem 'ts-datetime-delta', :require => 'thinking_sphinx/deltas/datetime_delta'
 
 gem 'test-unit', '1.2.3'
 
 gem 'ruby-debug19'
 
+gem "rake", "~> 0.8.3"
+
 group :development, :test do
-    gem 'rspec'
-	gem 'rspec-rails'
+    gem "rspec-rails", ">= 2.1.0"
 end
 
-# bundler requires these gems in all environments
-# gem "nokogiri", "1.4.2"
-# gem "geokit"
+# Use unicorn as the web server
+# gem 'unicorn'
 
-group :development do
-  # bundler requires these gems in development
-  # gem "rails-footnotes"
-end
+# Deploy with Capistrano
+# gem 'capistrano'
 
-group :test do
-  # bundler requires these gems while running tests
-  # gem "rspec"
-  # gem "faker"
-end
+# To use debugger
+# gem 'ruby-debug'
+
+# Bundle the extra gems:
+# gem 'bj'
+# gem 'nokogiri', '1.4.1'
+# gem 'sqlite3-ruby', :require => 'sqlite3'
+# gem 'aws-s3', :require => 'aws/s3'
+
+# Bundle gems for the local environment. Make sure to
+# put test-only gems in this group so their generators
+# and rake tasks are available in development mode:
+# group :development, :test do
+#   gem 'webrat'
+# end

@@ -1,6 +1,5 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  include Listable::ViewHelper
+	include Listable::ViewHelper
   
   	# Sets the Site Name to whatever is stored in the configured Constant
   	def deploy_site_name
@@ -281,6 +280,5 @@ module ApplicationHelper
   def link_to_note(note)
     "<a href='##{dom_id note}' title='#{h note.note_text}' id='#{dom_id note}' onclick='PipeBuilder.showNote(this); return false;' >#{note.id}</a>"
   end
-  
-  
+
 end
