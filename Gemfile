@@ -21,6 +21,9 @@ group :development, :test do
     gem "rspec-rails", ">= 2.1.0"
 end
 
+group :production do
+	gem 'pg'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
