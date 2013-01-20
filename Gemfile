@@ -11,13 +11,12 @@ gem 'thinking-sphinx','>=2.0.0.rc1', :require => 'thinking_sphinx'
 
 gem 'ts-datetime-delta', :require => 'thinking_sphinx/deltas/datetime_delta'
 
-gem 'test-unit', '1.2.3'
-
 gem 'ruby-debug19'
 
 gem "rake", "~>0.8.3"
 
-gem "hoe", "~>3.1.0"
+gem "test-unit", "~> 2.5.3"
+
 
 group :development, :test do
     gem "rspec-rails", ">= 2.1.0"
