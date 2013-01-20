@@ -15,8 +15,6 @@ gem 'test-unit', '1.2.3'
 
 gem 'ruby-debug19'
 
-gem "rake", "~> 0.8.3"
-
 group :development, :test do
     gem "rspec-rails", ">= 2.1.0"
 end
