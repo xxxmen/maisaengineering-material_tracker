@@ -39,6 +39,6 @@ test:
 
 production:
   adapter: mysql
-  database: mt_prod
+  database: po_tracker
   pool: 5
   timeout: 5000
