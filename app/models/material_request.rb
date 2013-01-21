@@ -65,7 +65,7 @@ class MaterialRequest < ActiveRecord::Base
   has_many :material_request_attachments, :dependent => :destroy
 
   #THIS IS GOING TO BE DEPRECATED.  JUST BEING USED FOR THE MIGRATIONS FOR NOW.
-  has_attached_file :attachment, :path => ":rails_root/data/material_request/request_attachment_:id.:extension"
+  # has_attached_file :attachment, :path => ":rails_root/data/material_request/request_attachment_:id.:extension"
   def attached_file_path
       file_extension = self.attachment_file_name[self.attachment_file_name.rindex('.')..self.attachment_file_name.length]
       "#{RAILS_ROOT}/data/material_request/request_attachment_#{self.id}#{file_extension}"
@@ -96,7 +96,7 @@ class MaterialRequest < ActiveRecord::Base
   validates_presence_of :description
   
   
-  before_validation_on_create :set_tracking
+  # before_validation_on_create :set_tracking
   before_validation :set_acknowledged_and_authorized
   
   
@@ -189,9 +189,9 @@ class MaterialRequest < ActiveRecord::Base
  			   :declined, 
  			   :issued_from_main
   
-  validates_existence_of :unit, :allow_nil => true
-  validates_existence_of :planner, :allow_nil => true
-  validates_existence_of :requester, :allow_nil => true
+  # validates_existence_of :unit, :allow_nil => true
+  # validates_existence_of :planner, :allow_nil => true
+  # validates_existence_of :requester, :allow_nil => true
                 
   def initialize(attributes = {})
     super
@@ -401,13 +401,13 @@ class MaterialRequest < ActiveRecord::Base
 #    	params[:group] = employee.get_group
 #   	end
     
-    self.filter(params) do 
-      with_scope(:find => { :conditions => ["material_requests.deleted = ?", false] }) do
-        with_scope(:find => { :conditions => conditions }) do
-          self.list(params, :include => [:requester, :unit, :items], :order => "material_requests.id", :sort => "DESC")
-        end
-      end
-   	end
+    # self.filter(params) do 
+    #   with_scope(:find => { :conditions => ["material_requests.deleted = ?", false] }) do
+    #     with_scope(:find => { :conditions => conditions }) do
+    #       self.list(params, :include => [:requester, :unit, :items], :order => "material_requests.id", :sort => "DESC")
+    #     end
+    #   end
+   	# end
   end
   
   def self.all_units

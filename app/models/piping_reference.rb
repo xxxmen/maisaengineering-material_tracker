@@ -39,9 +39,9 @@ class PipingReference < ActiveRecord::Base
 	############################################################################
   	
 	# New Attachment stuff, with Paperclip and PaperclipPolymorph:
-	has_attached_file :data, 
-		:path => ":rails_root/data/piping_references/:id_partition/:basename.:extension",
-		:url => "/piping_references/view/:id"
+	# has_attached_file :data, 
+	# 	:path => ":rails_root/data/piping_references/:id_partition/:basename.:extension",
+	# 	:url => "/piping_references/view/:id"
 	has_many :attachings, :class_name => "PipingReferenceAttaching", :dependent => :destroy
 
 	############################################################################	
