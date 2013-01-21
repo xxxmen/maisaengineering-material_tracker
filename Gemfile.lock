@@ -36,6 +36,10 @@ GEM
     diff-lcs (1.1.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    factory_girl (1.3.3)
+    factory_girl_rails (1.0)
+      factory_girl (~> 1.3)
+      rails (>= 3.0.0.beta4)
     i18n (0.4.2)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
@@ -44,7 +48,10 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.19)
+    mocha (0.13.1)
+      metaclass (~> 0.0.1)
     mysql (2.9.0)
     pg (0.14.1)
     polyglot (0.3.3)
@@ -104,6 +111,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  factory_girl_rails
+  mocha
   mysql
   pg
   rails (= 3.0.0.rc)

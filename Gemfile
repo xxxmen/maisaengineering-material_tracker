@@ -15,9 +15,13 @@ gem "rake", "~>0.8.3"
 
 gem "test-unit", "~> 2.4.0"
 
+#gem 'paperclip', :git => 'git://github.com/lmumar/paperclip.git', :branch => 'rails3'
+
 group :development, :test do
+	gem "mocha"
 	gem 'ruby-debug19'
     gem "rspec-rails", ">= 2.1.0"
+    gem "factory_girl_rails"
 end
 
 group :production do
