@@ -12402,3 +12402,21 @@ ActionView::Template::Error (undefined method `tracking' for "1 = 1":String):
 Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
 Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
 Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (48.5ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/vendor/plugins/pboling_exception_notification/rails/init.rb. (called from block in <class:Plugin> at /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.0.0.rc/lib/rails/plugin.rb:78)
+  [1m[36mSQL (110.1ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mResourcePermission Load (0.4ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.6ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions`
+DEPRECATION WARNING: You are using the old router DSL which will be removed in Rails 3.1. Please check how to update your routes file at: http://www.engineyard.com/blog/2010/the-lowdown-on-routes-in-rails-3/. (called from initialize at /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/routing/deprecated_mapper.rb:33)

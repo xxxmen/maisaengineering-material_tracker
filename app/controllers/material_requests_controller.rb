@@ -1,7 +1,7 @@
 require 'csv'
 
 class MaterialRequestsController < ApplicationController
-  #before_filter :resource_enabled?
+  before_filter :resource_enabled?
   before_filter :find_material_request, :only => [:create, :edit, :update, :quote_comparison]
   before_filter :check_query, :only => [:search]
   before_filter :check_draft, :only => [:create, :update]
