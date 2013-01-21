@@ -1,0 +1,7 @@
+<% material_requests.each do |material_request| %>
+	<li id="<%= dom_id(material_request) %>" class="material_request resource" <% if hide %>style="display: none;"<% end %>>
+		<span class="id"><%= link_to material_request.tracking, edit_material_request_path(material_request) %></span>
+		<span class="name"><%= h material_request.requester_name %></span>
+		<span class="desc"><%= h material_request.description %></span>
+	</li>
+<% end %>

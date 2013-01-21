@@ -1,0 +1,12 @@
+<div id="piping_class_detail_notes_detail_<%="#{piping_class_detail.id}"%>">
+<% unless piping_class_detail.piping_notes.nil? %>
+<table class="noprint information clear">
+  <% piping_class_detail.piping_notes.each do |note| %>
+    <tr id="piping_class_detail_note_<%= "#{note.id}" %>">
+      <td style="width: 80px;">NOTE</td>
+      <td><%= h note.note_text %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>
+</div>

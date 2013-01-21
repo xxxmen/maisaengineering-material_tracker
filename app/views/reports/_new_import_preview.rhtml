@@ -1,0 +1,75 @@
+<style type="text/css">
+	.ImportPreviewTable TD,TH {
+		padding:5px!important;
+	}
+</style>
+
+<b>
+	<a href="#" onclick="hidePreview(); return false;">Import - Export</a>
+	&raquo;
+	Import from CSV - <%= model_to_import %>
+</b>
+
+<div class="left" style="width:100%; margin-top:20px;">
+	<form action="/reports/submit_import_preview?import_model=<%= model_to_import %>" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+		<input type="hidden" name="number_of_rows" value="<%= table_rows.length %>" />
+		<input type="hidden" name="column_names" value="<%= column_names.map{|column_name| column_name}.join(',') %>" />
+		
+		<table class="ImportPreviewTable" border="1" cellpadding="0" cellspacing="0" style="width:100%;">
+			<thead>
+				<tr>
+					<th>#</th>
+					<% column_names.each do |column_name| %>
+						<th style="text-align:center;">
+							<%= column_name.titlecase %>
+							<%= column_name == "stock_no_id" ? "Id" : nil %>
+						</th>
+					<% end %>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% table_rows.each_with_index do |table_row, index| %>					
+					<tr>
+						<td>
+							<%= index + 1 %>
+							<input type="hidden" name="row_<%= index + 1 %>" value="<%= index + 1 %>" />
+						</td>
+						<% column_names.each do |column_name| %>
+							<td style="background-color:<%= table_row[column_name][:cell_color] %>">
+								<input type="text" value="<%= table_row[column_name][:cell_value] %>" id="<%= table_row[column_name][:cell_name] %>" name="<%= table_row[column_name][:cell_name] %>" />
+							</td>
+						<% end %>
+						<td>
+							<a href="#" title="Delete row" onclick="removeRow(this); return false;">
+								<img src="/images/icons/delete.png" width="16" height="16" />
+							</a>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+				
+		<input type="submit" value="Proceed &raquo;" style="margin-top:20px;" />
+		<br /><br />
+		
+		<% if is_there_a_relationship_to_be_created %>
+			<table border="0" style="width:100%;">
+				<tbody>
+					<tr>
+						<td style="width:20px; background-color:green;">&nbsp;</td>
+						<td style="width:20px; text-align:center;">-</td>
+						<td>There are no records already available to link for this field. New records in the corresponding master will be created to maintain the releationship.</td>
+					</tr>
+					<tr><td colspan="3">&nbsp;</td></tr>
+					<tr>
+						<td style="width:20px; background-color:blue;">&nbsp;</td>
+						<td style="width:20px; text-align:center;">-</td>
+						<td>This will be linked to the already available record with the corresponding value.</td>
+					</tr>
+				</tbody>
+			</table>
+		<% end %>
+	</form>
+</div>

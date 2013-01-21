@@ -1,0 +1,1741 @@
+object TRpReport
+  GridColor = 8421504
+  GridWidth = 72
+  GridHeight = 72
+  PageOrientation = rpOrientationPortrait
+  Pagesize = rpPageSizeUser
+  PagesizeQt = 2
+  PageHeight = 7639
+  PageWidth = 5903
+  CustomPageHeight = 15840
+  CustomPageWidth = 12240
+  PageBackColor = 16777215
+  PreviewStyle = spEntirePage
+  PreviewWindow = spwMaximized
+  LeftMargin = 576
+  TopMargin = 576
+  RightMargin = 576
+  BottomMargin = 576
+  SubReports = <
+    item
+      SubReport = TRpSubReport1
+    end>
+  DataInfo = <
+    item
+      Alias = 'BOM'
+      DatabaseAlias = 'POTRACKER'
+      SQL = 
+        'select '#13#10'  requesters.first_name AS requester_first_name, '#13#10'  re' +
+        'questers.last_name AS requester_last_name, '#13#10'  requesters.teleph' +
+        'one as requester_telephone, '#13#10#13#10'  approvers.first_name AS approv' +
+        'ed_by_first_name, '#13#10'  approvers.last_name AS approved_by_last_na' +
+        'me, '#13#10'TRIM(CONCAT(IF(units.unit_no IS NOT NULL AND units.unit_no' +
+        ' != "", CONCAT(units.unit_no, " : "), ""), units.description)) a' +
+        's unit_description, '#13#10#13#10'  bills.work_order as work_order, '#13#10#13#10'  ' +
+        'bills.id as bill_id,'#13#10'  bills.description as description,'#13#10'  bil' +
+        'ls.required_on as required_on, '#13#10'  bills.tracking as tracking, '#13 +
+        #10'  bills.required_on as required_on, '#13#10'  bills.process as proces' +
+        's, '#13#10'  bills.mes as mes, '#13#10'  bills.suggested_vendor as suggested' +
+        '_vendor, '#13#10'  bills.delivery_type as delivery_type, '#13#10'  bills.spe' +
+        'cial_instructions as special_instructions,'#13#10'  bills.status as st' +
+        'atus, '#13#10'  bills.ticket as ticket, '#13#10'  '#13#10'  bill_items.line_num as' +
+        ' item_no, '#13#10'  bill_items.quantity as quantity, '#13#10'  bill_items.un' +
+        'it_of_measure as unit_of_measure,CONCAT(IF(bill_items.size_1 = "' +
+        '" OR bill_items.size_1 IS NULL, bill_items.size_2, IF(bill_items' +
+        '.size_2 = "" OR bill_items.size_2 IS NULL, bill_items.size_1, CO' +
+        'NCAT(bill_items.size_1, " x ", bill_items.size_2))), IF(piping_c' +
+        'omponents.piping_component IS NOT NULL, CONCAT(" ", piping_compo' +
+        'nents.piping_component), ""), ", ",bill_items.description) as `l' +
+        'ine_description`, '#13#10'  bill_items.notes as notes,'#13#10'  piping_class' +
+        'es.class_code as class_code'#13#10#13#10'FROM'#13#10' '#13#10'  bills '#13#10'  LEFT JOIN un' +
+        'its ON (units.id=bills.unit_id)'#13#10'  LEFT JOIN bill_items ON (bill' +
+        's.id=bill_items.bill_id)'#13#10'  LEFT JOIN employees AS requesters ON' +
+        ' (requesters.id=bills.created_by)'#9#13#10'  LEFT JOIN employees AS app' +
+        'rovers ON (approvers.id=bills.approved_by)'#9#13#10'  LEFT JOIN piping_' +
+        'class_details ON (bill_items.piping_class_detail_id=piping_class' +
+        '_details.id)'#13#10'  LEFT JOIN piping_components ON (piping_class_det' +
+        'ails.piping_component_id=piping_components.id)'#13#10'  LEFT JOIN pipi' +
+        'ng_classes ON (piping_class_details.piping_class_id = piping_cla' +
+        'sses.id)'#13#10#13#10'WHERE'#13#10'  bills.id IN (:pSearchID)'#13#10'  ORDER BY bills.' +
+        'tracking, bill_items.line_num ASC '#13#10';'
+    end>
+  DatabaseInfo = <
+    item
+      Alias = 'POTRACKER'
+      LoadParams = True
+      LoadDriverParams = True
+      LoginPrompt = False
+      Driver = rpdataado
+      ReportTable = 'REPMAN_REPORTS'
+      ReportSearchField = 'REPORT_NAME'
+      ReportField = 'REPORT'
+      ReportGroupsTable = 'REPMAN_GROUPS'
+      ADOConnectionString = 
+        'Provider=MSDASQL.1;Persist Security Info=False;Data Source=potra' +
+        'cker'
+    end>
+  Params = <
+    item
+      Name = 'PSEARCHID'
+      AllowNulls = False
+      Value = '697'
+      ParamType = rpParamSubst
+      Datasets.Strings = (
+        'BOM')
+      Items.Strings = (
+        '12, 17,18'
+        '10')
+      Values.Strings = (
+        '12,17,18'
+        '10')
+      Selected.Strings = (
+        '0'
+        '1')
+      SearchParam = 'PSEARCHID'
+      Description = ''
+      Hint = ''
+      Search = ':pSearchID'
+      ErrorMessage = ''
+      Validation = ''
+    end
+    item
+      Name = 'PINSIDETRACKER'
+      AllowNulls = False
+      Value = 'L'
+      ParamType = rpParamSubst
+      Datasets.Strings = (
+        'MATREQ')
+      Description = ''
+      Hint = ''
+      Search = ''
+      ErrorMessage = ''
+      Validation = ''
+    end
+    item
+      Name = 'PTRACKINGCOUNTER'
+      AllowNulls = False
+      Value = '0'
+      ParamType = rpParamSubst
+      Datasets.Strings = (
+        'MATREQ')
+      Description = ''
+      Hint = ''
+      Search = ''
+      ErrorMessage = ''
+      Validation = ''
+    end>
+  TwoPass = True
+  StreamFormat = rpStreamText
+  ReportAction = []
+  Type1Font = poHelvetica
+  WFontName = 'Arial'
+  LFontName = 'Helvetica'
+  object TRpSubReport1: TRpSubReport
+    Sections = <
+      item
+        Section = TRpSection0
+      end
+      item
+        Section = TRpSection4
+      end
+      item
+        Section = TRpSection2
+      end
+      item
+        Section = TRpSection5
+      end
+      item
+        Section = TRpSection3
+      end
+      item
+        Section = TRpSection7
+      end
+      item
+        Section = TRpSection8
+      end
+      item
+        Section = TRpSection6
+      end>
+    Alias = 'BOM'
+  end
+  object TRpSection5: TRpSection
+    Width = 11088
+    Height = 864
+    SubReport = TRpSubReport1
+    ChangeBool = False
+    PageRepeat = False
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecdetail
+    Components = <
+      item
+        Component = TRpExpression1
+      end
+      item
+        Component = TRpExpression6
+      end
+      item
+        Component = TRpExpression7
+      end
+      item
+        Component = TRpShape2
+      end
+      item
+        Component = TRpShape4
+      end
+      item
+        Component = TRpShape5
+      end
+      item
+        Component = TRpShape6
+      end
+      item
+        Component = TRpShape7
+      end
+      item
+        Component = TRpExpression0
+      end
+      item
+        Component = TRpShape3
+      end
+      item
+        Component = TRpShape21
+      end
+      item
+        Component = TRpExpression23
+      end
+      item
+        Component = TRpShape1
+      end
+      item
+        Component = TRpExpression2
+      end>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = ''
+    BeginPageExpression = ''
+    ChangeExpression = ''
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpSection6: TRpSection
+    Width = 11088
+    Height = 324
+    SubReport = TRpSubReport1
+    ChangeBool = False
+    PageRepeat = False
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecpfooter
+    Components = <
+      item
+        Component = TRpExpression17
+      end
+      item
+        Component = TRpExpression18
+      end
+      item
+        Component = TRpExpression11
+      end
+      item
+        Component = TRpExpression13
+      end
+      item
+        Component = TRpImage1
+      end>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = ''
+    BeginPageExpression = ''
+    ChangeExpression = ''
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpExpression17: TRpExpression
+    Width = 1224
+    Height = 216
+    PosX = 1152
+    PosY = 43
+    Type1Font = poHelvetica
+    FontSize = 9
+    FontStyle = 1
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'PAGECOUNT'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression18: TRpExpression
+    Width = 1008
+    Height = 216
+    PosX = 144
+    PosY = 43
+    Type1Font = poHelvetica
+    FontSize = 9
+    FontStyle = 1
+    Alignment = 2
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = #39'Page '#39' + str(Page) + '#39' of '#39
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression6: TRpExpression
+    Width = 432
+    Height = 720
+    PosX = 648
+    PosY = 72
+    Type1Font = poHelvetica
+    FontSize = 9
+    CutText = True
+    Alignment = 4
+    VAlignment = 32
+    WordWrap = True
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'BOM.quantity'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression0: TRpExpression
+    Width = 576
+    Height = 720
+    PosX = 1224
+    PosY = 72
+    Type1Font = poHelvetica
+    FontSize = 9
+    CutText = True
+    Alignment = 4
+    VAlignment = 32
+    WordWrap = True
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'BOM.unit_of_measure'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression7: TRpExpression
+    Width = 432
+    Height = 720
+    PosX = 72
+    PosY = 72
+    Type1Font = poHelvetica
+    FontSize = 9
+    CutText = True
+    Alignment = 4
+    VAlignment = 32
+    WordWrap = True
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'BOM.item_no'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression1: TRpExpression
+    Width = 6480
+    Height = 852
+    PosX = 1944
+    PosY = 12
+    Type1Font = poHelvetica
+    FontSize = 8
+    CutText = True
+    Alignment = 1
+    VAlignment = 8
+    WordWrap = True
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'REPLACESTR(REPLACESTR(BOM.line_description,'#39'<b>'#39','#39#39'),'#39'</b>'#39','#39#39')'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpSection2: TRpSection
+    Width = 11088
+    Height = 432
+    SubReport = TRpSubReport1
+    GroupName = 'COLUMN'
+    ChangeBool = False
+    PageRepeat = True
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecgheader
+    Components = <
+      item
+        Component = TRpLabel25
+      end
+      item
+        Component = TRpLabel26
+      end
+      item
+        Component = TRpLabel27
+      end
+      item
+        Component = TRpLabel28
+      end
+      item
+        Component = TRpLabel29
+      end
+      item
+        Component = TRpLabel30
+      end
+      item
+        Component = TRpShape8
+      end
+      item
+        Component = TRpShape12
+      end
+      item
+        Component = TRpShape13
+      end
+      item
+        Component = TRpShape14
+      end
+      item
+        Component = TRpShape16
+      end
+      item
+        Component = TRpShape18
+      end
+      item
+        Component = TRpShape19
+      end
+      item
+        Component = TRpShape20
+      end
+      item
+        Component = TRpShape22
+      end>
+    AutoExpand = True
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = ''
+    BeginPageExpression = ''
+    ChangeExpression = ''
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpSection3: TRpSection
+    Width = 11088
+    Height = 0
+    SubReport = TRpSubReport1
+    GroupName = 'COLUMN'
+    ChangeBool = False
+    PageRepeat = False
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecgfooter
+    Components = <>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = ''
+    BeginPageExpression = ''
+    ChangeExpression = ''
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpLabel25: TRpLabel
+    Width = 1080
+    Height = 216
+    PosX = 9936
+    PosY = 144
+    Type1Font = poHelvetica
+    FontSize = 8
+    FontStyle = 1
+    Alignment = 4
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'Class'
+  end
+  object TRpLabel26: TRpLabel
+    Width = 1368
+    Height = 216
+    PosX = 8496
+    PosY = 144
+    Type1Font = poHelvetica
+    FontSize = 8
+    FontStyle = 1
+    Alignment = 4
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'Notes'
+  end
+  object TRpLabel27: TRpLabel
+    Width = 6552
+    Height = 216
+    PosX = 1872
+    PosY = 144
+    Type1Font = poHelvetica
+    FontSize = 8
+    FontStyle = 1
+    Alignment = 4
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'Material Description'
+  end
+  object TRpLabel28: TRpLabel
+    Width = 720
+    Height = 216
+    PosX = 1152
+    PosY = 144
+    Type1Font = poHelvetica
+    FontSize = 8
+    FontStyle = 1
+    Alignment = 4
+    WordWrap = True
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'Units'
+  end
+  object TRpLabel29: TRpLabel
+    Width = 576
+    Height = 216
+    PosX = 576
+    PosY = 144
+    Type1Font = poHelvetica
+    FontSize = 8
+    FontStyle = 1
+    Alignment = 4
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'Qty'
+  end
+  object TRpLabel30: TRpLabel
+    Width = 576
+    Height = 216
+    PosX = 0
+    PosY = 144
+    Type1Font = poHelvetica
+    FontSize = 8
+    FontStyle = 1
+    Alignment = 4
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'Item #'
+  end
+  object TRpSection4: TRpSection
+    Width = 11088
+    Height = 1788
+    SubReport = TRpSubReport1
+    GroupName = 'FULLINFO'
+    ChangeBool = False
+    PageRepeat = True
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecgheader
+    Components = <
+      item
+        Component = TRpShape36
+      end
+      item
+        Component = TRpLabel22
+      end
+      item
+        Component = TRpShape27
+      end
+      item
+        Component = TRpExpression30
+      end
+      item
+        Component = TRpLabel3
+      end
+      item
+        Component = TRpShape0
+      end
+      item
+        Component = TRpExpression12
+      end
+      item
+        Component = TRpLabel0
+      end>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = 'M.PTRACKINGCOUNTER==1'
+    DoBeforePrint = ''
+    DoAfterPrint = 'M.PTRACKINGCOUNTER:=M.PTRACKINGCOUNTER+1'
+    ChangeExpression = ''
+    BeginPageExpression = ''
+    ChangeExpression = ''
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpSection7: TRpSection
+    Width = 11088
+    Height = 0
+    SubReport = TRpSubReport1
+    GroupName = 'FULLINFO'
+    ChangeBool = False
+    PageRepeat = False
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecgfooter
+    Components = <>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = ''
+    BeginPageExpression = ''
+    ChangeExpression = ''
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpSection0: TRpSection
+    Width = 11088
+    Height = 1656
+    SubReport = TRpSubReport1
+    GroupName = 'TOPPER'
+    ChangeBool = False
+    PageRepeat = True
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecgheader
+    Components = <
+      item
+        Component = TRpImage0
+      end
+      item
+        Component = TRpLabel9
+      end
+      item
+        Component = TRpLabel10
+      end
+      item
+        Component = TRpLabel6
+      end
+      item
+        Component = TRpShape33
+      end
+      item
+        Component = TRpExpression8
+      end
+      item
+        Component = TRpShape10
+      end
+      item
+        Component = TRpExpression5
+      end
+      item
+        Component = TRpShape34
+      end
+      item
+        Component = TRpExpression4
+      end
+      item
+        Component = TRpShape35
+      end
+      item
+        Component = TRpExpression3
+      end
+      item
+        Component = TRpLabel4
+      end
+      item
+        Component = TRpLabel5
+      end
+      item
+        Component = TRpLabel2
+      end>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = 
+      'iif(M.PINSIDETRACKER<>BOM.tracking, M.PTRACKINGCOUNTER:=1 ,false' +
+      ')'
+    DoAfterPrint = 
+      'iif(M.PINSIDETRACKER<>BOM.tracking, M.PINSIDETRACKER:=BOM.tracki' +
+      'ng , false)'
+    ChangeExpression = ''
+    BeginPageExpression = 'true'
+    ChangeExpression = ''
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpSection8: TRpSection
+    Width = 11088
+    Height = 0
+    SubReport = TRpSubReport1
+    GroupName = 'TOPPER'
+    ChangeBool = False
+    PageRepeat = False
+    SkipPage = False
+    AlignBottom = False
+    SectionType = rpsecgfooter
+    Components = <>
+    ExternalTable = 'REPMAN_REPORTS'
+    ExternalField = 'REPORT'
+    ExternalSearchField = 'REPORT_NAME'
+    StreamFormat = rpStreamText
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    ChangeExpression = ''
+    BeginPageExpression = ''
+    ChangeExpression = ''
+    SkipExpreV = ''
+    SkipExpreH = ''
+    SkipToPageExpre = ''
+    BackExpression = ''
+    Stream = {0000000000000000}
+  end
+  object TRpImage0: TRpImage
+    Width = 600
+    Height = 756
+    PosX = 48
+    PosY = 0
+    DrawStyle = rpDrawStretch
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    Expression = ''
+    Stream = {
+      BE13000000000000424DBE130000000000003604000028000000360000004700
+      00000100080000000000880F000000000000000000000001000000000000FFFF
+      FF00329D000012C5B000349B0000339C0000B6DCA40010C8BC0029A8320011E8
+      FA001ABB82007CC05D00DDFCFE000BE7FA0012C3AC0012CDC200F4FAF200CAE6
+      BD0017C19A0078F2FD0020B4640012D5D300ECFDFF009BF6FD0010C7BA00BBDF
+      AB002CA5240092CB780012CABA0011C6B40076BD54001ABC88001EB56C001DE9
+      FA009DD08500E5FDFF0011DEE500EAF5E50001E6FA003CAF400059EFFC0011E9
+      FC0010C7B900339B0000349E0300C3E2B40023EAFB003AA10A0081C362002FA1
+      140011C6B7004BEEFB000ECAC400CCFAFE00F9FCF8000EE8FA0055AE2C00A9D6
+      950017BF9500DDEFD50015C2A10012C2AA0012C5B2003BAD3B006BF1FC0034EC
+      FC0011EAFE008DC87100BDF9FE0066B6410012C4AD002BA6280061B43B0011EA
+      FF0012C6B2003AECFB0062F0FC0011E2ED0012C5B1000EDBE00011ECFF0011E5
+      F500ACF7FE000DDDE30021B35E00DAEDD100A4F7FD00BEE0AF0012C4AE0012C5
+      AF0034AF4600D5FBFE0029EAFB003CA20E0052EEFB0089C76C00CDE7C1004AA9
+      1D00369F050024B054005DB1350012C4AF0024AF4D004DAA210012D3CD0027AB
+      3E002FA219001EB77100F1F8EE00FDFEFD000DE9FC00B4F8FE008BF4FD0071BB
+      4E0012D9DA00C7E4B90011DADD00AED89A0091F4FD0012C8B60038A51E00A1D2
+      8A00F1FEFF0011E5F200F8FCF60012DDE2000EE5F3002DA31C0045A6180011DF
+      E800319E090011E0EA00D4EBCA0025AE4A00E4F2DD00FEFFFE00D0E8C40011E9
+      FD00E1F1DA00F6FEFF0009E7FA005FB3380090CA750084F3FC00329E0600F9FE
+      FF0005E7FA000AE9FC0042A51400D6EBCC0082C66D0025AD4700B2DA9F00FCFF
+      FF0059B0310030A00C0011EBFF0050AB2500FBFDFA0028AA3900349A000012D1
+      CA0040A412002BA72D000AE2EE000FC8BF00359A000044A5170011C5B30027AC
+      410012CCBD00339D010012D0C600EDF7E9003599000016E9FA00D7ECCD0012D7
+      D7006EBB510011C6B300B8DDA70058AF2F0024AF500014C4A900D8ECCE006FBA
+      4C0014C3A600329D0300E6F3E00013C2A7001CB97A0011C5B50012C7B40011E3
+      F000329C000011D4D0002DA31F00C4FAFE001DB8740022B1590012C6B1006BB8
+      470013C4AA00339C01008BC86F0007E9FD0067B74500A7D59100ACD7980018EA
+      FC0011DCE00011E7F80083C4650043EDFC0084C4660030A00F0012C1A80047A7
+      1A0011C4B10034B252004DAD2E0038A0080030B0490018BE8F00369900002CB2
+      540014CCB90035A8290055B5480096CD7D0014DCE10056EFFC0020E5F000E0F0
+      D8001CE2EC0016C6A700DCEED3001FE5F000329D0100389E0600339D0000E3F2
+      DC00FEFFFF0013D4CB0059AF300016CAAF0042A3130013C3A80079BF580073BF
+      590013C4AD0012C5AE0013C5AE00D3EAC8000FEAFE0010EAFF0015C7AC000000
+      0000000000000000000000000000000000000000000000008372000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000009D9D00000000000000C8D86B0000000000009D0F0000000000
+      00000000000000000000000000000000000000000000000000000000000000B3
+      1D6B00000000000501018D00000000006C5E5E00000000000000000000000000
+      00000000000000000000000000000000000000000000002F01373A0000000F9C
+      01015C3A0000006BB80147000000000000000000000000000000000000000000
+      0000000000000000000000000000004701019310000021010101010A00008937
+      0101607B00000000000000000000000000000000000000000000000000000000
+      00000000000035660101012E727B66010101012B838560010101AAEB00000000
+      0000000000000000000000000000000000000000000000EB87350000000085DC
+      010101017FB1040101010104CD37010101010105000000006C54B70000000000
+      0000000000000000000000000000002C016042FC9D001001010101018F1E0703
+      01010469DEC30401010101780000EB2137017800000000000000000000000000
+      0000000000000085DC0101018C56CF2A0101012A07A43B3004048F1E33849F01
+      01012A1A8770AA010101B300000000000000000000000000000000000000009D
+      9C01010101CA5996042A010353171709040313063109040104049EDAEE010101
+      012BEB00000000000000000000000000000000000000000044010101019F6233
+      1E19A5BA3931020684461C3D49F630A530C5A41F030101010166350000000000
+      000000000000000000000000000000005E0101010103B50629588430F64902B2
+      3B111C024DB219A23B1717130301010101CD0000000000000000000000000000
+      0000000000000000720404010103961702B21CDE0264020DC2730D02584911F9
+      1C021753030101C104E4000000000000000000000000000000ACB3050505B32C
+      18E29A0403AD073102020D14230257024C0876570D71235702020662AD030481
+      7E3872B305050505EB000000000000000024A10101010101CA09C90953077EBC
+      02020D144FD10DA92841A0D7144F230D0264BE68C3C6BD3B1181C101010101AA
+      5F00000000000000000021010101010103A8A429173111F2A90D3C14489BC2C2
+      41417CAB2841230D0D76143B581729A4130301010101011D0000000000000000
+      00006B9C0101010104D63B1C0202A7828873C7674808D25036087D502841D157
+      14D27A764D024D1C192A01010101DCEB00000000000000000000000501010101
+      0103B50602020D679B48C0738B362012368B4B5B36922380489B730D020217C5
+      0401010101011A000000000000000000000000002F012A0303A58139D90D3CBF
+      D2286D404B25205A4A085A4A2532D4920808A93C0D57F6C3AD03032A048C0F00
+      0000000000000000000000006BDB469E96C6531173C2AB1B71CC8B200B4B0C79
+      8E5D005B4022408BCC2376AB6773F41353849EA277AF00000000000000000000
+      000089780A3E3D061717171C804F41D24C4B2D257500320B431698D40B342508
+      4BEC50414F7A1B2917171706DD1DE483000000000000006B74472E0101039629
+      3D020257767A4108CC3F793F4A005A0B790B226E0027322275920828080E0D02
+      024D06132A010161B42124000000872E0101010101010362293D58643C1B7A92
+      252575006EC40098000098000B51004391258B500ED757584D066ACA04010101
+      010101740000861A010101010101010365F94D76AB6752E66F27201600980000
+      000000009000435B328E3F82C2A01B4D4913CA040101010101011D0F00000000
+      3861010101010303D6DE820888486D5B51008A34150000000000000000903415
+      00C44A6D484108C0EA7E04030101010101426C00000000000072D801040319C5
+      FB3DA980418808912540518A0000000000000000000098433225250828484CAB
+      3DC70907040401DCCF000000000000000000241D696A3D173D025757AB80AE32
+      6F16550B000000000000000000001551166F27204C67490D024D293109464754
+      0000000000000000000000CF07F6061C0202020D49B0208E0B15157900000000
+      0000000000008A15150B165B4E760D6402024906498442000000000000000000
+      006BF7010481C63B06A758C2504136912520120B00000000000000000000156F
+      5B2591364108B0B20206C91F302A018CE8000000000000003A370101010403D6
+      A811804F9B882836270B008A8A00000000000000009079001512080888484FC0
+      FFB5690304010101937200000000005FA60101010101019F7E110EA07380A34B
+      3451278E90000000000000000000555D5534127D80D1670EF907AD0101010101
+      016197000000FC2E0101010101010346B931450D3C5823D036253298225A0000
+      000000000B5A0012250CD04C763C0D45B21C689F010101010101010500000F18
+      70610101012AC3B931020258577C48088B4A8A43322279159079150BF1E61600
+      4B9108414CBF5702021C1C9E03010101018C7424000000008685CE8CA6693B33
+      29313164B04F41FED28E4B253F00125A346E794B001625327520FD414F234D31
+      3129A41CA2F5B4E4EB9D000000000000000000000FE3136A09DEDEFF4C80D1C2
+      B02891365A160815163F005B3F795B256DE5A07323C0E1DEDE09C51326E80000
+      000000000000000000000000970403032A01010929450D454C880C405536AE22
+      E62D154A256F328B287A4D3C451C11D601042A03044200000000000000000000
+      0000003A930101010103073102020D0E288828E9080C2051AE8B16400C36E736
+      4148140D025817659F0101010101560000000000000000000000001D01010101
+      01EF092902020DD14F50AB67FD08AE5B363620D00841730E4C4F4C6402021C3B
+      300401010101370F000000000000000000002C01010101012AA2313D1C29297C
+      71BFD7144841234E418880719B41233C02148006291C3D179603010101010178
+      0000000000000000009D990101010101036A33023B1F96B657640D144F7A760E
+      88481445804F2345580D1C535311FBA439ED0101010101932400000000000000
+      00EB8C6363638C44B1E068C39AA5193D4D020D1408A90D765088A90DBF7A800D
+      02021784DF8F7E0762B1C8476363639918000000000000000086000000000000
+      54CA03040403A8290202BEA90E0D020D71825702451BABBE0202175303C10403
+      0397000000000000860000000000000000000000000000002101010101036517
+      49061E07F63D02641BA964024DA7681F061C171303010101011D000000000000
+      00000000000000000000000000000000700101010103B5333D53BA813B1C0206
+      1FB517023DFA7E0384F6331F0301010101990000000000000000000000000000
+      0000000000000000F30101010103B51E1903042AC5291CB93004DE291C118F04
+      0369BD1303010101015C240000000000000000000000000000000000000000AC
+      A10101010170958F2A010103A8063168032A19F9A45303010104CAF8D5610101
+      0101720000000000000000000000000000000000000000870101602FB7002C01
+      0101010430575303010103A829A22A010101012100858D9C2B01380000000000
+      000000000000000000000000000000100A187B0000005401010101012B268F01
+      01010104265C0101010101CF0000006C10D3B300000000000000000000000000
+      00000000000000000000000000006BA6010101015E8761010101010197740101
+      0101011000000000000000000000000000000000000000000000000000000000
+      00000000000086B40101015E00000A01010101639D0038AA0101A1AC00000000
+      00000000000000000000000000000000000000000000000000000000000000B8
+      012B78000000542E010101B3000000185C01B486000000000000000000000000
+      000000000000000000000000000000000000000000000021612C00000000005E
+      0101440000000000AFD8B8000000000000000000000000000000000000000000
+      00000000000000000000000000000024F0000000000000ACD801940000000000
+      0024830000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000074420000000000000000000000000000
+      00006C7B9D000000000000000000000000000000000000000000000000000000
+      00000000000000009D7B00000000000000000000000000000000725C1A000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000018012F0000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000056012F00000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000835635BB78E45F9D
+      00005601D5541D472FAF00000000000000000000000000000000000000000000
+      000000000000000000000000000000000A018D5C6093018CBB0056017FA16344
+      5C01380000000000000000000000000000000000000000000000000000000000
+      00000000000000002F015C56006CCB014400560161720000BB602BE800000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      2F01CB0000009D3701897201700000000021018D000000000000000000000000
+      0000000000000000000000000000000000000000000000002F0110000000000A
+      01B31001CB000000008701700000000000000000000000000000000000000000
+      000000000000000000000000000000002F0194000000008D01CE100142000000
+      00E801C800000000000000000000000000000000000000000000000000000000
+      00000000000000002F012C000000002F019710010A000000005F011D00000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      2F012F0000006C99013A72019C0F000000E40121000000000000000000000000
+      0000000000000000000000000000000000000000000000002F012E97006C8D01
+      8C00560101445F2438DC7FAC0000000000000000000000000000000000000000
+      000000000000000000000000000000002F01216060A1019989005601D35E2B2B
+      0166870000000000000000000000000000000000000000000000000000000000
+      00000000000000002F01B7351838FC9D00007BBB0F002472947B000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      2F01940000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000002F01940000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000219C3A00000000000000000000000000
+      000000000000}
+  end
+  object TRpLabel9: TRpLabel
+    Width = 1296
+    Height = 288
+    PosX = 72
+    PosY = 936
+    Type1Font = poHelvetica
+    FontSize = 9
+    FontStyle = 1
+    Alignment = 2
+    VAlignment = 32
+    WordWrap = True
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'Requester'
+  end
+  object TRpLabel10: TRpLabel
+    Width = 1296
+    Height = 288
+    PosX = 72
+    PosY = 1296
+    Type1Font = poHelvetica
+    FontSize = 9
+    FontStyle = 1
+    Alignment = 2
+    VAlignment = 32
+    WordWrap = True
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'Telephone'
+  end
+  object TRpExpression5: TRpExpression
+    Width = 4104
+    Height = 288
+    PosX = 1584
+    PosY = 1296
+    Type1Font = poHelvetica
+    VAlignment = 32
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'BOM.requester_telephone'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpLabel6: TRpLabel
+    Width = 648
+    Height = 288
+    PosX = 5976
+    PosY = 936
+    Type1Font = poHelvetica
+    FontSize = 9
+    FontStyle = 1
+    Alignment = 2
+    VAlignment = 32
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'Unit'
+  end
+  object TRpExpression3: TRpExpression
+    Width = 1361
+    Height = 288
+    PosX = 9576
+    PosY = 432
+    Type1Font = poHelvetica
+    FontSize = 11
+    FontStyle = 1
+    Alignment = 4
+    VAlignment = 32
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'BOM.tracking'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpShape8: TRpShape
+    Width = 72
+    Height = 360
+    PosX = 1152
+    PosY = 72
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape12: TRpShape
+    Width = 72
+    Height = 360
+    PosX = 0
+    PosY = 72
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape13: TRpShape
+    Width = 72
+    Height = 360
+    PosX = 1872
+    PosY = 72
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape14: TRpShape
+    Width = 72
+    Height = 360
+    PosX = 8424
+    PosY = 72
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape16: TRpShape
+    Width = 72
+    Height = 360
+    PosX = 576
+    PosY = 72
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape18: TRpShape
+    Width = 72
+    Height = 360
+    PosX = 9936
+    PosY = 72
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape19: TRpShape
+    Width = 72
+    Height = 360
+    PosX = 11088
+    PosY = 72
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape20: TRpShape
+    Width = 11088
+    Height = 72
+    PosX = 0
+    PosY = 432
+    Shape = rpsHorzLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape22: TRpShape
+    Width = 11088
+    Height = 72
+    PosX = 0
+    PosY = 72
+    Shape = rpsHorzLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape7: TRpShape
+    Width = 72
+    Height = 864
+    PosX = 0
+    PosY = 0
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape2: TRpShape
+    Width = 72
+    Height = 864
+    PosX = 576
+    PosY = 0
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape4: TRpShape
+    Width = 72
+    Height = 864
+    PosX = 1152
+    PosY = 0
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape6: TRpShape
+    Width = 72
+    Height = 864
+    PosX = 1872
+    PosY = 0
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape3: TRpShape
+    Width = 72
+    Height = 864
+    PosX = 8424
+    PosY = 0
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape21: TRpShape
+    Width = 72
+    Height = 864
+    PosX = 9936
+    PosY = 0
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape5: TRpShape
+    Width = 72
+    Height = 864
+    PosX = 11088
+    PosY = 0
+    Shape = rpsVertLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape1: TRpShape
+    Width = 11088
+    Height = 72
+    PosX = 0
+    PosY = 864
+    Shape = rpsHorzLine
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape10: TRpShape
+    Width = 4248
+    Height = 288
+    PosX = 1512
+    PosY = 1296
+    BrushStyle = 1
+    BrushColor = 4227200
+    PenColor = 8421504
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape34: TRpShape
+    Width = 4248
+    Height = 288
+    PosX = 6768
+    PosY = 936
+    BrushStyle = 1
+    BrushColor = 4227200
+    PenColor = 8421504
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape35: TRpShape
+    Width = 1512
+    Height = 720
+    PosX = 9504
+    PosY = 72
+    BrushStyle = 1
+    BrushColor = 4227200
+    PenColor = 8421504
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape36: TRpShape
+    Width = 11088
+    Height = 1080
+    PosX = 0
+    PosY = 0
+    BrushStyle = 1
+    PenColor = 5592405
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape33: TRpShape
+    Width = 4248
+    Height = 288
+    PosX = 1512
+    PosY = 936
+    BrushStyle = 1
+    BrushColor = 4227200
+    PenColor = 8421504
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpExpression8: TRpExpression
+    Width = 4104
+    Height = 288
+    PosX = 1584
+    PosY = 936
+    Type1Font = poHelvetica
+    Alignment = 1
+    VAlignment = 32
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'BOM.requester_first_name + '#39' '#39' + BOM.requester_last_name'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression11: TRpExpression
+    Width = 1656
+    Height = 216
+    PosX = 9360
+    PosY = 43
+    Type1Font = poHelvetica
+    FontSize = 9
+    FontStyle = 1
+    Alignment = 2
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'formatstr('#39'mm/dd/yy hh:nn AM/PM'#39',NOW)'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression13: TRpExpression
+    Width = 1440
+    Height = 216
+    PosX = 7920
+    PosY = 43
+    Type1Font = poHelvetica
+    FontSize = 9
+    FontStyle = 1
+    Alignment = 2
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = #39'Printed on'#39
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpLabel4: TRpLabel
+    Width = 1361
+    Height = 288
+    PosX = 9576
+    PosY = 144
+    Type1Font = poHelvetica
+    FontSize = 12
+    FontStyle = 1
+    Alignment = 1
+    VAlignment = 32
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'BOM #'
+  end
+  object TRpExpression23: TRpExpression
+    Width = 1368
+    Height = 780
+    PosX = 8496
+    PosY = 12
+    Type1Font = poHelvetica
+    FontSize = 9
+    CutText = True
+    VAlignment = 32
+    WordWrap = True
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'BOM.notes'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression2: TRpExpression
+    Width = 1008
+    Height = 792
+    PosX = 10008
+    PosY = 0
+    Type1Font = poHelvetica
+    FontSize = 9
+    CutText = True
+    VAlignment = 32
+    WordWrap = True
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'BOM.class_code'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpLabel22: TRpLabel
+    Width = 1296
+    Height = 432
+    PosX = 72
+    PosY = 620
+    Type1Font = poHelvetica
+    FontSize = 9
+    FontStyle = 1
+    Alignment = 2
+    VAlignment = 32
+    WordWrap = True
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'Special Instructions'
+  end
+  object TRpExpression30: TRpExpression
+    Width = 9432
+    Height = 432
+    PosX = 1584
+    PosY = 620
+    Type1Font = poHelvetica
+    CutText = True
+    VAlignment = 32
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'BOM.special_instructions'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpLabel3: TRpLabel
+    Width = 1296
+    Height = 504
+    PosX = 72
+    PosY = 72
+    Type1Font = poHelvetica
+    FontSize = 9
+    FontStyle = 1
+    Alignment = 2
+    VAlignment = 32
+    WordWrap = True
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'Description'
+  end
+  object TRpShape27: TRpShape
+    Width = 9504
+    Height = 432
+    PosX = 1512
+    PosY = 648
+    BrushStyle = 1
+    BrushColor = 4227200
+    PenColor = 8421504
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpShape0: TRpShape
+    Width = 9504
+    Height = 504
+    PosX = 1512
+    PosY = 72
+    BrushStyle = 1
+    BrushColor = 4227200
+    PenColor = 8421504
+    PenWidth = 0
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+  end
+  object TRpExpression12: TRpExpression
+    Width = 9432
+    Height = 504
+    PosX = 1584
+    PosY = 72
+    Type1Font = poHelvetica
+    CutText = True
+    Alignment = 1
+    VAlignment = 8
+    WordWrap = True
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'BOM.description'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpExpression4: TRpExpression
+    Width = 4104
+    Height = 288
+    PosX = 6840
+    PosY = 936
+    Type1Font = poHelvetica
+    VAlignment = 32
+    AutoExpand = False
+    AutoContract = False
+    ExportPosition = 0
+    ExportSize = 1
+    ExportDoNewLine = False
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    Expression = 'BOM.unit_description'
+    DisplayFormat = ''
+    ExportDisplayFormat = ''
+    AgIniValue = '0'
+    ExportExpression = ''
+  end
+  object TRpLabel0: TRpLabel
+    Width = 10872
+    Height = 576
+    PosX = 72
+    PosY = 1152
+    Type1Font = poHelvetica
+    FontSize = 24
+    FontStyle = 1
+    FontColor = 255
+    Alignment = 4
+    VAlignment = 32
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'DO NOT ORDER!!!  FOR ESTIMATION ONLY!!!!'
+  end
+  object TRpImage1: TRpImage
+    Width = 1872
+    Height = 317
+    PosX = 4608
+    PosY = 0
+    DrawStyle = rpDrawStretch
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    Expression = ''
+    Stream = {
+      9608000000000000424D960800000000000076000000280000009D0000001A00
+      0000010004000000000020080000C40E0000C40E000010000000000000000402
+      040088898800C8C8C80047474700A8A9A800E8E8E80067676700272827009596
+      9500191B1900D8D9D80057585700B8B7B800FCFDFC007A7A7A003A393A00DDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDD000DDDDDDDDDDDD5DDDDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD000DDDD
+      DDDDDDD262DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDD000DDDDDDDDDD230F2DDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDD5DDDDDDDDDDDDDDDD5ADDDDDDDDDDDDDD25DDDDDDDDDD
+      DDDDDD5DDDDDDDDDDDDDDDDA2DDDDDDDDDDDDDD5A5ADDDDDDDDDDDDDD000DDDD
+      DDDDD230E6FADDDDDDDDDDDDDDDC6EEEE5DDDDD566EEEEEEEEE665DA66EEEEEE
+      E6B41B5DDDDDCCDDDDD57B2DDD5EBEEEEEEEEE66ADA6EEEECDDDDD5B7CDDDD5E
+      EEE6CD17000B15DDDDDDDDDDD000DDDDDDDD2F00C5632DDDDDDDDDDDDDD60000
+      35DDDDDC000009FFFF098DD4000000000000008DDDD4004DDDD10094DD200000
+      0FFFF091DDC00000CDDDDD10004DDDD30000EA4C10000F2DDDDDDDDDD000DDDD
+      DDD2F0004D5632DDDDDDDDDDDDDE00003DDDDDD20000925555AA5DDC00000CAA
+      AA22607AD58000015D20000065A00000CD555AA5DD2000002DDDDC00000E5D5B
+      00006DDDDC000072DDDDDDDDD000DDDDDDCF00004555EF2DDDDDDDDDDDDE0000
+      3DDDDDD200009ADDDDDDDDDC000075DDDDDDA70BDC0000002D600000BD200000
+      ADDDDDDDDD200000ADDDA700000E5DD30000EDDDDDE00006DDDDDDDDD000DDDD
+      DC700000C2155E72DDDDDDDDDDD10000BDDDDDD200009ADDDDDDDDDC0000F5DD
+      DDDDD4008D400004D400000FADA000002DDDDDDDDDC00009ADD560000065DDDB
+      00001DDDDDC00000ADDDDDDDD000DDDDC7000000CAB15517CDDDDDDDDDD10000
+      6DDDDDDA00009ADDDDDDDDD20000F5DDDDDDDD607AD4004D5F00000CDDA00000
+      ADDDDDDDDD2000075DD8000006DDDDDB00001DDDDD200000CDDDDDDDD000DDD4
+      700000004DABE5519CDDDDDDDDD10000BDDDDDD500009ADDADDDDDD20000F5DD
+      DDDDDD5F0B5D88DD100000EDDD500000ADDADDDDDDA000075DC0000065DDDDD6
+      00001DDDDD2000008DDDDDDDD000DD4700000000455AB655104DDDDDDDD10000
+      BDDDDDDA00009ADC01DDDDD20000F5DDDDDDDDDC008DDDD20000035DDD500000
+      AD2015DDDDA000074C70000B5DDDDDD600001DDDDD2000008DDDDDDDD000D800
+      00000000CAE5A66AD8085DDDDDD10000BDDDDDDA00007A27006ADDDA0000F5DD
+      DDDDDDDDE002DD5B00000CDDDD500009A2F006ADDDA00009BF00000CDDDDDDD6
+      00001DDDDD2000008DDDDDDDD0002000000000004A04DC08DAF02DDDDDD10000
+      6DDDDDDA000071700007ADD20000F5DDDDDDDDDDAF035D8000001DDDDD500007
+      1700009ADDA0000FA526000B4DDDDDDB00001DDDDD2000008DDDDDDDD000D470
+      00000000CA6A23E55E74DDDDDDD10000BDDDDDD500007E700008DDDA0000F5DD
+      DDDDDDDDDC00E2700003ADDDDD500009EF00008DDDA000075DDDE00008DDDDD6
+      00001DDDDD2000008DDDDDDDD000DD2F000000004AAAFE55E0CDDDDDDDD10000
+      BDDDDDDA00007AA6001DDDD20000F5DDDDDDDDDDDDE00000000CDDDDDD500000
+      AA600EDDDDA000075DDDA900095DDDD600001DDDDD2000008DDDDDDDD000DDD2
+      B00000004D2FED569CDDDDDDDDDE0000BDDDDDD500009AD51EDDDDDA0000F5DD
+      DDDDDDDDDD5F000000EDDDDDDD500000ADD16DDDDDA000075DDDD30000CDDDD6
+      00001DDDDDA900008DDDDDDDD000DDDD2B000000C5F15A6F2DDDDDDDDDDE0000
+      35DDDDDA00009ADDD5DDDDD20000F5DDDDDDDDDDDDD400000F5DDDDDDDA00000
+      ADDDDDDDDD2000075DDDDB00004DDDDB00001DDDDD5F00001DDDDDDDD000DDDD
+      DAB0000042155672DDDDDDDDDDD6000035DDDDD200009ADDDDDDDDDC0000F5DD
+      DDDDDDDDDD56000004DDDDDDDDA000002DDDDDDDDD2000075DDDA900002DDD5B
+      00001DDDDDDE0000B5DDDDDDD000DDDDDDA6000045DA672DDDDDDDDDDDDB0000
+      F5DDDDD200009ADDDDDDDDDC0000F5DDDDDDDDDDDD100000EDDDDDDDDD200000
+      ADDDDDDDDDC00007ADDD8000035DDD5B00001DDDDDD2000002DDDDDDD000DDDD
+      DDDA60004DABF2DDDDDDDDD222C30000742225D2000092555555DDDC0000F5DD
+      DDDDDDDDDD4F0007ADDDDDDDDDA00000C555555DDD200000AD51000092DDDDD3
+      0000EDDDDDDD10000325D5DDD000DDDDDDDD5600CA332DDDDDDDDDC000000000
+      000008D200000000000B5DD4000005DDDDDDDDDDDDDAE004DDDDDDDDDD200000
+      00000035DDC00000EE9000062DDDDD5300006DDDDDDD5E00000FFCDDD000DDDD
+      DDDDDA6063BADDDDDDDDDD4184444444444818D516E1111111162DD5EE11EADD
+      DDDDDDDDDDDDD465DDDDDDDDDDD16E1111111162DD5166666661142DDDDDDDD4
+      61111DDDDDDDDD213F3E4DDDD000DDDDDDDDDDAB0BADDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD5DDDDDDD000DDDD
+      DDDDDDDAE2DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDD000DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD000}
+  end
+  object TRpLabel5: TRpLabel
+    Width = 7632
+    Height = 540
+    PosX = 1728
+    PosY = 396
+    Type1Font = poHelvetica
+    FontSize = 24
+    FontStyle = 1
+    FontColor = 255
+    Alignment = 4
+    VAlignment = 32
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'REQUEST FOR ESTIMATE'
+  end
+  object TRpLabel2: TRpLabel
+    Width = 7632
+    Height = 360
+    PosX = 1728
+    PosY = 0
+    Type1Font = poHelvetica
+    FontSize = 16
+    FontStyle = 1
+    Alignment = 4
+    VAlignment = 8
+    PrintCondition = ''
+    DoBeforePrint = ''
+    DoAfterPrint = ''
+    WFontName = 'Arial'
+    LFontName = 'Helvetica'
+    WideText = 'MATERIAL TRACKER'
+  end
+end

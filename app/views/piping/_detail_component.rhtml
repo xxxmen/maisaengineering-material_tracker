@@ -1,0 +1,14 @@
+<div id="piping_class_detail_component_<%= "#{piping_class_detail.id}" %>">
+<% unless piping_class_detail.piping_component.nil? %>
+
+	<tr>
+		<th>Piping Component</th>
+		<th>Display Seq Number</th>
+	</tr>
+	<tr>
+		<td><%= h piping_class_detail.piping_component.piping_component %></td>
+		<td><%= h piping_class_detail.piping_component.display_seq_no %></td>
+	</tr>
+	<%= render :partial => 'detail_subcomponents', :locals => {:detail_subcomponents => piping_class_detail.piping_component.piping_subcomponents} %>
+<% end %>
+</div>

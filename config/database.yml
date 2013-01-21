@@ -1,0 +1,28 @@
+development:
+  #adapter: sqlite3
+  #database: db/dev.sqlite3
+   adapter: mysql2
+   database: po_tracker
+   username: root
+   password: 
+   host: localhost
+   #socket: /var/run/mysqld/mysqld.sock
+  
+# Warning: The database defined as 'test' will be erased and
+# re-generated from your development database when you run 'rake'.
+# Do not set this db to the sMame as development or production.
+test:
+  adapter: mysql
+  database: po_test
+  username: root
+  password: 
+  host: 127.0.0.1
+  #adapter: sqlite3
+  #database: db/test.sqlite3
+
+production:
+  adapter: mysql
+  database: po_tracker
+  pool: 5
+  timeout: 5000
+  #host: localhost

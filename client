@@ -1,0 +1,65 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'simpleconsole'
+
+class Controller < SimpleConsole::Controller
+  params :string => { :m => :model, :a => :attributes, :o => :old_attributes, :n => :new_attributes, :v => :version }
+  
+  URL = "http://potracker-bpcarson.rails.telaeris.com/remote_client"
+  
+  def get_schema
+    system "curl -X GET #{URL}/get_schema"
+    puts ""
+  end
+  
+  def get_updates
+    system "curl -X GET #{URL}/get_updates/#{params[:version]}?user=winclient&password=bp_carson"
+    system "sleep 1" # This one takes a while
+  end
+  
+  def merge_data
+    data = "user=winclient&password=bp_carson&json={'type':'#{params[:model]}','old_attr':{#{params[:old_attributes]}},'new_attr':{#{params[:new_attributes]}}}".gsub(" ", "%20").gsub("'", "%22")
+    system "curl -X POST -d \"#{data}\" #{URL}/merge_data"
+    puts ""
+  end
+  
+  def create
+    data = "user=winclient&password=bp_carson&json={'type':'#{params[:model]}','attr':{#{params[:attributes]}}}".gsub(" ", "%20").gsub("'", "%22")
+    system "curl -X POST -d \"#{data}\" #{URL}/create"
+    puts ""
+  end
+  
+  def update
+    data = "user=winclient&password=bp_carson&json={'type':'#{params[:model]}','attr':{#{params[:attributes]}}}".gsub(" ", "%20").gsub("'", "%22")
+    system "curl -X POST -d \"#{data}\" #{URL}/update"    
+    puts ""
+  end  
+end
+
+class View < SimpleConsole::View  
+  def help
+    default
+  end
+    
+  def default
+    puts "usage: client <subcommand> [options]"
+    puts ""
+    puts "Available subcommands:"
+    puts "\thelp"
+    puts "\tcreate -m ModelName -a AttributesInJSON"
+    puts "\tupdate -m ModelName -a AttributesInJSON"
+    puts "\tget_updates -v Version"
+    puts "\tget_schema"
+    puts "\tmerge_data -m ModelName -o OldAttributes -n NewAttributes"
+    puts ""
+    puts "Single quotes and spaces will be escaped."
+    puts "No need for curly brackets when using JSON."
+    puts ""
+    puts "Example:"
+    puts "\tclient create -m Vendor -a \"'name':'Telaeris', 'city':'San Diego'\""
+    puts "\tclient update -m Employee -a \"'id':1, 'last_name':'Embargo'\""
+    puts "\tclient get_updates -v 1"
+  end
+end
+
+SimpleConsole::Application.run(ARGV, Controller, View)

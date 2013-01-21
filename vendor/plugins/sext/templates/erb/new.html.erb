@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Ext Rails Generator Test</title>
+		<link rel="stylesheet" href="/stylesheets/ext-all.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="/stylesheets/styles.css" type="text/css" media="screen" charset="utf-8" />
+		<style type="text/css" media="screen">
+			body { background: #fff url(/images/default/gradient-bg.gif) repeat-x top left; text-align: center; margin: 0; padding: 0;}
+			#main_login {
+				background: #fff url(/images/default/panel/top-bottom.gif) repeat-x top left;
+				width: 400px;
+				margin: 160px auto;
+				text-align: left;
+				padding: 14px 18px;
+			}
+			#main_login form {
+				margin-top: 10px;
+			}
+
+			form label { font-weight: bold; display: block; margin: 1px 2px;}
+			form p { margin-top: 2px; margin-bottom: 12px;}
+			form p.error { color: red; font-weight: bold;}
+			form input.txt { padding: 4px 6px; font-weight: bold; width: 340px;}
+		</style>
+	</head>
+	<body>
+	
+	<div id="main_login">
+		<form method="post" action="/sessions">
+			<% if flash[:error] %>
+			<p class="error">
+				Incorrect login/password combination
+			</p>
+			<% end %>
+			<p>
+				<label>Login</label>
+				<input type="text" name="login" value="<%= params[:login] %>" class="txt"/>
+			</p>
+
+			<p>
+				<label>Password</label>
+				<input type="password" name="password" class="txt"/>
+			</p>
+
+			<p>
+				<input type="submit" value="Sign In" />
+			</p>
+		</form>
+	</div>		
+	</body>
+</html>

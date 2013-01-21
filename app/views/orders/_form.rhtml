@@ -1,0 +1,308 @@
+<%= error_messages_for :order, :header_tag => "div id='error'" %>
+
+
+<% form_for @order, :builder => EventFormBuilder, :html => { :class => "edit", :onsubmit => "Telaeris.parseMoney('order_total_cost')" } do |f| %>
+
+<table width="940" id="order-form" cellspacing="1">
+  <tr>
+    <td width="104" align="center" style="border-bottom: 1px solid #000;">
+      <label>PO # <% unless @order.new_record? %><span class="required">*</span><% end %></label></td>
+    <td width="135" align="center"  style="border-bottom: 1px solid #000;">
+      <%= f.text_field :po_no, :size => 12, :disabled => @warehouse, :class => "text" %></td>
+    <td>
+      <span style="float: left;">&nbsp;<strong>Unit <span class="required">*</span></strong>
+        <%= text_field_with_auto_complete :unit, :description, :value => @order.unit_description, :class => "required text", :title => "Unit can't be blank", :name => "unit[description]", :style => "width: 100px;"   %>
+        <strong>Year</strong>
+        <%= f.select :turnaround_year, @order.year_selection, {}, { :style => "width: 60px;", :disabled => @warehouse } %>
+      </span>
+      
+      <strong style="margin-left: 4px;">PO Status</strong>
+      <%= f.select :status_id, PoStatus.list_status, {}, :id => "po_status", :style => "width: 100px;", :disabled => @warehouse %>
+      
+      <% unless warehouse_view? %>          
+      <label style="margin-left: 4px;" class="inline">Created</label> <%= f.text_field :created, :style => "width: 70px", :readonly => true, :class => "inline text", :id => 'order_date_created' %>
+      <script type="text/javascript" charset="utf-8">
+        changeDateFormat('order_date_created');
+      </script>
+      <% end %>
+      </td>
+  </tr>
+  <tr>
+    <td width="104" align="center" height="28" style="border-bottom: 1px solid #000;">
+      <% if @order.request %>
+        <label><%= link_to "Tracking #", edit_material_request_path(@order.request) %>
+      <% else %>
+        <label>Tracking # 
+      <% end %>
+      <% if @order.new_record? %><span class="description">Assigned on Save</span><% end %></label></td>
+    <td width="135" align="center" height="28" style="border-bottom: 1px solid #000;">
+      <%= f.text_field :tracking, :size => 12, :disabled => @warehouse, :class => "text" %></td>
+    <td rowspan="7" valign="top">
+      <strong>Description</strong>
+      <%= f.text_area :description, :rows => 4, :style => "width: 92%; margin-left: 5px; height 122px;", :disabled => @warehouse %> <br />
+          <% unless warehouse_view? %>
+          <label>&nbsp;Correspondence and Activity</label>
+          <%= f.text_area :activity, :rows => 2, :style => "width: 92%; height: 30px; margin-left: 5px;", :disabled => @warehouse %>
+          <% end %>
+		<table border="0" width="100%" id="table26" cellspacing="2" cellpadding="3" style="margin-top: 20px; margin-left: 20px;">
+          <tr>
+            <td align="right">
+              <strong>Vendor Name:</strong></td>
+              <td>
+                <%= text_field_with_auto_complete :vendor, :name, :value => "#{@order.supplier}", :class => "text", :onblur => remote_function(:url => complete_vendor_orders_path, :method => :get, :with => "Form.serialize('#{form_id @order}')", :complete => "$('vendor_indicator').hide()", :before => "$('vendor_indicator').show()"), :style => "width: 448px; height: 20px;", :disabled => @warehouse  %>
+                <br />
+                <span id="vendor_indicator" style="display: none;">
+                  </span>
+              </td>
+          </tr>
+          <tr>
+            <% unless warehouse_view? %>
+            <td align="right">
+              <strong>Contact:</strong></td>
+            <td>
+              <label id="order_vendor_contact">
+                <%= h @order.supplier_contact %></label>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              <strong>Phone:</strong>
+            </td>
+            <td>
+              <label id="order_vendor_phone">
+                <%= h @order.supplier_phone %></label>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              <strong>ID:</strong>
+            </td>
+            <td>
+                <input type="text" id="order_vendor_id_text" value="<%= h @order.supplier_no %>" style="width: 40%;" onfocus="this.activate()" readonly="readonly" />
+              </td>
+             <% end %>
+          </tr>
+          <tr>
+            <td align="right" colspan="2">
+              <div align="center">
+                <table border="0" width="60%" id="table27" cellpadding="0" style="border-collapse: collapse">
+                  <tr>
+                    <td>
+                        <%= submit_tag "Save Entry", :style => "font-size: 110%; float: right;", :disabled => @warehouse %>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="104" align="center" height="28">
+      <label>Reference #</label></td>
+    <td width="135" align="center" height="28">
+      <%= f.text_field :ptm_no, :size => 12, :disabled => @warehouse, :class => "text" %>
+    </td>
+  </tr>
+  <tr>
+    <td width="104" align="center">
+      <strong>ETA</strong></td>
+    <td width="135" align="center">
+      <%= f.text_field :date_eta, :id => "date_eta", :size => 12, :disabled => @warehouse, :class => "text" %></td>
+  </tr>
+  <tr>
+      <% unless warehouse_view? %>
+    <td width="104" align="center" height="28">
+      <strong>Total Cost</strong></td>
+    <td width="135" align="center" height="28">
+      <%= f.text_field :total_cost, :size => 12, :class => "text" %>
+    </td>
+      <% end %>
+  </tr>
+  <tr>
+    <td width="104" align="center">
+      <strong>Work Orders</strong></td>
+    <td width="135" align="center">
+      <%= f.text_field :work_orders, :id => "date_eta", :size => 12, :disabled => @warehouse, :class => "text" %></td>
+  </tr>
+  <tr>
+    <td width="104" align="center">
+      <strong>Deliver To</strong></td>
+    <td width="135" align="center">
+      <%= text_field_with_auto_complete_custom :employee, :list_employee_names, :value => (@order.deliver_to || "" ), :class => "required text", :style => "width: 96%;", :disabled => @warehouse   %></td>    
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+        <strong>Completed</strong>&nbsp;&nbsp;<%= f.check_box :completed, :onclick => "$('po_status').value = 7;", :disabled => @warehouse %>&nbsp;&nbsp;
+        
+        <strong>Closed</strong>&nbsp;&nbsp;<%= f.check_box :closed, :disabled => @warehouse %>&nbsp;&nbsp;
+        
+        <strong>AWR</strong>&nbsp;&nbsp;<%= f.check_box :awr, :disabled => @warehouse %>
+    </td>
+  </tr>
+</table>
+<% end %>
+
+<% unless @order.new_record? %>
+<table border="2" cellspacing="1" cellpadding="1" style="width: 940px; border-collapse: collapse; margin-top: 10px;" id="lineItemTable">
+  <tr style="background: #111; color: #fff;">
+    <th style="width: 15%;">Rec'd Dates</th>
+    <% unless warehouse_view? %>
+    <th style="width: 15%;">BO Dates</th>
+    <% end %>
+    <th style="width: 35%;">Issue Items To</th>
+    <th>Issue To History</th>
+  </tr>
+  <tr>
+    <td>
+      <select size="5" style="width: 100%; height: 115px;" id="received_order_item">
+      <% @order.received_line_items.each do |line_item| %>
+        <option value="<%= line_item.id %>"><%= format_date line_item.date_received %></option>
+      <% end %>
+      </select>
+    </td>
+    <% unless warehouse_view? %>
+    <td>
+      <select size="5" style="width: 100%; height: 115px;" id="back_ordered_item">
+      <% @order.back_ordered_line_items.each do |line_item| %>
+        <option value="<%= line_item.id %>"><%= format_date line_item.date_back_ordered %></option>
+      <% end %>
+      </select>  
+    </td>
+    <% end %>
+    <script type="text/javascript" charset="utf-8">
+      function set_issue_to_history(partial) {
+        <% unless current_employee.warehouse? %>
+        if(!confirm("Only warehouse personnel should update the issued to field, are you sure you want to continue?")) return false;
+        <% end %>
+        var issued = new Array(4);
+        issued[0] = $('issued_to_date').value;
+        issued[1] = $('issued_to_employee').value;
+        issued[2] = $('issued_to_company').value;
+        issued[3] = $('issued_to_note').value;
+        issued[4] = "Location : " + $('issued_to_location').value;
+        if(partial == true) {
+          issued[5] = "Partial"
+        }
+        var items = new Array();
+        for (var i=0; i < issued.length; i++) {
+          if(issued[i] != "") items.push(issued[i]);
+        };
+        
+        $('issue_to_history').value = items.join(": ") + "\n" + $F('issue_to_history');
+        
+        if(partial == false) {
+          $('issued_to_location').value = "ISSUED";
+        }        
+        
+        new Ajax.Request('/orders/<%= @order.id %>', 
+                         { asynchronous:true, 
+                           evalScripts:true, 
+                           parameters: Form.serialize('issued_to_history_form') });
+        if(partial == false) {
+          new Ajax.Request('/orders/<%= @order.id %>',
+                          { method: "put",
+                            parameters: "order[location]=ISSUED" });
+        }
+        
+        $('issued_to_employee').value = "";
+        $('issued_to_company').value = "";
+        $('issued_to_note').value = "";
+      }
+      
+      function add_new_employee () {
+        selection = $('issued_to_employee');
+        text_box = $('issued_to_employee_hiding');
+        
+        selection.hide();
+        text_box.show();
+        $('add_new_link').hide();
+        $('select_from_link').show();
+        
+        selection.id = 'issued_to_employee_hiding';
+        text_box.id = 'issued_to_employee';
+        
+        text_box.focus();
+                
+        return false;
+      }
+      
+      function select_employee() {
+        selection = $('issued_to_employee_hiding');
+        text_box = $('issued_to_employee');
+        
+        selection.show();
+        text_box.hide();
+        $('select_from_link').hide();
+        $('add_new_link').show();
+        
+        selection.id = 'issued_to_employee';
+        text_box.id = 'issued_to_employee_hiding';
+        
+        selection.focus();
+        
+        return false;
+      }
+    </script>
+    <td rowspan="2">
+      <% remote_form_for @order, :url => { :action => "update", :id => @order, :set_location => true }, :html => { :class => "edit full" } do |f| %>
+      <table style="width: 98%;">
+        <tr>
+        <td style="width: 25%;"><label style="margin-left: 2px;">Name</label></td>
+        <td>
+          <%= f.select :issued_to_employee, Employee.list_employees(:name => true), {}, :id => "issued_to_employee", :style => "width: 60%;" %> 
+          <%= f.text_field :issued_to_employee, :id => "issued_to_employee_hiding", :style => "width: 60%; display: none;", :class => "text" %>
+          <a href="#" onclick="add_new_employee(); return false;" id="add_new_link">Enter In</a>
+          <a href="#" onclick="select_employee(); return false;" id="select_from_link" style="display: none;">Select One</a>
+        </td>
+        </tr>
+        <tr>
+        <td style="width: 25%;"><label style="margin-left: 2px;">Comp</label></td>
+        <td><%= f.select :issued_to_company, Company.list_companies(:name => true), {}, :id => "issued_to_company", :style => "width: 95%;" %></td>
+        </tr>
+        <tr>
+        <td style="width: 25%;"><label style="margin-left: 2px;">Note</label></td>
+        <td><%= f.text_field :issued_to_note, :id => "issued_to_note", :style => "width: 95%;", :class => "text" %></td>
+        </tr>       
+        <tr>
+          <td style="width: 25%;"><label style="margin-left: 2px;">Date</label></td>
+          <td><%= f.text_field :issued_to_date, :id => "issued_to_date", :style => "width: 95%;", :class => "text" %></td>
+        </tr> 
+        <tr>
+          <td style="width: 25%;"><label style="margin-left: 2px;">Location</label></td>
+          <td><%= f.text_area :location, :style => "width: 95%;", :id => "issued_to_location", :rows => 2, :cols => "30" %></td>
+        </tr>
+        <tr>
+        <td colspan="2">
+        <%= submit_tag "Fully Issued", :onclick => "set_issue_to_history(false); return false;", :disabled => @requesting %>
+        <%= submit_tag "Partially Issued", :onclick => "set_issue_to_history(true); return false;", :disabled => @requesting %>
+        </td>
+        </tr>
+      </table>
+      <% end %>
+    </td>
+    <td rowspan="2" style="position: relative;">
+      <% remote_form_for @order, :html => { :id => "issued_to_history_form", :class => "edit full" } do |f| %>
+        <%= f.text_area :issued_to_history, :style => "width: 95%; height: 140px;", :id => "issue_to_history" %>
+        <%= submit_tag "Save Issue To History", :disabled => @requesting %>
+      <% end %>
+        <div id="confirmation" style="display: none; color: green; font-weight: bold; font-size: 110%; background-color: #ccffcc;"></div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="<%= col_for_warehouse %>" style="padding: 2px;">
+        <% form_for :order, @order, :url => { :action => "mark_remaining_as_received", :id => @order } do |f| %>
+          Date
+          <%= f.text_field :issued_to_date, :style => "width: 140px;", :id => "order_issued_to_date", :class => "text" %>
+          <%= submit_tag "Set Items as Received", :disabled => @requesting %> <br />
+          <%= link_to "Partial Rec'd/BO", {:action => "edit_line_items", :id => @order}%>
+        <% end %>
+    </td>
+  </tr>
+</table>
+<% end %> <!-- End new_record check -->
+
+<div id="save-message" style="display: none;" class="noprint">
+  <%= img_button_function("Save Entry", "save.png", "$('#{form_id(@order)}').submit()") %> to commit changes or <%= img_button("Discard Changes", "cancel.png", orders_path) %>
+</div>

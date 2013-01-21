@@ -1,0 +1,35 @@
+require 'rake'
+require 'spec/rake/spectask'
+require 'rake/testtask'
+require 'rake/rdoctask'
+
+desc 'Default: run unit tests.'
+task :default => :test
+
+desc 'Generate documentation for the states_for plugin.'
+Rake::RDocTask.new(:rdoc) do |rdoc|
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title    = 'CsvFu'
+  rdoc.options << '--line-numbers' << '--inline-source'
+  rdoc.rdoc_files.include('README')
+  rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
+namespace :spec do
+  desc "Runs all specifications"
+  Spec::Rake::SpecTask.new('all') do |t|
+    t.spec_files = FileList['spec/*_spec.rb']
+  end
+
+  desc "Generate specdocs for examples"
+  Spec::Rake::SpecTask.new('doc') do |t|
+    t.spec_files = FileList['spec/*_spec.rb']
+    t.spec_opts = ["--format", "s"]
+  end
+    
+  desc "Runs autotest using RSpec"
+  task :autotest do
+    require './spec/rspec_autotest'
+    RspecAutotest.run
+  end
+end

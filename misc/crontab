@@ -1,0 +1,56 @@
+CRONTAB listings for the various users@domain_hosts
+========================
+BPCarson.net:
+
+root@bpcarson.net
+========================================= (2009-03-05)
+
+MAILTO="adam.grant@telaeris.com"
+30 2 * * * cd /home/applications/po_tracker && sudo -u apache /usr/local/bin/rake db:reindex RAILS_ENV=production
+
+0 3 * * * cd /home/applications/po_tracker && sudo -u apache /usr/local/bin/rake mailer:deliver_order_reminders_for_today RAILS_ENV=production
+========================================= (2009-06-18)
+MAILTO="adam.grant@telaeris.com, support@telaeris.com"
+29 2 * * * chown -R apache:apache /home/applications/po_tracker/index 1>> /home/applications/po_tracker/log/crontab.log
+# Shouldn't really be reindexing everyday anyway.
+#30 2 * * * cd /home/applications/po_tracker && sudo -u apache /usr/local/bin/rake db:reindex RAILS_ENV=production 1>> /home/applications/po_tracker/log/crontab.log
+0 3 * * * cd /home/applications/po_tracker && sudo -u apache /usr/local/bin/rake mailer:deliver_order_reminders_for_today RAILS_ENV=production 1>> /home/applications/po_tracker/log/crontab.log
+#0 9 * * * cd /home/applications/xpressentry/current && sudo -u apache /usr/local/bin/rake email_reports:daily_shifts RAILS_ENV=production 1>> /home/applications/po_tracker/log/crontab.log
+=========================================
+
+
+
+bpcherrypoint@bpcherrypoint.telearis.com
+========================================= (2009-06-18)
+MAILTO="support@telaeris.com"
+
+# Runs ThinkingSphinx indexing in production and outputs the info to sphinx.rebuild.log
+
+0 * * * * cd /home/bpcherrypoint/app/current && /usr/local/bin/rake RAILS_ENV=production INDEX_ONLY=true thinking_sphinx:index 1>> /home/bpcherrypoint/app/shared/log/sphinx.rebuild.log
+
+# Runs the order reminders emailing tasks every day at 3am
+
+#0 3 * * * cd /home/bpcherrypoint/app/current && /usr/local/bin/rake RAILS_ENV=production mailer:deliver_order_reminders_for_today 1>> /home/bpcherrypoint/app/shared/log/email_order_reminders.log
+=========================================
+0 2 * * * sudo -u apache -H /usr/local/reportman/printreptopdf -paramPCLASSIDS='0' /home/applications/po_tracker/reports/piping_class_details_linux.rep 1> /home/applications/po_tracker/public/docs/All_Piping_Classes.pdf
+
+# Old XPressEntry Stuff:
+# 0 9 * * * cd /home/applications/xpressentry/current && sudo -u apache /usr/local/bin/rake email_reports:daily_shifts RAILS_ENV=production
+
+=======================
+BPCarson.net:
+
+    2009-07-09:
+
+==
+# Last updated: 2009-07-09 by Adam Grant
+
+MAILTO="adam.grant@telaeris.com, support@telaeris.com"
+
+29 2 * * * chown -R apache:apache /home/applications/po_tracker/index 1>> /home/applications/po_tracker/log/crontab.log
+
+0 3 * * * cd /home/applications/po_tracker && sudo -u apache /usr/local/bin/rake mailer:deliver_order_reminders_for_today RAILS_ENV=production 1>> /home/applications/po_tracker/log/crontab.log
+
+0 2 * * * sudo -u apache -H /usr/local/reportman/printreptopdf -paramPCLASSIDS='0' /home/applications/po_tracker/reports/piping_class_details_linux.rep 1> /home/applications/po_tracker/public/docs/All_Piping_Classes.pdf
+
+=======================

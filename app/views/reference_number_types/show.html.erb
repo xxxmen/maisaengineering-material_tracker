@@ -1,0 +1,16 @@
+<div class="show">
+	<h1>Viewing Reference Number Type</h1>
+	<p>
+	  	<label>Name:</label>
+	  	<span><%=h @type.name %></span>
+	</p>
+	<p>
+	  	<label>Order Number:</label>
+	  	<span><%=h @type.order_number %></span>
+	</p>
+
+	<p>
+		<%= link_to 'Edit', edit_reference_number_type_path(@type) %> |
+		<%= link_to 'Back', reference_number_types_path %>
+	</p>
+</div>

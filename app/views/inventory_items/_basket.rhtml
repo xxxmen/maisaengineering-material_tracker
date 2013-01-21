@@ -1,0 +1,28 @@
+<div style="width: 35%; float: right;" id="basket">
+  <table class="information">
+    <tr>
+      <th colspan="3" style="text-align: right">
+      <% if basket.basket_items.size > 0 %>
+		<%= link_to "Make Material Request", new_material_request_path(:basket_id => basket.id) %>
+		|
+        <%= link_to_remote "Empty", :url => url_for(:controller => "baskets", :action => "delete"), :method => :delete, :confirm => "This will clear out your items, are you sure you want to do this?" %>
+      <% else %>
+        Basket for <%= current_employee.full_name %>
+      <% end %>
+     </th>
+    </tr>
+    <% if basket.basket_items.size == 0 %>
+      <tr>
+        <td style="text-align: center;">Your basket is currently empty</td>
+      </tr>
+    <% else %>
+      <% basket.basket_items.find(:all, :order => "basket_items.created_at").each do |basket_item| %>
+      <tr class="<%= cycle(:odd, :even) %>" id="<%= dom_id basket_item %>">
+        <td><%= basket_item.quantity %> <%= basket_item.inventory_item.unit_of_measure %></td>
+        <td><%= link_to basket_item.inventory_item.description, inventory_item_path(:id => basket_item.inventory_item, :basket => true) %></td>
+        <td><%= link_to_remote "<img src='/images/icons/delete.png' />", :url => url_for(:controller => "baskets", :action => "del_item", :basket_item_id => basket_item.id), :method => :delete %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>

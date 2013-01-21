@@ -1,0 +1,13 @@
+<% form_for @unit, :html => { :class => "edit full" } do |f| %>
+
+<p>
+  <label>Description <span class="required">(required)</span></label> 
+  <%= f.text_field :description, :class => "text", :style => "width: 45%" %>
+  <%= error_message_on(:unit, :description) %>
+</p>
+
+<p class="menu noprint">
+  <%= submit_tag "Save Unit", :class => "submit" %> or 
+  <%= link_to_back %>
+</p>
+<% end %>

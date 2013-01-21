@@ -1,0 +1,829 @@
+Class_Code,Rev_Date,Piping_Comp_Name,Rev_Desc,Last_Updt_Id,Last_Updt_Date
+DA  ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute. ,PCSSME  ,1997-12-8
+DA  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DA  ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+DA  ,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+DA  ,19990512,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-12
+DA  ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DAA ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-15
+DAA ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DAA ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DAA ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DAA ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+DAA ,19971208,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-8
+DAA ,19971210,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-10
+DAA ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DAA ,19980805,ORBIT VALVES                                                                                        ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+DAA ,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+DAA ,19990512,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-12
+DAA ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DAB ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+DAB ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DAB ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DAB ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DAB ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DAB ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+DAB ,19971208,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-8
+DAB ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DAB ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+DAB ,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+DAB ,19990512,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-12
+DAB ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DAC ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+DAC ,19970714,BALL VALVES                                                                                         ,Changed class 300 flanged valves v-number and face to face dimension to ASME B16.10 short pattern dimension.\\
+Added Maintenance Note B.,PCSSME  ,1997-7-14
+DAC ,19970715,CHECK VALVES                                                                                        ,Added Maintenance Note C for in kind replacement of Wafer Style check valve.  ,PCSSME  ,1997-7-15
+DAC ,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+DAC ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DAC ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DAC ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DAC ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DAC ,19971204,BALL VALVES                                                                                         ,Replaced 300 class valves V-Numbers to comply with ASME B16.10 short pattern face to face dimension. Added in the Maintenance Note the V-Number to use to replace existing Neles-Jamesbury valves with the proprietary face to face dimension.,PCSSME  ,1997-12-4
+DAC ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+DAC ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute. ,PCSSME  ,1997-12-8
+DAC ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+A   ,19980807,FITTINGS                                                                                            ,Added hydrotest requirements per ASTM C14 for Reinforced Concrete fittings.,PCSSME  ,1998-8-7
+A   ,19980807,GATE VALVES                                                                                         ,Replaced the Butterfly valves with Gate valves.,PCSSME  ,1998-8-7
+A   ,19980807,PIPE                                                                                                ,Replaced cast iron pipe with ductile iron and increased pipe size to 18\". Added hydrotest requirement per ASTM C14 for Reinforced Concrete pipe.,PCSSME  ,1998-8-7
+AA  ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+AA  ,19971204,PIPE                                                                                                ,Increased pipe size to 24\".,PCSSME  ,1997-12-4
+AA  ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+AA  ,19980706,PIPE                                                                                                ,Added Note 170 to allow welded (ERW) pipe to be substituted for seamless pipe.,PCSSME  ,1998-7-7
+AA  ,19990608,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-8
+CA  ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106,PCSSME  ,1997-1-9
+CA  ,19970116,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows.,PCSSME  ,1997-1-16
+CA  ,19970116,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows.,PCSSME  ,1997-1-16
+CA  ,19970422,BALL VALVES                                                                                         ,Changed temp. limit for 300 Class ball valves to 400F. ,PCSSME  ,1997-4-22
+CA  ,19970708,FITTINGS                                                                                            ,Added Note 163 for the seamless fittings. Added 100% RT requirements for the welded fittings.,PCSSME  ,1997-7-10
+CA  ,19970715,CHECK VALVES                                                                                        ,Add Maintenance Note B for replacement in kind of Wafer Style Check valve.  ,PCSSME  ,1997-7-15
+CA  ,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+CA  ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+CA  ,19971204,BALL VALVES                                                                                         ,To comply with ASME B16.10 short pattern face to face dimension\, added \"short pattern\" in the V-sheets for class 150 valves and replaced the V-Numbers for 300 class valves.,PCSSME  ,1997-12-4
+CA  ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+CA  ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+CA  ,19980708,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-7-8
+CA  ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+CA  ,19980810,PIPE                                                                                                ,Added Note 184 to allow welded (ERW) pipe to be substituted for seamless in Nitrogen and Process Air services.,PCSSME  ,1998-8-10
+CA  ,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+CA  ,19990511,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-11
+CA  ,19990608,PLUGS                                                                                               ,Changed to pressure relief plugs,PCSSME  ,1999-6-8
+CA  ,20080118,GASKETS                                                                                             ,Removed compressed asbestos,SILVERM3,2008-1-18
+CAA ,19961217,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+CAA ,19970116,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows.,PCSSME  ,1997-1-16
+CAA ,19970116,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows.,PCSSME  ,1997-1-16
+CAA ,19970709,FITTINGS                                                                                            ,Added Note 163,PCSSME  ,1997-7-9
+CAA ,19971204,,Changed temp. limit from 750F to 800F. Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+CAA ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+CAA ,19971208,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-8
+CAA ,19980708,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-7-8
+CAA ,19980805,ORBIT VALVES                                                                                        ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+CAA ,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA rulated fluid only.,PCSSME  ,1999-5-10
+CAA ,19990511,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-11
+CAA ,19990608,PLUGS                                                                                               ,Changed to pressure relief plugs,PCSSME  ,1999-6-8
+CAB ,19961217,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+CAB ,19970116,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows.,PCSSME  ,1997-1-16
+CAB ,19970116,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows.,PCSSME  ,1997-1-16
+CAB ,19970709,FITTINGS                                                                                            ,Added Note 163,PCSSME  ,1997-7-9
+CAB ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+CAB ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+CAB ,19971208,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-8
+CAB ,19980708,GATE VALVES                                                                                         ,Added extended body valves for vents and drains,PCSSME  ,1998-7-8
+CAB ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+CAB ,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+CAB ,19990511,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-11
+CAB ,19990608,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-8
+CAC ,19961217,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+CAC ,19970116,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows.,PCSSME  ,1997-1-16
+CAC ,19970116,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows.,PCSSME  ,1997-1-16
+CAC ,19970422,BALL VALVES                                                                                         ,Changed temp. limit for 300 Class ball valves to 400F.,PCSSME  ,1997-4-22
+CAC ,19970709,FITTINGS                                                                                            ,Added Note 163,PCSSME  ,1997-7-9
+CAC ,19970715,CHECK VALVES                                                                                        ,Added Maintenance Note C for replacement in kind of Wafer Style check valve.,PCSSME  ,1997-7-15
+CAC ,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+CAC ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+CAC ,19971204,BALL VALVES                                                                                         ,To comply with ASME B16.10 short pattern face to face dimension\, added \"short pattern\" in the V-sheets for class 150 valves and replaced the V-Numbers for 300 class valves.,PCSSME  ,1997-12-4
+CAC ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+CAC ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute. ,PCSSME  ,1997-12-8
+CAC ,19980708,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-7-8
+CAC ,19980805,ORBIT VALVES SEAT (MAX. 500F)                                                                       ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+CAC ,19990511,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-11
+CAC ,19990608,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-8
+CAC2,19961217,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+CAC2,19970120,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement for bonnet welds in the V-sheets.,PCSSME  ,1997-12-3
+CAC2,19970120,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement for bonnet welds in the V-sheets.,PCSSME  ,1997-12-3
+CAC2,19970422,BALL VALVES                                                                                         ,Changed temp. limit for 300 Class ball valves to 400F.,PCSSME  ,1997-4-22
+CAC2,19970709,FITTINGS                                                                                            ,Added Note 163,PCSSME  ,1997-7-9
+CAC2,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+CAC2,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.\\
+\\
+Revised V-sheets for gate\, globe and check valves to change seat ring materials to either carbon steel or stainless steel with stellite facing.,PCSSME  ,1997-12-4
+CAC2,19971204,BALL VALVES                                                                                         ,To comply with ASME B16.10 short pattern face to face dimension\, added \"short pattern\" in the V-sheets for class 150 valves and replaced the V-Numbers for 300 class valves.,PCSSME  ,1997-12-4
+CAC2,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+CAC2,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute. ,PCSSME  ,1997-12-8
+CAC2,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+CAC2,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+CAC2,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+CAC2,19990512,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-13
+CAC2,19990608,PLUGS                                                                                               ,Changed from: 'ROUND HEAD SOLID\, SCREWED\, W/ 2 ' to: 'ROUND HEAD SOLID\, SCREWED\, W/ 2 ' ,PCSSME  ,1999-6-8
+CAC2,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CAC3,19961217,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+CAC3,19970422,BALL VALVES                                                                                         ,Changed temp. limit for 300 Class ball valves to 400F.,PCSSME  ,1997-4-22
+CAC3,19970709,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-7-9
+CAC3,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+CAC3,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows. Added stress relief requirement for bonnet welds in the V-sheets.,PCSSME  ,1997-12-3
+CAC3,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows. Added stress relief requirement for bonnet welds in the V-sheets.,PCSSME  ,1997-12-3
+CAC3,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+CAC3,19971204,BALL VALVES                                                                                         ,To comply with ASME B16.10 short pattern face to face dimension\, added \"short pattern\" in the V-sheets for class 150 valves and replaced the V-Numbers for 300 class valves.,PCSSME  ,1997-12-4
+CAC3,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+CAC3,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+CAC3,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+CAC3,19980805,ORBIT VALVES SEAT (MAX. 500F)                                                                       ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+CAC3,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+CAC3,19990512,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-13
+CAC3,19990608,PLUGS                                                                                               ,Changed from: 'ROUND HEAD SOLID\, SCREWED\, W/ 2 ' to: 'ROUND HEAD SOLID\, SCREWED\, W/ 2 ' ,PCSSME  ,1999-6-8
+CAC3,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CACN,19961217,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+CACN,19970422,BALL VALVES                                                                                         ,Changed temp. limit for 300 Class ball valves to 400F.,PCSSME  ,1997-4-22
+CACN,19970709,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-7-9
+CACN,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+CACN,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+CACN,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+CACN,19971204,,Revised V-sheets for gate\, globe and check valves to change seat ring materials to either carbon steel or stainless steel with stellite facing.\\
+\\
+Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+CACN,19971204,BALL VALVES                                                                                         ,To comply with ASME B16.10 short pattern face to face dimension\, added \"short pattern\" in the V-sheets for class 150 valves and replaced the V-Numbers for 300 class valves.,PCSSME  ,1997-12-4
+CACN,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+CACN,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute. ,PCSSME  ,1997-12-8
+CACN,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+CACN,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+CACN,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+CACN,19990512,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-12
+CACN,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CAD ,19961217,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+CAD ,19970709,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-7-9
+CAD ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+CAD ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+CAD ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+CAD ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+CAD ,19971208,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-8
+CAD ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+CAD ,19980805,ORBIT VALVES                                                                                        ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+CAD ,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+CAD ,19990512,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-12
+CAD ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CAE ,19961217,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+CAE ,19971204,FITTINGS                                                                                            ,Added special Note D.,PCSSME  ,1997-12-4
+CAE ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CAE ,20020719,PIPE NIPPLES                                                                                        ,Added Alloy 20 pipe nipples for vents & drains.,ASAHIDT ,2002-7-19
+CAE ,20040120,PIPE NIPPLES                                                                                        ,Added specification for pipe nipples in classes CAE and DAE.,ASAHIDT ,2004-1-20
+CAH ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+CAH ,19970709,FITTINGS                                                                                            ,Added Note 163 for the seamless fittings. Added 100% RT for the welded fittings.,PCSSME  ,1997-7-10
+CAH ,19970714,GATE VALVES                                                                                         ,Added Special Note B.,PCSSME  ,1997-7-14
+CAH ,19970715,CHECK VALVES                                                                                        ,Added Maintenance Note for replacement in kind of Wafer Style check valve.,PCSSME  ,1997-7-15
+CAH ,19971013,GASKETS                                                                                             ,Replaced the tang core gasket with JM Clipper Elastagraph. ,PCSSME  ,1997-12-2
+CAH ,19980706,PIPE                                                                                                ,Added Note 171 to allow welded (ERW) pipe to be substituted for seamless pipe\, except for Boiler Feedwater.,PCSSME  ,1998-7-7
+CAH ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+CAH ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CAH ,19990616,GATE VALVES                                                                                         ,Added 1/2' to 1-1/2\" Class 300 flanged gate valves.,PCSSME  ,1999-6-16
+CAI ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+CAI ,19990614,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-14
+CAJ ,19970115,PIPE                                                                                                ,Changed A53 and API 5L to A106. Added \"TYPE E\" to galvanized steel pipe.,PCSSME  ,1997-1-15
+CAJ ,19970709,FITTINGS                                                                                            ,Added Note 164 for the seamless fittings. Added 100% RT or UT requirements for the welded fittings.,PCSSME  ,1997-7-10
+CAJ ,19970715,CHECK VALVES                                                                                        ,Added a Maintenance Note for replacement in kind of Wafer Style check valve.,PCSSME  ,1997-7-15
+CAJ ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute. ,PCSSME  ,1997-12-8
+CAJ ,19990614,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-14
+CAK ,19970115,PIPE                                                                                                ,Changed seamless A53 and API 5L to A106.,PCSSME  ,1997-1-15
+CAK ,19970709,FITTINGS                                                                                            ,Added Note 164 for the seamless fittings. Added 100% RT or UT requirements for the welded fittings.,PCSSME  ,1997-7-10
+CAK ,19970715,CHECK VALVES                                                                                        ,Added a Maintenance Note for replacement in kind of Wafer Style check valve.,PCSSME  ,1997-7-15
+CAK ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+CAL ,19970115,PIPE                                                                                                ,Changed seamless A53 and API 5L to A106. Added \"TYPE E\" to galvanized steel pipe.,PCSSME  ,1997-1-15
+CAL ,19970709,FITTINGS                                                                                            ,Added Note 164 for the seamless fittings. Added 100% RT or UT requirements for the welded fittings.,PCSSME  ,1997-7-10
+CAL ,19970715,CHECK VALVES                                                                                        ,Added a Maintenance Note for replacement in kind of Wafer Style check valve.,PCSSME  ,1997-7-15
+CAL ,19971204,,Changed pressure limit from 150 to 200 psig.,PCSSME  ,1997-12-4
+CAL ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+CAL ,19980706,PIPE                                                                                                ,Added Note 170 to allow welded (ERW) pipe to be substituted for seamless pipe.,PCSSME  ,1998-7-7
+CAL ,19990614,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-14
+CALC,19970115,PIPE                                                                                                ,Added \"TYPE E\" to galvanized steel pipe.,PCSSME  ,1997-1-15
+CALC,19970715,CHECK VALVES                                                                                        ,Added Maintenance Note for in kind replacement of Wafer Style check valve.,PCSSME  ,1997-7-15
+CALC,19971203,PIPE                                                                                                ,Added Special Note.,PCSSME  ,1997-12-3
+CALC,19980810,,Added that Special Note that potable water piping shall be sanitized before placing it in service.,PCSSME  ,1998-8-10
+CALC,19990614,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-14
+CALW,19970115,PIPE                                                                                                ,Added \"TYPE E\" to galvanized steel pipe.,PCSSME  ,1997-1-15
+CALW,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+CALW,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+CAM ,19970115,PIPE                                                                                                ,Changed A53 and API 5L to A106. Added \"TYPE E\" to galvanized steel pipe.,PCSSME  ,1997-1-15
+CAM ,19970710,FITTINGS                                                                                            ,Added Note 164.,PCSSME  ,1997-7-10
+CAM ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+CAM ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+CAN ,19970115,PIPE                                                                                                ,Changed A53 and API 5L to A106. Added \"TYPE E\" to galvanized steel pipe.,PCSSME  ,1997-1-15
+CAN ,19970710,FITTINGS                                                                                            ,Added Note 164.,PCSSME  ,1997-7-10
+CAN ,19970715,CHECK VALVES                                                                                        ,Added Maintenance Note for in kind replacement of Wafer Style check valve.,PCSSME  ,1997-7-15
+CAN ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+CAN ,19980706,PIPE                                                                                                ,Added Note 170 to allow welded (ERW) pipe to be substituted for seamless pipe.,PCSSME  ,1998-7-7
+CAN ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+CAO ,19970115,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-15
+CAO ,19970422,BALL VALVES                                                                                         ,Changed temp. limit for 300 Class ball valves to 400F.,PCSSME  ,1997-4-22
+CAO ,19970710,FITTINGS                                                                                            ,Added note 164 to the seamless fittings. Added RT or UT requirements to the welded fittings.,PCSSME  ,1997-7-10
+CAO ,19970715,CHECK VALVES                                                                                        ,Added Maintenance Note B for in kind replacement of Wafer Style check valve.,PCSSME  ,1997-7-15
+CAO ,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+CAO ,19971204,BALL VALVES                                                                                         ,In compliance with ASME B16.10 short pattern face to face dimension\, added \"short pattern\" in the V-sheets for class 150 valves and replaced the V-Numbers for 300 class valves.,PCSSME  ,1997-12-4
+CAO ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+CAO ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+CAO ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+CAO ,19980805,ORBIT VALVES                                                                                        ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+CAO ,19990512,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-12
+CAO ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CAP ,19970115,PIPE                                                                                                ,Changed SA53 to SA106.,PCSSME  ,1997-1-15
+CAP ,19970710,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-7-10
+CAP ,19970714,GATE VALVES                                                                                         ,Added Special Note. ,PCSSME  ,1997-7-14
+CAP ,19970825,STOP VALVES                                                                                         ,Added continuous and intermittent blowdown valves. ,PCSSME  ,1997-12-2
+CAP ,19971014,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+CAP ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+CAP ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CAP ,19990616,GATE VALVES                                                                                         ,Added 1/2\" to 1-1/2\" Class 300 flanged gate valves.,PCSSME  ,1999-6-16
+CAW3,19970115,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-15
+CAW3,19970129,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-29
+CAW3,19970129,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-29
+CAW3,19970422,BALL VALVES                                                                                         ,Changed temp. limit for 300 Class ball valves to 400F.,PCSSME  ,1997-4-22
+CAW3,19970710,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-7-10
+CAW3,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+CAW3,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+CAW3,19971204,BALL VALVES                                                                                         ,To comply with ASME B16.10 short pattern face to face dimension\, added \"short pattern\" in the V-sheets for class 150 valves and replaced the V-Numbers for 300 class valves.,PCSSME  ,1997-12-4
+CAW3,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+CAW3,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+CAW3,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+CAW3,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+CAW3,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+CAW3,19990512,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-12
+CAW3,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CAY ,,,,PCSSME  ,1997-9-8
+CAY ,19970115,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-15
+CAY ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+CAY ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CE  ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+CE  ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows. Added stress relief requirement for bonnet welds in the V-sheets.,PCSSME  ,1997-12-3
+CE  ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows. Added stress relief requirement for bonnet welds in the V-sheets.,PCSSME  ,1997-12-3
+CE  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+CE  ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+CE  ,19971208,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-8
+CE  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+CE  ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CFA ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+CFA ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+CFA ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+CFA ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+CFA ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+CFA ,19971208,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-8
+CFA ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+CFA ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CH  ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+CH  ,19970109,PIPE                                                                                                ,Changed seamless stainless steel pipe to welded. Added \"TYPE E\" for the welded galvanized steel pipe. ,PCSSME  ,1997-1-9
+CH  ,19970715,CHECK VALVES                                                                                        ,Added Maintenance Note for in kind replacement of Wafer Style check valve.,PCSSME  ,1997-7-15
+CH  ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+CH  ,19980707,PIPE                                                                                                ,Changed stainless steel pipe schedule number from Sch 40S to .250\" nominal wall in sizes 8\" to 12\". Added Note 172. ,PCSSME  ,1998-7-8
+CH  ,19980708,FITTINGS                                                                                            ,Changed fitting schedule number to match new .250\" wall pipe. Added Note 173.,PCSSME  ,1998-7-8
+CH  ,19980708,ORIFICE FLANGES                                                                                     ,Changed orifice flange schedule number to match new .250\" wall pipe. ,PCSSME  ,1998-8-10
+CH  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+CH  ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CJ  ,19970109,PIPE                                                                                                ,Changed seamless stainless steel pipe to welded. ,PCSSME  ,1997-1-9
+CJ  ,19970616,GATE VALVES                                                                                         ,Added gate valves with non-stellited seats for liquid service only. Stellite seated gate valves to be used for gas or vapor service only.,PCSSME  ,1997-6-16
+CJ  ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+CJ  ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+CJ  ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+CJ  ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+CJ  ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute. ,PCSSME  ,1997-12-8
+CJ  ,19980707,PIPE                                                                                                ,Revised pipe schedule number from Sch 40S on pipe sizes 8\" to 12\" and calc wall on pipe sizes 14\" to 18\" to .250\" nominal wall. Added Note 172.,PCSSME  ,1998-7-8
+CJ  ,19980708,FITTINGS                                                                                            ,Changed schedule number to .250\" wall in sizes 8\" to 18\" to match new pipe wall. Added Note 173.,PCSSME  ,1998-7-8
+CJ  ,19980708,FLANGES                                                                                             ,Changed bore to match new pipe wall.,PCSSME  ,1998-7-8
+CJ  ,19980708,ORIFICE FLANGES                                                                                     ,Changed bore to match new pipe wall.,PCSSME  ,1998-7-8
+CJ  ,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+CJ  ,19990512,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-12
+CJ  ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CJL ,19970109,PIPE                                                                                                ,Changed seamless stainless steel pipe to welded. ,PCSSME  ,1997-1-9
+CJL ,19970616,GATE VALVES                                                                                         ,Add gate valves with non-stellited seats for liquid service only. Stellite seated gate valves to be used for gas or vapor service only.,PCSSME  ,1997-6-16
+CJL ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+CJL ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute. ,PCSSME  ,1997-12-8
+CJL ,19980708,FITTINGS                                                                                            ,Changed schedule number to .250\" wall in sizes 8\" to 24\" to match new pipe wall. Added Note 173.,PCSSME  ,1998-7-8
+CJL ,19980708,FLANGES                                                                                             ,Changed bore to match new pipe wall.,PCSSME  ,1998-7-8
+CJL ,19980708,ORIFICE FLANGES                                                                                     ,Changed bore to match new pipe wall.,PCSSME  ,1998-7-8
+CJL ,19980708,PIPE                                                                                                ,Changed pipe schedule number to .250\" wall on sizes 8\" to 24\". Added Note 172.,PCSSME  ,1998-7-8
+CJL ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CL  ,,,,PCSSME  ,1997-9-8
+CL  ,19970109,FITTINGS                                                                                            ,Deleted 2.75% min. Moly content.,PCSSME  ,1997-1-9
+CL  ,19970109,FLANGES                                                                                             ,Deleted 2.75% min. Moly content.,PCSSME  ,1997-1-9
+CL  ,19970109,ORIFICE FLANGES                                                                                     ,Deleted 2.75% min. Moly content.,PCSSME  ,1997-1-9
+CL  ,19970109,PIPE                                                                                                ,Changed seamless stainless steel pipe to welded. Deleted the 2.75% min. Moly content.,PCSSME  ,1997-1-9
+CL  ,19970619,GATE VALVES                                                                                         ,Added gate valves with stellited seats for liquid service only. Stellite seated gate valves to be used for gas or vapor service only.,PCSSME  ,1997-6-19
+CL  ,19970908,PIPE                                                                                                ,Deleted 2.75% Moly minimum content,PCSSME  ,1997-9-8
+CL  ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+CL  ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+CL  ,19971203,PIPE                                                                                                ,Added a Maintenance Note on hot tap of thin wall existing pipe.,PCSSME  ,1997-12-3
+CL  ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+CL  ,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute. ,PCSSME  ,1997-12-8
+CL  ,19980810,FITTINGS                                                                                            ,Changed fitting schedule number to match new .250\" wall pipe. Added Note 173.\\
+,PCSSME  ,1998-8-10
+CL  ,19980810,FLANGES                                                                                             ,Changed flange schedule number to match new .250\" wall pipe. ,PCSSME  ,1998-8-10
+CL  ,19980810,PIPE                                                                                                ,Changed stainless steel pipe schedule number to .250\" nominal wall in sizes 8\" to 18\". Added Note 172.,PCSSME  ,1998-8-10
+CL  ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CNA ,19990514,BALL VALVES                                                                                         ,Added V00842 valve for caustic service.,PCSSME  ,1999-5-14
+CSK ,19990609,PLUGS                                                                                               ,Change to pressure relief plugs.,PCSSME  ,1999-6-9
+CSP ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CX  ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+CY  ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DA  ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+DA  ,19970714,BALL VALVES                                                                                         ,Changed 300 flanged valves V-number and  face to face dimension to ASME B16.10 short pattern dimension. Added Maintenance Note B.,PCSSME  ,1997-7-14
+DA  ,19970715,CHECK VALVES                                                                                        ,Added Maintenance Note C for in kind replacement of Wafer Style check valve.,PCSSME  ,1997-7-15
+DA  ,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+DA  ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DA  ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DA  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DA  ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DA  ,19971204,BALL VALVES                                                                                         ,Replaced 300 class valves V-Numbers to comply with ASME B16.10 short pattern face to face dimension. Added in the Maintenance Note the V-Number to use to replace existing Neles-Jamesbury valves with the proprietary face to face dimension.,PCSSME  ,1997-12-4
+DA  ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+DAC ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+DAC ,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+DAC ,19990512,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-12
+DAC ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DAC2,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+DAC2,19970129,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321 SS bellows. Added stress relief reuirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-29
+DAC2,19970129,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321 SS bellows. Added stress relief requirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-29
+DAC2,19970714,BALL VALVES                                                                                         ,Changed 300 class flanged valves v-numbers anf face to face dimension to ASME B16.10 short pattern dimension.\\
+Added Maintenance Note A.,PCSSME  ,1997-7-14
+DAC2,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+DAC2,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DAC2,19971204,,Revised V-sheets for gate\, globe and check valves to change seat ring materials to either carbon steel or stainless steel with stellite facing.\\
+\\
+Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DAC2,19971204,BALL VALVES                                                                                         ,Replaced 300 class valves V-Numbers to comply with ASME B16.10 short pattern face to face dimension. Added in the Maintenance Note the V-Number to use to replace existing Neles-Jamesbury valves with the proprietary face to face dimension.,PCSSME  ,1997-12-4
+DAC2,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+DAC2,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute. ,PCSSME  ,1997-12-8
+DAC2,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DAC2,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+DAC2,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+DAC2,19990512,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-12
+DAC2,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DAC3,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+DAC3,19970128,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-29
+DAC3,19970128,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-29
+DAC3,19970714,BALL VALVES                                                                                         ,Changed class 300 flanged valves v-number and face to face dimension to ASME B16.10 short pattern dimension. \\
+Added Maintenance Note B.,PCSSME  ,1997-7-14
+DAC3,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+DAC3,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DAC3,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DAC3,19971204,BALL VALVES                                                                                         ,Replaced 300 class valves V-Numbers to comply with ASME B16.10 short pattern face to face dimension. Added in the Maintenance Note the V-Number to use to replace existing Neles-Jamesbury valves with the proprietary face to face dimension.,PCSSME  ,1997-12-4
+DAC3,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+DAC3,19971208,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-8
+DAC3,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FAP ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FAP ,19971203,STOP VALVES                                                                                         ,Added continuous and intermittent blowdown valves.,PCSSME  ,1997-12-3
+FAP ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FAP ,19981130,CHECK VALVES                                                                                        ,Made all 2\" and larger valves full stellited.,PCSSME  ,1998-11-30
+FAP ,19981130,GATE VALVES                                                                                         ,Made all 2\" and larger valves full stellited.,PCSSME  ,1998-11-30
+FAP ,19981130,GLOBE VALVES                                                                                        ,Made all 2\" and larger valves full stellited.,PCSSME  ,1998-11-30
+FAP ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FAT ,19970109,PIPE                                                                                                ,Changed SA53 to SA106.,PCSSME  ,1997-1-9
+FAT ,19970714,GATE VALVES                                                                                         ,Added Special Note B.,PCSSME  ,1997-7-14
+FAT ,19970715,GATE VALVES                                                                                         ,Added 1/2\" - 1-1/2\" ring type joint gate valves.,PCSSME  ,1997-7-15
+FAT ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FAT ,19971203,STOP VALVES                                                                                         ,Added continuous and intermittent blowdown valves.,PCSSME  ,1997-12-3
+FAT ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FAT ,19981130,CHECK VALVES                                                                                        ,Made all 2\" and larger valves full stellited.,PCSSME  ,1998-11-30
+DAC3,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+DAC3,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+DAC3,19990513,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-13
+DAC3,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DACN,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+DACN,19970714,BALL VALVES                                                                                         ,Changed class 300 flanged valves v-number and face to face dimension to B16.10 short pattern dimension. Added Maintenance Note A.,PCSSME  ,1997-7-14
+DACN,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+DACN,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DACN,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DACN,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DACN,19971204,,Revised V-sheets for gate\, globe and check valves to change seat ring materials to either carbon steel or stainless steel with stellite facing.\\
+\\
+Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DACN,19971204,BALL VALVES                                                                                         ,Replaced 300 class valves V-Numbers to comply with ASME B16.10 short pattern face to face dimension. Added in the Maintenance Note the V-Number to use to replace existing Neles-Jamesbury valves with the proprietary face to face dimension.,PCSSME  ,1997-12-4
+DACN,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+DACN,19971208,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-8
+DACN,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DACN,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+DACN,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+DACN,19990513,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-13
+DAD ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+DAD ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DAD ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DAD ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DAD ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DAD ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+DAD ,19971208,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-8
+DAD ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DAD ,19980805,ORBIT VALVES                                                                                        ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+DAD ,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+DAD ,19990513,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-13
+DAD ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DAE ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+DAE ,19971204,,Added special Note C.,PCSSME  ,1997-12-4
+DAE ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DAE ,20020719,PIPE NIPPLES                                                                                        ,Added Alloy 20 pipe nipples for vents & drains.,ASAHIDT ,2002-7-19
+DAH ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+DAH ,19970714,GATE VALVES                                                                                         ,Added Special Note.,PCSSME  ,1997-7-14
+DAH ,19971202,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-2
+DAH ,19971202,GASKETS                                                                                             ,Added JM Clipper Elastagraph. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-2
+DAH ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DAH ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DAH ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DAI ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106. Added \"TYPE E\" to welded galvanized steel pipe.,PCSSME  ,1997-1-9
+DAI ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DAJ ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106. Added \"TYPE E\" to welded galvanized steel pipe.,PCSSME  ,1997-1-9
+DAJ ,19970116,GASKETS                                                                                             ,Deleted the words \"(For CP only)\" on flexible graphite gasket description.,PCSSME  ,1997-1-16
+DAJ ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DAP ,19970109,PIPE                                                                                                ,Changed SA53 to SA106. ,PCSSME  ,1997-1-9
+DAP ,19970714,GATE VALVES                                                                                         ,Added Special Note.,PCSSME  ,1997-7-14
+DAP ,19970908,STOP VALVES                                                                                         ,Added continuous and intermittent blowdown valves.  ,PCSSME  ,1997-12-2
+DAP ,19971202,FITTINGS                                                                                            ,Added Note 169.,PCSSME  ,1997-12-2
+DAP ,19971202,GASKETS                                                                                             ,Added JM Clipper Elastagraph. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-2
+DAP ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DAP ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DAP ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DAW3,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+DAW3,19970129,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-29
+DAW3,19970129,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-29
+DAW3,19970714,BALL VALVES                                                                                         ,Changed class 300 flanged valves v-number and face to face dimension to ASME B16.10 short pattern dimension.\\
+Added Maintenance Note B.,PCSSME  ,1997-7-14
+DAW3,19971203,BALL VALVES                                                                                         ,Changed wrench operator to round or oval in 2\" and smaller valve sizes.,PCSSME  ,1997-12-3
+DAW3,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DAW3,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DAW3,19971204,BALL VALVES                                                                                         ,Replaced 300 class valves V-Numbers to comply with ASME B16.10 short pattern face to face dimension. Added in the Maintenance Note the V-Number to use to replace existing Neles-Jamesbury valves with the proprietary face to face dimension.,PCSSME  ,1997-12-4
+DAW3,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+DAW3,19971210,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-10
+DAW3,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DAW3,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+DAW3,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+DAW3,19990513,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-13
+DAW3,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DAX ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+DAX ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DAX ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DAX ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DAX ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DAX ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+DAX ,19971210,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-10
+DAX ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DAX ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+DAX ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DC  ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+DC  ,19970129,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-29
+DC  ,19970129,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-29
+DC  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DC  ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DC  ,19971210,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-10
+DC  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DC  ,19990609,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-9
+DCB ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+DCB ,19970130,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321ss bellows. Added stress relief requirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-30
+DCB ,19970130,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-30
+DCB ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DCB ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DCB ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DCB ,19990614,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-14
+DCD ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+DCD ,19970130,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement for BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-30
+DCD ,19970130,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-sheets.,PCSSME  ,1997-1-30
+DCD ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DCD ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DCD ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DCD ,19990614,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-14
+DCE ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DCE ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DCE ,19990614,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-14
+DCX ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+DCX ,19970130,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-1-30
+DCX ,19970130,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-1-30
+DCX ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DCX ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DCX ,19971210,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-10
+DCX ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DCX ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+DE  ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+DE  ,19970130,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-1-30
+DE  ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows. Added stress relief requirement for bonnet welds in the V-sheets.,PCSSME  ,1997-12-3
+DE  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DE  ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DE  ,19971210,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-10
+DE  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DE  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+DEA ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+DEA ,19970206,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-6
+DEA ,19970206,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-6
+DEA ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DEA ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DEA ,19980811,GATE VALVES                                                                                         ,Added extended body gate valves for vents and drains.,PCSSME  ,1998-8-11
+DEA ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+DEA ,19990616,GATE VALVES                                                                                         ,Added 1/2\" to 1-1/2\" flanged valve.,PCSSME  ,1999-6-16
+DFV ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+DFV ,19970211,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-11
+DFV ,19970211,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-11
+DFV ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+DFV ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DFV ,19971210,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-10
+DFV ,19980811,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-11
+DFV ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+DH  ,19961217,,1. Changed Instr. Spec. from S-1 to S-4. ,PCSSME  ,1996-12-17
+DH  ,19970109,PIPE                                                                                                ,Changed seamless stainless steel to welded.,PCSSME  ,1997-1-9
+DH  ,19970715,CHECK VALVES                                                                                        ,Added Maintenance Note for in kind replacement of Wafer Style check valve.,PCSSME  ,1997-7-15
+DH  ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+DH  ,19980708,FITTINGS                                                                                            ,Changed schedule number to .250\" wall in 8\" size to match new pipe wall. Added Note 173.,PCSSME  ,1998-7-8
+DH  ,19980708,ORIFICE FLANGES                                                                                     ,Changed bore to match new pipe wall.,PCSSME  ,1998-7-8
+DH  ,19980708,PIPE                                                                                                ,Change pipe schedule number from Sch 40S to .250\" wall on 8\" pipe and Sch 40S to Calc Wall on 10\" to 12\" pipe sizes. Added Note 172. ,PCSSME  ,1998-7-8
+DH  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+DH  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+DJ  ,19970109,PIPE                                                                                                ,1. Changed 1/2\" to 6\" to welded from seamless.,PCSSME  ,1997-2-12
+DJ  ,19970619,GATE VALVES                                                                                         ,Added gate valves with non-stellited seats for liquid service only. Stellite seated gate valves to be used for gas or vapor service only.,PCSSME  ,1997-6-19
+DJ  ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DJ  ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DJ  ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+DJ  ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DJ  ,19971210,GASKETS                                                                                             ,Replaced Tang Core with JM Clipper Elastagraph or approved substitute.,PCSSME  ,1997-12-10
+DJ  ,19980817,PIPE                                                                                                ,Changed pipe schedule number for14\" and larger sizes to .375\" minimum nominal wall\, from Sch 40S.,PCSSME  ,1998-8-17
+DJ  ,19990510,GATE VALVES                                                                                         ,Added screwed end valves for EPA regulated fluid only.,PCSSME  ,1999-5-10
+DJ  ,19990513,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-13
+DJ  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+DJB ,19970708,GATE VALVES                                                                                         ,Added gate valves with non-stellited seats for liquid service only. Stellite seated gate valves to be used for gas or vapor service only.,PCSSME  ,1997-7-8
+DJB ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DJB ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+DJB ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+DJB ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+DJB ,19971210,GASKETS                                                                                             ,Added JM Clipper Elastagraph or approved substitute. Added Note 169 to spiral wound gasket.,PCSSME  ,1997-12-10
+DJB ,19980817,PIPE                                                                                                ,Changed pipe schedule number for 14\" and larger sizes to .375\" minimum nominal wall\, from Sch 40S.,PCSSME  ,1998-8-17
+DJB ,19990513,BUTTERFLY VALVES                                                                                    ,Added,PCSSME  ,1999-5-13
+DJB ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+DQ  ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+DQ  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+DSP ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+DX  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FA  ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+FA  ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FA  ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FA  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FA  ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FA  ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+FA  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FA  ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+FA  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FAB ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+FAB ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FAB ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FAB ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FAB ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FAB ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+FAB ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FAB ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+FAB ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FAC ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+FAC ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FAC ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FAC ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FAC ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FAC ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+FAC ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FAC ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+FAC ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FAC2,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106. ,PCSSME  ,1997-1-9
+FAC2,19970212,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-12
+FAC2,19970212,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement for BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-12
+FAC2,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FAC2,19971204,,Revised V-sheets for gate\, globe and check valves to change seat ring materials to either carbon steel or stainless steel with stellite facing.\\
+\\
+Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FAC2,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+FAC2,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FAC2,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 177 stating that Orbit valves are NOT fully bi-directional at full rated pressure in some sizes.,PCSSME  ,1998-8-5
+FAC2,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FACN,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+FACN,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FACN,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FACN,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FACN,19971204,,Revised V-sheets for gate\, globe and check valves to change seat ring materials to either carbon steel or stainless steel with stellite facing.\\
+\\
+Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FACN,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+FACN,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FACN,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 177 stating that Orbit valves are NOT fully bi-directional at full rated pressure in some sizes.,PCSSME  ,1998-8-5
+FACN,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FAD ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106. ,PCSSME  ,1997-1-9
+FAD ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FAD ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FAD ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FAD ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FAD ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+FAD ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FAD ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+FAD ,19990615,PLUGS                                                                                               ,Changed to pressue relief plugs.,PCSSME  ,1999-6-15
+FAD3,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+FAD3,19970212,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-12
+FAD3,19970212,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-12
+FAD3,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FAD3,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FAD3,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+FAD3,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FAD3,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+FAD3,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FAH ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+FAH ,19970714,GATE VALVES                                                                                         ,Added Special Note B.,PCSSME  ,1997-7-14
+FAH ,19970715,GATE VALVES                                                                                         ,Added 1/2\" - 1-1/2\" flanged gate valves.,PCSSME  ,1997-7-15
+FAH ,19971202,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-2
+FAH ,19971202,GASKETS                                                                                             ,Added JM Clipper Elastagraph. Added Note 169 for spiral wound gasket.,PCSSME  ,1997-12-2
+FAH ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FAH ,19981130,CHECK VALVES                                                                                        ,Made all 2\" and larger valves full stellited.,PCSSME  ,1998-11-30
+FAH ,19981130,GATE VALVES                                                                                         ,Made all 2\" and larger valves full stellited.,PCSSME  ,1998-11-30
+FAH ,19981130,GLOBE VALVES                                                                                        ,Made all 2\" and larger valves full stellited.,PCSSME  ,1998-11-30
+FAH ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FAJ ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+FAJ ,19970714,GATE VALVES                                                                                         ,Added Special Note B.,PCSSME  ,1997-7-14
+FAJ ,19970715,GATE VALVES                                                                                         ,Added 1/2\" - 1-1/2\" ring type joint gate valves.,PCSSME  ,1997-7-15
+FAJ ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FAJ ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FAJ ,19981130,CHECK VALVES                                                                                        ,Made all 2\" and larger valves full stellited.,PCSSME  ,1998-11-30
+FAJ ,19981130,GATE VALVES                                                                                         ,Made all 2\" and larger valves full stellited.,PCSSME  ,1998-11-30
+FAJ ,19981130,GLOBE VALVES                                                                                        ,Made all 2\" and larger valves full stellited.,PCSSME  ,1998-11-30
+FAJ ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FAP ,19970109,PIPE                                                                                                ,Changed SA53 to SA106.,PCSSME  ,1997-1-9
+FAP ,19970714,GATE VALVES                                                                                         ,Added Special Note B.,PCSSME  ,1997-7-14
+FAP ,19970715,GATE VALVES                                                                                         ,Added 1/2\" - 1-1/2\" flanged gate valves.,PCSSME  ,1997-7-15
+FAT ,19981130,GATE VALVES                                                                                         ,Made all 2\" and larger valves full stellited.,PCSSME  ,1998-11-30
+FAT ,19981130,GLOBE VALVES                                                                                        ,Made all 2\" and larger valves full stellited.,PCSSME  ,1998-11-30
+FAT ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FC  ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+FC  ,19970212,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement for BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-12
+FC  ,19970212,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-12
+FC  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FC  ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FC  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FC  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FCA ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+FCA ,19970213,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-13
+FCA ,19970213,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-13
+FCA ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FCA ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FCA ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FCA ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FCB ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+FCB ,19970213,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement on BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-13
+FCB ,19970213,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-13
+FCB ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FCB ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FCB ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FCD ,19961217,,1. Changed Instru. Spec. from S-1 to S-4,PCSSME  ,1996-12-17
+FCD ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FCD ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FCD ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FCD ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FCD ,19990616,GATE VALVES                                                                                         ,Added 1/2\" to 1-1/2\" flanged valve.,PCSSME  ,1999-6-16
+FD  ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FD  ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FD  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FD  ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FD  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FD  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FE  ,19961217,,. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+FE  ,19970213,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-13
+FE  ,19970213,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-13
+FE  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FE  ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FE  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FE  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FFB ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+FFB ,19970213,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-13
+FFB ,19970213,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-13
+FFB ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FFB ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FFB ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FFB ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FFV ,19961217,,1. Changed Instr. Spec. from S-1 TO S-4.,PCSSME  ,1996-12-17
+FFV ,19970218,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-18
+FFV ,19970218,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets. ,PCSSME  ,1997-2-18
+FFV ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FFV ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FFV ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FFV ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FFX ,19961217,,1. Changed Instr. Spec. from S-1 to S-4.,PCSSME  ,1996-12-17
+FFX ,19970218,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-18
+FFX ,19970218,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSVs with 321SS bellows. Added stress relief requirement to BSV bonnet welds in the V-Sheets.,PCSSME  ,1997-2-18
+FFX ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+FFX ,19971204,,Made all BSV's full stellited\, from half stellited\, to match manufacturers' standard.,PCSSME  ,1997-12-4
+FFX ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+FFX ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FJL ,19970109,PIPE                                                                                                ,Changed seamless stainless steel to welded.,PCSSME  ,1997-1-9
+FJL ,19970708,GATE VALVES                                                                                         ,Added gate valves with non-stellited seats for liquid service only. Stellite seated gate valves to be used for gas or vapor service only.,PCSSME  ,1997-7-8
+FJL ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+FJL ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+FQ  ,19971203,BELLOWS- SEAL GATE VALVES                                                                           ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FQ  ,19971203,BELLOWS- SEAL GLOBE VALVES                                                                          ,Added BSV's with 321SS bellows.,PCSSME  ,1997-12-3
+FQ  ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+FQ  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+GA  ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+GA  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+GA  ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+GA  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+GA  ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+GA  ,19990506,GATE VALVES                                                                                         ,Added a special note that radiography applies only to valves in hydrogen service and not to high pressure process water. This applies to all valves.,PCSSME  ,1999-5-6
+GA  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+GAC ,,,,PCSSME  ,1997-9-8
+GAC ,19970115,PIPE                                                                                                ,Changed A53 and API 5L to A106,PCSSME  ,1997-1-15
+GAC ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+GAC ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+GAC ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+GAC ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+GAC ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+GACN,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+GACN,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+GACN,19971204,,Revised V-sheets for gate\, globe and check valves to change seat ring materials to either carbon steel or stainless steel with stellite facing.,PCSSME  ,1997-12-4
+GACN,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+GACN,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+GACN,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 178 stating that Orbit valves are NOT fully bi-directional at full rated pressure in 6\" size.,PCSSME  ,1998-8-5
+GACN,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+GAD ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+GAD ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+GAD ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+GAD ,19971204,GLOBE VALVES                                                                                        ,Changed V15420 welded bonnet valve to V15427 bolted bonnet valve due to availability.,PCSSME  ,1997-12-4
+GAD ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+GAD ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+GAD ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+GCG ,19961217,,1. Changed Instr. Spec. from S-2 to S-5.,PCSSME  ,1996-12-17
+GCG ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+GCG ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+GCG ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+GD  ,19961217,,1. Changed Instr. Spec. from S-2 to S-5.,PCSSME  ,1996-12-17
+GD  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+GD  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+GD  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+GQ  ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+GQ  ,19980804,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-4
+GQ  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+HA  ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+HA  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+HA  ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+HA  ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+HA  ,19980811,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-11
+HA  ,19990506,GATE VALVES                                                                                         ,Added a special note that radiography applies only to valves in hydrogen service and not to high pressure process water. This applies to all valves.,PCSSME  ,1999-5-6
+HA  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+HAC ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+HAC ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+HAC ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+HAC ,19980807,ORBIT VALVES (800F MAX.)                                                                            ,Added Note 183 stating that Orbit valves are NOT fully bi-directional at full rated pressure in some valve sizes.,PCSSME  ,1998-8-7
+HAC ,19980811,GATE VALVES                                                                                         ,Added extended body valves for vents an drains.,PCSSME  ,1998-8-11
+HAC ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+HAD ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+HAD ,19971202,,Added Special Note B.,PCSSME  ,1997-12-2
+HAD ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+HAD ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+HAD ,19971204,GLOBE VALVES                                                                                        ,Changed V15420 welded bonnet valve to V15427 bolted bonnet valve due to availability.,PCSSME  ,1997-12-4
+HAD ,19980811,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-11
+HAD ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+HC  ,19961217,,1. Changed Instr. Spec. from S-1 to S-5.,PCSSME  ,1996-12-17
+HC  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+HC  ,19980811,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-11
+HC  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+HD  ,19961217,,1. Changed Instr. Spec. from S-2 to S-5.,PCSSME  ,1996-12-17
+HD  ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+HD  ,19980811,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-11
+HD  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+HEG ,19961217,,1. Changed Instr. Spec. from S-2 to S-5.,PCSSME  ,1996-12-17
+HEG ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+HEG ,19980811,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-11
+HEG ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+HFA ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+HFA ,19980811,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-11
+HFA ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+HH  ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+HH  ,19971204,,Changed Instrument line class from S-2 to S-5.,PCSSME  ,1997-12-4
+HH  ,19980811,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-11
+HH  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+HM  ,20070507,DESIGN TEMP\, LINE CLASS                                                                             ,Per Mike Silverman\, change max temp from 850 degF to 950 degF,ASAHIDT ,2007-5-7
+HM  ,20070507,FITTINGS                                                                                            ,Per Mike Silverman\, change small bore fittings from 347SS to ASTM A182 GR F347.,ASAHIDT ,2007-5-7
+HM  ,20070507,GATE VALVES                                                                                         ,Per Frank Carta\, deleted the Bolted Bonnet Valves where there was a vlave listing for both Bolted Bonnet and Preasure Seal Bonnet.,ASAHIDT ,2007-5-7
+HM  ,20070507,NOTES\, LINE CLASS                                                                                   ,Per Mike Silverman\, add 1.  No PWHT Required   2.  For Service Above 850 degF Stabilization Heat Treatment is Required.,ASAHIDT ,2007-5-7
+HM  ,20070507,PIPE                                                                                                ,Per Mike Silverman changed sch 100 for pipes 8\"-24\" to \"Calculate Pipe Sch.\",ASAHIDT ,2007-5-7
+HPCV,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+HPCV,19980811,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-11
+HPCV,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+HQ  ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+HQ  ,19980811,GATE VALVES                                                                                         ,Added extended body valves for vents and drains.,PCSSME  ,1998-8-11
+HQ  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+JAC ,19970109,PIPE                                                                                                ,Changed A53 and API 5L to A106.,PCSSME  ,1997-1-9
+JAC ,19971203,FITTINGS                                                                                            ,Added Note 163.,PCSSME  ,1997-12-3
+JAC ,19971204,GATE VALVES                                                                                         ,Added a Special Note that gate valves 2\" and smaller are considered tight shut off.,PCSSME  ,1997-12-4
+JAC ,19980805,ORBIT VALVES (MAX. 500F)                                                                            ,Added Note 176 stating that Orbit valves are fully bi-directional at full rated pressure.,PCSSME  ,1998-8-5
+JAC ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+JPCV,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+JPCV,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+JQ  ,19971203,FITTINGS                                                                                            ,Added Note 167.,PCSSME  ,1997-12-3
+JQ  ,19990615,PLUGS                                                                                               ,Changed to pressure relief plugs.,PCSSME  ,1999-6-15
+REVD,20090105,,Book Revision Date: Maintain by Users,SILVERM3,2008-12-17
+S-1 ,19971203,BALL VALVES                                                                                         ,Added ball valves.,PCSSME  ,1997-12-3
+S-1 ,19971203,GATE VALVES                                                                                         ,Increased gate valve size to 1\".,PCSSME  ,1997-12-3
+S-2 ,19971203,GATE VALVES                                                                                         ,Increased gate valve size to 1\".,PCSSME  ,1997-12-3
+S-3 ,19971203,GATE VALVES                                                                                         ,Increased gate valve size to 1\".,PCSSME  ,1997-12-3
+S-4 ,19971203,BALL VALVES                                                                                         ,Added ball valves,PCSSME  ,1997-12-3
+S-4 ,19971203,GATE VALVES                                                                                         ,Increased gate valve size to 1\".,PCSSME  ,1997-12-3
+S-5 ,19971203,GATE VALVES                                                                                         ,Increased gate valve size to 1\".,PCSSME  ,1997-12-3
+S-8 ,19971203,BALL VALVES                                                                                         ,Added ball valves.,PCSSME  ,1997-12-3
+S-8 ,19971203,GATE VALVES                                                                                         ,Increased gate valve size to 1\".,PCSSME  ,1997-12-3

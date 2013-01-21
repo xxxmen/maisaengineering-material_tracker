@@ -1,0 +1,43 @@
+<style type="text/css" media="screen">
+    #line_items { width: 95%; border-top: 1px solid #ccc; cursor: move; margin-top: 12px;}
+    #line_items li { border-bottom: 1px solid #bbb; border-left: 1px solid #ccc; border-right: 1px solid #ccc; padding: 4px 6px;}
+    #line_items li.odd { background-color: #ddd; }
+    
+    #line_items li .item_no { color: #000; font-weight: bold; font-size: 110%; margin-right: 14px; }
+    #line_items li .unit { color: green; font-size: 95%; margin-right: 14px;}
+    #line_items li .desc { font-weight: bold; font-size: 110%; margin-right: 14px;}
+    #line_items li .notes { color: red; font-size: 95%; }
+    
+    p strong { font-weight: bold;}
+</style>
+
+<p>
+    <strong>Click on an item and hold down your mouse button to hold it.  Re-order items by dragging them to the correct spot.</strong>
+</p>
+
+<ul id="line_items">
+<% @material_request.items_sorted.each do |item|  %>
+    <li class="<%= cycle :odd, :even %>" id="line_item_<%= item.id %>">
+        <span class="item_no"><%= item.item_no %></span>
+        <span class="unit"><%= item.quantity %>/<%= item.unit_of_measure %></span>
+        <span class="desc"><%= h item.material_description %></span>
+        <span class="notes"><%= h item.notes %></span>
+    </li>
+<% end %>
+</ul>
+
+<%= sortable_element 'line_items', :url => { :action => :sort, :id => @material_request }, :complete => "finishSort()" %>
+
+
+<script type="text/javascript" charset="utf-8">
+    function finishSort() {
+        $$('#line_items li').each(function(li, index){
+            $(li).removeClassName('odd');
+            $(li).removeClassName('even');
+            if(index % 2 == 0) $(li).addClassName('odd');
+            else $(li).addClassName('even');
+            
+            $(li).down('.item_no').innerHTML = (index + 1).toString();
+        });
+    }
+</script>

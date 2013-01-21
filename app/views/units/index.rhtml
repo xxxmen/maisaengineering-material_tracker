@@ -1,0 +1,40 @@
+<style type="text/css" media="screen">
+    th.desc, td.desc {}
+    th.orders, td.orders { width: 180px;}
+    th.requests, td.requests { width: 180px;}
+</style>
+
+<table class="information" cellspacing="0">
+  <tr>
+    <th class="desc">
+      <%= link_to_sort "Description", "description" %>
+    </th>
+    <th class="orders">
+      Orders
+    </th>
+    <th class="requests">
+      Requests
+    </th>
+  </tr>
+ </table>
+ 
+ <div id="maininfo">
+ <table class="information" cellspacing="0">
+  <% @units.each do |u| %>
+    <tr class="<%= cycle(:even, :odd) %>">
+      <td class="desc">
+        <%= link_to_desc u, :html => { :onclick => toggle_edit(u), :id => dom_id(u, :anchor)} %>
+        <%= edit_for(u, :description) %>
+      </td>
+      <td class="orders">
+        <%= link_to_if u.po_count > 0, u.po_count(true), orders_path(:unit => u.id) %>
+      </td>
+      <td class="requests">
+        <%= link_to_if u.request_count > 0, u.request_count(true), material_requests_path(:unit => u.id, :status => 'all') %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>
+
+<%= render :partial => "shared/paginate", :locals => { :collection => @units } %>

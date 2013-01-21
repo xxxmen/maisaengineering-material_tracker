@@ -1,0 +1,43 @@
+<style type="text/css" media="screen">
+    th.id, td.id { width: 50px; }
+	th.date, td.date { width: 140px; }
+	td.date { font-size: 95%; }
+    th.desc, td.desc {}
+	td.desc { font-weight: bold; font-size: 105%;}
+    th.actions, td.actions { width: 200px; }
+</style>
+
+<table class="information" cellspacing="0">
+  <tr>
+    <th class="id"><%= link_to_sort "ID", "id" %></th>
+	<th class="date"><%= link_to_sort "Created", "created_at" %></th>
+	<th class="date"><%= link_to_sort "Updated", "updated_at" %></th>
+    <th class="desc"><%= link_to_sort "Filename", 'reference_file_name' %></th>
+    <th class="actions"></th>
+  </tr>
+</table>
+
+<div id="maininfo">
+<table class="information" cellspacing="0">  
+  <% @references.each do |r| %>
+    <tr class="<%= cycle(:even, :odd) %>">
+      <td class="id"><%= r.id %></td>
+	  <td class="date"><%= r.created_at %></td>
+	  <td class="date"><%= r.updated_at %></td>
+  
+      <td class="desc"><%= "#{r.reference_file_name}" %></td>
+      <td class="actions">
+        <%= link_to "Download", download_general_reference_path(r) %>
+        <% if current_employee.admin? || current_employee.purchasing? %>
+         | 
+        <%= link_to "Update File", edit_general_reference_path(r) %>
+        |
+        <%= link_to "Delete", {:action => "destroy", :id => r.id}, :method => :delete, :confirm => "Are you sure you want to delete this file?" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>
+
+<%= render :partial => "shared/paginate", :locals => { :collection => @references } %>

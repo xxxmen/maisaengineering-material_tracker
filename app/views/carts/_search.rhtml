@@ -1,0 +1,15 @@
+<% if params[:action] == "recent" || params[:controller] == "home" %>
+<% form_tag recent_search_carts_path, :method => :get do -%>
+    <input type="text" value="Search Web Requests" onfocus="InterfaceHelper.clear(this);" onblur="InterfaceHelper.reset(this);" style="font-style: italic; color: gray; width: 180px;" name="q" />
+<% end -%>
+<% else %>
+<% form_tag search_carts_path, :method => :get do -%>
+    <input type="text" value="Search Items" onfocus="InterfaceHelper.clear(this);" onblur="InterfaceHelper.reset(this);" style="font-style: italic; color: gray; width: 150px;" name="q" />
+    <% [:status].each do |filter_param| %>
+        <% if params.has_key?(filter_param) %>
+            <input type="hidden" value="<%= params[filter_param] %>" name="<%= filter_param %>" />
+        <% end %>
+    <% end %>
+    <input type="submit" value="Search" />
+<% end -%>
+<% end %>

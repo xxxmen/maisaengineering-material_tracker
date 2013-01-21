@@ -1,0 +1,89 @@
+<%= error_messages_for :inventory_item, :header_tag => "div id='error'" %>
+<table class="information" id="table1">
+      <tr class="inventory_items-list-header">
+       <th align="left" class="small">
+       	  <%= 
+       	  options = {
+	      :url => {
+		      :action => params[:action], 
+		      :order_by => "customer_number",
+		   	  :desc => get_order(params, "customer_number"),
+		   	  :q => params[:q],
+		   	  :page => params[:page]
+		  },
+	      :method => :get,
+	      :before => "Element.show('spinner')",
+	      :success => "Element.hide('spinner')"
+	      }
+    	  html_options = {
+    	  	:href => url_for(:action => params[:action])
+    	  }    
+    	  link_to_remote("Customer #", options, html_options)
+	      %>
+	        
+	        
+      	</th>		
+        <th align="left">
+          <%= 
+       	  options = {
+	      :url => {
+		      :action => params[:action], 
+		      :order_by => "company_name",
+		   	  :desc => get_order(params, "company_name"),
+		   	  :q => params[:q],
+		   	  :page => params[:page]
+		  },
+	      :method => :get,
+	      :before => "Element.show('spinner')",
+	      :success => "Element.hide('spinner')"
+	      }
+    	  html_options = {
+    	  	:href => url_for(:action => params[:action])
+    	  }    
+    	  link_to_remote("Company Name", options, html_options)
+	      %>
+        </th>
+        <th class="small"></th>
+      </tr>
+<% if !@inventory_item.nil? %>
+<% @inventory_item.each_with_index do |inventory_item, index| %>
+    <% tr_class = index % 2 == 1 ? "odd" : "even"  %>
+		
+	  <tr class="<%= tr_class %>" id="list-row">
+         
+                                          
+		<td class="name description">
+         	<%= default_for(inventory_item.warehouse_name, "") %>
+        </td>
+	    <td>
+	    	<%= default_for(inventory_item.stock_no, "") %>
+         </td>
+        <td>
+	    	<%= default_for(inventory_item.description, "") %>
+         </td>
+        <td>
+	    	<%= default_for(inventory_item.unit_of_measure, "") %>
+         </td>
+        <td>
+	    	<%= default_for(inventory_item.consignment_count, "") %>
+         </td>
+        <td>
+	    	<%= default_for(inventory_item.on_hand, "") %>
+         </td>
+        <td>
+	    	<%= default_for(inventory_item.total_count, "") %>
+         </td>
+        <td>
+	    	<%=h inventory_item.aisle %> / <%=h inventory_item.bin %> / <%=h inventory_item.shelf %>
+         </td>         
+		<td>
+			<%= link_to "view", {:action => 'view', :id => inventory_item.id} %>
+		</td>
+         
+      </tr>
+<% end %>
+
+</table>
+
+<%= render :partial => "shared/paginate_remote", :locals => { :collection => @customers, :top => false} %>
+<% end %>

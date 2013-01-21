@@ -1,0 +1,33 @@
+<table class="noprint information clear" id="pipe_materials">
+  <tr>
+    <th style="width: 65px;">Class <a href="#" onclick="PipeBuilder.reset('piping_class'); return false;" style="z-index: 1;">reset</a></th>
+    <th style="width: 110px;">Component <a href="#" onclick="PipeBuilder.reset('piping_component'); return false;" style="z-index: 1;">reset</a></th>
+    <th>Description <a href="#" onclick="PipeBuilder.reset('piping_class_detail'); return false;" style="z-index: 1;">reset</a></th>
+    <th style="width: 75px;">Size 1 <a href="#" onclick="PipeBuilder.reset('piping_size_1'); return false;" style="z-index: 1;">reset</a></th>
+    <th style="width: 75px;">Size 2 <a href="#" onclick="PipeBuilder.reset('piping_size_2'); return false;" style="z-index: 1;">reset</a></th>
+    <th style="width: 60px;"></th>
+  </tr>
+  <tr>
+    <td>
+      <%= select_tag :piping_class, list_options(PipingClass.find(:all, :order => "class_code"), :class_code, :id, true, "- Class -"), :id => "piping_class", :onchange => remote_function(:url => "/piping/piping_class/", :with => "'id=' + $F('piping_class')") %>
+    </td>
+    <td id="piping_component_cell">
+      <%= select_tag :piping_component, "<option value=''><-- Select Class</option>", :id => "piping_component" %>
+    </td>
+    <td id="piping_class_detail_cell">
+      <%= select_tag :piping_class_detail, "<option value=''><-- Select Class</option>", :id => "piping_class_detail" %>
+    </td>
+    <td id="piping_size_1_cell">
+      <%= select_tag(:piping_size_1, "<option value=''><--</option>", :id => "piping_size_1") %>
+    </td>
+    <td id="piping_size_2_cell">
+      <%= select_tag(:piping_size_2, "<option value=''><--</option>", :id => "piping_size_2") %>
+    </td>
+    <td style="text-align: center; width: 60px;">
+      <%= remote_button "Add Item", "/material_requests/new_line_item/", "loading", { :id => "new_pipe_button", :disabled => true, :style => "display: inline;" }, [:piping_class_detail, :piping_size_1, :piping_size_2, :piping_component, :material_request_id, :piping_subcomponent, :item_count] %>
+    </td>
+  </tr>
+</table>
+
+<table class="noprint information clear" id="notes_and_valve" style="display: none;">
+</table>

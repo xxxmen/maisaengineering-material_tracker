@@ -1,0 +1,153 @@
+Code Changelog
+==============
+	This lists most of the changes made to each version of the Material Tracker Program.
+
+3.0.22 - 2010-01-28
+=============================
+	- WebPOPV: Fixed piping notes window issues with IE6 & 7. Increased default PCD form height.
+
+3.0.21 - 2010-01-26
+=============================
+	- WebPOPV: added "rake popv:bpcherrypoint:fix_piping_class_detail_piping_notes" task to update the piping notes from the
+	  generic FITTINGS for each class and the original CSV for the appropriate sizes.
+
+3.0.20 - 2010-01-25
+=============================
+	- WebPOPV: Piping Classes combo box now loads when adding the first item to a BOM. (rev. 1985)
+	- General: Fixed the "You are being redirected" message for some users. (rev. 1985)
+
+3.0.19 - 2010-01-20
+=============================
+	- WebPOPV - Data Importing - Fixed the Piping Class Detail code so it doesn't carry
+	  over header descriptions and piping notes that it shouldn't. (rev 1983, 1984)
+
+3.0.18 - 2010-01-15
+=============================
+	- Login - Created a new login screen to make it easier to login to POPV. (rev 1981)
+
+3.0.17 - 2010-01-11
+=============================
+	- Login - Created a new login screen to make it easier to login to POPV. (rev 1978)
+
+
+3.0.16 - 2009-12-22
+=============================
+	- WebPOPV - Valves PDF: Fixed a small bug in the Line Class Valve Sheet PDF where there were duplicate components because of multiple valves for one class. (rev 1974)
+
+
+3.0.15 - 2009-12-18
+=============================
+	- WebPOPV - Valves PDF: Updated the Line Class Valve Sheet PDF to include Manufacturers and Figure Numbers. (rev 1970)
+
+
+3.0.14 - 2009-12-11
+=============================
+	- WebPOPV - Piping Components: Now prevents admins from deleting components that
+		are tied to Class Details. Also prevents deletion if the component has subcomponents. (rev 1967)
+	- WebPOPV - Valves: Updated the Valve Sheet PDFs to include Manufacturers and Figure Numbers. (rev 1967)
+
+3.0.13 - 2009-12-08
+=============================
+	- Piping Classes: Updated the clone class feature for piping classes so it doesn't record
+		the cloning of all details.
+	- Added Manufactures and Figure No to the valves comparison view.
+	- Anyone can now view the archived status of Valves. Set to disabled instead of hidden for non-admins.
+
+3.0.12 - 2009-12-07
+=============================
+	- Upgraded thinking_sphinx and the lib/thinking_sphinx_extensions code. Also removed all references to
+		"include Listable::ModelHelper" and replaced them with "extend Listable::ModelHelper". (rev 1959)
+	- Added 'valves' store to refresh when a valve is updated/created. (rev 1959)
+	- Orders: Set status_id = 5 for new orders. (rev 1959)
+	- RecordChangelog: fixed issue where if an "_id" field was 0, it would balk. Now does a #find_by_id instead of 
+		#find. Also stores "" if value is nil. (rev 1961)
+	- PipingComponent: Added validation for presence of :piping_component. (rev 1961)
+
+
+3.0.11 - 2009-12-04
+=============================
+	- Material Requests: Fixed a routing error when a search result doesn't find anything. (rev 1954)
+	- WebPOPV: Fixed the Bill of Materials Excel export document. (rev 1954)
+		
+3.0.10 - 2009-12-03
+=============================
+	- WebPOPV: Added 'manufacturers' to the resources:manufacturers:grid_config:refreshStores JS array. (rev 1952)
+
+3.0.9 - 2009-12-03
+=============================
+	- Added the deployment site name to the main application layout (BP Carson, BP Cherrypoint, etc.).
+		Also added it to the deploy template "app_constants.rb" so we can defined it per deployment. (rev 1948)
+	- POPV: Updated the Piping Class All Valves PDF to include type, rating, and body. (rev 1948)
+	- Fixed an issue with the BOM CSV export function so it converts attributes to string before "grep"-ing them! (rev 1948)
+	
+
+3.0.8 - 2009-12-02
+=============================
+	- Fixed the Order#filter method so it doesn't duplicate params[:group] inspection. (rev 1946)
+	- Added star searching to sphinx. (rev 1947)
+	- Added comments with Model name to sphinx search logging. (rev 1947)
+	- Material Requests: Updated the planners drop-down box so it shows only planners,
+		also takes into account a non-planner record (adds it dynamically). (rev 1947)
+	- BOMS: Export CSV now accounts for reference numbers and their types! (rev 1947)
+	- Material Requests: Now has default reference_number_type set in initialize. (rev 1947)
+	- Reference Number Types: Now have default column (Migration 20091202204807) and supporting model code. (rev 1947)
+	- Material Requests: Reference Number Type field now a textfield with autocomplete. (rev 1947)
+	- MatReq Quote Email: supports reference number now. (rev 1947)
+
+3.0.7 - 2009-12-01 (rev 1941-1943)
+=============================
+	- Updated the Order and MaterialRequest models to handle groups a bit better.
+	- Updated purchase order reports to remove the problem with ";" and the linux reportman engine.
+	- Fixed the image references for Jquery UI theme.
+	- Made the migration output a bit better for error checking.
+
+
+3.0.6 - 2009-11-30 (rev 1935-1940)
+=============================
+	- Committed a bunch of updates for deployment.
+	- Replaced @material_requests with correct instance variable @order.
+	- Upped the max sphinx search count to 20000
+	- Removed an uncessary, uncommented line from the #print method in Orders.	
+	- Updated the Exception Notifier "_session.rhtml" view to include current_employee
+	  	and session.inspect
+	- WebPOPV: Now the All Piping Classes PDF isn't pre-generated, but done on-the-fly.
+	- Updated the Vlad deploy script to use the new "app_constants" template so that
+		things like MAIL_DOMAIN and whatnot get set appropriately depending on the 
+		server that we are deploying to.
+	
+3.0.5 - 2009-11-25 (rev 1930, 1931)
+=============================
+	- Updated searching in Listable module so it grabs ids instead of AR records.
+	- Material Requests: included :items in the search method's :include options
+	  	for finding mat reqs, so it doesn't balk on sorting by description.
+	- Updated how the groups filtering and assignment works.
+	- Pushed the max_matches value for sphinx to 20000 from its default of 1000.
+
+3.0.4 - 2009-11-24
+==================
+	- Removed viewing restrictions of Valve Preferred Manufacturers, so now
+		everyone can see them. Only Admins can edit though still.
+	- Created lib/tasks/valve_csv_dump.rake which outputs all valves and
+		valve_components to csv. Can be integrated into a controller action at
+		some point if necessary.
+
+3.0.1
+=====
+	- Added Admin::MessageController, Admin::Message, and associated views. Can now
+		view messages for 24 hours on the site through @admin_message set in
+		application_controller.rb. Added new route /admin/new_message to change
+		the message that appears.
+	- Set /contact_us to point to /tickets/new.
+	- Set "Material Tracker" link to point to '/'.	
+	
+3.0
+===
+	 - Added Rails 2.3.2
+	 - Removed vendor/rails which held the old frozen Rails 1.2.1
+	 - Removed "config.action_view.cache_template_extensions" from development.rb
+	 - Removed thinking_sphinx plugin and added `config.gem "thinking_sphinx"` to environment.rb
+	 - Removed old acts_as_list plugin and installed newest version.
+	 - # (Reverted this change in r1646 in case it actually is needed) Removed 
+	   acts_as_taggable plugin and modified inventory_item.rb to not use it anymore,
+	   since it was never really being used.
+	 - Added the lastest asset_packager plugin. (r1647)

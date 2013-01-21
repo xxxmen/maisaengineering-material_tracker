@@ -1,0 +1,695 @@
+body { background: url(../graphics/background.jpg) scroll repeat-x top left; font-family: Trebuchet MS; font-size: 12px; height: 100%; width: 100%; }
+strong { font-weight: bold; }
+a { color: #336633; font-weight: bold; }
+a:hover { background-color: #222; color: #fff; padding: 2px 0px; text-decoration: none; }
+a.active_note { font-size: 105%; font-weight: bold; color: #000; }
+br.clear { height: 1px; clear: both; }
+
+/* Useful class elements */
+.section { padding: 20px; }
+.clear { clear: both; }
+.button img { margin-right: 3px; position: relative; top: 3px; }
+.inline { display: inline; }
+form p span.by { padding-left: 5px; font-size: 80%; font-weight: bold; color: #006600; }
+form p span.by.red { color: red; }
+
+/* Layout specific elements */
+#hd { background-color: #333; color: #fff; position: relative; }
+#hd a { color: #fff; }
+#company-branding { position: absolute; top: 5px; left: 10px; }
+#company-branding a { border: none; color: #fff; text-decoration: none; }
+#company-branding a:hover { background-color: transparent; border: none; color: #fff; text-decoration: none; }
+#company-branding h1 { font-family: sans-serif; font-weight: bold; font-size: 180%; display: inline; letter-spacing: -1px; position: relative; bottom: 20px; left: 2px; }
+#company-branding img { }
+#site-branding h2 { position: absolute; font-size: 100%; font-weight: bold; top: 35px; left: 63px; }
+#telaeris-branding { font-size: 115%; position: absolute; top: 15px; right: 10px; }
+
+* html #telaeris-branding { right: 25px; }
+* + html #telaeris-branding { right: 25px; }
+
+#ajax_loading { background-color: green; color: #fff; font-size: 110%; position: absolute; top: 0;right: 220px;
+  padding: 6px 8px; display: inline; z-index: 100; }
+#user-info { color: #eee; position: absolute; font-size: 90%; top: 65px; right: 10px; }
+#user-info a { color: #fff; }
+* html #user-info { right: 25px; }
+* + html #user-info { right: 25px; }
+
+#version {
+	color: #eee; 
+	position: absolute; 
+	font-size: 90%; 
+	top: 45px; 
+	right: 10px;
+}
+
+body#hd{
+font-family:arial,helvetica,clean,sans-serif;
+font-size:13px;
+font-size-adjust:none;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+}
+
+#navigation { font-size: 100%; position: absolute; top: 64px; left: 10px; list-style: none; display: inline; }
+#navigation li { display: inline; margin-right: 8px; }
+#navigation a { color: #fff; text-decoration: none; }
+#navigation a.selected { background: #eee; border-top: 3px solid #33CC00; color: #000; padding: 8px 4px; padding-top: 4px; }
+#navigation a:hover { background: transparent; text-decoration: none;  color: #33FF00}
+#navigation a:hover.selected { background: #eee; border-bottom: none; cursor: default; }
+
+#menu { font-size: 95%; position: absolute; top: 88px; left: 10px; list-style: none; display: inline; width: 100%; }
+#menu li { display: inline; margin-right: 8px; }
+#menu a { color: #000; text-decoration: none; }
+#menu a:hover { background: transparent; }
+
+#search { top: 92px; position: absolute; right: 10px; }
+* html #search { top: 90px; right: 25px; }
+* html #search .order-search { position: relative; bottom: 5px; }
+* + html #search { top: 90px; right: 25px; }
+* + html #search .order-search { position: relative; bottom: 5px; }
+#search #query, #search #q { width: 180px; }
+#search form { display :inline; }
+
+#content { position: absolute; top: 108px; left: 0px; width: 100%; overflow-y:scroll; margin-top:10px; }
+
+table.information { border-left: 1px solid #ccc; border-right: 1px solid #ccc; width: 100%; }
+table.information td.lbl { text-align: right; }
+table th { font-weight: bold; }
+table th select { font-size: 90%; }
+table.information th { background: #222 url(../graphics/th.jpg) repeat-x top left; color: #fff; font-size: 95%; font-weight: bold; }
+table.information th.med { width: 160px; }
+table.information th a { color: #fff; }
+table.information th, table.information td { border-bottom: 1px solid #ccc; padding: 3px 8px; }
+table.information tr.odd td { background-color: #ddd; }
+table.information tr:hover td { background-color: #222; color: #fff; }
+.edit table.information tr:hover td { background: transparent; color: #000; }
+.edit table.information tr:hover td a { color: #336633; }
+.edit table.information tr.selected td, .edit table.information tr.selected:hover td { background-color: #FAFF74; }
+table#pipe_materials th a { font-size: 85%; position: relative; bottom: 2px; }
+table#pipe_materials td { padding: 2px 3px; }
+table#pipe_materials td select { width: 100%; }
+table.information tr td span.date { font-size: 85%;  color: #222; }
+table.information tr:hover td span.date { color: #fff; }
+table.information tr:hover td a { color: #fff; }
+table tr .delete-icon { cursor: pointer; visibility: hidden; margin-right: 2px; }
+
+
+/* Forms */
+form.edit { width: 45%; font-size: 100%; }
+form.edit h2.msg { border-bottom: 1px solid #ccc; font-size: 130%; font-weight: bold; margin-bottom: 20px; text-align: center; }
+form.edit h2.msg input { font-size: 90%; font-weight: normal; margin-left: 10px; position: relative; bottom: 3px; }
+form.edit.full { width: 98%; overflow:auto;}
+form.edit.inline { width: 100%; }
+form.edit p { clear: both; margin-top: 2px; margin-bottom: 7px; }
+form.edit label { font-weight: bold; font-size: 95%; display: block; margin: 1px 0; line-height: 1em; }
+form.edit input.text, form.edit textarea, form.edit select,  form.edit input.password,  #search input.text, #search select,input.text {
+  font-size: 95%; margin: 2px 0; padding: 1px 2px; width: 90%; border-top:1px solid #7c7c7c; border-left:1px solid #c3c3c3; border-right:1px solid #c3c3c3; border-bottom:1px solid #ccc; }
+form.edit textarea { font-size: 105%; margin: 1px 0; padding: 1px; font-weight: normal; height: 40px; width: 90%; }
+form.edit .title { font-weight: bold; }
+form.edit .short { width: 50%; }
+form.edit .description { color: #555; display: block; font-size: 85%; margin: 2px 0; }
+form.edit .formError { color: #ff0000; font-weight: bold; }
+form.edit span.required { color: #ff0000; font-size: 85%; font-style: italic; }
+form.edit .meta { color: #222; font-size: 85%; font-style: italic; }
+form.edit .form-button {
+  text-align: center;  
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+form.edit .menu { margin-top: 20px; }
+form.edit .menu a { font-size: 110%; }
+form.edit div.left { float: left; width: 47%; }
+form.edit div.right { float: right; width: 47%; }
+form.edit.inline input.text { width: 300px; }
+form.edit label.inline { display: inline; }
+#search input.text { width: 220px; padding: 2px; }
+
+#search select { font-size: 95%; padding: 1px; position: relative; bottom: 2px; width: 120px; }
+
+/* For pagination */
+.pagination { margin: 15px 0; text-align: left; font-size: 95%; }
+.pagination .section { padding: 2px 0; }
+.pagination .disablepage, .pagination .currentpage { background: #eee; border: 1px solid #ddd; padding: 2px 4px; }
+.pagination a { background: #444; border: 1px solid #333; color: #fff; padding: 3px; text-decoration: none; }
+.pagination strong { background: #eee; border: 1px solid #ccc; color: #000; padding: 3px; }
+
+#page_jump { display: none; }
+
+table.sales { border: 1px solid #ccc; width: 800; font-size: 17px; margin-top: 20px; }
+table.sales th { font-weight: bold; padding: 0px; }
+table.sales th.large { color: #fff; background-color: #000; font-size: 130%; text-align: center; }
+table.sales th.small { font-size: 120%; background-color: #eee; text-align: left; padding-left: 10px; border-top: 2px solid #999; }
+table.sales td { border: 0px; padding: 4px 12px 4px; width: 50%; text-align: left; }
+
+form.edit .fieldWithErrors input, form.edit .fieldWithErrors select, form.edit select.error, form.edit input.error, form.edit textarea.error { background-color: #ffcccc; border: 1px solid red; border-top: 1px solid #FF4242; border-left: 1px solid #FF4242; }
+form.edit div.fieldWithErrors { display: inline; margin: 0; padding: 0; position: relative; bottom: 10px; }
+form.edit div.formError { position: relative; bottom: 10px; margin: 0; padding: 0; }
+form.edit table div.fieldWithErrors { position: relative; bottom: 0; }
+
+#errorExplanation #error { font-size: 20px; text-align: center; }
+#errorExplanation { min-width: 400px; max-width: 600px; border: 2px solid red; padding: 7px; padding-bottom: 12px; margin-bottom: 20px; background-color: #f0f0f0; }
+#errorExplanation h2 { text-align: left; font-weight: bold; padding: 5px 5px 5px 15px; font-size: 10pt; margin: -7px;background-color: #c00; color: #fff; }
+#errorExplanation p { color: #333; margin-bottom: 0; padding: 5px; }
+#errorExplanation ul {   padding-left: 20px; }
+#errorExplanation ul li { font-size: 10pt; list-style: square; }
+
+#error, #notice { min-width: 400px; width: 60%; margin-left: 20%; margin-right: 20%; margin-bottom: 20px; text-align: center;position: absolute; top: 0px; }
+#notice #close-notice, #error #close-error { float: left; }
+#notice { background: #ccffcc; border: 1px solid #006600; color: #006600; }
+#error { background: #ff9966;border: 1px solid #660000;color: #660000; }
+#notice .section, #error .section { padding: 10px; }
+#order-form, #lineItemTable { border-collapse: collapse; border: 2px solid #666; padding: 2px; }
+#order-form td, #lineItemTable td { border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 2px; }
+#order-form td td, #lineItemTable td td { border: none; padding: 0px; }
+#changelog h1 { border-bottom: 1px solid #aaa; font-weight: bold; font-size: 140%; margin-top: 22px; margin-bottom: 4px; }
+#changelog h2 { font-weight: normal; font-size: 130%; margin-top: 8px; margin-bottom: 4px; }
+#changelog ul { list-style: disc; margin-left: 1.2em; }
+#changelog p { margin-top: 2px; margin-bottom: 12px; }
+#changelog ol { list-style: decimal; margin-left: 1.2em; }
+
+
+/* Internet explorer hacks to get things looking good */
+
+/* Move the navigation up 3 pixels, and extend the height 
+  so the background of a selected link actually shows up */
+* html #navigation { top: 62px; height: 60px; }
+* + html #navigation { top: 62px; height: 60px; }
+
+* html #navigation li { height: 60px; padding: 20px 0; }
+* + html #navigation li { height: 60px; padding: 20px 0; }
+
+* html #navigation a { position: relative; padding-bottom: 12px; }
+* + html #navigation a { position: relative; padding-bottom: 12px; }
+
+* html #navigation a:hover { border-bottom: none; color: #33FF00}
+* + html #navigation a:hover { border-bottom: none; color: #33FF00 }
+
+* html #navigation a.selected:hover { text-decoration: none; }
+* + html #navigation a.selected:hover { text-decoration: none; }
+
+/* Fixes pagination issue, where the pagination links flicker when
+   hovered over and aren't completely filled in with the  background color */
+* html .pagination a { padding: 6px; }
+* + html .pagination a { padding: 6px; }
+
+* html .pagination a:hover { background-color: #444; padding: 6px; }
+* + html .pagination a:hover { background-color: #444; padding: 6px; }
+
+* html div.auto_complete ul * { width: 100%; }
+
+
+/* for scrollable index pages */
+#maininfo { overflow-y: auto; border: 1px solid #aaa;}
+div[id=content] { bottom: 0px; }
+div[id=maininfo] { position: absolute; top: 45px; bottom: 60px; left: 20px; right: 20px; }   
+div[id=pagination] { position: absolute; bottom: 10px; }
+* html #maininfo { height: expression((document.body.clientHeight-222).toString() + 'px'); }   /* clientHeight =~ 592 */
+* html #pagination { position: relative; bottom: 2px; padding-bottom: 0px; margin-bottom: 0px;}
+
+
+/* slider stuff */
+div.slider {width: 350px;height: 5px;margin-top:5px;margin-bottom:5px;background: #aaa;position: relative; float: left;}
+div.slider div {position:absolute;width:10px;height:20px;margin-top:-5px;background: #111;border:1px outset white; cursor: pointer; }
+#paginate_page { width: 25px; text-align: right;}
+#paginate_options { float: left; position: relative; left: 10px; width: 500px;}
+#pagination .out_of { position: relative; bottom: 2px; font-weight: bold;}
+
+/*******************************************************************
+*    Ordered Line Items
+*******************************************************************/
+.ordered_line_item {width: 100%;}
+.ordered_line_item th {height: 30px;}
+
+th.no, td.no { width: 28px; text-align: center;}
+.ordered_line_item td {vertical-align: top; padding-top: 5px;}
+.ordered_line_item input {height: 15px !important;}
+.ordered_line_item textarea {height: 38px !important; margin: 0 !important;}
+
+th.desc, td.desc {}
+th.unit, td.unit { width: 70px; text-align: center;}
+th.qty, td.qty { width: 70px; }
+th.date, td.date { width: 70px; }
+th.submit, td.submit { padding: 5px 10px; }
+th.link, td.link { width: 90px; }
+th.location, td.location {width: 150px;}
+th.issued, td.issued {width: 170px;}
+th.issued_small, td.issued_small {width: 150px;}
+td.link { padding: 2px; text-align: center;}
+th.edit_link, td.edit_link { width: 30px; text-align: center;}
+
+
+td.no input { width: 98%;}
+td.desc textarea { width: 98%; height: 60px !important; }
+td.qty input { width: 98%; }
+td.date input { width: 98%; }
+td.location input {width: 140px; border-width: 1px; padding: 1px;}
+td.location textarea {width: 140px;}
+td.issued input { width: 98%; }
+td.submit input {height: 25px !important;}
+
+
+th.req_qty, td.req_qty { padding: 4px; width: 40px; }
+th.item_no, td.item_no {padding: 4px; text-align: center; width: 10px;}
+th.item_description{}
+td.item_description {padding: 4px;}
+th.uom, td.uom {padding: 4px; width: 55px;}
+th.notes, td.notes{padding: 4px; width: 120px;}
+th.btn, td.btn{padding: 4px; width: 30px;}
+th.s_chk, td.s_chk{padding: 4px; width: 10px; text-align: center;}
+th.radio, td.radio{padding: 4px; width: 10px;}
+th.rem_link, td.rem_link{padding: 4px; width: 10px;}
+th.req_link, td.req_link{padding: 0px !important; width: 105px; }
+
+.line_item_tall_field {height: 40px;}
+
+.inactive-piping-class {text-decoration:line-through;}
+
+/*******************************************************************
+*    Orders (/orders)
+*******************************************************************/
+
+.orders .information th {
+	background: none;
+	background-color: #CCC;
+	color: #000;
+	border-bottom: 1px solid #000; 
+	border-top: 1px solid #000; 
+	padding: 5px;
+}
+
+.orders form.edit.full {
+	width: 100%;
+}
+
+.orders .header {
+	height: 30px;
+	width: 100%;
+    text-align: left;
+    background-color: #CCC;
+    border-top: 2px solid #444;
+    border-bottom: 1px solid #000;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.orders .header h2 {
+    font-size: 130%;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.orders .header h3 {
+    font-size: 100%;
+    padding-top: 2px;
+    padding-left: 10px;
+    font-weight: bold;
+    width: 50%;
+}
+
+.orders .header  a {
+    padding-left: 20px; 
+    font-size: 80%;
+    text-decoration: none;
+} 
+
+.orders .header a:hover {
+    padding-left: 20px; 
+    font-size: 80%;
+    text-decoration: none;
+} 
+
+.orders .left {
+    float: left; 
+    width: 250px;
+}
+    
+.orders .right {
+    float: right; 
+    width: 170px; 
+    text-align: right;
+    padding-right: 10px;
+}
+
+/*******************************************************************
+*    Groups (/groups)
+*******************************************************************/
+
+.group h1 {
+	font-size: 230%;
+	margin-bottom: 20px;
+	font-weight: bold;
+	color: #00AA33;
+}
+
+#groups-list {
+	width: 500px;
+}
+
+.group p {
+	margin-bottom: 20px;
+}
+
+.group label {
+	font-weight: bold;
+}
+
+/*******************************************************************
+*    Inventory Items (/inventory_items)
+*******************************************************************/
+.inventory_item .vertical_space {
+	height:8px;
+}
+
+
+/*******************************************************************
+*    Reference Number Types (/reference_number_types)
+*******************************************************************/
+
+.scaffold h1 {
+	font-size: 230%;
+	margin-bottom: 20px;
+	font-weight: bold;
+	color: #00AA33;
+}
+
+.scaffold label {
+	font-size: 120%;
+	font-weight: bold;
+}
+
+.scaffold span {
+	margin-left: 10px;
+	font-size: 120%;
+}
+
+.scaffold input {
+	margin-top: 0px;
+}
+
+.scaffold form input[type="submit"] {
+	font-size: 120%;
+	font-weight: bold;
+}
+
+.scaffold p {
+	margin-top: 15px;
+}
+
+.scaffold .info {
+	font-size: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: black;
+	background-color: #EEE;
+	padding: 15px;
+	border: 3px solid #00AA33;
+}
+
+/*******************************************************************
+*    Tickets (/tickets)
+*******************************************************************/
+.ticket {
+}
+
+/*     Ticket Listings     */
+
+.ticket .Low {
+	background-color: #FFF;
+}
+.ticket .High {
+	background-color: #FC8;
+}
+.ticket .Urgent {
+	background-color: #F75;
+}
+.ticket .Closed {
+	background-color: #DDD;
+}
+.ticket .Rejected {
+	background-color: #DDD;
+}
+
+
+.ticket hr {
+	width: 100%;
+	height: 3px;
+	background-color: #00AA33;
+	border: none;
+}
+
+.ticket h1 {
+	font-size: 230%;
+	margin-bottom: 20px;
+	font-weight: bold;
+	color: #00AA33;
+}
+
+.ticket p {
+	margin-bottom: 10px;
+	font-size: 120%;
+}
+
+.ticket .col-wrapper {
+	width: 100%;
+}
+
+.ticket .left-col {
+	float: left;
+	padding: 1px;
+}
+
+.ticket .right-col {
+	float: left;
+	color: white;
+}
+
+.ticket form {
+	width: 510px;
+	margin: 1px;
+}
+
+.ticket form label {
+	margin-right: 10px;
+	font-size: 120%;
+	font-weight: bold;
+}
+
+.ticket form div {
+	margin-bottom: 10px;
+}
+
+.ticket form input {
+	width: 98%;
+	font-size: 150%;
+	margin-top: 5px;
+	border: 1px solid #222;
+}
+
+.ticket form textarea {
+	width: 98%;
+	font-size: 150%;
+	height: 200px;
+	margin-top: 5px;
+	border: 1px solid #222;
+}
+
+.ticket form .fieldWithErrors input {
+	border: 2px solid red;
+}
+.ticket div.row {
+	margin-bottom: 10px;
+}
+.ticket div.left { 
+	float: left; 
+	width: 47%;
+}
+.ticket div.right { 
+	float: right; 
+	width: 47%; 
+}
+
+.ticket .info {
+	font-size: 100%;
+	width: 300px;
+	margin-top: 20px;
+	margin-left: 20px;
+	color: black;
+	background-color: #EEE;
+	padding: 15px;
+	border: 3px solid #00AA33;
+}
+
+.ticket .info h2 {
+	font-size: 170%;
+	margin-bottom: 10px;
+}
+
+.ticket .info p {
+	margin-bottom: 10px;
+}
+
+.ticket .info span {
+	font-weight: bold;
+}
+
+/* SHOW TICKET */
+.ticket table.details {
+	width: 100%;
+	font-size: 120%;
+    background-color: #E6EFC2;
+    border: 1px solid #00AA33;
+    margin-bottom: 20px;
+}
+
+.ticket table.details td {
+	padding: 10px;
+	border-bottom: 1px solid #00AA33;
+	border-right: 1px solid #00AA33;
+}
+
+.ticket table.details th {
+	font-weight: bold;
+	padding: 10px;
+	border-bottom: 1px solid #00AA33;
+}
+
+.ticket table.header {
+	font-size: 150%;
+}
+
+.ticket table.header td {
+	border-right: 1px solid #00AA33;
+}
+.ticket table.header .ticket-number {
+	width: 80px;
+	color: #888;
+}
+
+.ticket table.header .ticket-category {
+	width: 100px;
+	color: #00AA33;
+}
+
+/******************************************************************************
+*	Cool Stylized Buttons
+*******************************************************************************/
+
+.buttons a, .buttons button{
+    display:block;
+    float:left;
+    margin:0 7px 0 0;
+    background-color:#f5f5f5;
+    border:1px solid #dedede;
+    border-top:1px solid #eee;
+    border-left:1px solid #eee;
+
+    font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+    font-size:100%;
+    line-height:130%;
+    text-decoration:none;
+    font-weight:bold;
+    color:#565656;
+    cursor:pointer;
+    padding:5px 10px 6px 7px; /* Links */
+}
+.buttons button{
+    width:auto;
+    overflow:visible;
+    padding:4px 10px 3px 7px; /* IE6 */
+}
+.buttons button[type]{
+    padding:5px 10px 5px 7px; /* Firefox */
+    line-height:17px; /* Safari */
+}
+
+*:first-child+html button[type]{
+    padding:4px 10px 3px 7px; /* IE7 */
+}
+.buttons button img, .buttons a img{
+    margin:0 3px -3px 0 !important;
+    padding:0;
+    border:none;
+    width:16px;
+    height:16px;
+}
+
+/* STANDARD */
+
+button:hover, .buttons a:hover{
+    background-color:#dff4ff;
+    border:1px solid #c2e1ef;
+    color:#336699;
+    padding:5px 10px 6px 7px; /* Links */
+}
+.buttons a:active{
+    background-color:#6299c5;
+    border:1px solid #6299c5;
+    color:#fff;
+}
+
+/* POSITIVE */
+
+button.positive, .buttons a.positive{
+    color:#529214;
+}
+.buttons a.positive:hover, button.positive:hover{
+    background-color:#E6EFC2;
+    border:1px solid #C6D880;
+    color:#529214;
+}
+.buttons a.positive:active{
+    background-color:#529214;
+    border:1px solid #529214;
+    color:#fff;
+}
+
+/* NEGATIVE */
+
+.buttons a.negative, button.negative{
+    color: #d12f19;
+}
+.buttons a.negative:hover, button.negative:hover{
+    background:#fbe3e4;
+    border:1px solid #fbc2c4;
+    color:#d12f19;
+}
+.buttons a.negative:active{
+    background-color:#d12f19;
+    border:1px solid #d12f19;
+    color:#fff;
+}
+
+/*******************************************************************************
+* Admin::MessagesController
+*******************************************************************************/
+#admin-message {
+	position: absolute; 
+	top: 0px; 
+	right: 180px;
+	color: #000;
+	border-left: 2px solid #F60;
+	border-bottom: 2px solid #F60;
+	border-right: 2px solid #F60;
+	padding: 5px;
+	background-color: #FC4;
+	font-weight: bold;
+}
+
+.admin-messages h1 {
+	font-size: 200%;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.admin-messages p {
+	padding-bottom: 20px;
+}
+
+.admin-messages label {
+	font-weight: bold;
+	font-size: 120%;
+}
+

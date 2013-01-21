@@ -1,0 +1,264 @@
+<div class="left" style="padding-bottom:20px;">
+	<p class="clear">
+		<b>
+			Quote from vendor - <%= @vendor.name.titlecase %>
+		</b>		
+	</p>
+</div>
+
+<!-- Link to Login -->
+<% unless logged_in? %>
+	<a href="/home/index/" style="position: absolute; top: -45px; right: 40px;">Login to Material Tracker</a>
+<% end %>
+
+<!-- Main Form -->
+<form class="edit full" method="post" enctype="multipart/form-data" id="quote_form" onsubmit="return validateEmails();">
+
+	<!-- Access Key -->
+  	<input type="hidden" value="<%= params[:access_key] %>" name="access_key" />
+
+  	<!-- Material Request Info -->
+  	<div class="left" style="width: 65%">
+	  	<table class="information">
+		    <tr>
+		        <th colspan="4"><%= @vendor.name %></th>
+		    </tr>
+		    <tr>
+		        <td><label>Tracking #</label></td>
+				<% if logged_in? %>
+					<td><%= link_to @material_request.tracking, edit_material_request_path(@material_request) %></td>
+				<% else %>
+			        <td><%= @material_request.tracking %></td>
+				<% end %>
+		        <td><label>Sent By</label></td>
+		        <td><%= @quote.sender_full_name %></td>
+		    </tr>
+		    <tr>
+		        <td><label>Unit</label></td>
+		        <td><%= @material_request.unit.description %></td>
+		        <td><label>Phone No</label></td>
+		        <td><%= @material_request.requester.telephone %></td>
+		    </tr>
+		    <tr>
+		        <td><label>Need By Date</label></td>
+		        <td><%= @material_request.date_need_by.blank? ? '' : @material_request.date_need_by.strftime('%m/%d/%Y') %></td>
+		        <td><label>Fax No</label></td>
+		        <td><%= @material_request.requester.fax %></td>
+		    </tr>
+		    <tr>
+		        <td><label>Notes</label></td>
+		        <td><%= @material_request.notes %></td>
+		        <td><label><%= @material_request.get_reference_number_type %> #</label></td>
+		        <td><%= @material_request.reference_number %></td>
+		    </tr>
+		</table>
+	</div>
+
+  	<!-- Notifications and Acknowledgements -->
+  	<div class="right" style="width: 33%">
+	    <p class="clear" style="position: relative; top: 10px;">
+	        <% if logged_in? %>
+	        	<label><input type="checkbox" class="notify_check" value="1" name="notify_vendor" <%= 'checked="checked"' if(params[:new_quote] != 'true') %> onclick="if(this.checked) $('vendor_email').show(); else $('vendor_email').hide();" /> Notify vendor of changes</label>
+	        	<label id="vendor_email">Vendor Email:  <br /><input type="text" class="notify_email" value="<%= @vendor.email %>" name="vendor_email" style="width: 220px;"></label>
+	        <% else %>
+	        	<label><input type="checkbox" class="notify_check" value="1" name="notify_requester" checked="checked" onclick="if(this.checked) $('requester_email').show(); else $('requester_email').hide();" /> Notify requester of changes</label>
+	        	<label id="requester_email">Requester Email:  <input type="text" class="notify_email" value="<%= @material_request.requester.email %>" name="requester_email"></label>
+	        <% end %>
+	    </p>
+	  	<% if logged_in? %>
+			<p class="clear" style="position: relative; top: 20px;">
+ 				<% if @quote.acknowledged_by %>
+					<label class="inline">Acknowledged By:</label>
+					<span style="color: red;"><%= @quote.acknowledger_name %></span>
+				<% else %>
+					<input type="checkbox" name="quote[acknowledged_by]" value="<%= current_employee.id %>">
+					<label class="inline">Acknowledge Quote</label>
+				<% end %>
+			</p>
+	  	<% end %>
+  	</div>
+
+  	<!-- Quote Items Table -->
+  	<table class="information clear" style="position: relative; top: 4px;">
+	    <tr>
+			<th style="width: 20px;">#</th>
+			<th style="width: 50px;">Qty</th>
+			<th style="width: 50px;">Unit</th>
+			<th>Vendor Description &amp; Notes</th>
+			<th style="width: 150px;">Vendor Part Number</th>
+			<th style="width: 100px;">Unit Price</th>
+			<th style="width: 100px;">Line Price</th>
+			<th style="width: 100px;">Date Available<a/th>
+	    </tr>
+
+    	<!-- Quote Items -->
+    	<% @quote_items.each do |quote_item| %>
+      		<% background_color = quote_item.differs_from_requested? ? '#FBB' : '#DDD' %>
+      		<tr style="background-color: <%= background_color %>; border-bottom: 1px solid #aaa;">
+		        <td><%= quote_item.item_no %></td>
+		        <td><%= quote_item.requested_line_item.quantity %></td>
+		        <td><%= quote_item.requested_line_item.unit_of_measure %></td>
+		        <td style="font-size: 80%;" colspan="1"><%= h quote_item.requested_line_item.material_description %><% if !quote_item.requested_line_item.notes.blank? %> - <%= h quote_item.requested_line_item.notes %><% end %></td>
+		        <td></td>
+		        <td colspan="3"></td>
+		    </tr>
+	      	<tr>
+				<td></td>
+				<td>
+					<input type="text" value="<%= quote_item.quantity %>" style="width: 40px" class="text quantity" name="quote_item[<%= quote_item.id %>][quantity]" onchange="setExtPrice(this)"/>
+				</td>
+				<td>
+					<input type="text" value="<%= quote_item.unit_of_measure || quote_item.requested_line_item.unit_of_measure %>" class="text" name="quote_item[<%= quote_item.id %>][unit_of_measure]" />
+				</td>
+				<td>
+					<textarea style="width: 100%; height: 50px;" name="quote_item[<%= quote_item.id %>][notes]" ondblclick="this.select();"><%= h quote_item.notes %></textarea>
+				</td>
+				<td>
+					<textarea style="width: 100%; height: 50px;" name="quote_item[<%= quote_item.id %>][vendor_part_number]"><%= quote_item.vendor_part_number %></textarea>
+				</td>
+				<td>
+					$<input type="text" value="<%= number_with_precision quote_item.price, {:precision => 2} %>" style="width: 80px" class="price text" name="quote_item[<%= quote_item.id %>][price]" onchange="setExtPrice(this)" />
+				</td>
+				<td>
+					$<input type="text" disabled="dissabled" value="<%= number_with_precision quote_item.ext_price, {:precision => 2} %>" style="width: 80px" onchange="setTotalPrice()" class="ext_price text" name="quote_item[<%= quote_item.id %>][ext_price]" />
+				</td>
+				<td>
+					<input type="text" value="<%= quote_item.date_available %>" style="width: 80px" class="text date_available" name="quote_item[<%= quote_item.id %>][date_available]" id="date_available_<%= quote_item.id %>" />
+				</td>
+      		</tr>
+    	<% end %>
+    	<tr>
+        	<th colspan="6" style="text-align: right;">Total Price:</td>
+        	<th>
+        		$<input type="text" value="<%= number_with_precision @quote.total_price, {:precision => 2} %>" style="width: 80px;" id="total_price" name="quote[total_price]" disabled="disabled" />
+        	</td>
+        	<th></td>
+    	</tr>
+  	</table>
+
+   	<!-- Discussion Area -->
+  	<div class="left" style="width: 65%">
+  		<p class="menu">
+      		<label>Requester/Vendor Discussion</label>
+    		<input type="text" id="message" name="message" class="text" style="width: 68%; font-style: italic; color: #888; float: left;" onfocus="setFocused(this)" value="Type your message here..." onkeydown="if(event.keyCode == 13) { $('messaage-submit').onclick(); return false; }"/>
+    		<input type="submit" value="Add Message To Discussion" style="float: right;" onclick="new Ajax.Request('/material_requests/quote_discuss/<%= params[:id] %>?access_key=<%= params[:access_key] %>&amp;vendor_id=<%= params[:vendor_id] %>', { parameters: $('quote_form').serialize(), method: 'put' }); return false;"/>
+    		<textarea readonly='readonly' style="width: 100%; height: 130px;" id="discussion"><%= h(@quote.discussion || "This is a chat window for discussion.  Please enter your message above.") %></textarea>
+  		</p>
+  	</div>
+
+  	<!-- Quote Attachments -->
+  	<div class="right" style="width: 33%">
+  	<% if @quote.quote_attachments.size > 0 %>
+  		<p class="menu">
+      		<label>Attachments:</label>
+      		<ul style="margin-top: 0px; margin-left: 2px;">
+      		<% @quote.quote_attachments.each do |quote_attachment| %>
+        		<li>
+            		<%= link_to quote_attachment.filename, url_for(:controller => "material_requests", :action => "quote_file", :id => quote_attachment.id, :vendor_id => params[:vendor_id], :access_key => params[:access_key]), :method => :get %>
+            		<% if logged_in? %>
+            			<%= link_to "(delete)", url_for(:controller => "material_requests", :action => "del_quote_file", :id => @quote.id, :quote_attachment_id => quote_attachment.id), :id => "test", :onclick => 'return confirmDelete(this)', :style => "margin-left: 3px; font-size: 85%;" %>
+            		<% end %>
+        		</li>
+      		<% end %>
+      		</ul>
+  		</p>
+  	<% end %>
+
+  		<div id="file-upload-fields">
+			<p class="menu">
+				<label>Attach a File (Ex: Engineering Drawings):</label>
+				<input type="file" name="uploaded_quote_attachments[]"/>
+			</p>
+		</div>
+		<a href="#" id="add-file-link">Add Another File</a>
+
+  	</div>
+</form>
+<!-- End of Main Form -->
+
+<script type="text/javascript" charset="utf-8">
+	Telaeris.monitorAddFileLink();
+
+    function setExtPrice (elem) {
+		elem = $(elem);
+        if (elem.hasClassName('quantity')) {
+            var quantity = $F(elem);
+            var price = $(elem).up('tr').down('.price').value;
+        }
+        else {
+            $(elem).value = parseFloat($F(elem)).toFixed(2);
+            var price = $F(elem);
+            var quantity = $(elem).up('tr').down('.quantity').value;
+        }
+
+        var ext = $(elem).up('tr').down('.ext_price');
+
+        var total = parseFloat(quantity) * parseFloat(price);
+        if (total && total != NaN) {
+            ext.value = $(total).toFixed(2);
+        }
+
+        ext.onchange();
+    }
+
+    function setTotalPrice () {
+        var total = 0.0;
+
+        $$('.ext_price').each(function (ext) {
+            var extPrice = parseFloat($F(ext));
+            if (extPrice && extPrice != NaN) { total += extPrice; }
+        });
+
+        $('total_price').value = total.toFixed(2);
+    }
+
+    function confirmDelete (link) {
+		link = $(link);
+        if (confirm('Are you sure you want to remove this attachment?')) {
+            new Ajax.Request(link.href, {
+                method: 'delete',
+                onSuccess: function () {
+                    $(link).up('li').hide();
+                }
+            })
+        }
+        return false;
+    }
+
+    function validateEmails () {
+        var check = $$('.notify_check')[0];
+        var email = $$('.notify_email')[0];
+        if ($(check).checked) {
+            return Telaeris.validateEmails(email);
+        }
+        else {
+            return true;
+        }
+    }
+
+    function setFocused (elem) {
+		elem = $(elem);
+        if (elem.focusedAlready) {
+        	return;
+        }
+        else {
+            elem.focusedAlready = true;
+            elem.style.color = "#000";
+            elem.style.fontStyle = "normal";
+            elem.value = '';
+        }
+    }
+
+    $$('.date_available').each(function (input) {
+        setup_calendar_for([input.id]);
+    });
+
+	$$('form.edit.full input[type=text], form.edit.full textarea, form.edit.full select, form.edit.full input[type=checkbox]').each(function(element){
+	    Event.observe(element, 'change', function () {
+			Telaeris.formChange();
+			$$('span.save_reminder').invoke('show');
+		});
+  	});
+
+	  window.onbeforeunload = Telaeris.confirmCancel;
+</script>

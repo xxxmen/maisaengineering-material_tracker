@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title>Material Tracker | Down for Maintenance</title>
+		<style>
+			body { font-family: Trebuchet MS; font-size: 12px; background: #444; text-align: center; }
+			#main {  background-color: #fff; border-top: 1px solid #222; border-left: 1px solid #222; border-right: 3px solid #111;border-bottom: 3px solid #111;
+				width: 500px; margin: 0 auto;margin-top: 140px; text-align: left; }
+			#main .section { padding: 10px 18px; }
+			#main h2 { font-size: 140%;  padding: 4px 8px; font-weight: bold; }
+			#main h2.error { background-color: #c88; border: 1px solid #b44; border-right: 2px solid #b44; border-bottom: 2px solid #b44; }
+			#main h2.notice { background-color: #8c8; border: 1px solid #4b4; border-right: 2px solid #4b4; border-bottom: 2px solid #4b4; }
+			#main p { line-height: 1.5em; margin-top: 2px; margin-bottom: 12px; }
+			#main strong { font-weight: bold; color: red; }
+			#main a { color: #336633; }
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div class="section">
+			<h2 class="notice">Material Tracker - Down for Maintenance</h2>
+			<p>
+				Material Tracker is currently down for maintenance and will be back up shortly.  <strong>Please check back in 10 minutes</strong>.
+			</p>
+			<p><a onclick="document.getElementById('debug_info').style.display = 'block';" href="#debug">Show debug info</a></p>
+			<dl style="display: none;" id="debug_info">
+				<dt>Location</dt>
+				<dd><script>document.write(window.location)</script></dd>
+
+				<dt>Referrer</dt>
+				<dd><script>document.write(document.referrer || "Undefined")</script></dd>
+			</dl>
+			</div>
+		</div>
+	</body>
+</html>

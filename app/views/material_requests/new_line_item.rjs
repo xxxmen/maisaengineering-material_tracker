@@ -1,0 +1,23 @@
+@items.each do |item|
+  page.insert_html :before, "last_row", :partial => "line_item", :locals => { :new_item => true, :item => item }
+end
+
+page << "$('item_count').value = parseInt($F('item_count')) + #{@row_count};"
+page << "$$('input[type=radio]').last().click();"
+
+if resource_enabled?(:popv)
+
+page.replace "notes_and_valve", ""
+
+
+page.replace "pipe_materials", :partial => "pipe_materials"
+
+page.delay(1) do
+  page['new_pipe_button'].disable
+end
+
+end
+
+if @material_request.new_record?
+  page << "resetLineItemNumbers()"
+end

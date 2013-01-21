@@ -1,0 +1,21 @@
+if @unit.valid?
+  page << "$('#{dom_id @unit, :anchor}').innerHTML = '#{@unit.description}';"
+
+  page[dom_id(@unit, :edit)].toggle
+  page[dom_id(@unit, :anchor)].toggle
+
+  page.visual_effect :highlight, dom_id(@unit, :anchor)
+else
+  text_field = dom_id(@unit, :text_field)
+  old_description = dom_id(@unit, :anchor)
+  page << "$('#{text_field}').value = $('#{old_description}').innerHTML;"
+  
+  page.replace_html dom_id(@unit, :error), ""
+  
+  message = @unit.description.blank? ? "Unit description cannot be blank, reverting changes" : "Unit description already exists, reverting changes"
+  
+  page.insert_html :top, dom_id(@unit, :error), message
+  page[dom_id(@unit, :error)].show
+  
+  page.visual_effect :fade, dom_id(@unit, :error), :delay => 4
+end

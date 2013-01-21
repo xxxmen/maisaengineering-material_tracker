@@ -1,0 +1,117 @@
+<!-- START REMINDERS EMAIL -->
+<% @reminders.each do |reminder| %>
+    <% order = reminder.order %>
+    <% ordered_line_items = order.ordered_line_items.find(:all, :order => 'line_item_no ASC') %>
+
+
+    <h1>Material Tracker Purchase Order: <a href="http://<%= DOMAIN %>/orders/<%= order.id %>/edit"><%= order.po_no %></a></h1>
+
+    <%= reminder.creator %> requested that you follow up on this critical Purchase Order.
+    <br/>
+    <br/>
+    <a href="http://<%= DOMAIN %>/orders/print/<%= order.id %>">Click here to download in printable format: PO #<%= order.po_no %></a>
+    <br/>
+    <br/>
+
+    <table width="100%" style="text-align: left;">
+        <tr>
+            <th width="100%" style="text-decoration: underline;">Additional Message:<br/></th>
+        </tr>
+        <tr>
+            <td><b><%= reminder.notes %></b></td>
+        </tr>
+    </table>
+    <br/>
+    <br/>
+
+    <table cellspacing="1" border="1" width="100%" style="border-collapse: collapse;">
+        <tr>
+            <th colspan="2">PO #<%= order.po_no %></th>
+        </tr>
+        <tr>
+            <th width="160px">Tracking #:</th>
+            <td><%= order.tracking %>&nbsp;</td>
+        </tr>
+        <tr>
+        	<th width="160px">Reference #:</th>
+            <td><%= order.ptm_no %></td>
+        </tr>
+        <tr>
+        	<th width="160px">ETA:</th>
+            <td><%= order.date_eta %></td>
+        </tr>
+        <tr>
+        	<th width="160px">Total Cost:</th>
+            <td><%= order.total_cost %></td>
+        </tr>
+        <tr>
+        	<th width="160px">Work Orders:</th>
+            <td><%= order.work_orders %></td>
+        </tr>
+        <tr>
+            <th width="160px">Deliver To:</th>
+            <td><%= order.deliver_to %></td>
+        </tr>
+        <tr>
+            <th width="160px">Unit:</th>
+            <td><%= order.unit.description %> / <%= order.turnaround_year %></td>
+        </tr>
+        <tr>
+            <th width="160px">PO Status:</th>
+            <td><%= order.status.status %></td>
+        </tr>
+        <tr>
+            <th width="160px">Description:</th>
+            <td><%= order.description %>&nbsp;</td>
+        </tr>
+        <tr>
+            <th width="160px"><b>Location:</b></th>
+            <td><b><%= order.location %>&nbsp;</b></td>
+        </tr>
+        <% if order.vendor %>
+            <tr>
+                <th width="160px">Vendor Name:</th>
+                <td><%= order.vendor.name %></td>
+            </tr>
+            <tr>
+                <th width="160px">Vendor #:</th>
+                <td><%= order.vendor.vendor_no %></td>
+            </tr>
+            <tr>
+                <th width="160px">Vendor Contact:</th>
+                <td><%= order.vendor.contact_name %></td>
+            </tr>
+            <tr>
+                <th width="160px">Vendor Phone:</th>
+                <td><%= order.vendor.telephone %></td>
+            </tr>
+        <% end %>
+    </table>
+
+    <% unless ordered_line_items.size == 0 %>
+
+        <table cellspacing="1" border="1" width="100%" style="border-collapse: collapse;">
+            <tr><th colspan="6">Ordered Line Items</th></tr>
+            <tr align="center">
+                <th width="60" align="center" style="text-align: center;">#</th>
+                <th>Description</th>
+                <th>Unit of Measure</th>
+                <th width="80">Qty Rec'd</th>
+                <th width="80">Date Rec'd</th>
+                <th width="80">Date BO'd</th>
+            </tr>
+            <% ordered_line_items.each do |item| %>
+                <tr align="center">
+                    <td width="60"><%= item.line_item_no %></td>
+                    <td align="left"><%= item.description %></td>
+                    <td width="60"><%= item.unit_of_measure %></td>
+                    <td width="80"><%= item.quantity_received.blank? ? '0' : item.quantity_received %> / <%= item.quantity_ordered %></td>
+                    <td width="80"><%= item.date_received ? item.date_received.to_date.strftime("%m/%d/%y") : '&nbsp;' %></td>
+                    <td width="80"><%= item.date_back_ordered ? item.date_back_ordered.to_date.strftime('%m/%d/%y') : '&nbsp;' %></td>
+                </tr>
+            <% end %>
+        </table>
+    <% end %>
+<% end %>
+<!-- END REMINDERS EMAIL -->
+

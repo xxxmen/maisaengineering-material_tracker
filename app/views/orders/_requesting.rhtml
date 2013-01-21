@@ -1,0 +1,48 @@
+<table class="information orders" cellspacing="0">
+  <tr>
+    <th style="width: 120px;">
+      <%= link_to_sort "PO #", "purchase_orders.po_no", :include => [:year] %> <br />
+      <%= link_to_sort "Tracking", "purchase_orders.tracking", :include => [:year] %> <br />
+      <%= link_to_sort "Acknowledged?", "purchase_orders.acknowledged", :include => [:year] %>
+    </th>
+    <th>
+      <%= link_to_sort "Description", "purchase_orders.description", :include => [:year] %>
+    </th>
+    <th>
+      <%= link_to_sort "Issued To History", "purchase_orders.issued_to_history", :include => [:year] %>
+    </th>
+    <th style="width: 155px;">
+      <%= link_to_sort "Location", "purchase_orders.location", :include => [:year] %>
+    </th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr class="<%= cycle(:odd, :even) %>">
+      <td>
+        <%= order.po_no %>
+        <hr />
+        <%= order.tracking %> 
+        <hr />
+        <% if order.acknowledged? %>
+          <strong style="color: green;">Yes</strong>
+        <% else %>
+          <strong style="color: red;">No</strong>
+        <% end %>
+      </td>
+      <td class="desc">
+        <%= link_to order.show_description, edit_order_path(order) %>
+      </td>
+      <td>
+        <div id="<%= dom_id order, :location %>"><%= order.show_issued_to_history %></div>
+      </td>
+      <td>
+        <% remote_form_for :order, order, :url => { :controller => "orders", :action => "set_location", :id => order }, :html => { :method => :put, :style => "display: none;", :id => dom_id(order, :edit), :class => "edit_order" } do |f| %>
+          
+          <%= f.text_field :location, :style => "width: 150px;", :id => dom_id(order, :location) %>
+            <%= submit_tag "Save" %> <%= link_to_toggle "Cancel", order, :edit, :show %>
+        <% end %>
+        
+        <%= link_to_toggle order.show_location, order, :edit, :show, :id => dom_id(order, :show), :focus => order %>
+      </td>
+    </tr>
+  <% end %>
+</table>

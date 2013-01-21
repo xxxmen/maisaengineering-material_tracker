@@ -1,0 +1,181 @@
+<style>  
+  #content {
+    position: absolute;
+    bottom: 10px;
+  }
+  
+  #fixed_table_header {
+    position: absolute;
+    top: 10px;
+    height: 30px;
+    left: 10px;
+    right: 10px;
+    width: 98%;
+  }
+  
+  #fixed_table {
+    position: absolute;
+    top: 35px;
+    bottom: 92px;
+    right: 10px;
+    left: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 98%;
+  }
+  
+  #fixed_pipe_builder {
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    right: 10px;
+    width: 98%;
+    height: 82px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+    
+  table th.x-small, table td.x-small {
+    width: 35px;
+  }
+  
+  table th.small, table td.small {
+    width: 75px;
+  }
+  
+  table#requested_line_items tr.selected {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  table#requested_line_items tr:hover {
+    cursor: pointer;
+  }
+</style>
+
+<div id="fixed_table_header">
+  <table class="information">
+    <tr>
+      <th class="x-small">No.</th>
+      <th class="x-small">Qty.</th>
+      <th class="x-small">Unit</th>
+      <th class="small">Size</th>
+      <th class="small">Class</th>
+      <th class="small">Component</th>
+      <th>Description</th>
+    </tr>
+  </table>
+</div>
+
+<div id="fixed_table">
+<table class="information" id="requested_line_items">
+  <% @material_request.items.find(:all, :order => :item_no).each do |item| %>
+  <tr id="<%= item.id %>">
+    <td class="x-small item_no"><%= item.item_no + 1 %></td>
+    <td class="x-small quantity"><%= item.quantity %></td>
+    <td class="x-small unit_of_measure"><%= item.unit_of_measure %></td>
+    <td class="small size"><%= item.size %></td>
+    <td class="small klass"><%= item.klass %></td>
+    <td class="small component"><%= item.component %></td>
+    <td class="material_description"><%= item.material_description %></td>
+  </tr>
+  <% end %>
+</table>
+</div>
+
+<div id="fixed_pipe_builder">
+<% form_for RequestedLineItem.new, :html => { :class => "edit full", :id => "new_requested_line_item" } do |f| %>
+  <input type="hidden" id="material_request_id" name="material_request_id" value="<%= @material_request.id %>" />
+  <table class="noprint information">
+    <tr>
+    <th class="x-small">No</th>
+    <th class="x-small">Qty</th>
+    <th class="x-small">Unit</th>
+    <th class="small">Size</th>
+    <th class="small">Class</th>
+    <th class="small">Component</th>
+    <th>Description</th>
+    <th class="x-small"><a href="#" onclick="clearLineItem(); return false;">New Item</a></th>
+    </tr>
+    <tr>
+      <td class="item_no_cell"></td>
+      <td><%= f.text_field :quantity %></td>
+      <td><%= f.text_field :unit_of_measure %></td>
+      <td><%= f.text_field :size %></td>
+      <td><%= f.text_field :klass %></td>
+      <td><%= f.text_field :component %></td>
+      <td><%= f.text_field :material_description %></td>
+      <td><%= submit_tag "Save Changes" %></td>
+    </tr>
+  </table>
+<% end %>
+<form class="edit full" style="display: none;">
+  <input type="hidden" id="material_request_id" name="material_request_id" value="<%= @material_request.id %>" />
+<%= render :partial => "pipe_materials" %>
+</form>
+</div>
+
+<script>
+  $$('#requested_line_items tr').each(function(tr){
+    Event.observe(tr, 'click', function(event){
+      var row = Event.findElement(event, 'TR');
+      
+      $('new_requested_line_item').down('td.item_no_cell').update(row.down('td.item_no').innerHTML);
+      $('requested_line_item_quantity').value = row.down('td.quantity').innerHTML;
+      $('requested_line_item_unit_of_measure').value = row.down('td.unit_of_measure').innerHTML;
+      $('requested_line_item_size').value = row.down('td.size').innerHTML;
+      $('requested_line_item_klass').value = row.down('td.klass').innerHTML;
+      $('requested_line_item_component').value = row.down('td.component').innerHTML;
+      $('requested_line_item_material_description').value = row.down('td.material_description').innerHTML;
+      
+      $$('#requested_line_items tr.selected').invoke('removeClassName', 'selected');
+      row.addClassName('selected');
+    });
+  });
+  
+  function updateLineItem() {
+    new Ajax.Request('/requested_line_items/' + $$('tr.selected')[0].id,
+                     { method: "put",
+                       parameters: $('new_requested_line_item').serialize(),
+                       onFailure: function(transport) {
+                         alert(transport.responseText || "There was an error");
+                       },
+                       onSuccess: function() {
+                         var row = $$('tr.selected')[0];
+                         $w("quantity unit_of_measure size klass component material_description").each(function(field){
+                           row.down('td.' + field).update($F('requested_line_item_' + field));
+                         });
+                       } });
+  }
+  
+  function createLineItem() {
+    new Ajax.Request('/requested_line_items',
+                    { method: "post",
+                      parameters: $('new_requested_line_item').serialize(),
+                      onFailure: function(transport) {
+                        alert(transport.responseText || "There was an error");
+                      },
+                      onSuccess: function() {
+                        window.location.reload();
+                      } });
+  }
+    
+  function clearLineItem() {
+    $$('tr.selected').invoke("removeClassName", "selected");
+    $$('.item_no_cell')[0].update('');
+    $w('quantity unit_of_measure size klass component material_description').each(function(field){
+      $('requested_line_item_' + field).value = '';
+    });
+    $('requested_line_item_quantity').value = "1";
+    $('requested_line_item_unit_of_measure').value = "EA";
+  }
+  
+  Event.observe($('new_requested_line_item'), 'submit', function(event){
+    if($$('tr.selected').length > 0) updateLineItem();
+    else createLineItem();
+    
+    Event.stop(event);
+  });
+  
+  clearLineItem();
+</script>

@@ -1,0 +1,7 @@
+# DOM ids of the text fields
+date = 'date_issued_' + params[:id]
+company = 'issued_to_company_id_' + params[:id]
+
+# key for params[:order][:employee]
+page[date].value = Date.today.to_s(:db)
+# page[company].value = Employee.find(params[:ordered_line_item][:issued_to_empployee_id]).company.id

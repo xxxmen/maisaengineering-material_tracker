@@ -1,0 +1,36 @@
+
+<%= render :partial => "pipe_materials", :locals => { :with_description => false} %>
+
+
+<table class="information clear">
+  <tr>
+    <th style="width: 70px;">Qty.</th>
+    <th style="width: 70px;">U/M.</th>
+    <th>Description <span class="required" style="color: #ccc;">* required</span></th>
+    <th style="width: 70px;">Class</th>
+    <th style="width: 70px;">Details</th>
+  </tr>
+  
+  <% fields_for :requested_line_item, RequestedLineItem.new do |i|%>
+    <tr>
+      <td style="padding: 4px;">
+        <%= i.text_field :quantity %>
+      </td>
+      <td style="padding: 4px;">
+        <%= i.text_field :unit_of_measure %>
+      </td>
+      <td style="padding: 4px;">
+        <%= i.text_area :material_description, :style => "width: 99%;", :rows => 2, :id => 'pipe-builder-description' %>
+      </td>
+      <td style="padding: 4px;">
+        <%= i.text_field :notes %>
+      </td>
+    </tr>    
+  <% end %>
+</table>
+
+<p class="menu" style="float: right;">  
+  <%= submit_tag "Submit Request" %> 
+  <%= button_to_function "Request Pipe", "Effect.toggle('pipe_materials', 'appear', { duration : 0.2 })" %> 
+  or <%= link_to_function "Cancel", "Effect.toggle('new_request_slide', 'appear', { duration : 0.1 })" %>
+</p>

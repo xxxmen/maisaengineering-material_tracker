@@ -1,0 +1,33 @@
+# == Schema Information
+# Schema version: 20090710194800
+#
+# Table name: quotes
+#
+#  id                    :integer(4)    not null, primary key
+#  material_request_id   :integer(4)    
+#  vendor_id             :integer(4)    
+#  notes                 :text          
+#  created_at            :datetime      
+#  updated_at            :datetime      
+#  discussion            :text          
+#  discussion_updated_at :datetime      
+#  discussion_flag       :boolean(1)    
+#  acknowledged_by       :integer(4)    
+#  emailed_by            :integer(4)    
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  material_request_id: 1
+  vendor_id: 1
+  notes: MyText
+  created_at: 2007-11-01 15:06:39
+  updated_at: 2007-11-01 15:06:39
+two:
+  id: 2
+  material_request_id: 1
+  vendor_id: 1
+  notes: MyText
+  created_at: 2007-11-01 15:06:39
+  updated_at: 2007-11-01 15:06:39

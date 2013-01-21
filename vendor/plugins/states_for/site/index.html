@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>states_for - add states to your model's field</title>
+  <style type="text/css">
+    p, h1, h3, pre, code, body, div, span {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: #555;
+      font-family: "Trebuchet MS";
+      font-size: 12px;
+      line-height: 1.5em;
+      text-align: center;
+    }
+    
+    a {
+      color: #336633;
+      padding: 1px 0;
+    }
+    
+    a:hover {
+      background-color: #333;
+      color: #fff;
+    }
+    
+    strong {
+      color: #e67520;
+      font-weight: bold;
+    }
+    
+    pre {
+      background: #222;
+      border-left: 4px solid #000;
+      color: #fff;
+      font-size: 95%;
+      line-height: 1.25em;
+      padding: 18px;
+      overflow: auto;
+    }
+    
+    #content {
+      background-color: #fff;
+      border-top: 4px solid #000;
+      border-left: 2px solid #000;
+      border-right: 2px solid #000;
+      border-bottom: 4px solid #000;
+      margin: 40px auto;
+      text-align: left;
+      width: 680px;
+      padding: 20px 30px;
+    }
+    
+    #content h1 {
+      font-size: 210%;
+      font-family: verdana;
+      font-weight: normal;
+      letter-spacing: -1px;
+      margin-top: 10px;
+      margin-bottom: 26px;
+    }
+    
+    #content h3 {
+      border-bottom: 1px solid #ccc;
+      color: #004400;
+      font-family: verdana;
+      font-size: 170%;
+      font-weight: normal;
+      letter-spacing: -1px;
+      margin-top: 20px;
+      margin-bottom: 6px;
+    }
+    
+    #content p {
+      color: #111;
+      margin-top: 2px;
+      margin-bottom: 12px;
+      width: 80%;
+    }
+    
+    #content pre {
+      margin-top: 2px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <script src="code_highlighter.js"></script>
+  <script src="ruby.js"></script>
+</head>
+
+<body>
+  <div id="content">
+    <h1>states_for - add states to your model's field</h1>
+    
+    <h3>What is it?</h3>
+    <p>
+      states_for is a Rails plugin turns a field into states with a single line: 
+    </p>
+    
+<pre><code>class Code < ActiveRecord::Base
+  states_for :tdd_cycle => ["Test", "Implment", "Refactor"]
+end</code></pre>
+    
+    <p>
+      Now as a single column in your table, tdd_cycle has three states represented by Code::TEST, Code::Implement, and Code::Refactor.
+    </p>  
+    
+    <p>
+    Of course, there's more.  With that single line, you get methods to help <strong>figure out which state</strong> your code is currently in, methods to <strong>display the state in your views</strong>, and methods that <strong>return a proper array for a form selector</strong>!
+    </p>  
+        
+    <h3>Installation</h3>
+    <p>
+      Use Rails' script/plugin to install it:
+    </p>
+    
+    <pre><code>ruby script/plugin install -x svn://hughbien.com/states_for</code></pre>
+    
+    <p>
+      You can also browse the code at <a href="http://public.svn.hughbien.com/browser/states_for">http://public.svn.hughbien.com/browser/states_for</a>.
+    </p>
+    
+    <h3>Usage</h3>
+    
+    <p>For a user who has a certain role and job, use this migration:</p>
+    
+<pre><code>class CreateUsers < ActiveRecord::Migration
+  def self.up
+    create_table "users" do |t|
+      t.column "role", :integer
+      t.column "job", :integer
+    end
+  end
+end</code></pre>    
+
+    <p>Then use the class method `states_for` in your model.</p>
+    
+<pre><code>class User < ActiveRecord::Base
+  # Make sure the users table as the column 'role' and 'job' as an INT
+  states_for :role => ["Client", "Employee", "Admin"],
+             :job => ["Programmer", "Quality Assurance", "Designer"]
+end</code></pre>
+
+    <p>
+      That's it!  Now a user has access to a few new methods and constants:
+    </p>
+
+<pre><code>user = User.find(:first)
+user.role                             # => nil
+
+# Use CONSTANTS to set your state
+user.role = User::CLIENT              # => 0
+user.job = User::QUALITY_ASSURANCE    # => 1
+user.save!
+
+# Check which state you're in with methods
+user.employee?                        # => false
+user.client?                          # => true
+user.programmer?                      # => false
+user.quality_assurance?               # => true
+
+# Display the state in your views 
+# Ex: &lt;%= user.state_for_role %&gt;
+user.state_for_role                   # => "Client"
+user.state_for_job                    # => "Quality Assurance"
+
+# Easily use form selectors
+# Ex: &lt;%= f.select :role, User.options_for_role %&gt;
+User.options_for_role                 # => [["Client", 0], ["Employee", 1], ["Admin", 2]]
+User.options_for_job                  # => [["Programmer", 0], ["Quality Assurance", 1], 
+                                      #     ["Designer", 2]]
+</code></pre>
+
+    <h3>Feedback</h3>
+    <p>
+      Any bugs, questions, or feedback can be directed to me at <strong>hugh [at] hughbien.com</strong>.  Thanks!
+    </p>
+  </div>
+</body>
+</html>

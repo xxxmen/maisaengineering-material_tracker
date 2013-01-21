@@ -1,0 +1,146 @@
+<% form_for @order, :html => { :class => "edit" } do |f| %>
+    <table border="1" width="1000" id="table2" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="1000" align="center"><font size=+2><b>MATERIAL REQUEST FORM</b></font></td>
+		</tr>
+		<tr>
+			<td width="1000" height="27" align="center">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="1000" align="center">
+			<table border="0" width="914" id="table4" cellspacing="0" cellpadding="0">
+	<tr>
+		<td  align="right"><b>Tracking #:&nbsp;</b></td>
+		<td align="center" >
+		  <%= f.text_field :tracking, :size => 14 %>
+		<td  align="right"><b>Unit:&nbsp;</b></td>
+		<td align="center" >
+		  <%= f.select :unit_id, Unit.list_units %>
+		</td>
+		</tr>
+	<tr>
+		<td  align="right"><b>Planner:&nbsp;</b></td>
+		<td align="center" >
+		  <%= f.select :planner_id, Employee.list_employees %>
+		</td>
+		<td  align="right"><b>Year:&nbsp;</b></td>
+		<td align="center" >
+		  <%= f.text_field :turnaround_year, :size => "6", :id => "order_turnaround_year" %>
+		</tr>
+	<tr>
+		<td  align="right">&nbsp;</td>
+		<td >
+		&nbsp;</td>
+		<td  align="right">&nbsp;</td>
+		<td >
+		&nbsp;</td>
+	</tr>
+	<tr>
+		<td  align="right"><b>Requester:&nbsp;</b></td>
+		<td align="center" >
+		  <%= f.select :requested_by_id, Employee.list_employees, {}, :readonly => true %>
+		</td>
+		<td  align="right"><b>Date of Request:&nbsp;</b></td>
+		<td align="center" >
+		  <%= f.text_field :date_requested, :size => 20, :id => :date_requested, :readonly => true %>
+		</td>
+	</tr>
+	<tr>
+		<td  align="right" height="23"><b>Telephone:&nbsp;</b></td>
+		<td  height="23" align="center">
+		<input id="requestor_telephone" name="requestor_telephone" size="30" type="text" /></td>
+		<td  align="right" height="23"><b>Need By:&nbsp;</b></td>
+		<td  height="23" align="center">
+		  <%= f.text_field :date_need_by, :size => 20, :id => :date_need_by %>
+		</td>
+	</tr>
+	<tr>
+		<td  align="right"><b>Work Order #s:&nbsp;</b></td>
+		<td align="center" >
+		  <%= f.text_field :work_orders, :size => 30 %>
+		</td>
+		<td  align="right"><b>Deliver To:&nbsp;</b></td>
+		<td align="center" >
+		  <%= f.text_field :deliver_to, :size => 30 %>
+		</td>
+	</tr>
+	<tr>
+		<td  align="right"><b>Reference #:&nbsp;</b></td>
+		<td align="center" >
+		  <%= f.text_field :ptm_no, :size => 30 %>
+		</td>
+		<td  align="right"><b>Stage (Y/N):&nbsp;</b></td>
+		<td align="center" >
+		  <%= f.check_box :stage %>
+		</td>
+	</tr>
+	<tr>
+		<td  align="right"><b>Sugg. Vendor:&nbsp;</b></td>
+		<td align="center" >
+		  <%= f.text_field :suggested_vendor, :size => 30 %>
+		</td>
+		
+		<td align="right">
+		  <strong>Acknowledged?</strong>
+		</td>
+		<td align="center">
+		  <% if @order.acknowledged? %>
+		    <strong style="color: green;">Yes</strong>
+		  <% else %>
+		    <strong style="color: red;">No</strong>
+		  <% end %>
+		</td>
+	</tr>
+	</table>
+			</td>
+		</tr>
+		<tr>
+			<td width="1000" align="center">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="1000" align="center">
+    <table id="line_items_table" style="border:none; font-weight: bold;" cellspacing="2" cellpadding="1">
+       <tr>
+          <td align="center" style="width: 30px;">Item<br>
+			No.</td>
+          <td align="center" style="width: 30px;">Quantity</td>
+          <td align="center" style="width: 60px;">Unit of<br>
+			Measure</td>
+          <td align="center" style="width: 400px;">Material Description</td>
+          <td align="center" style="width: 60px;">Class</td>
+          <td align="center" style="width: 60px;">Details</td>
+       </tr> 
+    
+    <% if @order.new_record? %>
+    <%= render :partial => "line_item_fields", :locals => { :ordered_line_item => OrderedLineItem.new(:line_item_no => 1) } %>
+    <%= render :partial => "line_item_fields", :locals => { :ordered_line_item => OrderedLineItem.new(:line_item_no => 2) } %>
+    <%= render :partial => "line_item_fields", :locals => { :ordered_line_item => OrderedLineItem.new(:line_item_no => 3) } %>
+    <%= render :partial => "line_item_fields", :locals => { :ordered_line_item => OrderedLineItem.new(:line_item_no => 4) } %>
+    <%= render :partial => "line_item_fields", :locals => { :ordered_line_item => OrderedLineItem.new(:line_item_no => 5) } %>
+    <% count = 5 %>
+    <% else %>
+      <% @order.ordered_line_items.each do |ordered_line_item| %>
+      <%= render :partial => "line_item_fields", :locals => { :ordered_line_item => ordered_line_item } %>
+      <% end %>
+    <% count = @order.ordered_line_items.size %>
+    <% end %>
+    </table>
+    
+    
+     		</td>
+		</tr>
+		<tr>
+			<td width="1000" align="center">
+    <p align="center" id="add_item_link">
+      <%= link_to_remote "Add Another Line Item", :url => { :action => "add_line_item", :id => count + 1 }, :method => :get %>
+  	</p>
+    
+    
+     		</td>
+		</tr>
+		<tr>
+			<td width="1000" align="center">
+    <input type="submit" value="Submit" name="Submit"></td>
+		</tr>
+</table>
+<% end %>

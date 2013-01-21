@@ -1,0 +1,115 @@
+<style>
+    th.no, td.no { width: 28px; text-align: center; }
+    th.desc, td.desc {}
+    th.qty, td.qty { width: 30px; }
+    th.date, td.date { width: 70px; }
+    th.submit, td.submit { padding: 5px 10px; }
+    th.link, td.link { width: 90px; }
+    th.location, td.location {width: 100px;}
+    th.issued, td.issued {width: 120px;}
+    td.link { padding: 2px; text-align: center;}
+    td.edit_link { width: 60px;}
+    
+    td.no input { width: 98%; }
+    td.desc textarea { width: 98%; height: 34px; }
+    td.qty input { width: 98%; }
+    td.date input { width: 98%; }
+    td.issued input { width: 98%; }
+        
+    h1#po_no { font-size: 120%; font-weight: bold; border-bottom: 1px solid #ccc; margin-bottom: 6px; }
+    table.information.line_items { margin-top: 12px; }
+</style>
+
+<%= error_messages_for :ordered_line_item %>
+ <h1 id="po_no"><a href="<%= edit_order_path(@order) %>">PO #<%= @order.po_no %></a> <a href="<%= url_for(:action => "sort_line_items", :id => @order) %>">(sort line items)</a></h1>
+
+<% form_tag "/orders/search_line_items/#{@order.id}", :method => :get, :style => "position: absolute; top: 16px; right: 20px;" do -%>
+    <input type="text" value="Search Line Items" onfocus="InterfaceHelper.clear(this);" onblur="InterfaceHelper.reset(this);" style="font-style: italic; color: gray; width: 180px;" name="q" class="order-search" />
+<% end -%>
+
+
+<div id="new_line_item">
+  <% form_for :ordered_line_item, @ordered_line_item, :url => { :action => "create_ordered_line_item", :id => @order}, :html => { :id => dom_id(OrderedLineItem.new, :form), :class => "edit full" } do |f| %>
+    <table class="information">
+        <tr>
+            <th class="no">#</th>
+            <th class="desc">Description</th>
+            <th class="qty">Unit</th>
+            <th class="qty">Quantity</th>
+            <th class="qty">Rec'd</th>
+            <!-- <th class="date">BO Date</th> -->
+            <th class="date">Rec'd Date</th>
+            <th class="issued">Location</th>
+            <th class="issued">Issued To</th>
+            <th class="issued">Issued To Company</th>
+            <th class="date">Issued Date</th>        
+        </tr>
+        <tr>  
+            <td class="no"></td>
+            <td class="desc"><%= f.text_area :description %></td>
+            <!-- <td class="qty"><%#= f.text_field :unit_of_measure %></td> -->
+            <td class="qty"><%= text_field_with_auto_complete :unit_for_measure, :name, :name => "ordered_line_item[unit_of_measure]", :value => @ordered_line_item.unit_of_measure, :class => "text", :style => "width: 40px;" %></td>            
+            <td class="qty"><%= f.text_field :quantity_ordered %></td>
+            <td class="qty"><%= f.text_field :quantity_received %></td>
+            <!-- <td class="date"><%#= f.text_field :date_back_ordered, :id => "date_back_ordered_new" %></td> -->
+            <td class="date"><%= f.text_field :date_received, :id => "date_received_new" %></td>
+            <td class="issued"><%= f.text_field :location %></td>
+            <td class="issued"><%= text_field_with_auto_complete_custom :employee, :list_employee_names, :name => "ordered_line_item[issued_to_name]", :value => @ordered_line_item.issued_to_name, :class => "text" %></td>
+            <td class="issued"><%= text_field_with_auto_complete_custom :company, :list_companies_for_autocomplete, :name => "ordered_line_item[issued_to_company]", :value => @ordered_line_item.issued_to_company, :class => "text" %></td>
+            <td class="date"><%= f.text_field :issued_date, :id => 'issued_date' %></td>
+        </tr>
+        <tr>
+            <td colspan="10" class="submit"><%= submit_tag "Create Line Item" %> or <%= link_to_toggle "Cancel", "new_line_item", :form %></td>
+        </tr>
+    
+    </table>
+<% end %>
+</div>
+
+<table class="information line_items">
+<tr>
+   <th class="no">#</th>
+   <th class="desc">Description</th>
+   <th class="date">Unit</th>
+   <th class="qty">Quantity<br/>(Rec'd)</th>
+   <th class="date">Rec'd Date</th>
+   <!-- <th class="link">Request #</th> -->
+   <th class="location">Location</th>
+   <th class="issued">Issued To<br/>Issued Company<br/>Issued Date</th>
+   <th class="edit_link">Edit</th>
+ </tr>
+<% @ordered_line_items.each_with_index do |item, index| %>
+<tr class="<%= cycle(:even, :odd) %>">
+   <td class="no"><%= h item.line_item_no %></td>
+   <td class="desc"><%= h item.description %></td>
+   <td class="date"><%= h item.unit_of_measure %></td>
+   <td class="qty"><%= h item.quantity_ordered %><% if !item.quantity_received.blank? %> (<%= h item.quantity_received %>)<% end %></td>
+   <!-- <td class="date"><%#= format_date(item.date_back_ordered) %></td> -->
+   <td class="date" id="<%= dom_id(item, 'date_received') %>">
+       <% if item.date_received.blank? %>
+        <%= link_to_remote "Today", :url => url_for(:action => "mark_line_item_as_received", :id => item.id), :method => :get %>
+       <% else %>
+        <%= format_date(item.date_received) %>
+       <% end %>
+   </td>
+   <!-- <td class="link">
+       <%# if item.requested_line_item && item.requested_line_item.material_request %>
+           item no. #<%#= item.requested_line_item.item_no %>
+           <%#= link_to "##{item.requested_line_item.material_request.tracking}", edit_material_request_path(item.requested_line_item.material_request) + "##{item.requested_line_item.id}" %>
+       <%# end %>
+   </td> -->
+   <td class="location"><%=h item.location %></td>
+   <td class="issued"><%=h item.issued_to_name %><br/><%=h item.issued_to_company %><br/><%=h format_date(item.issued_date) %></td>
+   <td class="edit_link"><%= link_to "Edit", url_for(:action => "edit_line_item", :id => item.id) %></td>
+ </tr>
+<% end %>
+</table>
+    
+<!-- <script>setup_calendar_for(['date_back_ordered_new', 'date_received_new'])</script> -->
+<script>setup_calendar_for(['date_received_new', 'issued_date'])</script>
+
+    
+<!-- End spreadsheet -->
+
+
+ <%= render :partial => "shared/paginate", :locals => { :collection => @ordered_line_items } %>

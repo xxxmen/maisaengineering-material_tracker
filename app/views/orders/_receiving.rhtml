@@ -1,0 +1,56 @@
+<style type="text/css" media="screen">
+    div[id=maininfo] { top: 72px; }
+    th.no, td.no { width: 100px; }
+    th.desc, td.desc {}
+    th.vendor, td.vendor { width: 170px;}
+    th.lines, td.lines { width: 150px; }
+</style>
+
+<table class="information orders" cellspacing="0">
+  <tr class="header">
+    <th class="no">
+      <%= link_to_sort "PO #", "purchase_orders.po_no", :include => [:year, :state, :group, :vendor, :unit, :status] %> <br />
+      <%= link_to_sort "Track #", "purchase_orders.tracking", :include => [:year, :state, :group, :vendor, :unit, :status] %><br />
+      <%= link_to_sort "Reference #", "purchase_orders.ptm_no", :include => [:year, :state, :group, :vendor, :unit, :status] %>
+    </th>
+    <th class="desc">
+      <%= link_to_sort "Description", "purchase_orders.description", :include => [:year, :state, :group, :vendor, :unit, :status] %>       <!-- DAVE: remote created,eta,deliver_to -->
+      <%= render :partial => "year_filter" %>
+    </th>
+    <th class="vendor">
+        <%= render :partial => "supplier_filter" %>
+    </th>
+    <th class="lines">
+      Line Items Received
+    </th>
+  </tr>
+</table>
+
+<div id="maininfo">
+<table class="information orders" cellspacing="0">
+  <% @orders.each do |o| %>
+      <% o.format_description! %>
+    <tr class="<%= cycle(:even, :odd) %>">
+      <td class="no">
+        <%= o.po_no %> <br />
+        <%= o.tracking %> <br />
+        <%= o.ptm_no %>
+      </td>
+      <td class="desc">
+          <%= link_to format_desc(o.show_description), edit_order_path(o) %>
+          <!-- DAVE: remote created,eta,deliver_to // <span class="date">Created: <%= format_date o.created %> | ETA: <%= format_date o.date_eta %> | Deliver To: <%= o.deliver_to %></span> -->
+      </td>
+      <td class="vendor">
+          <%= render :partial => "supplier_data", :locals => { :order => o } %>
+      </td>
+      <td class="lines">
+        <% o.ordered_line_items.each do |i| %>
+          <% if !i.date_received.blank? %>
+          <%= link_to format_date(i.date_received), :action => "edit_line_items", :id => o %> <br />
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>

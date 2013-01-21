@@ -1,0 +1,13 @@
+if @piping_subcomponents
+  page.replace "piping_subcomponent", select_tag(:piping_subcomponent, list_options(@piping_subcomponents, :description, :description, true, "- Subcomponent -"), :id => "piping_subcomponent")
+else
+  page.replace "piping_subcomponent", "<input type='hidden' value='' id='piping_subcomponent' name='piping_subcomponent' />"
+end
+
+page.replace_html "piping_class_detail_cell", select_tag(:piping_class_detail, list_options(@piping_class_details, :size_and_description, :id, true, "- Select Details -"), :id => "piping_class_detail", :onchange => remote_function(:url => "/piping/piping_class_detail/", :with => "'id=' + $F('piping_class_detail')"))
+
+page.replace_html 'piping_size_1_cell', select_tag(:piping_size_1, list_options(PipingSize.find(:all), :piping_size, :piping_size, true, ""), :id => "piping_size_1", :onchange => "PipeBuilder.build()")
+page.replace_html 'piping_size_2_cell', select_tag(:piping_size_2, list_options(PipingSize.find(:all), :piping_size, :piping_size, true, ""), :id => "piping_size_2", :onchange => "PipeBuilder.build()")
+
+page << "$('notes_and_valve').update('');"
+page << "Telaeris.checkClassDetail()";

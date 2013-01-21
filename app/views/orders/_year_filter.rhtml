@@ -1,0 +1,6 @@
+<select onchange="window.location=$F(this)">
+    <option value="<%= filter_url(:year => nil) %>">-- YEAR --</option>
+  <% Order.all_turnaround_years.each do |year| next if year.blank?; %>
+    <option value="<%= filter_url(:year => year.to_s) %>" <%= select_filter_if(params[:year] == year.to_s) %>><%= year %></option>
+  <% end %>
+</select>    

@@ -1,0 +1,35 @@
+<style type="text/css" media="screen">
+	a.tag { margin-right: 4px; }
+</style>
+
+<% form_tag search_inventory_items_path, :method => :get, :class => "edit full" do -%>
+
+  <p>
+	<label>Available tags</label>
+	<% @tags.each_with_index do |tag, index| %>
+		<a href="#<%= tag %>" class="tag"><%= tag %></a>
+		<% if (index + 1) % 6 == 0 %><br /><% end %>
+	<% end %>
+  </p>
+
+  <p>
+  	<label>Search inventory</label>
+    <input type="text" style="width: 420px;" name="q" id="tag_input" />
+  </p>
+  <p>
+  	 <input type="submit" value="Begin Search" />
+  </p>
+<% end -%>
+
+
+
+<script type="text/javascript" charset="utf-8">
+	$$('a.tag').each(function(tag){
+		Event.observe(tag, 'click', function(event){
+			Event.stop(event);
+			var value = $(tag).innerHTML;
+			var input = $('tag_input');
+			input.value += value + " ";
+		});
+	});
+</script>

@@ -1,0 +1,21 @@
+<div class="scaffold">
+	<h1>Listing Reference Number Types</h1>
+
+	<div class="info">Reference Numbers show up in Material Requests and on the Bill of Materials (POPV). Administrators can change the types that are displayed here, and can re-order for the convenience of the user.</div>
+
+	<table id="reference-number-types-list" class="information">
+	  <tr>
+	    <th>Name</th>
+	    <th>Default</th>
+	    <th>Actions</th>
+	  </tr>
+
+	<% @types.each do |ref| %>
+	  <tr>
+	    <td><%=h ref.name %></td>
+	    <td><%= ref.default ? image_tag("/img/silk/icons/tick.png", :alt => 'True') : '' %></td>
+	    <td><%= link_to 'Show', ref %> | <%= link_to 'Edit', edit_reference_number_type_path(ref) %> | <%= link_to 'Destroy', ref, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>

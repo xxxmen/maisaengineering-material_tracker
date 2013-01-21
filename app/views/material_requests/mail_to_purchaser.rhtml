@@ -1,0 +1,56 @@
+<script type="text/javascript" charset="utf-8">
+    function checkEmailTo(){
+        if($F('email').match(/^\s*$/)) {
+            alert("Please enter an email address.");
+            return false;
+        }
+        else {
+            return Telaeris.validateEmails('email');
+        }
+    }
+
+    function sendQuoteToVendor(){
+        var url = "/material_requests/email_quote/<%= @material_request.id.to_s %>?message=";
+        var message = $F('message').escapeHTML();
+
+        window.location = url + message;
+    }
+</script>
+
+<form id="mail" action="/material_requests/deliver_mail_to_purchaser/<%= @material_request.id %>" method="post" class="edit" onsubmit="return checkEmailTo();">
+  <!-- <p>
+    <label>Email To:&nbsp;&nbsp;&nbsp;<%= link_to "Purchaser", "#", :onclick => "$('vendor_name','search_for_vendor').invoke('hide');$('email').value='#{@email}';$('autoprint').show();" %>&nbsp;&nbsp;/&nbsp;&nbsp;<%= link_to "Vendor", "#", :onclick => "$('vendor_name','search_for_vendor').invoke('show');$('email').value='#{@vendor_email}';$('vendor_name').value='#{@vendor_name}';$('autoprint').hide();" %>&nbsp;&nbsp;&nbsp;<img src='/images/load.gif' id="loading" style="display: none" /></label>
+
+    <label id="search_for_vendor" style="display:none;">  <br />Search for Vendor:</label>
+    <%= text_field_with_auto_complete :vendor, :name, :value => "#{@vendor_name}", :style => "display:none;", :onblur => remote_function(:url => vendor_email_material_request_path, :with => "Form.serialize('mail')", :method => :get, :before => "$('loading').show()", :complete => "$('loading').hide();")  %>
+  </p> -->
+
+
+<% if(current_employee.purchasing? || current_employee.admin?) %>
+  <p>
+      <a href="#quote" onclick="sendQuoteToVendor()">Send Quote to Vendor</a>
+  </p>
+<% end %>
+
+  <p>
+    <label>Email To: &nbsp;&nbsp;<a href="#" onclick="return Telaeris.changeEmail('email', '');">Clear</a> /
+
+
+                                <a href="#" onclick="return Telaeris.changeEmail('email', '<%="#{ENV['WAREHOUSE_EMAIL']}" %>');"><%="#{ENV['WAREHOUSE_NAME']}" %></a>
+                                <% if !current_employee.email.blank? %>
+                                  / <a href="#" onclick="return Telaeris.changeEmail('email', '<%= current_employee.email %>');"><%= current_employee.short_name %></a>
+                                <% end %>
+                                <% if @material_request.requester && !@material_request.requester.email.blank? && @material_request.requester != current_employee %>
+                                  / <a href="#" onclick="return Telaeris.changeEmail('email', '<%= @material_request.requester.email %>');"><%= @material_request.requester.short_name %></a>
+                                <% end %>
+                                / <%= select_tag "buyer_emails", options_for_select(Employee.buyer_list_of_emails_for_select_tag, "Buyer"), :style => 'display: inline; width: 130px;', :onchange => "Telaeris.changeEmail('email', $('buyer_emails').value); $('buyer_emails').value = 'Buyer'; return;" %>
+                                </label>
+    <textarea id="email" name="email" type="text"><%= @email %></textarea>
+    <span class="description">Separate email addresses by commas, semi-colons, or spaces</span>
+  </p>
+  <p>
+    <label>Message:</label>
+    <textarea name="message" id="message" style="width: 400px; height: 100px;"></textarea>
+  </p>
+  <input type="submit" value="Email Request" /> or <%= link_to "Cancel & Go Back", edit_material_request_path(@material_request) %>
+</form>

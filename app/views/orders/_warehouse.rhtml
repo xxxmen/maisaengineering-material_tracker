@@ -1,0 +1,56 @@
+<style type="text/css" media="screen">
+    div[id=maininfo] { top: 72px; }
+    th.no, td.no { width: 100px; }
+    th.desc, td.desc {}
+    th.history, td.history { width: 170px;}
+    th.location, td.location { width: 155px; }
+</style>
+
+<table class="information" cellspacing="0">
+  <tr>
+    <th class="no">
+      <%= link_to_sort "PO #", "po_no", :include => [:year, :state, :group, :vendor, :unit, :status] %> <br />
+      <%= link_to_sort "Tracking", "tracking", :include => [:year, :state, :group, :vendor, :unit, :status] %> <br />
+      <%= link_to_sort "Reference #", "ptm_no", :include => [:year, :state, :group, :vendor, :unit, :status] %>
+    </th>
+    <th class="desc">
+      <%= link_to_sort "Description", "description", :include => [:year, :state, :group, :vendor, :unit, :status] %>
+      <%= render :partial => "year_filter" %>
+    </th>
+    <th class="history">
+      <%= link_to_sort "Issued To History", "issued_to_history", :include => [:year, :state, :group, :vendor, :unit, :status] %>
+    </th>
+    <th class="location">
+      <%= link_to_sort "Location", "location", :include => [:year, :state, :group, :vendor, :unit, :status] %>
+    </th>
+  </tr>
+</table>  
+
+<div id="maininfo">
+<table class="information" cellspacing="0">
+  <% @orders.each_with_index do |order, index| %>
+    <% order.format_description! %>
+    <tr class="<%= cycle(:even, :odd) %>">
+      <td class="no">
+        <%= h order.po_no %> <br />
+        <%= h order.tracking %> <br />
+        <%= h order.ptm_no %>
+      </td>
+      <td class="desc">
+        <%= link_to format_desc(order.show_description), edit_order_path(order) %>
+      </td>
+      <td class="history">
+        <div id="<%= dom_id order, :location %>" style="font-size: 100%;"><%= order.show_issued_to_history %></div>
+      </td>
+      <td class="location">
+        <% remote_form_for :order, order, :url => { :controller => "orders", :action => "set_location", :id => order }, :html => { :method => :put, :style => "display: none;", :id => dom_id(order, :edit), :class => "edit_order" } do |f| %>
+          
+          <%= f.text_field :location, :class => "text", :style => "width: 150px; font-size: 120%;", :id => dom_id(order, :location) %>
+            <%= submit_tag "Save", :class => "submit" %> <%= link_to_toggle "Cancel", order, :edit, :show %>
+        <% end %>
+        
+        <%= link_to_toggle truncate(order.show_location), order, :edit, :show, :id => dom_id(order, :show), :focus => order %>
+      </td>
+  <% end %>
+</table>
+</div>

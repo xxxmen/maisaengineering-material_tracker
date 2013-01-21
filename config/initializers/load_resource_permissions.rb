@@ -1,0 +1,1 @@
+ResourcePermission.initialize_resources

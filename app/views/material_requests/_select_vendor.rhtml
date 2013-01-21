@@ -1,0 +1,6 @@
+<% size ||= 20 %>
+<select size="<%= size %>" id="select" class="clear" ondblclick="addVendor(); return false;">
+   <% vendors.each do |vendor| %>
+       <option value="<%= vendor.email %> (<%= vendor.id %>)" /><%= h vendor.name %></option>
+   <% end %>
+</select>

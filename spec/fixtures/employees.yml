@@ -1,0 +1,121 @@
+# == Schema Information
+# Schema version: 20090710194800
+#
+# Table name: employees
+#
+#  id                        :integer(4)    not null, primary key
+#  badge_no                  :integer(4)    
+#  last_name                 :string(255)   
+#  first_name                :string(255)   
+#  mi                        :string(255)   
+#  login                     :string(255)   
+#  company_id                :integer(4)    
+#  email                     :string(255)   
+#  telephone                 :string(255)   
+#  lock_version              :integer(4)    default(0)
+#  updated_at                :datetime      
+#  role                      :integer(4)    default(1)
+#  crypted_password          :string(40)    
+#  salt                      :string(40)    
+#  created_at                :datetime      
+#  remember_token            :string(255)   
+#  remember_token_expires_at :datetime      
+#  start_page                :integer(4)    default(1)
+#  seen_updates              :boolean(1)    default(TRUE)
+#  direct_search             :boolean(1)    
+#  fax                       :string(255)   
+#  buyer                     :boolean(1)    
+#  archived                  :boolean(1)    
+#  current_bom_id            :integer(4)    
+#  current_popv_tabs         :text          
+#  popv_enabled              :boolean(1)    
+#
+
+Bp: 
+  id: 1
+  updated_at: <%= Time.now %>
+  role: 0
+  company_id: 1
+  badge_no: 1
+  first_name: BP
+  login: bp
+  last_name: STAFF
+  created_at: <%= Time.now %>
+
+ 
+cart1: 
+  id: 2
+  updated_at: <%= Time.now %>
+  role: 4
+  company_id: 2
+  badge_no: 0
+  first_name: Cart
+  login: cart1
+  last_name: Cart
+  created_at: <%= Time.now %>
+ 
+cartdc: 
+  id: 3
+  updated_at: <%= Time.now %>
+  role: 2
+  mi: C
+  company_id: 3
+  badge_no: 86246
+  first_name: David
+  login: cartdc
+  last_name: Carta
+  email: david.carta@bp.com
+  created_at: <%= Time.now %>
+ 
+maywj1: 
+  id: 4
+  updated_at: <%= Time.now %>
+  role: 3
+  company_id: 4
+  badge_no: 82818
+  first_name: Bill
+  login: MAYWJ1
+  last_name: May
+  email: bill.may@bp.com
+  created_at: <%= Time.now %>
+
+ 
+francdl: 
+  id: 5
+  updated_at: <%= Time.now %>
+  crypted_password: 2527d040fb9ecadc0548242a6d56d86705a05702
+  role: 4
+  mi: L
+  company_id: 5
+  badge_no: 77266
+  first_name: Don
+  login: francdl
+  last_name: Francis
+  email: don.francis@bp.com
+  created_at: <%= Time.now %>
+
+ 
+buddsl: 
+  id: 6
+  updated_at: <%= Time.now %>
+  role: 1
+  company_id: 2
+  badge_no: 62485
+  first_name: Spencer
+  login: buddsl
+  last_name: Budd
+  email: spencer.budd@bp.com
+  created_at: <%= Time.now %>
+
+hugh: 
+  id: 7
+  updated_at: <%= Time.now %>
+  role: 4
+  company_id: 2
+  badge_no: 0
+  first_name: Hugh
+  login: hugh
+  last_name: Bien
+  created_at: <%= Time.now %>
+  crypted_password: 2527d040fb9ecadc0548242a6d56d86705a05702
+  

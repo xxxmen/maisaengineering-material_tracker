@@ -1,0 +1,16 @@
+<table class="information full">
+    <tr>
+        <th>Vendor</th>
+        <th>Total Price</th>
+        <th>Updated</th>
+        <th>Created</th>
+    </tr>
+    <% @quotes.each do |quote| %>
+        <tr class="<%= cycle :even, :odd %>">
+            <td><%= link_to h(quote.vendor.name), "/material_requests/quote/#{params[:id]}?vendor_id=#{quote.vendor.id}&amp;access_key=#{quote.vendor.access_key}" %></td>
+            <td><%= h quote.total_price %></td>
+            <td><%= format_time quote.updated_at %></td>
+            <td><%= format_time quote.created_at %></td>
+        </tr>
+    <% end %>
+</table>

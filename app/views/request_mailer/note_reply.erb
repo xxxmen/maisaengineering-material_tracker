@@ -1,0 +1,13 @@
+<h1>Your User Note for: <%= "#{@user_note.table_type}" %> has been updated</h1>
+
+<p>It's status is now <h3><%= "#{@user_note.status}" %></h3></p>
+
+<% if @user_note.reason.blank? %>
+<h3>No reason was given.</h3>
+<% else %>
+<h3>The reason given was: <%= "#{@user_note.reason}" %></h3>
+<% end %>
+
+<p>The note you gave was: <br/><%= "#{@user_note.note}" %></p>
+
+If you are not the intended recipient of this message, please contact your system administrator.

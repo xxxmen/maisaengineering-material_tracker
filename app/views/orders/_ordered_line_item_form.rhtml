@@ -1,0 +1,63 @@
+<table class="information">
+    <!-- <tr>
+        <th class="no">#</th>
+        <th class="desc">Description</th>
+        <th class="unit">UoM</th>
+        <th class="qty">Quantity <br/> (Rec'd)</th>
+        <th class="date">Rec'd Date <br/> BO Date</th>
+        <th class="location">Location <br/> Notes</th>
+        <th class="issued">Issued To <br/> Issued Company <br/> Issued Date / Quantity</th>
+    </tr> -->
+    <tr>  
+        <td class="no">
+            <%= text_field_tag 'ordered_line_item[line_item_no]', @order.get_next_ordered_line_item_no, :id => 'ordered_line_item_line_item_no' %>
+        </td>
+        <td class="desc">
+            <%= text_area_tag 'ordered_line_item[description]', nil, :id => 'ordered_line_item_description', :class => 'line_item_tall_field' %>
+        </td>
+        <td class="unit">
+                <% @unit_for_measure = "EA"
+        	    if(!@ordered_line_item.unit_of_measure.blank?)
+        	      @unit_for_measure = @ordered_line_item.unit_of_measure
+        	    end
+      	      %>
+          	  <%= select "ordered_line_item", :unit_of_measure, UnitForMeasure.list_all, :selected => @unit_for_measure %>
+           
+        </td>            
+        <td class="qty">
+            <%= text_field_tag 'ordered_line_item[quantity_ordered]', nil, :id => 'ordered_line_item_quantity_ordered' %>
+            <%= text_field_tag 'ordered_line_item[quantity_received]', nil, :id => 'ordered_line_item_quantity_received', 
+                  :onblur => "checkIfReceivedIsNotBlank(#{@ordered_line_item.id});" %>
+        </td>
+        <td class="date">
+            <%= text_field_tag 'ordered_line_item[date_received]', nil, :id => "ordered_line_item_date_received" %>
+            <%= text_field_tag 'ordered_line_item[date_back_ordered]', nil, :id => "ordered_line_item_date_back_ordered" %>
+        </td>
+        <td class="location">
+            <%= text_field_tag 'ordered_line_item[location]', nil, :id => 'ordered_line_item_location' %>
+            <%= text_area_tag 'ordered_line_item[notes]', nil, :id => 'ordered_line_item_notes', :class => 'line_item_tall_field' %>
+        </td>
+        <td class="issued">
+            <%= text_field_with_auto_complete_custom :employee, :list_employee_names, 
+                {
+                    :name => "ordered_line_item[issued_to_name]", 
+                    :value => @ordered_line_item.issued_to_name                }
+            %>
+            <%= text_field_with_auto_complete_custom :company, :list_companies_for_autocomplete, 
+                {
+                    :name => "ordered_line_item[issued_to_company]", 
+                    :value => @ordered_line_item.issued_to_company
+                }
+            %>
+            <%= text_field_tag 'ordered_line_item[issued_date]', nil, :id => 'ordered_line_item_issued_date', :style => 'width: 60%;' %>
+            <%= text_field_tag 'ordered_line_item[issued_quantity]', nil, :id => 'ordered_line_item_issued_quantity', :style => 'width: 30%;' %>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="8" class="submit">
+            <%= hidden_field_tag 'ordered_line_item[id]', nil, :id => 'ordered_line_item_id' %>
+            <%= submit_tag "Create Line Item", :id => 'submit_ordered_line_item' %>
+            <%#= link_to_toggle "Cancel", "new_line_item", :form %>
+        </td>
+    </tr>
+</table>

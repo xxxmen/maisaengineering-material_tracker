@@ -1,0 +1,61 @@
+# == Schema Information
+# Schema version: 20090710194800
+#
+# Table name: units
+#
+#  id           :integer(4)    not null, primary key
+#  description  :string(80)    
+#  lock_version :integer(4)    default(0)
+#  updated_at   :datetime      
+#  created_at   :datetime      
+#  unit_no      :string(255)   
+#
+
+unspecified: 
+  id: 1
+  updated_at: <%= Time.now %>
+  description: UNSPECIFIED
+  created_at: <%= Time.now %>
+
+ 
+alky_merox: 
+  id: 2
+  updated_at: <%= Time.now %>
+  description: ALKY MEROX 445
+  created_at: <%= Time.now %>
+
+ 
+alky: 
+  id: 3
+  updated_at: <%= Time.now %>
+  description: ALKY
+  created_at: <%= Time.now %>
+
+ 
+butamer: 
+  id: 4
+  updated_at: <%= Time.now %>
+  description: BUTAMER 5
+  created_at: <%= Time.now %>
+
+ 
+splitter: 
+  id: 5
+  updated_at: <%= Time.now %>
+  description: C-3 SPLITTER
+  created_at: <%= Time.now %>
+
+ 
+claus_a: 
+  id: 6
+  updated_at: <%= Time.now %>
+  description: CLAUS A
+  created_at: <%= Time.now %>
+
+ 
+claus_b: 
+  id: 7
+  updated_at: <%= Time.now %>
+  description: CLAUS B
+  created_at: <%= Time.now %>
+

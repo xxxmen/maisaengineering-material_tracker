@@ -1,0 +1,23 @@
+Known Issues:
+=============
+
+* 	We were having an issue with the 'Microsoft Office Protocol Discovery' and /doc/General_Notes.doc.
+	So I added a route to filter all requests
+	with HTTP_METHOD = 'OPTIONS' and render a 418 error (I'm a teapot),
+	preventing an Exception Notifier from being emailed EVERY time...
+	See: config/routes.rb, lib/extra_http_verbs.rb, app/controllers/application.rb
+	- Adam (March 29, 2009)
+
+
+  To copy the SQL from production to staging, use the following sets of commands:
+
+ssh bpcp-material-tracker@bpcherrypoint.net "rm ~/sql_dump.sql;mysqldump -u bpcp-mt -pbpcp-mt bpcp_material_tracker_production > ~/sql_dump.sql"
+
+scp bpcp_material-tracker@bpcherrypoint.net:~/sql_dump.sql bpcp-staging@bpcherrypoint.net:~/sql_dump.sql
+
+ssh bpcp-staging@bpcherrypoint.net "mysql -u root -p.s,sY[iswIXZ](qF2Bqp^1BP9 bpcherrypoint_po_tracker_staging < ~/sql_dump.sql"
+
+ssh bpcp-material-tracker@bpcherrypoint.net "rm ~/sql_dump.sql"
+ssh bpcp-staging@bpcherrypoint.net "rm ~/sql_dump.sql"
+
+rake bpcp_staging vlad:deploy_and_migrate

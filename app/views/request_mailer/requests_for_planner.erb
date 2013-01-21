@@ -1,0 +1,13 @@
+<!--start-->
+<%= @planner.full_name %>
+
+Sumary material requests assigned to on <%= Date.today.to_s(:long) %>
+
+<% @requests.each do |request| -%>
+<%= request.description %> :
+  <% request.items.each do |item| -%>
+  <%= item.item_no %>. <%= item.quantity %>/<%= item.unit_of_measure %> -- <%= item.material_description %>
+  <% end -%>
+
+<% end -%>
+

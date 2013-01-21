@@ -1,0 +1,135 @@
+<% form_for @cart, :html => { :class => "edit validate full main_form", :onsubmit => c_submitted_or_empty?('return false;') } do |f| %>
+  <div id="errorExplanation" style="display: none;">
+  </div>
+
+  <div class="left">
+    <div class="left" style="width: 64%">
+      <div class="left">
+      <p>
+        <label>Tracking <% if @cart.processing? %><span class="description" style="display: inline;">(Will be assigned when issued)</span><% end %></label>
+        <%= f.text_field :tracking_no, :readonly => true, :class => "text" %>
+      </p>
+      </div>
+
+      <div class="right">
+      <p class="clear">
+        <label>Need By</label>
+        <%= f.select :need_by, Cart.need_by_opts, {}, :id => "need_by" %>
+      </p>
+      </div>
+
+      <div class="left clear">
+      <p>
+        <label>Unit <span class="required">(required)</span></label>
+        <%= text_field_with_auto_complete :unit, :description, :value => @cart.unit_description, :class => "required text", :title => "Unit can't be blank", :name => "unit[description]"   %>
+        <span style="display: none;"></span>
+      </p>
+      </div>
+
+      <div class="right">
+        <p>
+          <label>Year</label>
+          <%= f.select :year, MaterialRequest.list_years %>
+        </p>
+
+      </div>
+    </div>
+    <div class="right" style="width: 34%">
+      <p>
+        <label>Issued At</label>
+        <%= f.text_field :sent_at, :class => "text", :disabled => true %>
+      </p>
+
+      <p>
+        <label>Received At</label>
+        <%= f.text_field :received_at, :class => "text", :disabled => true %>
+      </p>
+
+    </div>
+
+    <p class="clear">
+      <label>Notes</label>
+      <%= f.text_field :notes, :class => "text" %>
+    </p>
+
+  </div> <!-- end left -->
+
+  <div class="right">
+    <div class="left">
+    <p>
+      <label>Requester <span class="required">(required)</span></label>
+      <%= text_field_with_auto_complete_custom :employee, :list_requester_names, :value => @cart.requester_name(true), :style => "width: 96%;", :class => "text required", :title => "Requester can't be blank", :onblur => "getContactTelephone(this, 'contact_telephone')" %>
+    </p>
+    </div>
+
+    <div class="right">
+    <p>
+      <label class="inline">Contact Telephone</label>
+	  <label class="inline" style="font-size: 85%; color: #222;" title="Saves this contact telephone to the requester's profile">
+		<input type="checkbox" name="save_phone" value="1" />Save #</label>
+      <%= f.text_field :telephone, :id => "contact_telephone", :class => "text" %>
+    </p>
+    </div>
+
+    <p class="clear">
+      <label>Deliver To</label>
+      <%= text_field_with_auto_complete_custom :employee, :list_employee_names, :value => (@cart.deliver_to || "" ), :style => "width: 96%;", :class => "text"   %>
+    </p>
+
+    <p class="clear">
+      <% if @cart.processing? %>
+          <p><b>Processing</b> - You can still add items to this web request</p>
+      <% elsif @cart.sent? %>
+          <p><b style="color: green;">SUBMITTED</b> - This web request has been submitted<strong></strong> to <%= "#{ENV['WAREHOUSE_NAME']}" %>, no more items can be added</p>
+      <% elsif @cart.received? %>
+          <p><b style="color: red;">RECEIVED</b> - <%= "#{ENV['WAREHOUSE_NAME']}" %> has received this request</p>
+      <% end %>
+    </p>
+  </div>
+
+  <table class="information clear">
+    <tr>
+      <th style="width: 20px;"></th>
+      <th style="width: 60px;">Avail.</th>
+      <th style="width: 40px;">UoM</th>
+      <th style="width: 30px;">Qty</th>
+      <th>Description</th>
+      <th style="width: 80px;">Stock No.</th>
+    </tr>
+  <% @cart.cart_items.find(:all, :order => "cart_items.created_at").each_with_index do |cart_item, count| %>
+    <tr>
+      <td><%= count + 1 %>.</td>
+      <td class="quantity_available"><%= cart_item.inventory_item.quantity_available.to_s %></td>
+      <td><%= cart_item.inventory_item.unit_of_measure %></td>
+      <td><input type="text" value="<%= cart_item.quantity %>" style="width: 20px;" name="cart_items[<%= cart_item.id %>][quantity]" class="numbers_only text" title="#<%= count + 1 %> Qty is invalid" /></td>
+      <td><%= cart_item.inventory_item.description %></td>
+      <td><%= cart_item.stock_no %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <% if @cart.processing? %>
+  <p class="clear" style="margin-top: 15px;">
+    <%= submit_tag "Save and Add More Items", :class => 'submit', :style => "margin-right: 5px;" %>
+    <% if @cart.cart_items.size > 0 %><%= submit_tag "Create Request", :class => "submit" %><% end %>
+  </p>
+  <% elsif @current_employee.admin? %>
+   <p class="clear" style="margin-top:15px;">
+    <%= link_to "Delete", url_for(:action => "delete", :id => @cart), :method => :delete, :confirm => "This will remove this web request forever, are you sure that's what you want to do?" %>
+   </p>
+  <% end %>
+<% end %>
+
+<script>
+  $$('form.edit.full input[type=text], form.edit.full textarea, form.edit.full select, form.edit.full input[type=checkbox]').each(function(element){
+    Event.observe(element, 'change', function() { Telaeris.formChange();  });
+  });
+
+  window.onbeforeunload = Telaeris.confirmCancel;
+
+  Event.observe(window, 'load', function(){
+      $$('form.edit.full input, form.edit.full textarea, form.edit.full select').each(function(element){
+         Telaeris.enterToTab(element);
+      });
+  });
+</script>

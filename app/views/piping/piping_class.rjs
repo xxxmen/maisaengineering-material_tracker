@@ -1,0 +1,7 @@
+page.replace_html "piping_component_cell", select_tag(:piping_component, list_options(@piping_components, :piping_component, :id, true, @select_name), :id => "piping_component", :onchange => remote_function(:url => "/piping/piping_component/", :with => "'id=' + $F('piping_component') + '&piping_class_id=' + $F('piping_class')")) + "<input type='hidden' name='piping_subcomponent' id='piping_subcomponent' value='' />"
+
+page.replace_html "piping_class_detail_cell", select_tag(:piping_class_detail, "<option value=''><-- Select Component</option>", :id => "piping_class_detail")
+page.replace_html 'piping_size_1_cell', select_tag(:piping_size_1, "<option value=''><--</option>", :id => "piping_size_1")
+page.replace_html 'piping_size_2_cell', select_tag(:piping_size_2, "<option value=''><--</option>", :id => "piping_size_2")
+page << "$('notes_and_valve').update('');"
+page << "Telaeris.checkClassDetail()";

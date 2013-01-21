@@ -1,0 +1,22 @@
+<% fields_for "ordered_line_item_" + ordered_line_item.line_item_no.to_s, ordered_line_item do |i| %>
+<tr id="<%= dom_id ordered_line_item %>">
+   <td align="center" style="width: 30px;">
+    <%= ordered_line_item.line_item_no %>
+   </td>
+   <td style="text-align: center;">
+    <%= i.text_field :quantity_ordered, :style => "width: 30px;" %>
+   </td>
+   <td>
+     <%= i.text_field :unit_of_measure, :size => 10, :style => "width: 60px" %>
+   </td>
+   <td>
+     <%= i.text_field :description, :size => 40, :style => "width: 400px" %>
+   </td>
+   <td>
+     <%= i.text_field :class, :size => 10, :style => "width: 60px" %>
+   </td>
+   <td>
+     <%= i.text_field :details, :size => 21, :style => "width: 60px" %>
+   </td> 
+</tr>
+<% end %>

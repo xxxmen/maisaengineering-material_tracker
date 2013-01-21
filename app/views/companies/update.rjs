@@ -1,0 +1,21 @@
+if @company.valid?
+  page << "$('#{dom_id @company, :anchor}').innerHTML = '#{@company.name}';"
+
+  page[dom_id(@company, :edit)].toggle
+  page[dom_id(@company, :anchor)].toggle
+
+  page.visual_effect :highlight, dom_id(@company, :anchor)
+else
+  text_field = dom_id(@company, :text_field)
+  old_name = dom_id(@company, :anchor)
+  page << "$('#{text_field}').value = $('#{old_name}').innerHTML;"
+  
+  page.replace_html dom_id(@company, :error), ""
+  
+  message = @company.name.blank? ? "Company name cannot be blank, reverting changes" : "Company name already exists, reverting changes"
+  
+  page.insert_html :top, dom_id(@company, :error), message
+  page[dom_id(@company, :error)].show
+  
+  page.visual_effect :fade, dom_id(@company, :error), :delay => 4
+end

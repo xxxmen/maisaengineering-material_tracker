@@ -1,0 +1,8 @@
+logger.error "@num modified_items: #{@modified_line_items.size}"
+@modified_line_items.each do |item|
+	logger.error "modified_item: #{item.to_yaml}"
+	page["line_item_#{item.id}"].replace :partial => 'line_item', :locals => {:item => item}
+	page["line_item_#{item.id}"].visual_effect :highlight
+end
+page["links_to_orders"].replace :partial => 'links_to_orders', :locals => {:material_request => @material_request}
+page["links_to_orders"].visual_effect :highlight

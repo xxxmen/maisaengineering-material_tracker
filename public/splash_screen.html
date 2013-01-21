@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print">
+		<!--[if lt IE 8]>
+		  <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection">
+		<![endif]-->
+		<link rel="stylesheet" href="/stylesheets/splash_screen.css" type="text/css" media="all" charset="utf-8" />
+		<script type="text/javascript" src="/javascripts/jQuery-1.2.6/jquery-1.2.6.js"></script>
+		<script type="text/javascript" src="/javascripts/splash_screen.js"></script>
+	</head>
+	
+	<body>
+	
+		<div class="container ">
+		
+			<!-- Header -->
+			<div class="header span-24">
+				<img id="telaeris-logo" src="/graphics/telaeris-updated.gif" />
+				<br class="clear"/>
+				<h1 id="main-title">BP Cherry Point</h1>
+				<br class="clear" />
+			</div>		
+				
+			<br class="clear" />
+			
+			<!-- Main Body for Buttons and Forms	-->
+			<div class="body">
+			
+				<!-- Left Column of Buttons -->
+				<div id="left-col" class="span-11 prepend-top prepend-1">
+					<a href="" id="material-tracker" class="cool-button">
+						<h2>Material Tracker</h2>
+					</a>
+					
+					
+					<a href="" id="job-track" class="cool-button">
+						<h2>Job Track</h2>
+					</a>
+					
+					
+					<a href="" id="vehicle-track" class="cool-button">
+						<h2>Vehicle Track</h2>
+					</a>
+					
+					
+					<a href="" id="xp-track" class="cool-button">
+						<h2>XP Track</h2>
+					</a>
+				</div>
+				
+				<!-- Right Column of Forms -->
+				<div id="right-col" class="span-10 back prepend-top prepend-1">
+					<div id="info-material-tracker">
+						<form action="http://bpcherrypoint.telaeris.com/sessions" method="post" id="material-tracker">
+							<h2>Material Tracker</h2>
+							<fieldset>
+								<label>Username:</label> <input type="text" name="login" class="focus"/>
+								<br/>
+								<label>Password:</label> <input type="password" name="password"/>
+								
+							<input type="submit" value="Sign In" class="button"/>
+							</fieldset>
+						</form>
+					</div>
+					<div id="info-job-track" class="hide">
+						<h2>Job Track</h2>
+						<div class="error icon-delete span-9">
+							Service not activated.
+						</div>
+						<p>Keeping up to date on the status of different projects is quick and easy with JobTrack. Track the progress of individual contractors or company divisions as they complete different portions of their jobs. </p>		
+						
+						<a href="http://www.telaeris.com/products/JobTrack/" class="link-through">Click here for more information >></a>				
+						<br/>
+						<br/>		
+						<img src="/graphics/jobtrack.jpg"/>
+					</div>
+					<div id="info-vehicle-track" class="hide">
+						<h2>Vehicle Track</h2>
+						<p>Vehicle Tracking info here!</p>
+					</div>
+					<div id="info-xp-track" class="hide">
+						<h2>XP Track</h2>
+						<p>XP Track info here!</p>
+					</div>
+				</div>
+				<br class="clear" />
+				<hr/>
+				<div id="information">
+					<h2>Tracking Solutions by Telaeris</h2>
+					<p>We offer a complete line of tracking solutions to meet your company's needs.
+					</p>
+					<br class="clear" />
+				</div>
+				<br class="clear" />
+			</div>
+		</div>
+	
+
+	</body>
+</html>

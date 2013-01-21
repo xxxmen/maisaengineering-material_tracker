@@ -1,0 +1,48 @@
+---
+javascripts: 
+- base: 
+  - jQuery-1.2.6/jquery.color
+  - jquery.form
+  - defaults/prototype
+  - defaults/effects
+  - defaults/controls
+  - defaults/dragdrop
+  - defaults/slider
+  - vendor/interface_helper
+  - calendar/calendar
+  - calendar/calendar-en
+  - calendar/calendar-setup
+  - application
+  - jquery-ui/jquery-ui-1.6.custom.min
+  - jquery-ui/jquery.bgiframe.min
+- popv:
+  - ext-3.3.0/Ext
+  - ext-3.3.0/ext-base
+  - ext-3.3.0/ext-all
+  - ext-ux/ext_ux_editor_grid_formfield
+  - ext-ux/ext_ux_toast
+  - ext-ux/ext_ux_grid_rowactions
+  - ext-ux/DDView
+  - ext-ux/Multiselect
+  - ext-ux/data_view_plugins
+  - ext-ux/notesview
+  - ext-ux/TabCloseMenu
+  - vendor/md5-hash
+  - sxt/sxt-telaeris
+  - sxt/sxt-resources
+  - sxt/sxt-ui
+
+stylesheets: 
+- base: 
+  - icons
+  - vendor/calendar-green
+  - telaeris
+  - jquery-ui-themes/overcast/ui.all
+- popv:
+  - icons
+  - telaeris_popv
+  - ext-all-3.3.0
+  - xtheme-blue
+  - tasks
+  - Multiselect
+  - ext_ux_grid_rowactions

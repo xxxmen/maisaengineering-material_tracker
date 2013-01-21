@@ -1,0 +1,32 @@
+<style type="text/css" media="screen">
+    th.no, td.no { width: 200px; }
+    th.name, td.name { }
+</style>
+
+<table class="information" cellspacing="0">
+  <tr>
+    <th class="no">
+      <%= link_to_sort "Vendor group No", "vendor_groups.id" %>
+    </th>
+    <th class="name">
+      <%= link_to_sort "Name", "vendor_groups.name" %>
+    </th>
+  </tr>
+</table>
+
+<div id="maininfo">
+<table class="information" cellspacing="0">  
+  <% @vendor_groups.each do |v| %>
+    <tr class="<%= cycle(:even, :odd) %>">
+        <td class="no">
+          <%= h v.id %>
+        </td>
+        <td class="name">
+          <%= link_to_desc v, :default => "No Name", :method => :name %>
+        </td>
+    </tr>
+  <% end %>
+</table>
+</div>
+
+<%= render :partial => "shared/paginate", :locals => { :collection => @vendor_groups } %>

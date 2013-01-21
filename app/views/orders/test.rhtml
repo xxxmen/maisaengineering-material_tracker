@@ -1,0 +1,19 @@
+<a href="#new_line_item" rel="facebox" style="">FaceBox!</a>
+<br/>
+<div id="new_line_item">Hello!</div>
+<% if RAILS_ENV == 'development' %>
+    <script src="/javascripts/jquery-1.2.1.js" type="text/javascript"></script>
+<% else %>
+    <script src="/javascripts/jquery-1.2.6.min.js" type="text/javascript"></script>
+<% end %>
+<link href="/facebox/facebox.css" media="screen" rel="stylesheet" type="text/css"/>
+<script src="/facebox/facebox.js" type="text/javascript"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+    jQuery.noConflict();
+
+    jQuery(document).ready(function(jQuery) {
+      jQuery('a[rel=facebox]').facebox();
+    })
+</script>

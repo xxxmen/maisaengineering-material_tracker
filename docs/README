@@ -1,0 +1,72 @@
+Material Tracker/WebPOPV Readme
+===============================
+Started: 11/06/2009 by Adam Grant
+Updated: 11/06/2009 by Adam Grant
+
+This is far from covering everything, but to those programmers who will develop
+after me, and for my reference as well, here it goes!
+
+
+Contents
+========
+
+1	Admin
+	1.1 	Messaging
+
+2	POPV
+	2.1		Roles
+	
+================================================================================	
+1. 	Admin
+
+	Currently this namespace is used only for Maintenance messages. I just added it on,
+	since the namespacing has worked well in other projects to divide between admin
+	stuff and general user stuff. We currently do not have a ROLE for super admins
+	(aka. Telaeris personnel only), so the BP admins have all the same rights as us.
+	BUT, they do not know of the /admin route, so I think it should be fine. 
+	Reengineering the roles on this site would be painful and might take weeks, 
+	since testing is lacking!
+
+	1.1 	Messaging
+	
+		Route: 			/admin/new_message
+		Controller: 	Admin::MessagesController
+		Model: 			Admin::Message
+		
+		Accessing this (for admins only) allows for you to create a new message to display
+		in the header area, mainly for maintenance warnings (thats why it was created).
+		Although you could do it for non-maintenance, this is the only thing we could think of 
+		for now. It will display your message starting 24 hours before the set 
+		deadline (you can change this in the model's TIME_TO_DISPLAY constant) until 
+		the deadline. After that, it will get deleted. It will display on every page, 
+		and cannot be turned off (unless the DB record is deleted in the 'admin_messages' table).
+		
+================================================================================	
+2. 	POPV
+
+	POPV 
+
+	2.1 	Roles
+	
+		Route: 			/popv
+		
+		Here is a breakdown of what permissions the different roles have for the
+		POPV part of the site:
+		
+		Permissions:
+		
+		1) View Access
+		2) BOM Viewing
+		3) BOM Create
+		4) BOM Finalize
+		5) BOM Copy (any BOM)
+		6) BOM Supercede (any BOM)
+		7) Create Material Request from BOM
+		8) View the Admin Nav
+		
+		Roles (allowed permissions are in parentheses):
+		
+		1) POPV Admin 					(All)
+		2) POPV enabled user 			(1,2,3,4,5,6)
+		3) POPV enabled user + Buyer 	(1,2,3,4,5,6,7)
+		4) All Others 					(1)

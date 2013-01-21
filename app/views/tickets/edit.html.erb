@@ -1,0 +1,91 @@
+<%
+=begin
+  create_table "tickets", :force => true do |t|
+    t.string   "state"
+    t.string   "assigned_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+=end
+%>
+
+<div class="col-wrapper">
+	<div class="left-col" style="width: 800px;">
+		<h1>Editing Ticket #<%=h @ticket.number %></h1>
+		
+		<% form_for(@ticket, :html => {:multipart => true}) do |f| %>
+		  	<%= f.error_messages %>
+		
+			<div class="row">
+				<div class='left'>
+					<%= f.label 'State' %>
+					<%= select_tag 'ticket[state]', state_options(@ticket.state) %>
+				</div>
+				<div class='left'>
+					<%= f.label 'Category' %>
+					<%= select_tag 'ticket[category]', category_options(@ticket.category) %>
+				</div>
+
+				<div class='left'>
+					<%= f.label :context %>
+					<%= select_tag 'ticket[context]', context_options(@ticket.context) %>
+				</div>
+				<div class='left'>
+					<%= f.label :priority %>
+					<%= select_tag 'ticket[priority]', priority_options(@ticket.priority) %>
+				</div>
+				<br class="clear" />
+			</div>
+			<div>
+
+				<%= f.label 'Title' %><br />
+				<%= f.text_field :title %>
+			</div>
+			<div>
+				<%= f.label 'Body' %><br />
+				<%= f.text_area :body %>
+			</div>
+			<div>
+				<%= f.label 'Response' %><br />
+				<%= f.text_area :response %>
+			</div>
+			<div>
+				<%= f.label :assigned_to %><br />
+				<% if(@ticket.assigned_to.blank?)
+					@assigned_to_value = current_employee.entire_full_name
+				   else
+					@assigned_to_value = @ticket.assigned_to
+				   end
+				   %>
+				<%= f.text_field :assigned_to, {:value =>  @assigned_to_value} %>
+			</div>
+			
+			<div>
+				<%= f.label :reported_by %><br />
+				<%= f.text_field :reported_by, {:value => @ticket.reported_by }%>
+			</div>
+			<% if @ticket.attachment? %>
+				<div>
+					<%= f.label :attachment %><br />
+					<%= link_to @ticket.attachment_file_name, @ticket.attachment.url %>
+				</div>
+				<div>
+					<%= f.label 'Replace the image or file' %><br />
+			<% else %>
+				<div>
+					<%= f.label 'Attach an Image or File' %><br />
+			<% end %>
+				<%= f.file_field :attachment %>
+			</div>
+			<div>
+				<%= f.label :created %>	<%= @ticket.created_at %>
+			</div>
+			<div>
+				<%= f.label :updated %> <%= @ticket.updated_at %>
+			</div>
+		<% end %>
+
+	</div>
+	<br class="clear" />
+</div>
+

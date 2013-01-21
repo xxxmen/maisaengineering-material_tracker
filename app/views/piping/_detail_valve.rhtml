@@ -1,0 +1,18 @@
+<div id="piping_class_detail_valve_<%= "#{piping_class_detail.id}" %>">
+<% unless piping_class_detail.valve.nil? %>
+<table class="noprint information clear">
+	<tr>
+		<th>Valve Code</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><%= piping_class_detail.valve.valve_code %></td>
+		<td>
+		<% if piping_class_detail.valve.discontinued? %>
+		<strong style="font-size: 110%; color: red;">DISCONTINUED</strong>
+		<% end %>
+		<%= piping_class_detail.valve.valve_note %> -- <%= piping_class_detail.valve.manufacturers_remarks %></td>
+	</tr>
+</table>
+<% end %>
+</div>

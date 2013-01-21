@@ -1,0 +1,64 @@
+require 'rake'
+require 'rake/testtask'
+require 'rake/rdoctask'
+
+desc 'Default: run unit tests.'
+task :default => :test
+
+desc 'Test the sext plugin.'
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'lib'
+  t.pattern = 'test/**/*_test.rb'
+  t.verbose = true
+end
+
+desc 'Generate documentation for the sext plugin.'
+Rake::RDocTask.new(:rdoc) do |rdoc|
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title    = 'Sext'
+  rdoc.options << '--line-numbers' << '--inline-source'
+  rdoc.rdoc_files.include('README')
+  rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
+desc 'Copy over the generated files from the rails_sample project'
+task :build do
+  files = {
+    # js: application.js, ext-all-debug.js, ext-all.js, ext-base.js, resources.js, telaeris.js    
+    'public/javascripts/application.js' => 'js/application.js',
+    'public/javascripts/ext-all-debug.js' => 'js/ext-all-debug.js',
+    'public/javascripts/ext-all.js' => 'js/ext-all.js',
+    'public/javascripts/ext-base.js' => 'js/ext-base.js',
+    'public/javascripts/telaeris.js' => 'js/telaeris.js',
+    'public/javascripts/resources.js' => 'js/resources.js',
+    
+    # rb: application.rb, sext_controller.rb, users_controller.rb, sessions_controller.rb, user.rb, create_users.rb, authenticated_system.rb, routes.rb
+    'app/controllers/application.rb' => 'rb/application.rb',
+    'app/controllers/sext_controller.rb' => 'rb/sext_controller.rb',
+    'app/controllers/users_controller.rb' => 'rb/users_controller.rb',
+    'app/controllers/sessions_controller.rb' => 'rb/sessions_controller.rb',
+    'app/models/user.rb' => 'rb/user.rb',
+    'db/migrate/001_create_users.rb' => 'rb/001_create_users.rb',
+    'vendor/authenticated_system.rb' => 'rb/authenticated_system.rb',
+    
+    # css files and images/icons, ext-all.css, styles.css, xtheme-gray.css
+    # 'public/images/default' => 'img/default',
+    # 'public/images/icons' => 'img/icons',
+    'public/stylesheets/ext-all.css' => 'css/ext-all.css',
+    'public/stylesheets/xtheme-gray.css' => 'css/xtheme-gray.css',
+    'public/stylesheets/styles.css' => '/css/styles.css',
+    
+    # erb: controllers/sext/index.html.erb, controllers/sessions/new.html.erb
+    'app/views/sext/index.html.erb' => 'erb/index.html.erb',     
+    'app/views/sessions/new.html.erb' => 'erb/new.html.erb'
+  }
+  
+  RAILS_ROOT = File.dirname(__FILE__) + "/../../.."
+  
+  files.each do |old_path, new_path|
+  	puts "cp -r #{old_path} #{new_path}"
+    old_file = "#{RAILS_ROOT}/#{old_path}"
+    new_file = "#{RAILS_ROOT}/vendor/plugins/sext/templates/#{new_path}"
+    FileUtils.cp_r(old_file, new_file)
+  end
+end

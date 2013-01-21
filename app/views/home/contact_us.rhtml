@@ -1,0 +1,37 @@
+<div style="width: 600px">
+	<% if params[:sent] %>
+	<h2 style="color: green; font-weight: bold;">Your message has been sent to us and we will reply to you shortly via email</h2>
+	<% else %>
+	<h2 style="font-weight: bold;">Contact us for feedback, suggestions, or troubleshooting:</h2>
+	<% end %>
+	<form action="/home/email" method="POST" class="edit">
+		<input type="hidden" name="auth_token" value="8abc68357d9f862a5e2d834c8d8d4aa244620661" />
+		<input type="hidden" name="redirect" value="/contact_us?sent=true" />
+		<input type="hidden" name="user" value="<%= @user_name %>" />
+		<p>
+			<label>Email</label>
+			<input type="text" name="email" value="<%= @user_email %>" class="text" />
+		</p>
+		<p>
+			<label>Subject</label>
+			<input type="text" name="subject" value="" class="text" />
+		</p>
+		<p>
+			<label>Description</label>
+			<textarea name="body" style="width: 400px; height: 140px;"></textarea>
+		</p>
+		<p>
+			<label>Category</label>
+			<select name="category">
+				<option>Troubleshooting</option>
+				<option>General Question</option>
+				<option>Bug Report</option>
+				<option>Feature Request</option>
+			</select>
+		</p>
+		
+		<p>
+			<input type="submit" value="Send Message" />
+		</p>
+	</form>
+</div>

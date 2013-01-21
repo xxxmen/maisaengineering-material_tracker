@@ -1,0 +1,6 @@
+<li><%= img_button "Create a New Company", "brick_add.png", new_company_path %></li>
+<li><%= img_button "Show All Companies", "brick.png", companies_path %></li>
+<li><%= img_button_function("Print", "print.png", "window.print()") %></li>
+<% if params[:action] == "edit" || params[:action] == "new" %>
+<li class="save-button"><%= img_button_function("Save Entry", "save.png", "$('#{form_id(@company)}').submit()") %></li>
+<% end %>

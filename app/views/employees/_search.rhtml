@@ -1,0 +1,11 @@
+<% form_tag search_employees_path, :method => :get do -%>
+  <% if params[:users_only] %>
+  <input type="hidden" value="true" name="users_only" />
+  <% end %>
+    <input type="text" value="Search Users" onfocus="InterfaceHelper.clear(this);" onblur="InterfaceHelper.reset(this);" style="font-style: italic; color: gray; width: 180px;" name="q" />
+    <% [:company, :role].each do |filter_param| %>
+        <% if params.has_key?(filter_param) %>
+            <input type="hidden" value="<%= params[filter_param] %>" name="<%= filter_param %>" />
+        <% end %>
+    <% end %>
+<% end -%>

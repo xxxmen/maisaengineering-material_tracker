@@ -1,0 +1,85 @@
+# == Schema Information
+# Schema version: 20090710194800
+#
+# Table name: vendors
+#
+#  id                :integer(4)    not null, primary key
+#  vendor_no         :string(255)   
+#  name              :string(255)   
+#  email             :string(255)   
+#  account_no        :string(255)   
+#  address           :string(255)   
+#  city              :string(255)   
+#  state             :string(255)   
+#  zip               :string(255)   
+#  country           :string(255)   
+#  telephone         :string(255)   
+#  fax               :string(255)   
+#  contact_name      :string(255)   
+#  contact_telephone :string(255)   
+#  notes             :text          
+#  lock_version      :integer(4)    default(0)
+#  updated_at        :datetime      
+#  access_key        :string(255)   
+#
+
+Unspecified: 
+  id: 1
+  name: UNSPECIFIED
+  updated_at: <%= Time.now %>
+  country: USA
+ 
+spraying: 
+  id: 2
+  name: SPRAYING SYSTEMS CO
+  city: LAGUNA HILLS
+  zip: "92653"
+  updated_at: <%= Time.now %>
+  country: USA
+  vendor_no: 0080031138-008240
+  fax: 949-367-9800
+  telephone: 949-367-9900
+  address: "26941 CABOT RD.  #101"
+  state: CA
+  contact_name: DENNIS BROWN
+ 
+tulsa: 
+  id: 3
+  name: TULSA HEATERS, INC.
+  city: TULSA
+  zip: "74119"
+  updated_at: <%= Time.now %>
+  country: USA
+  vendor_no: 0080033023-009103
+  telephone: 918-665-6512
+  address: "4500 S. GARNETT  #800"
+  state: OK
+  contact_name: DAN P. LOVELESS
+ 
+harrington: 
+  id: 4
+  name: HARRINGTON INDUSTRIAL PLASTICS
+  city: COMMERCE
+  zip: "90040"
+  updated_at: <%= Time.now %>
+  country: USA
+  vendor_no: 0080072803-004802
+  fax: 323-721-2584
+  telephone: 323-685-9030
+  address: 6017 SCOTT WAY
+  state: CA
+  contact_name: GREG WHITE
+ 
+winzer: 
+  id: 5
+  name: WINZER CORP C/O WIDESPREAD IND. SUPPLIES
+  city: HAWTHORNE
+  zip: "90250"
+  updated_at: <%= Time.now %>
+  country: USA
+  vendor_no: 0080151976-120302
+  fax: 310-536-7517
+  telephone: 310-720-3431
+  address: 13831 JUDAH AVENUE
+  state: CA
+  contact_name: JOSH DORFMAN

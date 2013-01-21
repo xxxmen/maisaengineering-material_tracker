@@ -1,0 +1,32 @@
+
+
+<% form_remote_for :ordered_line_item, item, :url => {:action => "update_ordered_line_item", :id => item}, :html => { :id => dom_id(item, "form"), :class => "edit full"} do |f| %>
+  <table id="<%= dom_id item %>" class="information">
+        <% if index == 0 %>
+        <tr class="header">
+          <th class="no">#</th>
+          <th class="desc">Description</th>
+          <th class="qty">Rec'd</th>
+          <th class="qty">Ordered</th>
+          <th class="date">BO Date</th>
+          <th class="date">Rec'd Date</th>
+          <th class="link">Request #</th>
+        </tr>
+        <% end %>
+        
+        <td class="no"><%= f.text_field :line_item_no %></td>
+         <td class="desc"><%= f.text_area :description %></td>
+          <td class="qty"><%= f.text_field :quantity_received %></td>
+          <td class="qty"><%= f.text_field :quantity_ordered %></td>
+              <td class="date"><%= f.text_field :date_back_ordered, :id => dom_id(item, "date_back_ordered"), :onblur => remote_function(:url => { :action => "update_ordered_line_item", :id => item}, :with => "Form.serialize('#{dom_id(item, :form)}')") %></td>
+              <td class="date"><%= f.text_field :date_received, :id => dom_id(item, "date_received"), :onblur => remote_function(:url => { :action => "update_ordered_line_item", :id => item}, :with => "Form.serialize('#{dom_id(item, :form)}')") %></td>
+         <td class="link">
+              <% if item.requested_line_item %>
+                  item no. #<%= item.requested_line_item.item_no %>
+                  <%= link_to "##{item.requested_line_item.material_request.tracking}", edit_material_request_path(item.requested_line_item.material_request) + "##{item.requested_line_item.id}" %>
+              <% end %>
+         </td>
+</table>
+      <% end %>
+<%= observe_form(dom_id(item, "form"), :url => { :action => "update_ordered_line_item", :id => item}, :with => "Form.serialize('#{dom_id(item, 'form')}')") %>
+<script>setup_calendar_for(['<%= dom_id(item, "date_back_ordered") %>', '<%= dom_id(item, "date_received") %>'])</script>

@@ -1,0 +1,11 @@
+# page['order_vendor_phone'].value = Vendor.find(params[:order][:vendor_id]).telephone || ""
+# page['order_vendor_contact'].value = Vendor.find(params[:order][:vendor_id]).contact_name || ""
+# page['order_vendor_id']
+
+vendor = Vendor.find_by_name(params[:vendor][:name]) if params[:vendor]
+
+if vendor
+  page.replace_html "order_vendor_contact", (vendor.contact_name || "")
+  page.replace_html "order_vendor_phone", (vendor.telephone || "")
+  page << "$('order_vendor_id_text').value='" + (vendor.vendor_no || "") + "';"  
+end

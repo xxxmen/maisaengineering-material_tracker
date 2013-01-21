@@ -1,0 +1,20 @@
+<li><%= img_button "Create", "order_add.png", new_inventory_item_path %></li>
+<li><%= img_button "List All Inventory Items", "application_view_list.png", inventory_items_path %></li>
+<li><%= img_button "Tags", "tag.png", url_for(:controller => "inventory_items", :action => "tags") %></li>
+<li><%= img_button "Web Request", "order_list.png", carts_path %></li>
+
+<% if params[:action] == "index" || params[:action] == "search" %>
+<li><%= img_button "Basket View", "order_list.png", url_for(params.merge(:action => "edit_basket")) %></li>
+<% end %>
+<% if params[:action] == "edit_basket" %>
+<li><%= img_button "Normal View", "order_list.png", url_for(params.merge(:action => "index")) %></li>
+<% end %>
+
+
+<% if params[:action] == "edit" || params[:action] == "show" %>
+<li><%= img_button_function("Print", "print.png", "window.print()") %></li>
+<% end %>
+
+<% if ["edit", "new", "create", "update"].include?(params[:action]) %>
+	<li class="save-button"><%= img_button_function "Save", "order_save.png", form_save(@inventory_item), :class => "ignore_confirm_cancel" %></li>
+<% end %>

@@ -1,0 +1,27 @@
+<% if RAILS_ENV == "development" && logged_in? %>
+<!--
+<script type="text/javascript">
+
+	function updateRole () {
+	  	new Ajax.Request('<%= employee_path(current_employee) %>', {
+	    	method: 'put',
+	    	parameters: $('role_form').serialize(true)
+	  	});
+	}
+
+</script>
+-->
+
+	<% form_for current_employee, :html => { :id => "role_form", :style => "position: absolute; top: 40px; right: 15px;" } do |f| %>
+		<% unless current_employee.popv_admin? %>
+			<% title = current_employee.popv_enabled? ? "Disable" : "Enable"  %>
+			<%= link_to "#{title} POPV User", nil, :onclick => "$(this).up('form').submit()" %>
+			<%= f.hidden_field :popv_enabled, :value => (current_employee.popv_enabled? ? "0" : "1") %>
+		<% end %>	
+	  	<% these_roles = Employee.options_for_role %>
+		<!-- Normal Form Submit Way -->
+			<%= f.select :role, these_roles, {}, :onchange => "submit();" %>
+		<!-- Ajax Way -->
+			<%#= f.select :role, these_roles, {}, :onchange => "updateRole();" %>
+	<% end %>
+<% end %>

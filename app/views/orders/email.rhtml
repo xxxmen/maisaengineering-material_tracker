@@ -1,0 +1,111 @@
+<script type="text/javascript" charset="utf-8">
+    function checkEmailTo(){
+		var errors = $A([]);
+        if($F('email_to').match(/^\s*$/) && !$('autoprint').checked) {
+            errors.push("Please enter an email address");
+        }
+
+		if($F('deliver_to').match(/^\s*$/)) {
+			errors.push("Deliver to is a required field");
+		}
+
+		if(errors.length > 0) {
+			alert(errors.join("\n"));
+			return false;
+		}
+        else {
+            return Telaeris.validateEmails('email_to');
+        }
+    }
+</script>
+
+<form action="/orders/deliver/<%= @order.id %>" class="edit full" id="deliver_form" method="post" onsubmit="return checkEmailTo();">
+  <div class="left">
+    <p>
+      <label>From</label>
+      <input type="text" disabled="disabled" value="<%= current_employee.email || "no-reply@#{ENV['MAIL_DOMAIN']}" %>" class="text" />
+    </p>
+    <p>
+      <label class="inline">To &nbsp;&nbsp;<a href="#" onclick="return Telaeris.changeEmail('email_to', '');">Clear</a> /
+      <a href="#" onclick="$('autoprint').checked = true; return Telaeris.changeEmail('email_to', '<%="#{ENV['WAREHOUSE_EMAIL']}" %>');"><%="#{ENV['WAREHOUSE_NAME']}" %></a>
+                                  <% if !current_employee.email.blank? %>
+                                    / <a href="#" onclick="return Telaeris.changeEmail('email_to', '<%= current_employee.email %>');"><%= current_employee.short_name %></a>
+                                  <% end %>
+                                  / <%= select_tag "buyer_emails", options_for_select(Employee.buyer_list_of_emails_for_select_tag, "Buyer"), :style => 'display: inline; width: 130px;', :onchange => "Telaeris.changeEmail('email_to', $('buyer_emails').value); $('buyer_emails').value = 'Buyer'; return;" %>
+                                  </label>
+                                  <input type="checkbox" name="autoprint" id="autoprint" style="margin-left: 10px" />
+                                  <span style="font-weight: normal; font-size: 90%;">autoprint at <%= "#{ENV['WAREHOUSE_NAME']}" %></span>
+      <textarea name="email" id="email_to"></textarea>
+      <span class="description">Separate email addresses by commas, semi-colons, or spaces</span>
+    </p>
+
+    <p>
+
+      <label>Subject</label>
+      <input type="text" disabled="disabled" value="[<%= "#{ENV['DEPLOY_SITE_NAME']}"%> Material Tracker] PO #<%= @order.po_no %>" class="text" />
+    </p>
+
+    <div class="left">
+      <p>
+        <label>Where</label>
+        <input type="text" class="text" name="where" />
+      </p>
+
+      <p>
+        <label>When</label>
+        <input type="text" class="text" name="when" />
+      </p>
+    </div>
+
+
+    <div class="right">
+      <p>
+        <label>Deliver To <span class="required">* required</span></label>
+        <input type="text" class="text required" title="Deliver to is a required field" name="deliver_to" id="deliver_to" />
+      </p>
+
+      <p>
+        <label>Phone #</label>
+        <input type="text" class="text" name="phone" />
+      </p>
+    </div>
+
+    <p class="clear">
+      <label>Message</label>
+      <textarea name="notes" style="width: 100%; height: 100px;"></textarea>
+    </p>
+  </div>
+
+  <div class="right">
+    <p><label>Which items should be included in the email?</label></p>
+
+    <table class="information">
+      <tr>
+        <th>#</th>
+        <th><input id="all_check" checked="checked" type="checkbox" onclick="$$('.item_check').each(function(i) { i.checked = $('all_check').checked; })" /></th>
+        <th>Description</th>
+      </tr>
+    <% @order.ordered_line_items.each do |item| %>
+      <tr>
+        <td><%= item.line_item_no %></td>
+        <td><input class="item_check" type="checkbox" name="line_items[<%= item.id %>]" checked="checked" value="<%= item.id %>" /></td>
+        <td><%= item.description %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+
+  <p class="menu clear">
+    <input type="submit" class="submit" value="Send Email" <% if @alert_user %>onclick="return confirm('This order has only one line item, are you sure you want to issue the entire order?');"<% end %> />  or
+    <input type="submit" class="submit" value="Preview" onclick="new Ajax.Request('/orders/deliver/<%= @order.id %>', { parameters: $('deliver_form').serialize() }); return false;" />  or
+    <%= link_to "Cancel & Back to Order", edit_order_path(@order) %>
+  </p>
+</form>
+
+<div id="full_preview" style="display: none;">
+    <a href="#go-back" onclick="$('full_preview').hide(); $('deliver_form').show();">Go Back</a>
+<div id="preview">
+
+</div>
+    <a href="#go-back" onclick="$('full_preview').hide(); $('deliver_form').show();">Go Back</a>
+</div>

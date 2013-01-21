@@ -1,0 +1,221 @@
+<style type="text/css" media="screen">
+    td.resource, th.resource { width: 170px;}
+    td.search, th.search { width: 200px;}
+    td.action, td.search { font-size: 75%; }
+</style>
+<% @row_count = 0 %>
+<table class="information" style="font-size: 130%;">
+  <tr>
+      <th class="resource">Main Menu</th>
+      <th class="search">search</th>
+      <th class="action">
+          <% if !current_employee.warehouse?(true) && !receiving_view? %>
+          actions
+          <% end %>
+      </th>
+  </tr>
+  <% if resource_enabled?(:material_requests) && !warehouse_view? && !receiving_view? %>
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "Requests", material_requests_path(default_request_params) %></td>
+      <td class="search">
+        <%= render :partial => "/material_requests/search" %>
+      </td>
+      <td class="action">
+        <%= link_to "create request", new_material_request_path %>
+      </td>
+  </tr>
+  <% end %>
+
+  <% if resource_enabled?(:carts) %>
+	  <tr class="<%= alternating_row %>">
+	      <td><%= link_to "Web Requests", recent_carts_path(default_request_params) %></td>
+	      <td class="search">
+	        <%= render :partial => "/carts/search" %>
+	      </td>
+	      <td class="action">
+	          <% if !warehouse_view? && !receiving_view? %>
+	            <%= link_to "create web request", carts_path %>
+	          <% end %>
+	      </td>
+	  </tr>
+  <% end %>
+
+  <% if resource_enabled?(:orders) %>
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "Orders", orders_path %></td>
+      <td class="search">
+        <%= render :partial => "/orders/search" %>
+      </td>
+      <td class="action">
+         <% if current_employee.admin? || current_employee.purchasing? || current_employee.planning? %>
+            <%= link_to "create order", new_order_path %>
+         <% end %>
+      </td>
+  </tr>
+  <% end %>
+
+
+  <% if resource_enabled?(:inventory_items) %>
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "Inventory", inventory_items_path %></td>
+      <td class="search">
+        <%= render :partial => "/inventory_items/search" %>
+      </td>
+      <td class="action">
+        <%= link_to "create inventory item", new_inventory_item_path %>
+      </td>
+  </tr>
+  <% end %>
+
+
+  <% if resource_enabled?(:general_references) %>
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "Files/References", general_references_path %></td>
+      <td class="search">
+        <%= render :partial => "/general_references/search" %>
+      </td>
+      <td class="action">
+          <% if current_employee.admin? || current_employee.purchasing? %>
+            <%= link_to "upload file", new_general_reference_path %>
+          <% end %>
+      </td>
+  </tr>
+  <% end %>
+
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "Units", units_path %></td>
+      <td class="search">
+        <%= render :partial => "/units/search" %>
+      </td>
+      <td class="action">
+          <% if !warehouse_view? && !requesting_view? && !receiving_view? %>
+            <%= link_to "create unit", new_unit_path %>
+          <% end %>
+      </td>
+  </tr>
+  <% if current_employee.need_details? %>
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "Vendors", vendors_path %></td>
+      <td class="search">
+        <%= render :partial => "/vendors/search" %>
+      </td>
+      <td class="action"><%= link_to "create vendor", new_vendor_path %></td>
+  </tr>
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "Vendor Groups", vendor_groups_path %></td>
+      <td class="search">
+        <%= render :partial => "/vendor_groups/search" %>
+      </td>
+      <td class="action"><%= link_to "create vendor group", new_vendor_group_path %></td>
+  </tr>
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "Companies", companies_path %></td>
+      <td class="search">
+        <%= render :partial => "/companies/search" %>
+      </td>
+      <td class="action"><%= link_to "create company", new_company_path %></td>
+  </tr>
+  <% end %>
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "Users", employees_path %></td>
+      <td class="search">
+          <%= render :partial => "/employees/search" %>
+      </td>
+      <td class="action">
+          <% if !current_employee.warehouse?(true) && !requesting_view? && !receiving_view? && !current_employee.engineer? %>
+              <%= link_to "create user", new_employee_path %>
+          <% end %>
+      </td>
+  </tr>
+
+  <% if resource_enabled?(:quotes) %>
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "Quotes", quotes_path %></td>
+      <td class="search">
+          <%= render :partial => "/quotes/search" %>
+      </td>
+      <td class="action">
+          
+      </td>
+  </tr>
+  <% end %>
+
+  <% if resource_enabled?(:reports) %>
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "Reports", reports_path %></td>
+      <td class="action"></td>
+      <td></td>
+  </tr>
+  <% end %>
+
+  <% if resource_enabled?(:events) %>
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "Events", events_path %></td>
+      <td class="action"></td>
+      <td></td>
+  </tr>
+  <% end %>
+
+  <% if resource_enabled?(:live) %>
+  <tr class="<%= alternating_row %>">
+  	   <td><%= link_to "Live Info", url_for(:controller => "live") %></td>
+	   <td class="action"></td>
+		<td></td>
+  </tr>
+  <% end %>
+
+  <% if current_employee.admin? %>
+    <tr class="<%= alternating_row %>">
+         <td><%= link_to "Import/Export", url_for(:controller => "reports", :action =>"import_export") %></td>
+       <td class="action"></td>
+       <td></td>
+    </tr>
+  <% end %>
+  
+  <tr class="<%= alternating_row %>">
+  	   <td><%= link_to "Tickets", url_for(:controller => "tickets") %></td>
+	   <td class="action"></td>
+		<td></td>
+  </tr>
+
+  <% if resource_enabled?(:popv) %>
+  <tr class="<%= alternating_row %>">
+      <td><%= link_to "POPV", url_for(:controller => "popv") %></td>
+      <td class="search">
+
+      </td>
+      <td class="action"></td>
+  </tr>
+  <% end %>
+  <% if current_employee.admin? %>
+    
+	  <% if resource_enabled?(:groups) %>
+	  <tr class="<%= alternating_row %>">
+	  	   <td><%= link_to "Groups", url_for(:controller => "groups") %></td>
+		   <td class="action"></td>
+		   <td></td>
+	  </tr>
+	  <% end %>
+
+	  <% if resource_enabled?(:reference_numbers) %>
+	  <tr class="<%= alternating_row %>">
+	  	   <td><%= link_to "Reference Numbers", url_for(:controller => "reference_number_types") %></td>
+		   <td class="action"></td>
+		   <td></td>
+	  </tr>
+	  <% end %>
+
+
+
+    <tr class="<%= alternating_row %>">
+         <td><%= link_to "PO Statuses", url_for(:controller => "po_statuses") %></td>
+       <td class="action"></td>
+       <td></td>
+    </tr>
+
+
+
+
+    
+  <% end %>
+</table>

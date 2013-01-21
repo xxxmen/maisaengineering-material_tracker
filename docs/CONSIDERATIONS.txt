@@ -1,0 +1,22 @@
+Material Tracker Considerations
+===============================
+
+	= Thinking Sphinx
+	
+		MUCH better than ferret! Drop ferret when you get a chance.
+	
+		Currently this addon to rails is a frozen plugin in vendor/plugins/thinking_sphinx.
+		When migrating to Rails 2.3, we should drop it from the plugins directory and
+		add it as a frozen gem (with config.gem).
+		Because this is still Rails 1.2, I had to modify two lines in the thinking_sphinx's
+		code for backwards compatability reasons:
+		
+			1) thinking_sphinx/lib/thinking_sphinx/configuration.rb: 160
+				 - Commented out a line trying to access the Rails configuration.
+				 - Added the Dependencies.mechanism check to get around it, since it was
+				   breaking in production mode with cache_classes = true on.
+				   
+			2) thinking_sphinx/lib/thinking_sphinx/tasks.rb: 7
+				 - Same reason as above
+				 
+		- Adam (08/2009)

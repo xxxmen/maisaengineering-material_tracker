@@ -1,0 +1,46 @@
+<table class="noprint information clear" id="notes_and_valve">
+  <tr>
+    <th>Notes/Valve</th>
+    <th>#ID</th>
+    <th>Description</th>
+  </tr>
+    
+  <% if @bc9 || @bc10 || @bc11 %>
+  <tr>
+    <td colspan="2" style="width: 160px;">BC</td>
+    <td>
+      <% if @bc9 %> <a href="/images/bc9.jpg">BC-9</a> <% end %>
+      <% if @bc10 %> <a href="/images/bc10.jpg">BC-10</a> <% end %>
+      <% if @bc11 %> <a href="/images/bc11.jpg">BC-11</a> <% end %>
+    </td>
+  </tr>
+  <% end %>
+  
+  <% if !@valve && @piping_notes.size == 0 %>
+    <tr>
+      <td colspan="3" style="text-align: center;">No Notes or Valves</td>
+    </tr>
+  <% end %>
+  
+  <% if @valve %>
+    <tr>
+      <td style="width: 80px;">VALVE</td>
+      <td style="width: 80px;"><%= @valve.valve_code %></td>
+      <td>
+      <% if @valve.discontinued? %>
+        <strong style="font-size: 110%; color: red;">DISCONTINUED</strong>
+      <% end %>
+      <%= @valve.valve_note %> -- <%= @valve.manufacturers_remarks %></td>
+    </tr>
+  <% end %>
+
+  
+  <% @piping_notes.each do |note| %>
+    <tr>
+      <td style="width: 80px;">NOTE</td>
+      <td style="width: 80px;"><%= note.id %></td>
+      <td><%= h note.note_text %></td>
+    </tr>
+  <% end %>
+  
+</table>

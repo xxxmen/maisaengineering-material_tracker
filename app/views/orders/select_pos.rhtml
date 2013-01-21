@@ -1,0 +1,94 @@
+<style type="text/css" media="screen">
+    #po_selection select { width: 99%; }
+</style>
+
+<script type="text/javascript" charset="utf-8">
+function addAndSelPO(){
+    if($F('options')) {
+        var selectedIndex = $('options').selectedIndex;
+        $('div-selected').innerHTML = "<select size='15' id='selected'>" + $('selected').innerHTML + '<option>' + $F('options') + '</option>' + "</select>";
+        $('selected').selectedIndex = $('selected').options.length - 1;
+        if(selectedIndex < $('options').options.length - 1) $('options').selectedIndex = selectedIndex + 1;
+        $($('options').options[selectedIndex]).remove();
+    }
+    return false;
+}
+
+function removePO(){
+    if($F('selected')) {
+        var selectedIndex = $('selected').selectedIndex;
+        $('div-options').innerHTML = "<select size='15' id='options'>" + $('options').innerHTML + '<option>' + $F('selected') + '</option>' + "</select>";
+        $('options').selectedIndex = $('options').options.length - 1;
+        if(selectedIndex < $('selected').options.length - 1) $('selected').selectedIndex = selectedIndex + 1;
+        $($('selected').options[selectedIndex]).remove();
+    }
+    return false;
+}
+
+function addAllPO(){
+    $('div-selected').innerHTML = "<select size='15' id='selected'>" + $('selected').innerHTML + $('options').innerHTML + "</select>";
+    $('options').innerHTML = '';
+    return false;
+}
+function removeAllPO(){
+    $('div-options').innerHTML = "<select size='15' id='options'>" + $('options').innerHTML + $('selected').innerHTML + "</select>";
+    $('selected').innerHTML = '';
+    return false;
+}
+function collectSearchIDs(){
+    var options = $('selected').options;
+    options = $A(options);
+    if(options.length == 0) {
+        alert('Please select one or more POs');
+        return false;
+    }
+    options = options.map(function(opt){
+       return $(opt).innerHTML;
+    });
+    options = $A(options).join(",");
+    $('psearchids').value = options;
+    return true;
+}
+</script>
+
+<form class="edit" style="width: 800px;" id="po_selection" onsubmit="return collectSearchIDs();" action="/orders/select_pos" method="post">
+<div class="left">
+    <div class="left">
+        <label>Available POs</label>
+        <div id="div-options">
+            <select size="15" id="options">
+                <% for order in @orders %>
+                    <option><%= order.po_no %></option>
+                <% end %>
+            </select>
+        </div>
+    </div>
+    
+    <div class="right" style="position: relative; top: 65px; text-align: center;">
+        <input type="submit" value="Add PO >>" onclick="return addAndSelPO();" />
+        <input type="submit" value="<< Remove PO" onclick="return removePO();" />
+        <p style="text-align: center;">or</p>
+        <input type="submit" value="Add ALL >>" onclick="return addAllPO();" />
+        <input type="submit" value="<< Remove ALL" onclick="return removeAllPO();" />
+    </div>
+</div>
+
+<div class="right">
+    <div class="left">
+        <label>Selected POs</label>
+        <div id="div-selected">
+        <select size="15" id="selected"></select>
+        </div>
+    </div>
+    
+    <div class="right" style="position: relative; top: 80px; text-align: center;">
+        <input type="submit" name="commit" value="Print Selected POs" />
+        <input type="submit" name="commit" value="Email Selected POs" />
+    </div>
+    
+    <input name="psearchids" id="psearchids" value="" type="hidden" />
+</div>
+
+<br style="clear: both; height: 1px;" />
+
+</form>

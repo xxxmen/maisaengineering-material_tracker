@@ -1,0 +1,27 @@
+  <select onchange="window.location=$F(this)" style="width: 120px;">
+    <option value="<%= filter_url(:vendor => nil) %>">-- SUPPLIER --</option>
+    <% Order.all_vendors.each do |vendor| %>
+        <option value="<%= filter_url(:vendor => vendor.id) %>" <%= select_filter_if(params[:vendor] == vendor.id.to_s) %>><%= vendor.name %></option>
+    <% end %>
+  </select>
+  <!-- <span class="img_sort">
+      <% if params[:o] != "vendors.name" %>
+          <%= link_to_sort '<img src="/images/none.gif" />', "vendors.name", :include => [:year, :open, :status, :location, :unit, :vendor] %>
+      <% elsif params[:s] == "desc" %>
+          <%= link_to_sort '<img src="/images/ascending.gif" />', "vendors.name", :include => [:year, :open, :status, :location, :unit, :vendor] %>
+      <% else %>
+          <%= link_to_sort '<img src="/images/descending.gif" />', "vendors.name", :include => [:year, :open, :status, :location, :unit, :vendor] %>    
+      <% end %>
+  </span> -->
+  <%= link_to_sort 'sort', "vendors.name", :include => [:year, :open, :status, :location, :unit, :vendor] %>    
+  
+  <br />
+  
+<% if params[:vendor].blank? %>
+<!-- <%= link_to_sort "Phone", "vendors.telephone", :include => [:year, :open, :status, :location, :unit, :vendor] %> <br />
+<%= link_to_sort "Vendor No", "vendors.vendor_no", :include => [:year, :open, :status, :location, :unit, :vendor] %> <br /> -->
+<% else %>
+<% @vendor = Vendor.find(params[:vendor]) %>
+<%= h @vendor.telephone %> <br />
+<input type="text" class="text" value='<%= @vendor.vendor_no %>' onclick="this.activate();" style="width: 75%;" readonly="readonly" />
+<% end %>

@@ -1,0 +1,60 @@
+<style type="text/css" media="screen">
+    th.badge, td.badge { width: 90px;}
+    th.desc, td.desc {}
+    th.login, td.login { width: 120px; }
+    th.email, td.email { width: 140px; }
+    th.company, td.company { width: 180px;}
+    th.role, td.role { width: 140px; }
+</style>
+
+<table class="information" cellspacing="0">
+  <tr class="header">
+    <th class="badge">
+      <%= link_to_sort "Badge #", "employees.badge_no", :include => [:users_only, :company, :role, :archived] %>
+    </th>
+    <th class="desc">
+      <%= link_to_sort "Name", "employees.last_name", :include => [:users_only, :company, :role, :archived] %>
+    </th>
+    <th class="login">
+      <%= link_to_sort "Login", "employees.login", :include => [:users_only, :company, :role, :archived] %>
+    </th>
+    <th class="email">
+      <%= link_to_sort "Email", "employees.email", :include => [:users_only, :company, :role, :archived] %>
+    </th>
+    <th class="company">
+        <select onchange="window.location=$F(this)" style="width: 120px">
+            <option value="<%= filter_url(:company => nil) %>">-- COMPANY --</option>
+            <% Employee.all_companies.each do |company| %>
+                <option value="<%= filter_url(:company => company.id) %>" <%= select_filter_if(params[:company] == company.id.to_s) %>><%= company.name %></option>
+            <% end %>
+        </select>
+    </th>
+    <th class="role">
+      <select onchange="window.location=$F(this)" style="width: 120px">
+        <option value="<%= filter_url(:role => nil) %>">-- ROLE --</option>
+        <% Employee.options_for_role.each do |role, role_id| %>
+            <option value="<%= filter_url(:role => role_id) %>" <%= select_filter_if(params[:role] == role_id.to_s) %>><%= role %></option>
+        <% end %>
+      </select>
+    </th>
+  </tr>
+</table>
+
+<div id="maininfo">
+<table class="information" cellspacing="0">
+  <% @employees.each do |e| %>
+    <tr class="<%= cycle(:even, :odd) %>">
+      <td class="badge"><%= h e.badge_no %></td>
+      <td class="desc">
+        <%= link_to_desc e, :default => "No Name", :method => :full_name %>
+      </td>
+      <td class="login"><%= h e.login %></td>
+      <td class="email"><%= h e.email %></td>
+      <td class="company"><%= e.company ? e.company.name : '' %></td>
+      <td class="role"><%= e.state_for_role %></td>
+    </tr>
+  <% end %>
+</table>
+</div>
+
+<%= render :partial => "shared/paginate", :locals => { :collection => @employees } %>

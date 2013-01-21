@@ -1,0 +1,187 @@
+# == Schema Information
+# Schema version: 20090710194800
+#
+# Table name: purchase_orders
+#
+#  id                :integer(4)    not null, primary key
+#  created           :date          
+#  tracking          :text          
+#  po_no             :text          
+#  description       :text          
+#  vendor_id         :integer(4)    
+#  status_id         :integer(4)    default(1)
+#  deliver_to        :string(255)   
+#  work_orders       :string(255)   
+#  ptm_no            :text          
+#  awr               :boolean(1)    
+#  total_cost        :decimal(16, 2 
+#  unit_id           :integer(4)    
+#  turnaround_year   :text          
+#  date_eta          :date          
+#  completed         :boolean(1)    
+#  closed            :boolean(1)    
+#  location          :text          
+#  activity          :text          
+#  issued_to_history :text          
+#  lock_version      :integer(4)    default(0)
+#  updated_at        :datetime      
+#  record_counter    :integer(4)    
+#  planner_id        :integer(4)    
+#  requested_by_id   :integer(4)    
+#  date_need_by      :date          
+#  date_requested    :date          
+#  stage             :boolean(1)    
+#  suggested_vendor  :string(255)   
+#  acknowledged      :boolean(1)    
+#  authorized        :boolean(1)    
+#  archived          :boolean(1)    
+#
+
+water_drain: 
+  id: 1
+  vendor_id: 1
+  turnaround_year: "2004"
+  completed: true
+  updated_at: <%= Time.now %>
+  total_cost: 10.00
+  ptm_no: 0034-04
+  po_no: L45806
+  date_eta: 2004-06-01
+  unit_id: 1
+  activity: PIPE ON SOUTH SIDE 5TH SECTION
+  tracking: "0012"
+  closed: true
+  description: "2 COKER 2004, BILL LIVINGSTON, *PROC. # 0034-04, D-12 AFTER-CONDENSER SOUR WATER DRAIN, DEAD LEG PIPING REMOVAL, REQ STAMP # 0012"
+  awr: false
+  work_orders: "74632"
+  status_id: 7
+  issued_to_history: "8/5/2004: RAY MAESTRO: JE Field Services"
+  created: 2004-05-10
+  location: F44B
+ 
+bleed_sppol: 
+  id: 2
+  vendor_id: 2
+  turnaround_year: "2004"
+  completed: true
+  updated_at: <%= Time.now %>
+  total_cost: 10.00
+  ptm_no: 0232-04
+  po_no: L41891
+  date_eta: 2004-06-01
+  unit_id: 2
+  activity: 3/4" X 20' ON THE S. SIDE 5TH SECTION
+  tracking: 0018A
+  closed: true
+  description: "2 COKER 2004, BILL LIVINGSTONE, *PROC.# 0232-04, FRACTIONATION TOWER RELIEF VALVES, BLEED SPOOL INSTALLATION, REQ STAMP # 0018"
+  awr: false
+  work_orders: "74632"
+  status_id: 7
+  issued_to_history: "8/11/2004: R. BADGETT JR.: JE Field Services"
+  created: 2004-05-10
+  location: F26B
+ 
+discharge_piping: 
+  id: 3
+  vendor_id: 3
+  turnaround_year: "2004"
+  completed: true
+  updated_at: <%= Time.now %>
+  total_cost: 10.00
+  ptm_no: 0241-04
+  po_no: L41892
+  date_eta: 2004-06-01
+  unit_id: 3
+  tracking: 0032A
+  closed: true
+  description: "2 COKER 2004, LEON FELCZER / BILL LIVINGSTONE, *PROC. 0241-04, SPARE HEATER CHARGE PUMP DISCHARGE PIPING, CHECK VALVE REPLACEMENT, STAMP REQ # 0032"
+  awr: false
+  work_orders: 74632 1901
+  status_id: 7
+  issued_to_history: "10/9/2004: SAL GRILLO: JE Field Services"
+  created: 2004-05-10
+  location: F48B
+ 
+replacement: 
+  id: 4
+  vendor_id: 4
+  turnaround_year: "2004"
+  completed: true
+  updated_at: <%= Time.now %>
+  total_cost: 10.00
+  ptm_no: 0309-04
+  po_no: L41780
+  date_eta: 2004-10-30
+  unit_id: 4
+  activity: L/I 5 RECD INCORRECTLY AND RETURNED 7/29/04 VESSELETE PICKED UP BY MCJUNKIN & WILL BE DELIVERED TO SUPERIOR PIPE FAB 7/29/04 (3) 24" 300" RTJ W/N FLG PICKED UP BY MCJ & WILL BE DELVD TO SUPERIOR PIPE FAB
+  tracking: 0075B
+  closed: true
+  description: 2 COKER UNIT 6300 2004, D.FRANCIS & BILL LIVINGSTON, *WAS PROC. 0024-00, NOW PROC 0309-04, STUB-IN FITTING REPLACEMENT, VESSELET F-9 45 DEG
+  awr: false
+  work_orders: "74632"
+  status_id: 7
+  created: 2004-05-10
+ 
+telescoping: 
+  id: 5
+  vendor_id: 5
+  turnaround_year: "2004"
+  completed: true
+  updated_at: <%= Time.now %>
+  total_cost: 10.00
+  ptm_no: 355-04
+  po_no: L41888
+  date_eta: 2004-08-09
+  unit_id: 5
+  activity: LOCATION SOUTH SIDE 5TH SECTION
+  tracking: 0042A
+  closed: true
+  description: 2 COKER 2004, B.LIVINGSTON, TELESCOPING CHUTE LATCHES  *PROC. 355-04 & 334-04
+  awr: false
+  work_orders: "74632"
+  status_id: 7
+  issued_to_history: "9/15/2004: DAVID ERWIN: TMC"
+  created: 2004-05-11
+ 
+ticket: 
+  id: 6
+  turnaround_year: "2004"
+  completed: true
+  updated_at: <%= Time.now %>
+  total_cost: 10.00
+  ptm_no: B001955
+  po_no: L41953
+  date_eta: 2004-06-01
+  unit_id: 6
+  activity: PIPE ON S SIDE 5TH SECTION
+  tracking: 0028
+  closed: true
+  description: "2 COKER 2004, DAVE KINNICUT, *TICKET # B001955, 6\" WARM-UP LINE TO DRUM FEED MANIFOLDS (UNDER 40'), REQ STAMP # 0028"
+  awr: false
+  work_orders: "74632"
+  status_id: 7
+  issued_to_history: "7/22/2004: JOSE ESPINOZA: JE Field Services"
+  created: 2004-05-11
+  location: F48B
+ 
+molecular: 
+  id: 7
+  vendor_id: 1
+  turnaround_year: "2004"
+  completed: true
+  updated_at: <%= Time.now %>
+  total_cost: 10.00
+  ptm_no: B001550
+  po_no: L41954
+  date_eta: 2004-06-01
+  unit_id: 7
+  tracking: "0027"
+  closed: true
+  description: "2 COKER 2004, DAVE KINNICUT, *TICKET # B001550, 2\" - CA MOLECULAR SEAL DRAIN - BACK LINE, REQ STAMP # 0027"
+  awr: false
+  work_orders: "74632"
+  status_id: 7
+  issued_to_history: "1/17/2005: BOB DRESSEN: JE Field Services"
+  created: 2004-05-11
+  location: F48B
+  deliver_to: ""

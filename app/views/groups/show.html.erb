@@ -1,0 +1,12 @@
+<p>
+  <b>Name:</b>
+  <%=h @group.name %>
+</p>
+<p>
+  <b>Default:</b>
+  <%=h @group.default %>
+</p>
+
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
