@@ -1,4 +1,4 @@
-require 'CSV'
+require 'csv'
 
 class MaterialRequestsController < ApplicationController
   #before_filter :resource_enabled?
