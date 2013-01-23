@@ -68,7 +68,7 @@ class MaterialRequest < ActiveRecord::Base
   has_attached_file :attachment, :path => ":rails_root/data/material_request/request_attachment_:id.:extension"
   def attached_file_path
       file_extension = self.attachment_file_name[self.attachment_file_name.rindex('.')..self.attachment_file_name.length]
-      "#{RAILS_ROOT}/data/material_request/request_attachment_#{self.id}#{file_extension}"
+      "#{Rails.root}/data/material_request/request_attachment_#{self.id}#{file_extension}"
   end
   
   # Thinking Sphinx Config
@@ -100,7 +100,7 @@ class MaterialRequest < ActiveRecord::Base
   before_validation :set_acknowledged_and_authorized
   
   
-  def before_create 
+  def before_create
   		# Set the created_by field
   	 	self.created_by = self.current_employee_id || self.requested_by_id
  	end
@@ -401,7 +401,7 @@ class MaterialRequest < ActiveRecord::Base
 #    	params[:group] = employee.get_group
 #   	end
     
-    self.filter(params) do 
+    self.filter(params) do
       with_scope(:find => { :conditions => ["material_requests.deleted = ?", false] }) do
         with_scope(:find => { :conditions => conditions }) do
           self.list(params, :include => [:requester, :unit, :items], :order => "material_requests.id", :sort => "DESC")

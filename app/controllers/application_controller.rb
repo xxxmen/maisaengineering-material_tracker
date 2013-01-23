@@ -3,8 +3,7 @@ class ApplicationController < ActionController::Base
 
   include AuthenticatedSystem
   include ExceptionNotification::ExceptionNotifiable
-  #include ResourcePermission
-  
+
   before_filter :login_from_cookie
   before_filter :login_required  
   before_filter :set_cattr_employee
