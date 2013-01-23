@@ -1,4 +1,4 @@
-<style type="text/css" media="screen">
+<style type="text/css">
   body {
     background: #555;
   }
@@ -147,7 +147,7 @@ div.info-view-popv {
   <!-- <img src="/graphics/bp.gif" id="login-bp-logo" /> -->
 
 
-  <% form_tag sessions_path, :class => "edit", :id => "login-form" do %>
+  <%= form_tag sessions_path, :class => "edit", :id => "login-form" do %>
   <p>
     <label>Username:</label>
     <%= text_field_tag :login, nil, :id => "login", :style => "width: 330px;", :value => params[:login] %>

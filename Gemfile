@@ -20,8 +20,8 @@ gem "test-unit", "~> 2.4.0"
 group :development, :test do
 	gem "mocha"
 	gem 'ruby-debug19'
-    gem "rspec-rails", ">= 2.1.0"
-    gem "factory_girl_rails"
+  gem "rspec-rails", ">= 2.1.0"
+  gem "factory_girl_rails"
 end
 
 group :production do

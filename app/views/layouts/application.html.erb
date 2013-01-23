@@ -1,12 +1,11 @@
 <% unless params[:controller] == 'popv' %>
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<!DOCTYPE html>
 	<% end %>
 <html>
 	<head>
-	<%= stylesheet_link_tag    "application", :media => "all" %>
-	<%= javascript_include_tag "application" %>
-	<%#= csrf_meta_tags %>
+	<%#= stylesheet_link_tag    "application", :media => "all" %>
+	<%#= javascript_include_tag 'application', 'rails' %>
+	<%#= csrf_meta_tag %>
 	
 <link rel="icon" href="/favicon.ico" type="image/ico" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
@@ -27,7 +26,7 @@
 		</title>
 
 		<% unless params[:controller] == 'popv' || params[:controller] == 'piping' %>
-			<%= stylesheet_link_merged :base %>
+			<%= stylesheet_link_tag 'base_packaged' %>
 		    <!-- We have to use seperate stylesheet for 'print' and 'yui'
 		    	 because it can't be included for media='screen' -->
 		    <link rel="stylesheet" href="/stylesheets/vendor/yui.css" type="text/css" media="all" charset="utf-8" />
@@ -35,10 +34,10 @@
 
 		    <!-- This must come last. -->
 		    <script type="text/javascript" src="/javascripts/jquery-1.6.2.js"></script>
-		     <%= javascript_include_merged :base %>
+		     <%= javascript_include_tag 'base_packaged' %>
 
 		<% else %>
-	  		<%= stylesheet_link_merged :popv %>
+	  		<%= stylesheet_link_tag 'popv_packaged' %>
 
 			<% if logged_in? %>
 				<script type="text/javascript" charset="utf-8">
@@ -73,7 +72,7 @@
 
 		    <%#= javascript_include_merged :base %>
 
-	  		<%= javascript_include_merged :popv %>
+	  		<%= javascript_include_tag 'popv_packaged' %>
 			
 
 		<% end %>

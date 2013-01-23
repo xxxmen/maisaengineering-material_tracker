@@ -1,8 +1,6 @@
 .bundle
 db/*.sqlite3
-/log/*.log
+log/*.log
 tmp/**/*
 /tmp
 /.idea
-.idea
-log/*.log
