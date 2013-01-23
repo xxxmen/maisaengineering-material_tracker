@@ -99,9 +99,9 @@ class ResourcePermission < ActiveRecord::Base
 		end
 		return resource
 	end
-	
-	if RAILS_ENV == 'development'
-		self.initialize_resources
-	end
+
+  if Rails.env.development?
+    self.initialize_resources
+  end
 	
 end
