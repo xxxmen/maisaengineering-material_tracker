@@ -52,7 +52,8 @@
       <td class="status"><%= m.status %></td>
     </tr>
   <% end %>
-</table>
+    
+</table><%= will_paginate @material_requests%>
 </div>
 
-<%= render :partial => "shared/paginate", :locals => { :collection => @material_requests } %>
+<%#= render :partial => "shared/paginate", :locals => { :collection => @material_requests } %>

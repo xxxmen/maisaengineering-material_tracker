@@ -401,13 +401,13 @@ class MaterialRequest < ActiveRecord::Base
 #    	params[:group] = employee.get_group
 #   	end
     
-    self.filter(params) do
-      with_scope(:find => { :conditions => ["material_requests.deleted = ?", false] }) do
-        with_scope(:find => { :conditions => conditions }) do
-          self.list(params, :include => [:requester, :unit, :items], :order => "material_requests.id", :sort => "DESC")
-        end
-      end
-   	end
+#    self.filter(params) do
+#      with_scope(:find => { :conditions => ["material_requests.deleted = ?", false] }) do
+#        with_scope(:find => { :conditions => conditions }) do
+#          self.list(params, :include => [:requester, :unit, :items], :order => "material_requests.id", :sort => "DESC")
+#        end
+#      end
+#   	end
   end
   
   def self.all_units
