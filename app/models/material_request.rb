@@ -90,13 +90,13 @@ class MaterialRequest < ActiveRecord::Base
 		:delta_column => :updated_at
   end
   
-  validates_presence_of :tracking, :unit_id, :requested_by_id
-  validates_uniqueness_of :tracking
-  validates_numericality_of :year, :message => "is not a valid year"
-  validates_presence_of :description
+  validates :tracking, :unit_id, :requested_by_id, :presence => true
+  validates :tracking, :uniqueness => true
+  validates :year, :numericality => { :message => "is not a valid year" }
+  validates :description, :presence => true
   
   
-  before_validation_on_create :set_tracking
+  before_validation :set_tracking,  :on => :create
   before_validation :set_acknowledged_and_authorized
   
   
@@ -188,10 +188,10 @@ class MaterialRequest < ActiveRecord::Base
  			   :authorized, 
  			   :declined, 
  			   :issued_from_main
-  
-  validates_existence_of :unit, :allow_nil => true
-  validates_existence_of :planner, :allow_nil => true
-  validates_existence_of :requester, :allow_nil => true
+
+  validates_associated :unit
+  validates_associated :planner
+  validates_associated :requester
                 
   def initialize(attributes = {})
     super

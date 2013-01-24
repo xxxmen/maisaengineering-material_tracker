@@ -38310,3 +38310,1314 @@ NoMethodError (undefined method `before_validation_on_create' for #<Class:0x007f
 Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
 Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
 Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.5ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/vendor/plugins/pboling_exception_notification/rails/init.rb. (called from block in <class:Plugin> at /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.0.0.rc/lib/rails/plugin.rb:78)
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mResourcePermission Load (0.4ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions`
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions`[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-24 10:26:16 +0530
+  Processing by HomeController#index as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[35mSQL (1.3ms)[0m  describe `material_requests_orders`
+  [1m[36mSQL (2.3ms)[0m  [1mdescribe `material_requests_orders`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `material_requests_orders`
+  [1m[36mSQL (3.0ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+  [1m[35mSQL (2.1ms)[0m  describe `piping_notes_piping_class_details`
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[36mSQL (2.3ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mSQL (2.2ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1[0m
+  [1m[35mAdmin::Message Load (0.2ms)[0m  SELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1
+Redirected to http://localhost:3000/material_requests
+Completed 302 Found in 1490ms
+
+
+Started GET "/material_requests" for 127.0.0.1 at 2013-01-24 10:26:18 +0530
+  Processing by MaterialRequestsController#index as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[36mSQL (47.4ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+  [1m[35mSQL (1.8ms)[0m  describe `piping_notes_piping_class_details`
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions`[0m
+  [1m[35mSQL (2.2ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mEmployee Load (0.3ms)[0m  SELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1
+  [1m[36mAdmin::Message Load (0.2ms)[0m  [1mSELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1[0m
+  [1m[35mSQL (2.3ms)[0m  describe `material_requests_orders`
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+Completed   in 1057ms
+
+NoMethodError (undefined method `before_validation_on_create' for #<Class:0x007ffac6652c50>):
+  activerecord (3.0.0.rc) lib/active_record/base.rb:963:in `method_missing'
+  app/models/material_request.rb:99:in `<class:MaterialRequest>'
+  app/models/material_request.rb:43:in `<top (required)>'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `block in load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:570:in `new_constants_in'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:433:in `load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:320:in `require_or_load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:471:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:483:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  app/controllers/material_requests_controller.rb:23:in `index'
+  actionpack (3.0.0.rc) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:136:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:454:in `_run__4356001720155292405__process_action__2000119632091742787__callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:404:in `_run_process_action_callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `block in instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:105:in `process'
+  actionpack (3.0.0.rc) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:173:in `block in action'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:148:in `block in call'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:93:in `block in recognize'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:152:in `optimized_each'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:489:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.7) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/flash.rb:177:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/cookies.rb:268:in `call'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:32:in `block in call'
+  activerecord (3.0.0.rc) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:31:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:410:in `_run_call_callbacks'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.7) lib/rack/sendfile.rb:106:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  railties (3.0.0.rc) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0.rc) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.7) lib/rack/lock.rb:13:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  rack (1.2.7) lib/rack/lock.rb:13:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:168:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0.rc) lib/rails/rack/log_tailer.rb:15:in `call'
+  rack (1.2.7) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.7) lib/rack/handler/webrick.rb:52:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.2ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/vendor/plugins/pboling_exception_notification/rails/init.rb. (called from block in <class:Plugin> at /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.0.0.rc/lib/rails/plugin.rb:78)
+  [1m[36mSQL (28.8ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions`
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions`[0m
+
+
+Started GET "/logout" for 127.0.0.1 at 2013-01-24 10:36:10 +0530
+  Processing by SessionsController#destroy as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[35mSQL (1.9ms)[0m  describe `material_requests_orders`
+  [1m[36mSQL (2.3ms)[0m  [1mdescribe `material_requests_orders`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `material_requests_orders`
+  [1m[36mSQL (2.3ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+  [1m[35mSQL (2.0ms)[0m  describe `piping_notes_piping_class_details`
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mSQL (2.3ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1[0m
+  [1m[35mAdmin::Message Load (0.3ms)[0m  SELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 1534ms
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-24 10:36:11 +0530
+  Processing by HomeController#index as HTML
+  [1m[36mAdmin::Message Load (0.2ms)[0m  [1mSELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1[0m
+Rendered home/index.rhtml within layouts/application (4.4ms)
+Completed 200 OK in 66ms (Views: 53.3ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-24 10:36:14 +0530
+  Processing by HomeController#index as HTML
+  [1m[35mAdmin::Message Load (0.2ms)[0m  SELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1
+Rendered home/index.rhtml within layouts/application (4.4ms)
+Completed 200 OK in 27ms (Views: 15.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-01-24 10:36:20 +0530
+  Processing by SessionsController#create as HTML
+  Parameters: {"_snowman"=>"☃", "authenticity_token"=>"HeCLeMoKtQBan1IkFdpenlaZH+T72o/CmBjxOxuPjBw=", "login"=>"admin", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdmin::Message Load (0.3ms)[0m  [1mSELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1[0m
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[35mSQL (2.0ms)[0m  describe `piping_notes_piping_class_details`
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions`
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT `employees`.* FROM `employees` WHERE (`employees`.`login` = 'admin') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 970ms
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-24 10:36:21 +0530
+  Processing by HomeController#index as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[35mSQL (1.3ms)[0m  describe `piping_notes_piping_class_details`
+  [1m[36mSQL (2.2ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[35mSQL (6.9ms)[0m  SHOW TABLES
+  [1m[36mResourcePermission Load (0.5ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.4ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions`
+  [1m[36mSQL (2.2ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1[0m
+  [1m[35mAdmin::Message Load (0.2ms)[0m  SELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1
+Redirected to http://localhost:3000/material_requests
+Completed 302 Found in 1416ms
+
+
+Started GET "/material_requests" for 127.0.0.1 at 2013-01-24 10:36:23 +0530
+  Processing by MaterialRequestsController#index as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+  [1m[35mSQL (2.0ms)[0m  describe `piping_notes_piping_class_details`
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions`[0m
+  [1m[35mSQL (2.2ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mEmployee Load (0.3ms)[0m  SELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1
+  [1m[36mAdmin::Message Load (0.3ms)[0m  [1mSELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1[0m
+  [1m[35mSQL (2.3ms)[0m  describe `material_requests_orders`
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+Completed   in 1077ms
+
+NoMethodError (undefined method `before_validation_on_create' for #<Class:0x007fd14f4d8208>):
+  activerecord (3.0.0.rc) lib/active_record/base.rb:963:in `method_missing'
+  app/models/material_request.rb:99:in `<class:MaterialRequest>'
+  app/models/material_request.rb:43:in `<top (required)>'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `block in load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:570:in `new_constants_in'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:433:in `load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:320:in `require_or_load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:471:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:483:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  app/controllers/material_requests_controller.rb:23:in `index'
+  actionpack (3.0.0.rc) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:136:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:454:in `_run__2152994126141157887__process_action__3988055582070158044__callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:404:in `_run_process_action_callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `block in instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:105:in `process'
+  actionpack (3.0.0.rc) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:173:in `block in action'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:148:in `block in call'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:93:in `block in recognize'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:152:in `optimized_each'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:489:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.7) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/flash.rb:177:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/cookies.rb:268:in `call'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:32:in `block in call'
+  activerecord (3.0.0.rc) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:31:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:410:in `_run_call_callbacks'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.7) lib/rack/sendfile.rb:106:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  railties (3.0.0.rc) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0.rc) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.7) lib/rack/lock.rb:13:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  rack (1.2.7) lib/rack/lock.rb:13:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:168:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0.rc) lib/rails/rack/log_tailer.rb:15:in `call'
+  rack (1.2.7) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.7) lib/rack/handler/webrick.rb:52:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.3ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/vendor/plugins/pboling_exception_notification/rails/init.rb. (called from block in <class:Plugin> at /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.0.0.rc/lib/rails/plugin.rb:78)
+  [1m[36mSQL (31.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions`[0m
+
+
+Started GET "/logout" for 127.0.0.1 at 2013-01-24 10:48:26 +0530
+  Processing by SessionsController#destroy as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[35mSQL (2.0ms)[0m  describe `material_requests_orders`
+  [1m[36mSQL (2.2ms)[0m  [1mdescribe `material_requests_orders`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `material_requests_orders`
+  [1m[36mSQL (225.2ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+  [1m[35mSQL (2.0ms)[0m  describe `piping_notes_piping_class_details`
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mSQL (2.1ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1[0m
+  [1m[35mAdmin::Message Load (0.2ms)[0m  SELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 2201ms
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-24 10:48:29 +0530
+  Processing by HomeController#index as HTML
+  [1m[36mAdmin::Message Load (0.3ms)[0m  [1mSELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1[0m
+Rendered home/index.rhtml within layouts/application (4.6ms)
+Completed 200 OK in 66ms (Views: 49.2ms | ActiveRecord: 237.8ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-01-24 10:48:42 +0530
+  Processing by SessionsController#create as HTML
+  Parameters: {"_snowman"=>"☃", "authenticity_token"=>"yPk5RYhm1C0/YdYPBKdRczOWfhoRBo6unCXx9H8HlJ0=", "login"=>"admin", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[35mAdmin::Message Load (0.4ms)[0m  SELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[36mSQL (2.2ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+  [1m[35mSQL (1.9ms)[0m  describe `piping_notes_piping_class_details`
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[36mSQL (0.7ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions`[0m
+  [1m[35mSQL (2.1ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mEmployee Load (0.4ms)[0m  SELECT `employees`.* FROM `employees` WHERE (`employees`.`login` = 'admin') LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 987ms
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-01-24 10:48:43 +0530
+  Processing by SessionsController#create as HTML
+  Parameters: {"_snowman"=>"☃", "authenticity_token"=>"yPk5RYhm1C0/YdYPBKdRczOWfhoRBo6unCXx9H8HlJ0=", "login"=>"admin", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdmin::Message Load (0.4ms)[0m  [1mSELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1[0m
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[35mSQL (2.0ms)[0m  describe `piping_notes_piping_class_details`
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[35mSQL (0.6ms)[0m  SHOW TABLES
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.4ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions`
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT `employees`.* FROM `employees` WHERE (`employees`.`login` = 'admin') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 989ms
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-24 10:48:44 +0530
+  Processing by HomeController#index as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[35mSQL (1.9ms)[0m  describe `piping_notes_piping_class_details`
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mSQL (1.2ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mEmployee Load (0.5ms)[0m  [1mSELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1[0m
+  [1m[35mAdmin::Message Load (0.2ms)[0m  SELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1
+Redirected to http://localhost:3000/material_requests
+Completed 302 Found in 943ms
+
+
+Started GET "/material_requests" for 127.0.0.1 at 2013-01-24 10:48:45 +0530
+  Processing by MaterialRequestsController#index as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+  [1m[35mSQL (2.8ms)[0m  describe `piping_notes_piping_class_details`
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mEmployee Load (0.3ms)[0m  SELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1
+  [1m[36mAdmin::Message Load (0.3ms)[0m  [1mSELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1[0m
+  [1m[35mSQL (2.3ms)[0m  describe `material_requests_orders`
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW TABLES[0m
+Completed   in 1029ms
+
+NoMethodError (undefined method `before_validation_on_create' for #<Class:0x007f9613fd2ba8>):
+  activerecord (3.0.0.rc) lib/active_record/base.rb:963:in `method_missing'
+  app/models/material_request.rb:99:in `<class:MaterialRequest>'
+  app/models/material_request.rb:43:in `<top (required)>'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `block in load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:570:in `new_constants_in'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:433:in `load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:320:in `require_or_load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:471:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:483:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  app/controllers/material_requests_controller.rb:23:in `index'
+  actionpack (3.0.0.rc) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:136:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:454:in `_run__4204009682829129573__process_action__559404939258283177__callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:404:in `_run_process_action_callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `block in instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:105:in `process'
+  actionpack (3.0.0.rc) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:173:in `block in action'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:148:in `block in call'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:93:in `block in recognize'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:152:in `optimized_each'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:489:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.7) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/flash.rb:177:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/cookies.rb:268:in `call'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:32:in `block in call'
+  activerecord (3.0.0.rc) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:31:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:410:in `_run_call_callbacks'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.7) lib/rack/sendfile.rb:106:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  railties (3.0.0.rc) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0.rc) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.7) lib/rack/lock.rb:13:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  rack (1.2.7) lib/rack/lock.rb:13:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:168:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0.rc) lib/rails/rack/log_tailer.rb:15:in `call'
+  rack (1.2.7) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.7) lib/rack/handler/webrick.rb:52:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.6ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/vendor/plugins/pboling_exception_notification/rails/init.rb. (called from block in <class:Plugin> at /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.0.0.rc/lib/rails/plugin.rb:78)
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.4ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions`[0m
+
+
+Started GET "/material_requests" for 127.0.0.1 at 2013-01-24 10:52:20 +0530
+  Processing by MaterialRequestsController#index as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[35mSQL (2.2ms)[0m  describe `material_requests_orders`
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:MaterialRequest> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/material_request.rb:103)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:MaterialRequest> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/material_request.rb:108)
+  [1m[36mSQL (2.2ms)[0m  [1mdescribe `material_requests_orders`[0m
+  [1m[35mSQL (2.2ms)[0m  describe `material_requests_orders`
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+  [1m[35mSQL (2.2ms)[0m  describe `piping_notes_piping_class_details`
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mSQL (2.2ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1[0m
+  [1m[35mAdmin::Message Load (0.3ms)[0m  SELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `material_requests_orders`[0m
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:MaterialRequest> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/material_request.rb:103)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:MaterialRequest> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/material_request.rb:108)
+  [1m[35mSQL (0.7ms)[0m  SHOW TABLES
+Completed   in 1694ms
+
+NoMethodError (undefined method `validation_method' for #<Class:0x007fd05f124e40>):
+  activerecord (3.0.0.rc) lib/active_record/base.rb:963:in `method_missing'
+  vendor/plugins/validates_existence/lib/validates_existence.rb:22:in `block in validates_existence_of'
+  vendor/plugins/validates_existence/lib/validates_existence.rb:18:in `each'
+  vendor/plugins/validates_existence/lib/validates_existence.rb:18:in `validates_existence_of'
+  app/models/material_request.rb:192:in `<class:MaterialRequest>'
+  app/models/material_request.rb:43:in `<top (required)>'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `block in load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:570:in `new_constants_in'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:433:in `load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:320:in `require_or_load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:471:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:483:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  app/controllers/material_requests_controller.rb:23:in `index'
+  actionpack (3.0.0.rc) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:136:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:454:in `_run__3434403937445933518__process_action__4361379607595906559__callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:404:in `_run_process_action_callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `block in instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:105:in `process'
+  actionpack (3.0.0.rc) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:173:in `block in action'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:148:in `block in call'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:93:in `block in recognize'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:152:in `optimized_each'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:489:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.7) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/flash.rb:177:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/cookies.rb:268:in `call'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:32:in `block in call'
+  activerecord (3.0.0.rc) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:31:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:410:in `_run_call_callbacks'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.7) lib/rack/sendfile.rb:106:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  railties (3.0.0.rc) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0.rc) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.7) lib/rack/lock.rb:13:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  rack (1.2.7) lib/rack/lock.rb:13:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:168:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0.rc) lib/rails/rack/log_tailer.rb:15:in `call'
+  rack (1.2.7) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.7) lib/rack/handler/webrick.rb:52:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.6ms)
+
+
+Started GET "/material_requests" for 127.0.0.1 at 2013-01-24 10:52:24 +0530
+  Processing by MaterialRequestsController#index as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[36mSQL (2.2ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+  [1m[35mSQL (2.3ms)[0m  describe `piping_notes_piping_class_details`
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mSQL (2.4ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mEmployee Load (0.3ms)[0m  SELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1
+  [1m[36mAdmin::Message Load (0.3ms)[0m  [1mSELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  describe `material_requests_orders`
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:MaterialRequest> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/material_request.rb:103)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:MaterialRequest> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/material_request.rb:108)
+  [1m[36mSQL (0.7ms)[0m  [1mSHOW TABLES[0m
+Completed   in 1057ms
+
+NoMethodError (undefined method `validation_method' for #<Class:0x007fd05f357348>):
+  activerecord (3.0.0.rc) lib/active_record/base.rb:963:in `method_missing'
+  vendor/plugins/validates_existence/lib/validates_existence.rb:22:in `block in validates_existence_of'
+  vendor/plugins/validates_existence/lib/validates_existence.rb:18:in `each'
+  vendor/plugins/validates_existence/lib/validates_existence.rb:18:in `validates_existence_of'
+  app/models/material_request.rb:192:in `<class:MaterialRequest>'
+  app/models/material_request.rb:43:in `<top (required)>'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `block in load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:570:in `new_constants_in'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:433:in `load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:320:in `require_or_load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:471:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:483:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  app/controllers/material_requests_controller.rb:23:in `index'
+  actionpack (3.0.0.rc) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:136:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:454:in `_run__3434403937445933518__process_action__4361379607595906559__callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:404:in `_run_process_action_callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `block in instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:105:in `process'
+  actionpack (3.0.0.rc) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:173:in `block in action'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:148:in `block in call'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:93:in `block in recognize'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:152:in `optimized_each'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:489:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.7) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/flash.rb:177:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/cookies.rb:268:in `call'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:32:in `block in call'
+  activerecord (3.0.0.rc) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:31:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:410:in `_run_call_callbacks'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.7) lib/rack/sendfile.rb:106:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  railties (3.0.0.rc) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0.rc) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.7) lib/rack/lock.rb:13:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  rack (1.2.7) lib/rack/lock.rb:13:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:168:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0.rc) lib/rails/rack/log_tailer.rb:15:in `call'
+  rack (1.2.7) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.7) lib/rack/handler/webrick.rb:52:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.1ms)
+
+
+Started GET "/material_requests" for 127.0.0.1 at 2013-01-24 11:11:58 +0530
+  Processing by MaterialRequestsController#index as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[35mSQL (42.3ms)[0m  describe `piping_notes_piping_class_details`
+  [1m[36mSQL (3.1ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[35mSQL (45.9ms)[0m  SHOW TABLES
+  [1m[36mResourcePermission Load (0.4ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mEmployee Load (0.4ms)[0m  [1mSELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1[0m
+  [1m[35mAdmin::Message Load (0.2ms)[0m  SELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1
+  [1m[36mSQL (2.4ms)[0m  [1mdescribe `material_requests_orders`[0m
+Completed   in 1214ms
+
+ArgumentError (Unknown validator: 'message'):
+  activemodel (3.0.0.rc) lib/active_model/validations/validates.rb:87:in `rescue in block in validates'
+  activemodel (3.0.0.rc) lib/active_model/validations/validates.rb:84:in `block in validates'
+  activemodel (3.0.0.rc) lib/active_model/validations/validates.rb:83:in `each'
+  activemodel (3.0.0.rc) lib/active_model/validations/validates.rb:83:in `validates'
+  app/models/material_request.rb:95:in `<class:MaterialRequest>'
+  app/models/material_request.rb:43:in `<top (required)>'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `block in load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:570:in `new_constants_in'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:433:in `load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:320:in `require_or_load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:471:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:483:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  app/controllers/material_requests_controller.rb:23:in `index'
+  actionpack (3.0.0.rc) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:136:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:454:in `_run__3434403937445933518__process_action__4361379607595906559__callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:404:in `_run_process_action_callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `block in instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:105:in `process'
+  actionpack (3.0.0.rc) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:173:in `block in action'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:148:in `block in call'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:93:in `block in recognize'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:152:in `optimized_each'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:489:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.7) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/flash.rb:177:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/cookies.rb:268:in `call'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:32:in `block in call'
+  activerecord (3.0.0.rc) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:31:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:410:in `_run_call_callbacks'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.7) lib/rack/sendfile.rb:106:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  railties (3.0.0.rc) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0.rc) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.7) lib/rack/lock.rb:13:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  rack (1.2.7) lib/rack/lock.rb:13:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:168:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0.rc) lib/rails/rack/log_tailer.rb:15:in `call'
+  rack (1.2.7) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.7) lib/rack/handler/webrick.rb:52:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (48.5ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (54.7ms)
+
+
+Started GET "/material_requests" for 127.0.0.1 at 2013-01-24 11:12:39 +0530
+  Processing by MaterialRequestsController#index as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[35mSQL (35.5ms)[0m  describe `piping_notes_piping_class_details`
+  [1m[36mSQL (8.7ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[35mSQL (55.6ms)[0m  SHOW TABLES
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1[0m
+  [1m[35mResourcePermission Load (4.9ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1
+  [1m[36mResourcePermission Load (0.7ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.3ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1[0m
+  [1m[35mResourcePermission Load (2.4ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions`
+  [1m[36mSQL (4.4ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mSQL (2.2ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mEmployee Load (4.0ms)[0m  [1mSELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1[0m
+  [1m[35mAdmin::Message Load (0.3ms)[0m  SELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `material_requests_orders`[0m
+Completed   in 2334ms
+
+ArgumentError (Unknown validator: 'message'):
+  activemodel (3.0.0.rc) lib/active_model/validations/validates.rb:87:in `rescue in block in validates'
+  activemodel (3.0.0.rc) lib/active_model/validations/validates.rb:84:in `block in validates'
+  activemodel (3.0.0.rc) lib/active_model/validations/validates.rb:83:in `each'
+  activemodel (3.0.0.rc) lib/active_model/validations/validates.rb:83:in `validates'
+  app/models/material_request.rb:95:in `<class:MaterialRequest>'
+  app/models/material_request.rb:43:in `<top (required)>'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:434:in `block in load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:570:in `new_constants_in'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:433:in `load_file'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:320:in `require_or_load'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:471:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:483:in `load_missing_constant'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:163:in `block in const_missing'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `each'
+  activesupport (3.0.0.rc) lib/active_support/dependencies.rb:161:in `const_missing'
+  app/controllers/material_requests_controller.rb:23:in `index'
+  actionpack (3.0.0.rc) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:136:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:454:in `_run__3434403937445933518__process_action__4361379607595906559__callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:404:in `_run_process_action_callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `block in instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:105:in `process'
+  actionpack (3.0.0.rc) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:173:in `block in action'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:148:in `block in call'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:93:in `block in recognize'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:152:in `optimized_each'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:489:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.7) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/flash.rb:177:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/cookies.rb:268:in `call'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:32:in `block in call'
+  activerecord (3.0.0.rc) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:31:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:410:in `_run_call_callbacks'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.7) lib/rack/sendfile.rb:106:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  railties (3.0.0.rc) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0.rc) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.7) lib/rack/lock.rb:13:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  rack (1.2.7) lib/rack/lock.rb:13:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:168:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0.rc) lib/rails/rack/log_tailer.rb:15:in `call'
+  rack (1.2.7) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.7) lib/rack/handler/webrick.rb:52:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.4ms)
+
+
+Started GET "/material_requests" for 127.0.0.1 at 2013-01-24 11:14:36 +0530
+  Processing by MaterialRequestsController#index as HTML
+DEPRECATION WARNING: Base#after_create has been deprecated, please use Base.after_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:78)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:87)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:Bill> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/bill.rb:100)
+  [1m[35mSQL (25.6ms)[0m  describe `piping_notes_piping_class_details`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `piping_notes_piping_class_details`[0m
+DEPRECATION WARNING: Base#after_destroy has been deprecated, please use Base.after_destroy :method instead. (called from <class:PipingReferenceAttaching> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/piping_reference_attaching.rb:23)
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:37)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:ReferenceNumberType> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/reference_number_type.rb:41)
+  [1m[35mSQL (27.6ms)[0m  SHOW TABLES
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'carts') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.4ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'events') LIMIT 1
+  [1m[36mResourcePermission Load (0.3ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'general_references') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'groups') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'inventory_items') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'live') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'material_requests') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'orders') LIMIT 1
+  [1m[36mResourcePermission Load (0.1ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'popv') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.1ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'quotes') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reference_numbers') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'reports') LIMIT 1
+  [1m[36mResourcePermission Load (0.2ms)[0m  [1mSELECT `resource_permissions`.* FROM `resource_permissions` WHERE (`resource_permissions`.`name` = 'hide_pricing') LIMIT 1[0m
+  [1m[35mResourcePermission Load (0.2ms)[0m  SELECT `resource_permissions`.* FROM `resource_permissions`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `vendor_groups_vendors`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `vendor_groups_vendors`
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT `employees`.* FROM `employees` WHERE (`employees`.`id` = 1) LIMIT 1[0m
+  [1m[35mAdmin::Message Load (0.3ms)[0m  SELECT `admin_messages`.* FROM `admin_messages` ORDER BY updated_at DESC LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `material_requests_orders`[0m
+DEPRECATION WARNING: Base#before_create has been deprecated, please use Base.before_create :method instead. (called from <class:MaterialRequest> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/material_request.rb:103)
+DEPRECATION WARNING: Base#before_save has been deprecated, please use Base.before_save :method instead. (called from <class:MaterialRequest> at /Users/abhilashkasarla/Rails_projects/mt_upgrade_rails/material_tracker/app/models/material_request.rb:108)
+Completed   in 1161ms
+
+ArgumentError (Unknown key(s): page):
+  activesupport (3.0.0.rc) lib/active_support/core_ext/hash/keys.rb:43:in `assert_valid_keys'
+  activerecord (3.0.0.rc) lib/active_record/relation/spawn_methods.rb:81:in `apply_finder_options'
+  activerecord (3.0.0.rc) lib/active_record/relation/finder_methods.rb:96:in `find'
+  activerecord (3.0.0.rc) lib/active_record/base.rb:399:in `find'
+  lib/listable.rb:102:in `list'
+  app/models/material_request.rb:407:in `block (3 levels) in for_employee'
+  activerecord (3.0.0.rc) lib/active_record/base.rb:1076:in `with_scope'
+  app/models/material_request.rb:406:in `block (2 levels) in for_employee'
+  activerecord (3.0.0.rc) lib/active_record/base.rb:1076:in `with_scope'
+  app/models/material_request.rb:405:in `block in for_employee'
+  app/models/material_request.rb:499:in `block in filter'
+  activerecord (3.0.0.rc) lib/active_record/base.rb:1076:in `with_scope'
+  app/models/material_request.rb:498:in `filter'
+  app/models/material_request.rb:404:in `for_employee'
+  app/controllers/material_requests_controller.rb:23:in `index'
+  actionpack (3.0.0.rc) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:136:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:454:in `_run__3434403937445933518__process_action__4361379607595906559__callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:404:in `_run_process_action_callbacks'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0.rc) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `block in instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0.rc) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0.rc) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0.rc) lib/abstract_controller/base.rb:105:in `process'
+  actionpack (3.0.0.rc) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_controller/metal.rb:173:in `block in action'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:148:in `block in call'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:93:in `block in recognize'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:152:in `optimized_each'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/routing/route_set.rb:489:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.7) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/flash.rb:177:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/cookies.rb:268:in `call'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:32:in `block in call'
+  activerecord (3.0.0.rc) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0.rc) lib/active_record/query_cache.rb:31:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  activesupport (3.0.0.rc) lib/active_support/callbacks.rb:410:in `_run_call_callbacks'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.7) lib/rack/sendfile.rb:106:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  railties (3.0.0.rc) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0.rc) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.7) lib/rack/lock.rb:13:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  rack (1.2.7) lib/rack/lock.rb:13:in `call'
+  actionpack (3.0.0.rc) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:168:in `call'
+  railties (3.0.0.rc) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0.rc) lib/rails/rack/log_tailer.rb:15:in `call'
+  rack (1.2.7) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.7) lib/rack/handler/webrick.rb:52:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/abhilashkasarla/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /Users/abhilashkasarla/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.0.rc/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.2ms)
