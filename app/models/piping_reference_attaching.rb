@@ -19,8 +19,9 @@ class PipingReferenceAttaching < ActiveRecord::Base
   	validates_uniqueness_of :piping_reference_id, 
   		:scope => [:attachable_type, :attachable_id],
   		:message => "has already been attached"
-  		  
-  	def after_destroy
+
+    after_destroy :piping_reference_a_destroy
+  	def piping_reference_destroy
     	if self.piping_reference.attachings.count == 0 && self.piping_reference.show_public_link != true
     		self.piping_reference.destroy
    		end

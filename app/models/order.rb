@@ -52,10 +52,10 @@ class Order < ActiveRecord::Base
   				:status_set_to_fully_received,
   				:eta_change_difference
 
-  validates_uniqueness_of :po_no, :allow_blank => true, :message => 'has already been created'
-  validates_presence_of :po_no, :on => :update
-  validates_presence_of :tracking, :unit_id
-  validates_numericality_of :turnaround_year, :allow_blank => true
+  validates :po_no, :uniqueness => true, :allow_blank => true, :uniqueness => { :message => "is not a valid year" }
+  validates :po_no, :on => :update, :presence => true
+  validates :tracking, :unit_id, :presence => true
+  validates :turnaround_year, :allow_blank => true, :numericality => true
 
   belongs_to :unit
   belongs_to :vendor

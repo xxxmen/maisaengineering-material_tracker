@@ -98,14 +98,16 @@ class MaterialRequest < ActiveRecord::Base
   
   before_validation :set_tracking,  :on => :create
   before_validation :set_acknowledged_and_authorized
+
+  before_create :current_employee_b_create
+  before_save :current_employee_b_save
   
-  
-  def before_create
+  def current_employee_b_create
   		# Set the created_by field
   	 	self.created_by = self.current_employee_id || self.requested_by_id
  	end
  	
-  def before_save 
+  def current_employee_b_save
 		self.updated_by = self.current_employee_id || Employee.current_employee_id
   		# If request is no longer a draft, fill in date_requested
   		self.date_requested ||= Time.now unless self.is_draft?

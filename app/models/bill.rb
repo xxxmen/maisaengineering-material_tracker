@@ -75,7 +75,11 @@ class Bill < ActiveRecord::Base
   ############################################################################
   # CALLBACKS
 
-	def after_create
+    after_create :employee_cuurent_a_create
+    before_create :employee_cuurent_b_create
+    before_save :employee_status_b_save
+
+	def employee_cuurent_a_create
   		#when we create a bill, set the employees current_bom to this one
   		if Employee.current_employee
 	  		Employee.current_employee.current_bom_id = self.id
@@ -84,7 +88,7 @@ class Bill < ActiveRecord::Base
   	end
 
 
-  	def before_create
+  	def employee_cuurent_b_create
   		if Employee.current_employee
   			self.created_by = Employee.current_employee.id
   		else
@@ -97,7 +101,7 @@ class Bill < ActiveRecord::Base
   	end
 
 
-  	def before_save
+  	def employee_status_b_save
   		if self.status.blank?
   			self.status = "Draft"
   		end

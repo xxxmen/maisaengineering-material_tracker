@@ -31,14 +31,15 @@ class ReferenceNumberType < ActiveRecord::Base
 	# CALLBACKS
   	##############################################################################
 
-	before_save :reset_defaults
+	before_save :reset_defaults, :current_employee_b_save
+  before_create :current_employee_b_create
 	
 	  	
-	def before_create
+	def current_employee_b_create
 		self.created_by = Employee.current_employee_id
 	end
 	
-	def before_save
+	def current_employee_b_save
 		self.updated_by = Employee.current_employee_id
 	end
 	
