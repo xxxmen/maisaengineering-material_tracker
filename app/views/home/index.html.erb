@@ -1,0 +1,213 @@
+<style type="text/css" media="screen">
+  body {
+    background: #555;
+  }
+
+/*  #company-branding {
+    display: none;
+  }
+
+  #telaeris-branding {
+    display: none;
+  }
+*/
+  #content {
+    text-align: center;
+  }
+
+  #login-area {
+    width: 350px;
+    margin: 0 auto;
+  }
+
+  #login-form {
+    background-color: #ddd;
+    border: 2px solid #111;
+    border-bottom: 4px solid #111;
+    padding: 15px;
+    text-align: left;
+    width: 100%;
+  }
+
+/*  #login-bp-logo {
+    position: relative;
+    right: 40px;
+    bottom: 20px;
+  }
+
+  #login-telaeris-logo {
+    margin-top: 20px;
+  }
+*/
+
+    #login-button {
+        width: 150px;
+        height: 30px;
+        margin-top: 20px;
+        font-size: 120%;
+    }
+
+/******************************
+	New Login CSS
+******************************/
+#signin-screen {
+	color: #FFF;
+	border: 3px solid #CCC;
+	background-color: #777;
+	padding: 20px;
+	padding-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+}
+
+#signin-screen hr {
+	height: 2px;
+	background-color: #FFF;
+	border: 0;
+	margin-top: 10px;
+}
+
+#signin-screen h2 {
+	font-size: 200%;
+	text-align: center;
+	color: #FFF;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+#signin-screen fieldset {
+	border: none;
+	text-align: right;
+/*	margin-bottom: 0;*/
+	padding: 0;
+
+}
+
+#signin-screen label {
+	font-size: 2em;
+	margin-left: 10px;
+	line-height: 2em;
+}
+
+#signin-screen input {
+	font-size: 150%;
+}
+
+#signin-screen input {
+	margin-left: 10px;
+	padding: 4px;
+	width: 180px;
+}
+
+#signin-screen .button {
+	font-size: 1.5em;
+	text-align: center;
+	margin-top: 10px;
+	width: 188px;
+}
+
+#signin-screen a {
+	display: inline;
+	width: 200px;
+	height: 40px;
+	color: #0F0;
+	font-size: 1.3em;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#signin-screen a:hover {
+	text-decoration: underline;
+	background-color: transparent;
+}
+
+#signin-screen span {
+	font-size: 1.5em;
+	margin-right: 20px;
+	position: relative;
+	bottom: 10px;
+}
+
+#signin-screen .login-warning {
+	font-size: 120%;
+	margin-top: 10px;
+}
+
+div.info-view-popv {
+	text-align: center;
+}
+
+</style>
+
+<!-- <#% if DEPLOY_SITE_NAME =~ /Carson/ -%>  -->
+ <% if 0 !=1 -%>
+<div id="login-area">
+
+  <!-- <img src="/graphics/bp.gif" id="login-bp-logo" /> -->
+
+
+  <%= form_tag sessions_path, :class => "edit", :id => "login-form" do %>
+  <p>
+    <label>Username:</label>
+    <%= text_field_tag :login, nil, :id => "login", :style => "width: 330px;", :value => params[:login] %>
+  </p>
+  <p>
+    <label>Password:</label>
+    <%= password_field_tag :password, nil, :style => "width: 330px;" %>
+  </p>
+  <p>
+    <label class="inline">Remember Me</label>
+    <%= check_box_tag :remember_me, 1, false, :style => "margin-right: 5px;" %>
+  </p>
+  <p class="description" style="color: #000;">
+    Be sure to logout if this computer will be used by others
+    <br/>
+    <br/>
+    <a href='/popv_viewer' style="color: green; text-decoration: underline;">Click here to view WebPOPV</a>
+  </p>
+  <p style="margin-bottom: 2px;">
+    <%= submit_tag "Log In", :id => "login-button" %>
+  </p>
+  <% end %>
+
+  <!-- <img src="/images/telaeris_logo.gif" id="login-telaeris-logo" /> -->
+</div>
+<% else -%>
+
+	<div id="signin-screen">
+		<form action="/sessions" method="post">
+  <% if resource_enabled?(:popv) %>
+
+			<div class="info-view-popv">
+				<a style="color: green; text-decoration: underline; text-align: center;" href="/popv_viewer">
+					<img src="/images/login/view_popv_button.gif" alt="View Only"/>
+				</a>
+			</div>
+
+      <hr>
+  <% end %>
+
+			<h2>Have an account?</h2>
+			<fieldset>
+				<label>Username:</label> <input type="text" name="login" class="focus"/>
+				<br/>
+				<label>Password:</label> <input type="password" name="password"/>
+				<br/>
+			    <%= check_box_tag :remember_me, 1, false, :style => "margin-right: 5px;" %>
+			    <label style="font-size: 120%;">Remember Me</label>
+			    <br/>
+
+
+			<input type="submit" value="Sign In" class="button"/>
+			</fieldset>
+
+			<hr>
+			<div class="login-warning">
+    			Be sure to logout if this computer will be used by others
+    		</p>
+
+		</form>
+	</div>
+
+<% end -%>

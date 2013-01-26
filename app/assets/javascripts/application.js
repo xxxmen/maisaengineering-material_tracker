@@ -8,9 +8,6 @@
 //= require jquery_ujs
 //= require_tree .
 
-
-
-
 var BrowserDetect = {
 	init: function () {
 		this.browser = this.searchString(this.dataBrowser) || "An unknown browser";

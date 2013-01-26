@@ -3,8 +3,10 @@
 	<% end %>
 <html>
 	<head>
-	<%#= stylesheet_link_tag    "application", :media => "all" %>
-	<%#= javascript_include_tag 'application', 'rails' %>
+
+    <%#=  javascript_include_tag 'prototype' %>
+	<%#= stylesheet_link_tag    "application" %>
+	<%#= javascript_include_tag 'application' %>
 	<%#= csrf_meta_tag %>
 
 <link rel="icon" href="/favicon.ico" type="image/ico" />
@@ -173,7 +175,7 @@
 
 	  	</div> <!-- end doc3 -->
 
-		<% if RAILS_ENV == 'production' %>
+        <% if Rails.env.production? %>
 			<%= render :partial => 'shared/google_analytics' %>
 		<% end %>
 
