@@ -2,7 +2,7 @@
 	<div class="left-col">
 		<h1>New ticket</h1>
 
-		<% form_for(@ticket, :html => {:multipart => true}) do |f| %>
+		<%= form_for(@ticket, :html => {:multipart => true}) do |f| %>
 		  	<%= f.error_messages %>
 			<div>
 				<%= f.label 'Category' %>

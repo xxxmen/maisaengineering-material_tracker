@@ -21,7 +21,7 @@ class PipingReferenceAttaching < ActiveRecord::Base
   		:message => "has already been attached"
 
     after_destroy :piping_reference_a_destroy
-  	def piping_reference_destroy
+  	def piping_reference_a_destroy
     	if self.piping_reference.attachings.count == 0 && self.piping_reference.show_public_link != true
     		self.piping_reference.destroy
    		end

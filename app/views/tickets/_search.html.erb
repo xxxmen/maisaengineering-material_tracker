@@ -1,4 +1,4 @@
-<% form_tag search_tickets_path, :method => :get do -%>
+<%= form_tag search_tickets_path, :method => :get do -%>
     <input type="text" value="Search Tickets" onfocus="InterfaceHelper.clear(this);" onblur="InterfaceHelper.reset(this);" style="font-style: italic; color: gray; width: 180px;" name="q" class="order-search" />
     <% [:state, :category, :priority].each do |filter_param| %>
         <% if params.has_key?(filter_param) %>
