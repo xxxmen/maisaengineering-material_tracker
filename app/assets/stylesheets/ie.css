@@ -1,0 +1,37 @@
+/* Internet explorer hacks to get things looking good */
+
+/* Move the navigation up 3 pixels, and extend the height 
+  so the background of a selected link actually shows up */
+html #navigation {
+  top: 62px;
+  height: 60px;
+}
+
+html #navigation li {
+  height: 60px;
+  padding: 20px 0;
+}
+
+html #navigation a {
+  position: relative;
+  padding-bottom: 12px;
+}
+
+html #navigation a:hover {
+  border-bottom: none;
+}
+
+html #navigation a.selected:hover {
+  text-decoration: none;
+}
+
+/* Fixes pagination issue, where the pagination links flicker when
+   hovered over and aren't completely filled in with the  background color */
+html .pagination a {
+  padding: 6px;
+}
+
+html .pagination a:hover {
+  background-color: #444;
+  padding: 6px;
+}

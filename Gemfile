@@ -1,18 +1,28 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.rc'
+gem 'rails', '3.1.0'
 gem 'paperclip'
 gem "will_paginate", ">= 3.0.pre2"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql'
+gem 'mysql2'
+
+# Needed for the new asset pipeline
+group :assets do
+  gem 'sass-rails',   "~> 3.1.5"
+  gem 'coffee-rails', "~> 3.1.1"
+  gem 'uglifier',     ">= 1.0.3"
+end
+
+# jQuery is the default JavaScript library in Rails 3.1
+gem 'jquery-rails'
 
 gem 'thinking-sphinx','>=2.0.0.rc1', :require => 'thinking_sphinx'
 
 gem 'ts-datetime-delta', :require => 'thinking_sphinx/deltas/datetime_delta'
 
-gem "rake", "~>0.8.3"
+#gem "rake", "~>0.8.3"
 
 gem "test-unit", "~> 2.4.0"
 
