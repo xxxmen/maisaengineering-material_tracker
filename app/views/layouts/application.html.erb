@@ -31,11 +31,11 @@
 			<%= stylesheet_link_tag 'base_packaged' %>
 		    <!-- We have to use seperate stylesheet for 'print' and 'yui'
 		    	 because it can't be included for media='screen' -->
-		    <link rel="stylesheet" href="/stylesheets/vendor/yui.css" type="text/css" media="all" charset="utf-8" />
-		    <link rel="stylesheet" href="/stylesheets/printer.css" type="text/css" media="print" charset="utf-8" />
+		    <link rel="stylesheet" href="/assets/vendor/yui.css" type="text/css" media="all" charset="utf-8" />
+		    <link rel="stylesheet" href="/assets/printer.css" type="text/css" media="print" charset="utf-8" />
 
 		    <!-- This must come last. -->
-		    <script type="text/javascript" src="/javascripts/jquery-1.6.2.js"></script>
+		    <script type="text/javascript" src="/assets/jquery-1.6.2.js"></script>
 		     <%= javascript_include_tag 'base_packaged' %>
 
 		<% else %>
@@ -96,7 +96,7 @@
 	      		</div>
 
 				<p id="telaeris-branding">
-					<a href="/tickets/new?referral=<%= params[:controller] %>"><img src="/images/telaeris_logo.gif" /></a>
+					<a href="/tickets/new?referral=<%= params[:controller] %>"><img src="/assets/telaeris_logo.gif" /></a>
 				</p>
 
 				<p id="ajax_loading" style="display: none;">Loading ...</p>
