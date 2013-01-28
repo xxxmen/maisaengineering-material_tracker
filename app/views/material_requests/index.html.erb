@@ -49,7 +49,7 @@
       <td class="desc"><%= link_to_desc m %></td>
       <td class="unit"><%= h m.unit.description %></td>
       <td class="requester"><%= h m.requester.short_name %></td>
-      <td class="status"><%= m.status %></td>
+      <td class="status"><%= m.status.html_safe %></td>
     </tr>
   <% end %>
     
