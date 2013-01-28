@@ -53,7 +53,7 @@ module AuthenticatedSystem
     
     def verify_login
       return true if params[:user] == "winclient" && params[:password] == "bp_carson"
-      return true if Rails_env == "test"
+      return true if Rails.env.test?
       username, passwd = get_auth_data
       self.current_employee ||= Employee.authenticate(username, passwd) || :false if username && passwd
       logged_in? && authorized? ? true : false

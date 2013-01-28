@@ -1,4 +1,4 @@
-<% if RAILS_ENV == "development" && logged_in? %>
+<% if Rails.env.production? && logged_in? %>
 <!--
 <script type="text/javascript">
 
