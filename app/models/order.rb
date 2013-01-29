@@ -94,7 +94,7 @@ class Order < ActiveRecord::Base
   has_and_belongs_to_many :material_requests
 
   # Temporarily assign a tracking for now to blank ones
-  before_validation_on_update do |o|
+  before_validation do |o|
     if o.tracking.blank?
       o.tracking = Order.newest_tracking
     end

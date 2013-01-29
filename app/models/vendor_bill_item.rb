@@ -17,9 +17,9 @@ class VendorBillItem < ActiveRecord::Base
   belongs_to :bill_item
   belongs_to :vendor
   
-  before_validation_on_create do |v|
+  before_validation do |v|
     v.bill_id = v.bill_item.bill.id
   end
-  
+
   validates_presence_of :bill_id, :bill_item_id, :vendor_item_id
 end

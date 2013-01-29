@@ -1,5 +1,5 @@
 <% if logged_in? and params[:action] != "quote" and params[:action] != "email_quote" %>
-<% form_tag search_material_requests_path, :method => :get do -%>
+<%= form_tag search_material_requests_path, :method => :get do -%>
     <input type="text" value="Search Requests" onfocus="InterfaceHelper.clear(this);" onblur="InterfaceHelper.reset(this);" style="font-style: italic; color: gray; width: 180px;" name="q" />
     <% [:status, :group, :unit, :requester].each do |filter_param| %>
         <% if params.has_key?(filter_param) %>

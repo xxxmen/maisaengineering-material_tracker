@@ -24,11 +24,11 @@ class Reference < ActiveRecord::Base
   validates_presence_of :folder_id
   belongs_to :folder
   before_validation { |r| r.folder_id ||= 1 }
-  
+
   has_attachment :storage => :file_system,
                  :path_prefix => "refs"
-                 
-  
+
+
   	# Thinking Sphinx Config
 #	define_index do
 #		indexes :search_terms

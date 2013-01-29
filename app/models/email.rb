@@ -17,7 +17,7 @@ class Email < ActiveRecord::Base
   belongs_to :employee
   has_many :events, :as => :recordable
   
-  before_validation_on_create :set_employee
+  before_validation :set_employee, :on => :create
 
   validates_presence_of :content, :to, :from, :subject, :employee_id
           

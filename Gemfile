@@ -18,9 +18,9 @@ end
 # jQuery is the default JavaScript library in Rails 3.1
 gem 'jquery-rails'
 
-gem 'thinking-sphinx', '3.0.0'
+gem 'thinking-sphinx', '2.0.10', :require => 'thinking_sphinx'
 
-gem 'ts-datetime-delta', :require => 'thinking_sphinx/deltas/datetime_delta'
+gem 'ts-datetime-delta', '1.0.2', :require => 'thinking_sphinx/deltas/datetime_delta'
 
 #gem "rake", "~>0.8.3"
 
@@ -35,7 +35,8 @@ gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototyp
 group :development, :test do
 	#gem "mocha"
 	gem 'ruby-debug19'
-  gem 'rspec-rails', '2.0.1'
+  gem 'rspec-rails', '2.6.1.beta1'
+  gem 'rspec', '2.6'
   gem "factory_girl_rails"
 end
 

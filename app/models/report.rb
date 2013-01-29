@@ -20,7 +20,7 @@ class Report
 	COMMAND_WIN = "\"c:\\Program Files\\Report Manager\\printreptopdf.exe\""
 	COMMAND_CYGWIN = "\"/cygdrive/c/Program\ Files/Report\ Manager/printreptopdf.exe\""
 	CONTENT_TYPE = 'application/pdf'
-	ERROR_OUTPUT = "2>> #{RAILS_ROOT}/log/stderr.txt"
+	ERROR_OUTPUT = "2>> #{Rails_root}/log/stderr.txt"
 
 
   ##############################################################################
@@ -94,7 +94,7 @@ class PipingClassReport < Report
 
 		report = self.new
 		report.options = "-paramPCLASSIDS='#{class_id}'"
-		report.report_name = "#{RAILS_ROOT}/reports/piping_class_details_no_notes_linux.rep"
+		report.report_name = "#{Rails_root}/reports/piping_class_details_no_notes_linux.rep"
 		report.title = "ALL_PIPING_CLASSES.pdf"
 
 		# Creates a new Tempfile and writes the generated report to it.
@@ -112,7 +112,7 @@ class PipingClassReport < Report
 
 		report = self.new
 		report.options = "-paramPCLASSIDS='#{class_id}'"
-		report.report_name = "#{RAILS_ROOT}/reports/piping_class_details_no_notes_linux.rep"
+		report.report_name = "#{Rails_root}/reports/piping_class_details_no_notes_linux.rep"
 		report.title = "PIPING_CLASS_DETAILS_#{class_code}.pdf"
 
 		class_report = report.generate
@@ -122,7 +122,7 @@ class PipingClassReport < Report
 
 		report = self.new
 		report.options = "-paramPCLASSIDS='#{class_id}'"
-		report.report_name = "#{RAILS_ROOT}/reports/piping_class_details_piping_notes.rep"
+		report.report_name = "#{Rails_root}/reports/piping_class_details_piping_notes.rep"
 		report.title = "PIPING_CLASS_NOTES.pdf"
 
 		notes_report = report.generate
@@ -131,7 +131,7 @@ class PipingClassReport < Report
 		piping_notes_pdf.write notes_report
 		piping_notes_pdf.close
 
-		new_pdf = "#{RAILS_ROOT}/tmp/tmp_report.pdf"
+		new_pdf = "#{Rails_root}/tmp/tmp_report.pdf"
 
 		if class_report.size > 0 && notes_report.size > 0
 		    # Concatenates the two PDF's together
@@ -153,7 +153,7 @@ class PipingClassReport < Report
 		class_code = piping_class.class_code
 
 		report.options = "-paramPCLASSID='#{class_id}'"
-		report.report_name = "#{RAILS_ROOT}/reports/valve_sheets_for_piping_class_linux.rep"
+		report.report_name = "#{Rails_root}/reports/valve_sheets_for_piping_class_linux.rep"
 		report.title = "VALVE_SHEETS_FOR_PIPING_CLASS_#{class_code}.pdf"
 		report
 	end
@@ -161,7 +161,7 @@ class PipingClassReport < Report
 
   	def self.notes_pdf
 		report = self.new
-		report.report_name = "#{RAILS_ROOT}/reports/piping_notes_linux.rep"
+		report.report_name = "#{Rails_root}/reports/piping_notes_linux.rep"
 		report.title = "PIPING_NOTES.pdf"
 		report
 	end
@@ -183,12 +183,12 @@ class BillsReport < Report
 
 		case RUBY_PLATFORM
 			when /mswin32/
-				report.report_name = "\"#{RAILS_ROOT}\\reports\\popv_bom_rfq_vert_windows.rep\""
+				report.report_name = "\"#{Rails_root}\\reports\\popv_bom_rfq_vert_windows.rep\""
 				report.output = nil
 			when /cygwin/
-				report.report_name = "\"#{RAILS_ROOT}\\reports\\popv_bom_rfq_vert_windows.rep\""
+				report.report_name = "\"#{Rails_root}\\reports\\popv_bom_rfq_vert_windows.rep\""
 			else # *nix
-				report.report_name = "#{RAILS_ROOT}/reports/popv_bom_rfq_vert_linux.rep"
+				report.report_name = "#{Rails_root}/reports/popv_bom_rfq_vert_linux.rep"
 		end
 
 		report
@@ -206,12 +206,12 @@ class BillsReport < Report
 
 		case RUBY_PLATFORM
 			when /mswin32/
-				report.report_name = "\"#{RAILS_ROOT}\\reports\\popv_bom_vert_windows.rep\""
+				report.report_name = "\"#{Rails_root}\\reports\\popv_bom_vert_windows.rep\""
 				report.output = nil
 			when /cygwin/
-				report.report_name = "\"#{RAILS_ROOT}\\reports\\popv_bom_vert_windows.rep\""
+				report.report_name = "\"#{Rails_root}\\reports\\popv_bom_vert_windows.rep\""
 			else
-				report.report_name = "#{RAILS_ROOT}/reports/popv_bom_vert_linux.rep"
+				report.report_name = "#{Rails_root}/reports/popv_bom_vert_linux.rep"
 		end
 
 		report
@@ -227,11 +227,11 @@ class ValvesReport < Report
 		report = self.new
 
 		report.options = "-paramPVALVEIDS='0'"
-		report.report_name = "#{RAILS_ROOT}/reports/valve_sheet_linux.rep"
+		report.report_name = "#{Rails_root}/reports/valve_sheet_linux.rep"
 		report.title = "ALL_VALVES_SHEET.pdf"
 
 		report
-#		report_name = "#{RAILS_ROOT}/reports/valve_sheet_linux.rep"
+#		report_name = "#{Rails_root}/reports/valve_sheet_linux.rep"
 
 #		@valves = Valve.find(:all, :order => 'valve_code ASC')
 #
@@ -337,7 +337,7 @@ class ValvesReport < Report
 	  	valve = Valve.find(params["id"])
 
 		report.options = "-paramPVALVEIDS='#{params["id"]}'"
-		report.report_name = "#{RAILS_ROOT}/reports/valve_sheet_linux.rep"
+		report.report_name = "#{Rails_root}/reports/valve_sheet_linux.rep"
 		report.title = "VALVE_SHEET_#{valve.valve_code}.pdf"
 
 		report
@@ -356,7 +356,7 @@ class ValvesReport < Report
 
 
 		report.options = "-paramPVALVEIDS='#{params["valve_1_id"]},#{params["valve_2_id"]}'"
-		report.report_name = "#{RAILS_ROOT}/reports/valve_sheet_linux.rep"
+		report.report_name = "#{Rails_root}/reports/valve_sheet_linux.rep"
 		report.title = "VALVE_COMPARISON_#{@valve_codes}.pdf"
 
 		report

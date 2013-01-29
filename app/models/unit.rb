@@ -32,10 +32,10 @@ class Unit < ActiveRecord::Base
     has_many :bills
   
   	# Thinking Sphinx Config
-	#define_index do
-	#	indexes :description
-	#	set_property :delta => true
-	#end
+	define_index do
+		indexes :description
+		set_property :delta => true
+	end
   
     validates_presence_of :description
     validates_uniqueness_of :description   
