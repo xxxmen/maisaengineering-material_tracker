@@ -1,4 +1,4 @@
-<% form_tag search_employees_path, :method => :get do -%>
+<%= form_tag search_employees_path, :method => :get do -%>
   <% if params[:users_only] %>
   <input type="hidden" value="true" name="users_only" />
   <% end %>
