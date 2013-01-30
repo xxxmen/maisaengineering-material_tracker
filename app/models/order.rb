@@ -87,7 +87,7 @@ class Order < ActiveRecord::Base
 		# Associations
 		indexes unit(:description), :as => :unit_name
 		indexes vendor(:name), :as => :supplier
-		
+
     set_property :delta => true
 	end
 
@@ -310,7 +310,7 @@ class Order < ActiveRecord::Base
       end
     end
 
-    
+
     conditions.push(vendor) if !vendor.blank?
     conditions.push(unit) if !unit.blank?
     conditions.push(status) if !status.blank?
