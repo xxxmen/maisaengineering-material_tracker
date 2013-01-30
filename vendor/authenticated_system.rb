@@ -5,18 +5,18 @@ module AuthenticatedSystem
     def logged_in?
       current_employee != :false
     end
-    
+
     # Accesses the current employee from the session.
     def current_employee
       @current_employee ||= (session[:employee] && Employee.find_by_id(session[:employee])) || :false
     end
-    
+
     # Store the given employee in the session.
     def current_employee=(new_employee)
       session[:employee] = (new_employee.nil? || new_employee.is_a?(Symbol)) ? nil : new_employee.id
       @current_employee = new_employee
     end
-    
+
     # Check if the employee is authorized.
     #
     # Override this method in your controllers if you want to restrict access
@@ -50,7 +50,7 @@ module AuthenticatedSystem
     def login_required
       verify_login ? true : access_denied
     end
-    
+
     def verify_login
       return true if params[:user] == "winclient" && params[:password] == "bp_carson"
       return true if Rails.env.test?
@@ -58,7 +58,7 @@ module AuthenticatedSystem
       self.current_employee ||= Employee.authenticate(username, passwd) || :false if username && passwd
       logged_in? && authorized? ? true : false
    	end
-    
+
     # Redirect as appropriate when an access request fails.
     #
     # The default action is to redirect to the login screen.
@@ -81,24 +81,24 @@ module AuthenticatedSystem
         end
       end
       false
-    end  
-    
+    end
+
     # Store the URI of the current request in the session.
     #
     # We can return to this location by calling #redirect_back_or_default.
     def store_location
       if request.get?
-        session[:return_to] = request.request_uri
+        session[:return_to] = request.url
       end
     end
-    
+
     # Redirect to the URI stored by the most recent store_location call or
     # to the passed default.
     def redirect_back_or_default(default)
       session[:return_to] ? redirect_to(session[:return_to]) : redirect_to(default)
       session[:return_to] = nil
     end
-    
+
     # Inclusion hook to make #current_employee and #logged_in?
     # available as ActionView helper methods.
     def self.included(base)
@@ -123,6 +123,6 @@ module AuthenticatedSystem
     def get_auth_data
       auth_key  = @@http_auth_headers.detect { |h| request.env.has_key?(h) }
       auth_data = request.env[auth_key].to_s.split unless auth_key.blank?
-      return auth_data && auth_data[0] == 'Basic' ? Base64.decode64(auth_data[1]).split(':')[0..1] : [nil, nil] 
+      return auth_data && auth_data[0] == 'Basic' ? Base64.decode64(auth_data[1]).split(':')[0..1] : [nil, nil]
     end
 end

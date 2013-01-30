@@ -32,14 +32,14 @@ module Listable
       def_sort = options[:sort] || "asc"
       undef_sort = def_sort.to_s == "asc" ? "desc" : "asc"
       extras = options[:include] || []
-      
+
       new_url = {}
 
       new_url.merge!(:action => params[:action])
       new_url.merge!(:q => params[:q]) if params.has_key?(:q)  # query (search)
       new_url.merge!(:c => params[:c]) if params.has_key?(:c)  # per-page count
-      new_url.merge!(:o => order)      
-      
+      new_url.merge!(:o => order)
+
       if params[:s] == nil || params[:o] != order.to_s || params[:s] == undef_sort
         new_url.merge!(:s => def_sort.to_s)
       else
@@ -56,13 +56,13 @@ module Listable
 
     def get_order_image(field)
       if params[:o] != field
-        return "<img src='../assets/none.gif' />"
+        return "<img src='/../assets/none.gif'/>"
       elsif params[:s].nil? || params[:s] == "asc"
-        return "<img src='../assets/ascending.gif' />"
+        return "<img src='/../assets/ascending.gif'>"
       else
-       return "<img src='../assets/descending.gif' />"
+       return "<img src='/../assets/descending.gif'>"
       end
-    end    
+    end
   end
   
   module ModelHelper

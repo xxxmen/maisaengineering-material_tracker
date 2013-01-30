@@ -272,8 +272,8 @@ end
         ['POPV Viewer', POPV_VIEWER]
     ]
 
-    if(RAILS_ENV == 'development' || RAILS_ENV == 'test' || Employee.current_employee.popv_admin?)
-        roles << ['POPV Admin', POPV_ADMIN]
+    if(Rails.env.development? || Rails.env.test? || Employee.current_employee.popv_admin?)
+      roles << ['POPV Admin', POPV_ADMIN]
     end
 
     return roles

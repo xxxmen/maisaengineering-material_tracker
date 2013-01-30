@@ -22,7 +22,7 @@ class MaterialRequestsController < ApplicationController
   def index
     @material_requests = MaterialRequest.paginate(:page => params[:page], :per_page => 10)
   end
-    
+
   def edit
     find_suggested_vendor
   end
@@ -39,7 +39,7 @@ class MaterialRequestsController < ApplicationController
     material_request = MaterialRequest.find(params[:id])
     material_request.attachment.clear
     material_request.save!
-    
+
     flash[:notice] = "Attachment Cleared"
     redirect_to :action => "edit", :id => material_request.id
   end
@@ -71,7 +71,7 @@ class MaterialRequestsController < ApplicationController
     if request.post?
       @vendor = Vendor.find_by_name(params[:vendor][:name])
       if @vendor
-        
+
         @quote = Quote.find_or_create(@material_request, @vendor,params[:request])
         redirect_to :action => "quote", :id => @material_request, :access_key => @vendor.access_key, :vendor_id => @vendor.id, :new_quote => @quote.delta
       else
@@ -85,14 +85,14 @@ class MaterialRequestsController < ApplicationController
     @material_request = MaterialRequest.find(params[:id])
     find_suggested_vendor
     @vendors = Vendor.find(:all, :order => :name)
-    @vendor_groups = VendorGroup.find(:all, :order => :name) 
+    @vendor_groups = VendorGroup.find(:all, :order => :name)
     @vendor_groups_for_js = Hash.new
     @vendor_groups.each do |v|
         vendors = []
         v.vendors.each {|vendor| vendors.push vendor.email.to_s + " (" + vendor.id.to_s + ")" }
         @vendor_groups_for_js["vendor_group_#{v.id}"] = vendors
     end
-    
+
     if request.post?
       all_emails = []
       params[:emails] ||= {}
@@ -117,7 +117,7 @@ class MaterialRequestsController < ApplicationController
         quote.uploaded_quote_attachments = params[:uploaded_quote_attachments]
 
         RequestMailer.send_as_html('quote_for_vendor', @material_request, vendor, quote, options)
-        
+
 
       end
 
@@ -237,7 +237,7 @@ class MaterialRequestsController < ApplicationController
         item.id = item.item_no
       end
     end
-    @material_request.group_id = current_employee.get_group	
+    @material_request.group_id = current_employee.get_group
 
     render :action => :edit
   end
@@ -289,7 +289,7 @@ class MaterialRequestsController < ApplicationController
     @material_request.items.destroy_all
     @item = @material_request.items.build
     @item.id = 0
-    @material_request.group_id = current_employee.get_group	
+    @material_request.group_id = current_employee.get_group
     flash[:error] = "There were some errors with this material request: #{@material_request.errors.full_messages.join(', ')}"
     render :action => "edit"
   end
@@ -394,10 +394,10 @@ end
             uom_index = -1
             notes_index = -1
             @index = -1
-            begin                
+            begin
                 item_no = params[:item_no].to_i
                 parsed_rows = CSV.parse(params[:new_line_item_csv_file])
-              
+
                parsed_rows.each_with_index do |row, index|
                 @index = index
                   if(index == 0)
@@ -439,7 +439,7 @@ end
                     else
                       notes = ""
                     end
-                
+
                     item = RequestedLineItem.new(:material_description => description, :notes => notes, :item_no => item_no, :quantity => quantity, :unit_of_measure => unit_of_measure)
                     if(!item.valid?)
                         @json = {:success => false, :errors => "Error on line " + index.to_s + " " + item.errors.full_messages.join(', ')}
@@ -454,10 +454,10 @@ end
                 end
             rescue StandardError => e
 
-              @json = {:success => false, :errors => "Error on Row " + @index.to_s + " " + e.message}               
-            end            
+              @json = {:success => false, :errors => "Error on Row " + @index.to_s + " " + e.message}
+            end
         end
-        
+
         render :text => @json.to_json
     end
 

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include ExceptionNotification::ExceptionNotifiable
 
   before_filter :login_from_cookie
-  before_filter :login_required  
+  before_filter :login_required
   before_filter :set_cattr_employee
   before_filter :get_admin_message
   
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
         render :nothing => true, :status => 418
     end
   
-protected 
+protected
   # Returns the class that the controller is using as its main resource
   def resource
     self.class::RESOURCE || (raise NotImplementedError, "#{self.class} does not define a RESOURCE"; nil)
