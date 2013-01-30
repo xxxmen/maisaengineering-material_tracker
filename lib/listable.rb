@@ -56,11 +56,11 @@ module Listable
 
     def get_order_image(field)
       if params[:o] != field
-        return "<img src='/../assets/none.gif'/>"
+        return "<img src='/assets/none.gif'/>".html_safe
       elsif params[:s].nil? || params[:s] == "asc"
-        return "<img src='/../assets/ascending.gif'>"
+        return "<img src='/assets/ascending.gif'>".html_safe
       else
-       return "<img src='/../assets/descending.gif'>"
+       return "<img src='/assets/descending.gif'>".html_safe
       end
     end
   end
