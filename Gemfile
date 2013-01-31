@@ -22,13 +22,13 @@ gem 'thinking-sphinx', '2.0.10', :require => 'thinking_sphinx'
 
 gem 'ts-datetime-delta', '1.0.2', :require => 'thinking_sphinx/deltas/datetime_delta'
 
-#gem "rake", "~>0.8.3"
+gem "rake", "~>0.8.3"
 
 gem "test-unit", "~> 2.4.0"
 
 gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
 
-gem 'authlogic'
+#gem 'authlogic'
 
 #gem 'paperclip', :git => 'git://github.com/lmumar/paperclip.git', :branch => 'rails3'
 
