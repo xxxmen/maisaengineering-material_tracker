@@ -20,7 +20,7 @@ class Report
 	COMMAND_WIN = "\"c:\\Program Files\\Report Manager\\printreptopdf.exe\""
 	COMMAND_CYGWIN = "\"/cygdrive/c/Program\ Files/Report\ Manager/printreptopdf.exe\""
 	CONTENT_TYPE = 'application/pdf'
-	ERROR_OUTPUT = "2>> #{Rails_root}/log/stderr.txt"
+	#ERROR_OUTPUT = "2>> #{Rails_root}/log/stderr.txt"
 
 
   ##############################################################################
