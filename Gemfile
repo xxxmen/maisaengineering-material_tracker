@@ -13,7 +13,10 @@ group :assets do
   gem 'sass-rails',   "~> 3.1.5"
   gem 'coffee-rails', "~> 3.1.1"
   gem 'uglifier',     ">= 1.0.3"
+  gem 'therubyracer', '0.11.1', :platform => :ruby
 end
+
+gem 'libv8', '~> 3.11.8'
 
 # jQuery is the default JavaScript library in Rails 3.1
 gem 'jquery-rails'
@@ -22,7 +25,7 @@ gem 'thinking-sphinx', '2.0.10', :require => 'thinking_sphinx'
 
 gem 'ts-datetime-delta', '1.0.2', :require => 'thinking_sphinx/deltas/datetime_delta'
 
-gem "rake", "~>0.8.3"
+#gem "rake", "~>0.8.3"
 
 gem "test-unit", "~> 2.4.0"
 
