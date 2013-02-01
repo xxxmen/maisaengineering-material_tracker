@@ -46,7 +46,7 @@
 	<li>
 		<span class="button">
 			<a href="#" onclick="<%= form_save(@ticket) %>" title="save">
-		        <img src="/images/icons/order_save.png" alt=""/>
+		        <img src="/assets/icons/order_save.png" alt=""/>
 		        Save
 		    </a>
 		</span>
@@ -64,7 +64,7 @@
 <% if params[:action] == "edit" %>
 	<li>
 		<span class="button">
-			<%= link_to '<img src="/images/icons/delete.png" />Destroy', @ticket, :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to '<img src="/assets/icons/delete.png" />Destroy', @ticket, :confirm => 'Are you sure?', :method => :delete %>
 		</span>
 	</li>
 <% end %>
