@@ -35,7 +35,8 @@ class HomeController < ApplicationController
   end
 
   def changelog
-    text = IO.read(RAILS_ROOT + '/CHANGELOG')
+    #raise Rails.root.inspect
+    text = IO.read(Rails.root + 'CHANGELOG').html_safe
     @log = text #BlueCloth::new(text).to_html
   end
 
