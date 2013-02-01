@@ -33,7 +33,8 @@ module InterfaceHelper
   private
   def span_button_for(button_name, img_path)
     text = "<img src=\"/assets/icons/" + img_path + '" alt="Icon" />' + button_name
-    return '<span class="button">' + (yield text) + '</span>'
+    text = text.html_safe
+    return "<span class='button'>  #{yield text} </span>".html_safe
   end
   
   end
