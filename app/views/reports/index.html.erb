@@ -45,7 +45,7 @@
         <option value="inventory_items">Items by Stock or Vendor</option>
         <option value="inventory_reorder_items_by_vendor">Reorder Items By Vendor</option>        
       </optgroup>
-      <% if RAILS_ENV == "development" %>
+      <% if Rails.env.development? %>
       <optgroup label="Graphs">
         <option value="graph-this-week">Graph - This Week's POs</option>
         <option value="graph-this-month-by-week">Graph - This Month's Weekly POs</option>

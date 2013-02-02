@@ -1,6 +1,6 @@
 ---
-javascripts: 
-- base: 
+javascripts:
+- base:
   - jQuery-1.2.6/jquery.color
   - jquery.form
   - defaults/prototype
@@ -32,8 +32,8 @@ javascripts:
   - sxt/sxt-resources
   - sxt/sxt-ui
 
-stylesheets: 
-- base: 
+stylesheets:
+- base:
   - icons
   - vendor/calendar-green
   - telaeris
