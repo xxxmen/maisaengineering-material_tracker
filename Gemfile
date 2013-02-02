@@ -19,7 +19,7 @@ end
 gem 'libv8', '~> 3.11.8'
 
 # jQuery is the default JavaScript library in Rails 3.1
-#gem 'jquery-rails'
+gem 'jquery-rails'
 
 gem 'thinking-sphinx', '2.0.10', :require => 'thinking_sphinx'
 
@@ -40,8 +40,8 @@ gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototyp
 group :development, :test do
 	#gem "mocha"
 	gem 'ruby-debug19'
-  gem 'rspec-rails', '2.6.1.beta1'
-  gem 'rspec', '2.6'
+  gem 'rspec-rails', '~> 2.6.1.beta1'
+  gem 'rspec', '~> 2.6'
   gem "factory_girl_rails"
 end
 
