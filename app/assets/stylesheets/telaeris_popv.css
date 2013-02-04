@@ -6,7 +6,7 @@ strong { font-weight: bold; }
 
 br.clear { height: 1px; clear: both; }
 
-/* Useful class elements */
+    /* Useful class elements */
 .section { padding: 20px; }
 .clear { clear: both; }
 .button img { margin-right: 3px; position: relative; top: 3px; }
@@ -24,22 +24,22 @@ div.related_data {padding:15px 5px 0px;}
 
 .yellow {background-color: yellow !important; }
 .selected-link {
-   background-image: url(../img/silk/icons/bullet_blue.png);
-   background-repeat: no-repeat;
-   background-position: center left;
-   color: #05D !important;
- }
+    background-image: url(../img/silk/icons/bullet_blue.png);
+    background-repeat: no-repeat;
+    background-position: center left;
+    color: #05D !important;
+}
 
 
-/* Layout specific elements */
+    /* Layout specific elements */
 #hd { background-color: #333; color: #fff; position: relative;
-  font-family:arial,helvetica,clean,sans-serif;
-font-size:13px;
-font-size-adjust:none;
-font-style:normal;
-font-variant:normal;
-font-weight:normal;
- }
+    font-family:arial,helvetica,clean,sans-serif;
+    font-size:13px;
+    font-size-adjust:none;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+}
 #hd a { color: #fff;font-weight:bold; }
 #company-branding { position: absolute; top: 5px; left: 10px; }
 #company-branding a { border: none; color: #fff; text-decoration: none; }
@@ -53,18 +53,18 @@ font-weight:normal;
 * + html #telaeris-branding { right: 25px; }
 
 #ajax_loading { background-color: green; color: #fff; font-size: 110%; position: absolute; top: 0;right: 220px;
-  padding: 6px 8px; display: inline; z-index: 100; }
+    padding: 6px 8px; display: inline; z-index: 100; }
 #user-info { color: #eee; position: absolute; font-size: 90%; top: 65px; right: 10px; }
 #user-info a { color: #fff; }
 * html #user-info { right: 25px; }
 * + html #user-info { right: 25px; }
 
 #version {
-	color: #eee; 
-	position: absolute; 
-	font-size: 90%; 
-	top: 45px; 
-	right: 10px;
+    color: #eee;
+    position: absolute;
+    font-size: 90%;
+    top: 45px;
+    right: 10px;
 }
 
 
@@ -112,7 +112,7 @@ table.information tr:hover td a { color: #fff; }
 table tr .delete-icon { cursor: pointer; visibility: hidden; margin-right: 2px; }
 
 
-/* Forms */
+    /* Forms */
 form.edit { width: 45%; font-size: 100%; }
 form.edit h2.msg { border-bottom: 1px solid #ccc; font-size: 130%; font-weight: bold; margin-bottom: 20px; text-align: center; }
 form.edit h2.msg input { font-size: 90%; font-weight: normal; margin-left: 10px; position: relative; bottom: 3px; }
@@ -121,7 +121,7 @@ form.edit.inline { width: 100%; }
 form.edit p { clear: both; margin-top: 2px; margin-bottom: 7px; }
 form.edit label { font-weight: bold; font-size: 95%; display: block; margin: 1px 0; line-height: 1em; }
 form.edit input.text, form.edit textarea, form.edit select,  form.edit input.password,  #search input.text, #search select,input.text {
-  font-size: 95%; margin: 2px 0; padding: 1px 2px; width: 90%; border-top:1px solid #7c7c7c; border-left:1px solid #c3c3c3; border-right:1px solid #c3c3c3; border-bottom:1px solid #ccc; }
+    font-size: 95%; margin: 2px 0; padding: 1px 2px; width: 90%; border-top:1px solid #7c7c7c; border-left:1px solid #c3c3c3; border-right:1px solid #c3c3c3; border-bottom:1px solid #ccc; }
 form.edit textarea { font-size: 105%; margin: 1px 0; padding: 1px; font-weight: normal; height: 40px; width: 90%; }
 form.edit .title { font-weight: bold; }
 form.edit .short { width: 50%; }
@@ -130,10 +130,10 @@ form.edit .formError { color: #ff0000; font-weight: bold; }
 form.edit span.required { color: #ff0000; font-size: 85%; font-style: italic; }
 form.edit .meta { color: #222; font-size: 85%; font-style: italic; }
 form.edit .form-button {
-  text-align: center;  
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+    text-align: center;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 form.edit .menu { margin-top: 20px; }
 form.edit .menu a { font-size: 110%; }
@@ -145,7 +145,7 @@ form.edit label.inline { display: inline; }
 
 #search select { font-size: 95%; padding: 1px; position: relative; bottom: 2px; width: 120px; }
 
-/* For pagination */
+    /* For pagination */
 .pagination { margin: 15px 0; text-align: left; font-size: 95%; }
 .pagination .section { padding: 2px 0; }
 .pagination .disablepage, .pagination .currentpage { background: #eee; border: 1px solid #ddd; padding: 2px 4px; }
@@ -187,16 +187,16 @@ form.edit table div.fieldWithErrors { position: relative; bottom: 0; }
 #changelog ol { list-style: decimal; margin-left: 1.2em; }
 
 
-/* Internet explorer hacks to get things looking good */
+    /* Internet explorer hacks to get things looking good */
 
-/* Move the navigation up 3 pixels, and extend the height 
-  so the background of a selected link actually shows up */
-  /*
-* html #navigation { top: 62px; height: 60px; }
-* + html #navigation { top: 62px; height: 60px; }
-* html #navigation li { height: 60px; padding: 20px 0; }
-* + html #navigation li { height: 60px; padding: 20px 0; }
-*/
+    /* Move the navigation up 3 pixels, and extend the height
+so the background of a selected link actually shows up */
+    /*
+    * html #navigation { top: 62px; height: 60px; }
+    * + html #navigation { top: 62px; height: 60px; }
+    * html #navigation li { height: 60px; padding: 20px 0; }
+    * + html #navigation li { height: 60px; padding: 20px 0; }
+    */
 
 * html #navigation a { position: relative; padding-bottom: 12px; }
 * + html #navigation a { position: relative; padding-bottom: 12px; }
@@ -207,9 +207,9 @@ form.edit table div.fieldWithErrors { position: relative; bottom: 0; }
 * html #navigation a.selected:hover { text-decoration: none; }
 * + html #navigation a.selected:hover { text-decoration: none; }
 
-/* Fixes pagination issue, where the pagination links flicker when
-   hovered over and aren't completely filled in with the  background color */
-   
+    /* Fixes pagination issue, where the pagination links flicker when
+hovered over and aren't completely filled in with the  background color */
+
 * html .pagination a { padding: 6px; }
 * + html .pagination a { padding: 6px; }
 
@@ -218,16 +218,16 @@ form.edit table div.fieldWithErrors { position: relative; bottom: 0; }
 
 * html div.auto_complete ul * { width: 100%; }
 
-/* for scrollable index pages */
+    /* for scrollable index pages */
 #maininfo { overflow-y: auto; border: 1px solid #aaa;}
 div[id=content] { bottom: 0px; }
-div[id=maininfo] { position: absolute; top: 45px; bottom: 60px; left: 20px; right: 20px; }   
+div[id=maininfo] { position: absolute; top: 45px; bottom: 60px; left: 20px; right: 20px; }
 div[id=pagination] { position: absolute; bottom: 10px; }
 * html #maininfo { height: expression((document.body.clientHeight-222).toString() + 'px'); }   /* clientHeight =~ 592 */
 * html #pagination { position: relative; bottom: 2px; padding-bottom: 0px; margin-bottom: 0px;}
 
 
-/* slider stuff */
+    /* slider stuff */
 div.slider {width: 350px;height: 5px;margin-top:5px;margin-bottom:5px;background: #aaa;position: relative; float: left;}
 div.slider div {position:absolute;width:10px;height:20px;margin-top:-5px;background: #111;border:1px outset white; cursor: pointer; }
 #paginate_page { width: 25px; text-align: right;}
@@ -238,45 +238,45 @@ div.slider div {position:absolute;width:10px;height:20px;margin-top:-5px;backgro
 .large-font {font-size: 125%!important;}
 
 #resource_navigation {
-	font-size: 100%; 
-	margin-left: 2px; 
-	margin-right: 4px;
-	font-family: arial,helvetica,clean,sans-serif; 
+    font-size: 100%;
+    margin-left: 2px;
+    margin-right: 4px;
+    font-family: arial,helvetica,clean,sans-serif;
 }
-#resource_navigation h1 { 
-	font-size: 130%; 
-	font-weight: bold; 
-	padding-top: 5px; 
-	padding-bottom: 5px;
-	padding-left: 5px;
-}						
+#resource_navigation h1 {
+    font-size: 130%;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
 #resource_navigation li {
-	padding: 1px;
+    padding: 1px;
 }
-#resource_navigation li a { 
-	display: block;
-	padding: 4px 0px 4px 25px;
-	background-repeat: no-repeat;
-	background-position: 0px 50%;
-	color: #15428B; 
-	text-decoration: none; 
-	margin: 0px 0px 0px 10px;
-	border: 1px solid #FFF;
+#resource_navigation li a {
+    display: block;
+    padding: 4px 0px 4px 25px;
+    background-repeat: no-repeat;
+    background-position: 0px 50%;
+    color: #15428B;
+    text-decoration: none;
+    margin: 0px 0px 0px 10px;
+    border: 1px solid #FFF;
 }
-/* Hack for IE6. It doesn't style anchor blocks unless given a width... */
-* html #resource_navigation li a { 
-	width: 100%;
+    /* Hack for IE6. It doesn't style anchor blocks unless given a width... */
+* html #resource_navigation li a {
+    width: 100%;
 }
 #resource_navigation a:hover {
-	color: #33B; 
-	background-color: #DFE8F6;
-	border: 1px solid #33B;
+    color: #33B;
+    background-color: #DFE8F6;
+    border: 1px solid #33B;
 }
 
-.current_bom { 
-	font-size: 80%; 
-	padding-left: 30px;
-	margin-top: 5px;
+.current_bom {
+    font-size: 80%;
+    padding-left: 30px;
+    margin-top: 5px;
 }
 
 .hidden {display:none;}
@@ -286,15 +286,15 @@ div.slider div {position:absolute;width:10px;height:20px;margin-top:-5px;backgro
 .purple { color:purple }
 
 .x-tab-strip-active {
-  text-decoration:underline;  
+    text-decoration:underline;
 }
 
-/*******************************************************************
-*  POPV Piping Classes Grid
-*******************************************************************/
+    /*******************************************************************
+    *  POPV Piping Classes Grid
+    *******************************************************************/
 .x-grid3-cell-inner {
     white-space: normal !important;
-}  
+}
 
 table.popv-notes {
     border-collapse: collapse;
@@ -302,10 +302,10 @@ table.popv-notes {
 }
 
 table.popv-notes th {
-    background: #222 url(../graphics/th.jpg) repeat-x top left; 
-    color: #fff; 
-    font-size: 90%; 
-    font-weight: bold; 
+    background: #222 url(../graphics/th.jpg) repeat-x top left;
+    color: #fff;
+    font-size: 90%;
+    font-weight: bold;
     padding: 5px 10px;
 }
 
@@ -316,73 +316,73 @@ table.popv-notes td {
 }
 
 
-/*LIGHT BLUE*/
+    /*LIGHT BLUE*/
 .color_0 {background-color:#CCFFFF;}
-/*LIGHT GREEN*/
+    /*LIGHT GREEN*/
 .color_1 {background-color:#CCFFCC;}
-/*LIGHT YELLOW*/
+    /*LIGHT YELLOW*/
 .color_2 {background-color:#FFFFCC;}
-/*LIGHT PURPLE*/
+    /*LIGHT PURPLE*/
 .color_3 {background-color:#CCCCFF;}
-/*LIGHT PINK*/
+    /*LIGHT PINK*/
 .color_4 {background-color:#FFCCFF;}
-/*LIGHT ORANGE*/
+    /*LIGHT ORANGE*/
 .color_5 {background-color:#FFCC99;}
-/*TURQUOISE*/
+    /*TURQUOISE*/
 .color_6 {background-color:#33FFFF;}
-/*GREEN*/
+    /*GREEN*/
 .color_7 {background-color:#00CC00;}
-/*PINK*/
+    /*PINK*/
 .color_8 {background-color:#FF00FF;}
-/*WHITE  */
+    /*WHITE  */
 .color_9 {background-color:#FFFFFF;}
 
-/*******************************************************************
-*  POPV Grid Help Dialog
-*******************************************************************/
+    /*******************************************************************
+    *  POPV Grid Help Dialog
+    *******************************************************************/
 
 .help-text h1 {
-	font-size: 120%;
-	text-decoration: underline;
-	font-weight: bold;
-	margin: 10px 5px 15px 15px;
+    font-size: 120%;
+    text-decoration: underline;
+    font-weight: bold;
+    margin: 10px 5px 15px 15px;
 }
 
 .help-text p {
-	margin: 0px 10px 10px 15px;
+    margin: 0px 10px 10px 15px;
 }
 
 .help-text label {
-	font-weight: bold;
+    font-weight: bold;
 }
-/*******************************************************************************
-* Admin::MessagesController
-*******************************************************************************/
+    /*******************************************************************************
+    * Admin::MessagesController
+    *******************************************************************************/
 #admin-message {
-	position: absolute; 
-	top: 0px; 
-	right: 180px;
-	color: #000;
-	border-left: 2px solid #F60;
-	border-bottom: 2px solid #F60;
-	border-right: 2px solid #F60;
-	padding: 5px;
-	background-color: #FC4;
-	font-weight: bold;
+    position: absolute;
+    top: 0px;
+    right: 180px;
+    color: #000;
+    border-left: 2px solid #F60;
+    border-bottom: 2px solid #F60;
+    border-right: 2px solid #F60;
+    padding: 5px;
+    background-color: #FC4;
+    font-weight: bold;
 }
 
 .admin-messages h1 {
-	font-size: 200%;
-	font-weight: bold;
-	margin-bottom: 10px;
+    font-size: 200%;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .admin-messages p {
-	padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .admin-messages label {
-	font-weight: bold;
-	font-size: 120%;
+    font-weight: bold;
+    font-size: 120%;
 }
 

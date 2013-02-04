@@ -90,7 +90,7 @@
   <div id="hd">
     <div id="company-branding">
 
-      <img src="/graphics/logo.gif" id="logo_pic"/>
+      <%= image_tag "graphics/logo.gif",id: "logo_pic" %>
       <h1><a href="/">Material Tracker</a></h1>
     </div>
 
@@ -99,7 +99,9 @@
     </div>
 
     <p id="telaeris-branding">
-      <a href="/tickets/new?referral=<%= params[:controller] %>"><img src="/assets/telaeris_logo.gif" /></a>
+      <a href="/tickets/new?referral=<%= params[:controller] %>">
+        <%= image_tag "telaeris_logo.gif" %>
+      </a>
     </p>
 
     <p id="ajax_loading" style="display: none;">Loading ...</p>
