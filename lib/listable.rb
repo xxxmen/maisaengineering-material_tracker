@@ -102,7 +102,7 @@ module Listable
       count = params[:c] && (params[:c].to_i > 0) ? params[:c].to_i : self::PERPAGE
           
       #self.find(:all, :order => order, :page => { :size => count, :current => page }, :include => includes)
-      self.includes(includes).order(order).paginate(page: page, per_page: 3)
+      self.includes(includes).order(order).paginate(page: page, per_page: 5)
     end
 
 # 	 Original Acts_as_ferret search method.  (2009-06-18)
