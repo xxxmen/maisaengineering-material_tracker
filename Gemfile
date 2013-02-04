@@ -19,7 +19,7 @@ end
 gem 'libv8', '~> 3.11.8'
 
 # jQuery is the default JavaScript library in Rails 3.1
-#gem 'jquery-rails'
+gem 'jquery-rails'
 
 gem 'thinking-sphinx', '2.0.10', :require => 'thinking_sphinx'
 

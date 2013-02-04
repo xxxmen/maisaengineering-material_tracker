@@ -33,14 +33,16 @@
           <%= stylesheet_link_tag "telaeris" %>
           <%= stylesheet_link_tag "jquery-ui-themes/overcast/ui.all" %>
 
+
+
+
 		    <!-- We have to use seperate stylesheet for 'print' and 'yui'
 		    	 because it can't be included for media='screen' -->
 		    <link rel="stylesheet" href="/assets/vendor/yui.css" type="text/css" media="all" charset="utf-8" />
 		    <link rel="stylesheet" href="/assets/printer.css" type="text/css" media="print" charset="utf-8" />
 
 		    <!-- This must come last. -->
-            <%= javascript_include_tag 'jquery-1.6.2' %>
-		    <!--<script type="text/javascript" src="/assets/jquery-1.6.2.js"></script>-->
+		    <script type="text/javascript" src="/assets/jquery-1.6.2.js"></script>
 		     <%#= javascript_include_tag 'base' %>
 
           <%= javascript_include_tag 'jQuery-1.2.6/jquery.color' %>
@@ -101,21 +103,14 @@
 
 		    <%#= javascript_include_merged :base %>
 
-	  	  <%= javascript_include_tag 'ext-3.3.0/Ext' %>
-          <%= javascript_include_tag 'ext-3.3.0/ext-base' %>
-          <%= javascript_include_tag 'ext-3.3.0/ext-all' %>
-          <%= javascript_include_tag 'ext-ux/ext_ux_editor_grid_formfield' %>
-          <%= javascript_include_tag 'ext-ux/ext_ux_toast' %>
-          <%= javascript_include_tag 'ext-ux/ext_ux_grid_rowactions' %>
-          <%= javascript_include_tag 'ext-ux/DDView' %>
-          <%= javascript_include_tag 'ext-ux/Multiselect' %>
-          <%= javascript_include_tag 'ext-ux/data_view_plugins' %>
-          <%= javascript_include_tag 'ext-ux/notesview' %>
-          <%= javascript_include_tag 'ext-ux/TabCloseMenu' %>
-          <%= javascript_include_tag 'vendor/md5-hash' %>
-          <%= javascript_include_tag 'sxt/sxt-telaeris' %>
-          <%= javascript_include_tag 'sxt/sxt-resources' %>
-          <%= javascript_include_tag 'sxt/sxt-ui' %>
+	  		<%= javascript_include_tag 'popv' %>
+          <%= javascript_include_tag 'popv' %>
+          <%= javascript_include_tag 'popv' %>
+          <%= javascript_include_tag 'popv' %>
+          <%= javascript_include_tag 'popv' %>
+          <%= javascript_include_tag 'popv' %>
+          <%= javascript_include_tag 'popv' %>
+          <%= javascript_include_tag 'popv' %>
 
 
 
