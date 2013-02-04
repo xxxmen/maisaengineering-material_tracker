@@ -4,25 +4,25 @@ class CompaniesController < ApplicationController
   def index
     @companies = Company.list(params, :order => "companies.updated_at", :sort => "desc")
   end
-  
+
   def search
     @companies = Company.search(params)
     return_search(@companies)
   end
-    
+
   def new
     @company = Company.new
     render :action => :edit
   end
-  
+
   def create
     @company = Company.new
     save_and_show!
   rescue ActiveRecord::RecordInvalid
-    flash.now[:error] = "There was a problem saving this company." 
+    flash.now[:error] = "There was a problem saving this company."
     render :action => :edit
   end
-  
+
   def update
     save_and_show!
   rescue ActiveRecord::RecordInvalid
@@ -32,7 +32,7 @@ class CompaniesController < ApplicationController
     @company.destroy
     redirect_to companies_path
   end
-  
+
   private
   def save_and_show!
     @company.attributes = params[:company]
@@ -45,7 +45,7 @@ class CompaniesController < ApplicationController
       wants.js
     end
   end
-  
+
   def find_company
     @company = Company.find(params[:id])
   end

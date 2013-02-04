@@ -41,4 +41,4 @@ production:
   adapter: mysql2
   database: po_tracker
   pool: 5
-  timeout: 5000
+

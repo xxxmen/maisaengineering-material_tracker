@@ -1,220 +1,186 @@
 <% unless params[:controller] == 'popv' %>
-	<!DOCTYPE html>
-	<% end %>
+<!DOCTYPE html>
+<% end %>
 <html>
-	<head>
+<head>
 
-    <%#=  javascript_include_tag 'prototype' %>
-	<%#= stylesheet_link_tag    "application" %>
-	<%#= javascript_include_tag 'application' %>
-	<%#= csrf_meta_tag %>
+  <%#=  javascript_include_tag 'prototype' %>
+  <%#= stylesheet_link_tag    "application" %>
+  <%#= javascript_include_tag 'application' %>
+  <%#= csrf_meta_tag %>
 
-<link rel="icon" href="/favicon.ico" type="image/ico" />
-<link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
-	    <title>
-			<% if @material_request && @material_request.tracking %>
-				Req #<%= @material_request.tracking %> | Material Tracker
-			<% elsif @material_request %>
-				New Req | Material Tracker
-			<% elsif @order && @order.po_no %>
-				PO #<%= @order.po_no %> | Material Tracker
-			<% elsif @order %>
-				New PO | Material Tracker
-			<% elsif params[:q] %>
-				Search: <%= params[:q] %> | Material Tracker
-			<% else %>
-				<%= "#{ENV['DEPLOY_SITE_NAME']} Material Tracker | By Telaeris Inc." %>
-			<% end %>
-		</title>
+  <link rel="icon" href="/favicon.ico" type="image/ico" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
+  <title>
+    <% if @material_request && @material_request.tracking %>
+        Req #<%= @material_request.tracking %> | Material Tracker
+    <% elsif @material_request %>
+        New Req | Material Tracker
+    <% elsif @order && @order.po_no %>
+        PO #<%= @order.po_no %> | Material Tracker
+    <% elsif @order %>
+        New PO | Material Tracker
+    <% elsif params[:q] %>
+        Search: <%= params[:q] %> | Material Tracker
+    <% else %>
+        <%= "#{ENV['DEPLOY_SITE_NAME']} Material Tracker | By Telaeris Inc." %>
+    <% end %>
+  </title>
 
-		<% unless params[:controller] == 'popv' || params[:controller] == 'piping' %>
-		  <%= stylesheet_link_tag "icons" %>
-          <%= stylesheet_link_tag "vendor/calendar-green" %>
-          <%= stylesheet_link_tag "telaeris" %>
-          <%= stylesheet_link_tag "jquery-ui-themes/overcast/ui.all" %>
+  <% unless params[:controller] == 'popv' || params[:controller] == 'piping' %>
+      <%= stylesheet_link_tag "base_packaged" %>
+      <!-- We have to use seperate stylesheet for 'print' and 'yui'
+                  because it can't be included for media='screen' -->
+      <%= stylesheet_link_tag "vendor/yui.css"%>
+      <%= stylesheet_link_tag "printer.css" %>
+      <!-- This must come last. -->
 
+      <%= javascript_include_tag 'application' %>
+      <%#= javascript_include_tag 'base' %>
+      <%= javascript_include_tag 'base_packaged' %>
 
-
-
-		    <!-- We have to use seperate stylesheet for 'print' and 'yui'
-		    	 because it can't be included for media='screen' -->
-		    <link rel="stylesheet" href="/assets/vendor/yui.css" type="text/css" media="all" charset="utf-8" />
-		    <link rel="stylesheet" href="/assets/printer.css" type="text/css" media="print" charset="utf-8" />
-
-		    <!-- This must come last. -->
-		    <script type="text/javascript" src="/assets/jquery-1.6.2.js"></script>
-		     <%#= javascript_include_tag 'base' %>
-
-          <%= javascript_include_tag 'jQuery-1.2.6/jquery.color' %>
-          <%= javascript_include_tag 'jquery.form' %>
-          <%= javascript_include_tag 'defaults/prototype' %>
-          <%= javascript_include_tag 'defaults/effects' %>
-          <%= javascript_include_tag 'defaults/controls' %>
-          <%= javascript_include_tag 'defaults/dragdrop' %>
-          <%= javascript_include_tag 'defaults/slider' %>
-          <%= javascript_include_tag 'vendor/interface_helper' %>
-          <%= javascript_include_tag 'calendar/calendar' %>
-          <%= javascript_include_tag 'calendar/calendar-en' %>
-          <%= javascript_include_tag 'calendar/calendar-setup' %>
-          <%= javascript_include_tag 'application' %>
-          <%= javascript_include_tag 'jquery-ui/jquery-ui-1.6.custom.min' %>
-          <%= javascript_include_tag 'jquery-ui/jquery.bgiframe.min' %>
-
-		<% else %>
-	  	  <%= stylesheet_link_tag 'icons' %>
-          <%= stylesheet_link_tag 'telaeris_popv' %>
-          <%= stylesheet_link_tag 'ext-all-3.3.0' %>
-          <%= stylesheet_link_tag 'xtheme-blue' %>
-          <%= stylesheet_link_tag 'tasks' %>
-          <%= stylesheet_link_tag 'Multiselect' %>
-          <%= stylesheet_link_tag 'ext_ux_grid_rowactions' %>
+  <% else %>
+      <%= stylesheet_link_tag "popv_packaged" %>
 
 
-			<% if logged_in? %>
-				<script type="text/javascript" charset="utf-8">
-					var currentUser = {};
-					currentUser.login = "<%= Employee.current_employee.login %>";
-					currentUser.firstName = "<%= Employee.current_employee.first_name %>";
-					currentUser.lastName = "<%= Employee.current_employee.last_name %>";
-					currentUser.fullName = "<%= Employee.current_employee.full_name %>";
-					currentUser.current_bom_id = "<%= Employee.current_employee.current_bom_id %>";
-					currentUser.role = "<%= Employee.current_employee.state_for_role %>";
-					currentUser.email = "<%= Employee.current_employee.email %>";
+      <% if logged_in? %>
+          <script type="text/javascript" charset="utf-8">
+              var currentUser = {};
+              currentUser.login = "<%= Employee.current_employee.login %>";
+              currentUser.firstName = "<%= Employee.current_employee.first_name %>";
+              currentUser.lastName = "<%= Employee.current_employee.last_name %>";
+              currentUser.fullName = "<%= Employee.current_employee.full_name %>";
+              currentUser.current_bom_id = "<%= Employee.current_employee.current_bom_id %>";
+              currentUser.role = "<%= Employee.current_employee.state_for_role %>";
+              currentUser.email = "<%= Employee.current_employee.email %>";
 
-					<% if Employee.current_employee.popv_viewer? %>
-		    			currentUser.popv_viewer = true;
-					<% else %>
-		    			currentUser.popv_viewer = false;
-					<% end %>
+              <% if Employee.current_employee.popv_viewer? %>
+              currentUser.popv_viewer = true;
+              <% else %>
+              currentUser.popv_viewer = false;
+              <% end %>
 
-					<% if Employee.current_employee.popv_user? %>
-		    			currentUser.popv_user = true;
-					<% else %>
-		    			currentUser.popv_user = false;
-					<% end %>
+              <% if Employee.current_employee.popv_user? %>
+              currentUser.popv_user = true;
+              <% else %>
+              currentUser.popv_user = false;
+              <% end %>
 
-					<% if(Employee.current_employee.popv_admin? == true) %>
-		    			currentUser.admin = true;
-					<% else %>
-		    			currentUser.admin = false;
-					<% end %>
-				</script>
-	  		<% end %>
+              <% if(Employee.current_employee.popv_admin? == true) %>
+              currentUser.admin = true;
+              <% else %>
+              currentUser.admin = false;
+              <% end %>
+          </script>
+      <% end %>
 
-		    <%#= javascript_include_merged :base %>
+      <%#= javascript_include_merged :base %>
 
-	  		<%= javascript_include_tag 'popv' %>
-          <%= javascript_include_tag 'popv' %>
-          <%= javascript_include_tag 'popv' %>
-          <%= javascript_include_tag 'popv' %>
-          <%= javascript_include_tag 'popv' %>
-          <%= javascript_include_tag 'popv' %>
-          <%= javascript_include_tag 'popv' %>
-          <%= javascript_include_tag 'popv' %>
+     <%= javascript_include_tag 'popv_packaged' %>
 
 
 
-		<% end %>
-	</head>
+  <% end %>
+</head>
 
-	<body>
-	  	<div id="doc3" class="yui-t7">
-	      	<div id="overlay" onclick="hideBox()" style="display:none"></div>
+<body>
+<div id="doc3" class="yui-t7">
+  <div id="overlay" onclick="hideBox()" style="display:none"></div>
 
-	    	<div id="hd">
-	      		<div id="company-branding">
+  <div id="hd">
+    <div id="company-branding">
 
-	         		<img src="/graphics/logo.gif" id="logo_pic"/>
-	         		<h1><a href="/">Material Tracker</a></h1>
-	      		</div>
+      <img src="/graphics/logo.gif" id="logo_pic"/>
+      <h1><a href="/">Material Tracker</a></h1>
+    </div>
 
-	      		<div id="site-branding">
-	         		<h2><%= deploy_site_name %></h2>
-	      		</div>
+    <div id="site-branding">
+      <h2><%= deploy_site_name %></h2>
+    </div>
 
-				<p id="telaeris-branding">
-					<a href="/tickets/new?referral=<%= params[:controller] %>"><img src="/assets/telaeris_logo.gif" /></a>
-				</p>
+    <p id="telaeris-branding">
+      <a href="/tickets/new?referral=<%= params[:controller] %>"><img src="/assets/telaeris_logo.gif" /></a>
+    </p>
 
-				<p id="ajax_loading" style="display: none;">Loading ...</p>
+    <p id="ajax_loading" style="display: none;">Loading ...</p>
 
-				<% if @admin_message %>
-					<div id="admin-message"><%= @admin_message %></div>
-				<% end %>
+    <% if @admin_message %>
+        <div id="admin-message"><%= @admin_message %></div>
+    <% end %>
 
-	      		<div id="version">
-	      	 		<!-- Version: <#%= ENV['MATERIAL_TRACKER_VERSION'] %> | <#%= render :partial => "shared/version" %> -->
-	      		</div>
+    <div id="version">
+      <!-- Version: <#%= ENV['MATERIAL_TRACKER_VERSION'] %> | <#%= render :partial => "shared/version" %> -->
+    </div>
 
-	      		<% unless params[:controller] == 'home' && ['index', 'superuser'].include?(params[:action]) %>
-	      			<%= render :partial => "shared/roles" %>
-	      			<p id="user-info">
-		        		<% if logged_in? %>
-		          			Logged in as <strong><%= current_employee.state_for_role %></strong>: <%= link_to current_employee.full_name, edit_employee_path(current_employee) %> |
-							<a href="/tickets/new?referral=<%= params[:controller] %>">Give Feedback</a> |
-		          			<% if current_employee.admin? %>
-		            			<a href="/changelog">Changelog</a> |
-		          			<% end %>
-							<a onclick="Telaeris.skipConfirm = true;" href='/logout'>Logout</a>
-		        		<% end %>
-	      			</p>
+    <% unless params[:controller] == 'home' && ['index', 'superuser'].include?(params[:action]) %>
+        <%= render :partial => "shared/roles" %>
+        <p id="user-info">
+          <% if logged_in? %>
+              Logged in as <strong><%= current_employee.state_for_role %></strong>: <%= link_to current_employee.full_name, edit_employee_path(current_employee) %> |
+              <a href="/tickets/new?referral=<%= params[:controller] %>">Give Feedback</a> |
+              <% if current_employee.admin? %>
+                  <a href="/changelog">Changelog</a> |
+              <% end %>
+              <a onclick="Telaeris.skipConfirm = true;" href='/logout'>Logout</a>
+          <% end %>
+        </p>
 
-			      	<%= render :partial => "shared/navigation" %>
+        <%= render :partial => "shared/navigation" %>
 
-					<% unless params[:controller] == 'home' %>
-					    <ul id="menu">
-					    	<%= render :partial => "actions" %>
-					    </ul>
+        <% unless params[:controller] == 'home' %>
+            <ul id="menu">
+              <%= render :partial => "actions" %>
+            </ul>
 
-					    <div id="search">
-					    	<%= render :partial => "search" %>
-					    </div>
-					<% end %>
-			    <% end %>
-			</div> <!-- end hd -->
+            <div id="search">
+              <%= render :partial => "search" %>
+            </div>
+        <% end %>
+    <% end %>
+  </div> <!-- end hd -->
 
-		    <% if show_update_message? %>
-		       <% flash.now[:notice] = HomeController::UPDATEMESSAGE %>
-		    <% end %>
+  <% if show_update_message? %>
+      <% flash.now[:notice] = HomeController::UPDATEMESSAGE %>
+  <% end %>
 
-		    <% if flash[:notice] %>
-		      	<div id="notice">
-		      		<div class="section">
-		        		<a href="#" onclick="Telaeris.closeNotice(); return false;" id="close-notice">Close Notice</a>
-		        		<%= flash[:notice] %>
-		        	</div>
-		       	</div>
-		    <% end %>
+  <% if flash[:notice] %>
+      <div id="notice">
+        <div class="section">
+          <a href="#" onclick="Telaeris.closeNotice(); return false;" id="close-notice">Close Notice</a>
+          <%= flash[:notice] %>
+        </div>
+      </div>
+  <% end %>
 
-		    <% if flash[:error] %>
-		      	<div id="error">
-		        	<div class="section">
-		        		<a href="#" onclick="Telaeris.closeError(); return false;" id="close-error">Close Notice</a>
-		          		<%= flash[:error] %>
-		        	</div>
-		      	</div>
-		    <% end %>
+  <% if flash[:error] %>
+      <div id="error">
+        <div class="section">
+          <a href="#" onclick="Telaeris.closeError(); return false;" id="close-error">Close Notice</a>
+          <%= flash[:error] %>
+        </div>
+      </div>
+  <% end %>
 
 
-			<% unless params[:controller] == 'popv' %>
-			    <div id="bd">
-			      	<div class="yui-g" id="content">
-			        	<div class="section">
-			<% end %>
+  <% unless params[:controller] == 'popv' %>
+      <div id="bd">
+        <div class="yui-g" id="content">
+          <div class="section">
+  <% end %>
 
-			<%= yield %>
+  <%= yield %>
 
-			<% unless params[:controller] == 'popv' %>
-			         	</div> <!-- end section -->
-			       	</div> <!-- end content -->
-			    </div> <!-- end bd -->
-			<% end %>
+  <% unless params[:controller] == 'popv' %>
+      </div> <!-- end section -->
+      </div> <!-- end content -->
+      </div> <!-- end bd -->
+  <% end %>
 
-	  	</div> <!-- end doc3 -->
+</div> <!-- end doc3 -->
 
-        <% if Rails.env.production? %>
-			<%= render :partial => 'shared/google_analytics' %>
-		<% end %>
+<% if Rails.env.production? %>
+    <%= render :partial => 'shared/google_analytics' %>
+<% end %>
 
-	</body>
+</body>
 </html>
