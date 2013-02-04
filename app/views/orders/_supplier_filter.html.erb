@@ -6,11 +6,11 @@
   </select>
   <!-- <span class="img_sort">
       <% if params[:o] != "vendors.name" %>
-          <%= link_to_sort '<img src="../assets/none.gif">', "vendors.name", :include => [:year, :open, :status, :location, :unit, :vendor] %>
+          <%= link_to_sort image_tag('none.gif'), "vendors.name", :include => [:year, :open, :status, :location, :unit, :vendor] %>
       <% elsif params[:s] == "desc" %>
-          <%= link_to_sort '<img src="../assets/ascending.gif">', "vendors.name", :include => [:year, :open, :status, :location, :unit, :vendor] %>
+          <%= link_to_sort image_tag('ascending.gif'), "vendors.name", :include => [:year, :open, :status, :location, :unit, :vendor] %>
       <% else %>
-          <%= link_to_sort '<img src="../assets/descending.gif">', "vendors.name", :include => [:year, :open, :status, :location, :unit, :vendor] %>
+          <%= link_to_sort image_tag('descending.gif'), "vendors.name", :include => [:year, :open, :status, :location, :unit, :vendor] %>
       <% end %>
   </span> -->
   <%= link_to_sort 'sort', "vendors.name", :include => [:year, :open, :status, :location, :unit, :vendor] %>    

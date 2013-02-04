@@ -1,4 +1,4 @@
-body { background: url(../graphics/background.jpg) scroll repeat-x top left; font-family: Trebuchet MS; font-size: 12px; height: 100%; width: 100%; }
+body { background: url(graphics/background.jpg) scroll repeat-x top left; font-family: Trebuchet MS; font-size: 12px; height: 100%; width: 100%; }
 strong { font-weight: bold; }
 #doc3 a { color: #336633; font-weight: bold; }
 #doc3 a:hover { background-color: #222; color: #fff; padding: 0px 0px; text-decoration: none; }
@@ -24,7 +24,7 @@ div.related_data {padding:15px 5px 0px;}
 
 .yellow {background-color: yellow !important; }
 .selected-link {
-    background-image: url(../img/silk/icons/bullet_blue.png);
+    background-image: url(img/silk/icons/bullet_blue.png);
     background-repeat: no-repeat;
     background-position: center left;
     color: #05D !important;
@@ -94,7 +94,7 @@ table.information { border-left: 1px solid #ccc; border-right: 1px solid #ccc; w
 table.information td.lbl { text-align: right; }
 table th { font-weight: bold; }
 table th select { font-size: 90%; }
-table.information th { background: #222 url(../graphics/th.jpg) repeat-x top left; color: #fff; font-size: 95%; font-weight: bold; }
+table.information th { background: #222 url(graphics/th.jpg) repeat-x top left; color: #fff; font-size: 95%; font-weight: bold; }
 table.information th.med { width: 160px; }
 table.information th a { color: #fff; }
 table.information th, table.information td { border-bottom: 1px solid #ccc; padding: 3px 8px; }
@@ -302,7 +302,7 @@ table.popv-notes {
 }
 
 table.popv-notes th {
-    background: #222 url(../graphics/th.jpg) repeat-x top left;
+    background: #222 url(graphics/th.jpg) repeat-x top left;
     color: #fff;
     font-size: 90%;
     font-weight: bold;

@@ -1,10 +1,10 @@
 //= require jQuery-1.2.6/jquery.color
 //= require jquery.form
-//= require defaults/prototype
-//= require defaults/effects
-//= require defaults/controls
-//= require defaults/dragdrop
-//= require defaults/slider
+//= require prototype
+//= require prototype_ujs
+//= require effects
+//= require dragdrop
+//= require controls
 //= require vendor/interface_helper
 //= require calendar/calendar
 //= require calendar/calendar-en

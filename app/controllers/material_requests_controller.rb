@@ -20,7 +20,7 @@ class MaterialRequestsController < ApplicationController
   auto_complete_custom_for :employee, :list_requester_names
 
   def index
-    @material_requests = MaterialRequest.paginate(:page => params[:page], :per_page => 10)
+    @material_requests = MaterialRequest.for_employee(current_employee, params, params[:status])
   end
 
   def edit

@@ -29,6 +29,8 @@ gem 'ts-datetime-delta', '1.0.2', :require => 'thinking_sphinx/deltas/datetime_d
 
 gem "test-unit", "~> 2.4.0"
 
+gem "prototype-rails"
+
 gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
 
 #gem 'authlogic'

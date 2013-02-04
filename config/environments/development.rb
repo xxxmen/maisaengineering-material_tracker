@@ -28,5 +28,7 @@ MaterialTracker::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+
 end
 

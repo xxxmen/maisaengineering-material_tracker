@@ -9,13 +9,13 @@
 		   		<input type="hidden" name="<%= name %>" value="<%= value %>" />
 			<% end %>
 		<% end %>
-		
-	
+
+
 		<input type="hidden" name="p" value="<%= collection.page %>" id="paginate_page" maxlength="4" />
 		<span class="nextpage" style="margin-right: 10px;"><%= link_to_function "go to page &rarr; <span id='new_page'>#{collection.page}</span> of #{collection.page_count}", "$(this).up('form').submit(); return false;" %></span>
-		
+
 		<span class="disablepage" style="font-weight: bold; margin-right: 10px;">current page &rarr; <%= collection.page %></span>
-		
+
      	<% if collection.previous_page? -%>
 	       <span class="nextpage"><%= link_to '&#171; previous', params.merge(:p => collection.previous_page) %></span>
 		<% else -%>

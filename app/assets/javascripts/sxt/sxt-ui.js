@@ -179,7 +179,7 @@ var application = function() {
                     contentEl: 'hd',
                     region: 'north',
                     height: 90,
-                    bodyStyle: 'background-color:#333333; background: url(../graphics/background.jpg)'
+                    bodyStyle: 'background-color:#333333; background: url(/assets/graphics/background.jpg)'
 
                 },
                 {

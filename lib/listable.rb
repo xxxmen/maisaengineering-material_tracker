@@ -56,11 +56,11 @@ module Listable
 
     def get_order_image(field)
       if params[:o] != field
-        return "<img src='/assets/none.gif'/>".html_safe
+        return image_tag('none.gif')
       elsif params[:s].nil? || params[:s] == "asc"
-        return "<img src='/assets/ascending.gif'>".html_safe
+        return image_tag('ascending.gif')
       else
-       return "<img src='/assets/descending.gif'>".html_safe
+       return image_tag('descending.gif')
       end
     end
   end
@@ -94,12 +94,15 @@ module Listable
       params[:s] = nil if !params[:s].blank? && !["asc", "desc"].include?(params[:s])
       
       sort = params[:s] || options[:sort] || "asc"
-      page = params[:p] || 1
+      #page = params[:p] || 1
+      # will_paginate by default passes page parameter to params
+      page = params[:page] || params[:p] || 1
       includes = options[:include] || []
       order = order.to_s + " " + sort   
       count = params[:c] && (params[:c].to_i > 0) ? params[:c].to_i : self::PERPAGE
           
-      self.find(:all, :order => order, :page => { :size => count, :current => page }, :include => includes)
+      #self.find(:all, :order => order, :page => { :size => count, :current => page }, :include => includes)
+      self.includes(includes).order(order).paginate(page: page, per_page: 3)
     end
 
 # 	 Original Acts_as_ferret search method.  (2009-06-18)
