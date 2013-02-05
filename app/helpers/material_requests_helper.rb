@@ -44,13 +44,13 @@ module MaterialRequestsHelper
   	  	""
   	  end
 	end.join(", ")
-    
+
   end
-  
+
   def link_to_quotes(material_request)
     quotes = material_request.quotes
     material_request_id = material_request.id
-    
+
     quotes.map do |quote|
       if(!quote.vendor.blank?)
         #if we're hiding pricing, get rid of extra
@@ -63,7 +63,7 @@ module MaterialRequestsHelper
     end.join(", ")
   end
 
-  def link_to_quotes_comparison(material_request)      
-      link_to("<span style='font-size:10px;'>Compare Quotes</span>", url_for(:controller => "material_requests", :action => "quote_comparison", :id => material_request.id))      
+  def link_to_quotes_comparison(material_request)
+      link_to("<span style='font-size:10px;'>Compare Quotes</span>", url_for(:controller => "material_requests", :action => "quote_comparison", :id => material_request.id))
   end
 end
