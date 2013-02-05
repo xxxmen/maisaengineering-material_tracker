@@ -1,6 +1,6 @@
 body {
 
-	background: #BBBBBB url('/graphics/background-gradient.jpg') repeat-x;	
+	background: #BBBBBB url(graphics/background-gradient.jpg) repeat-x;
 }
 
 .visible {
@@ -25,7 +25,7 @@ a.link-through {
 
 .header {
 	height: 120px;
-	background: transparent url('/graphics/bp-half.gif') no-repeat 0px -30px;	
+	background: transparent url(graphics/bp-half.gif) no-repeat 0px -30px;
 }
 
 .header #main-title {
@@ -88,14 +88,14 @@ a.link-through {
 
 .cool-button {
 
-	background: transparent url('/graphics/vista-button.gif') no-repeat;
+	background: transparent url(graphics/vista-button.gif) no-repeat;
 }
 .cool-button-hover {
-	background: transparent url('/graphics/vista-button-green.gif') no-repeat;
+	background: transparent url(graphics/vista-button-green.gif) no-repeat;
 }
 
 .cool-button-selected {
-	background: transparent url('/graphics/vista-button-highlight-green.gif') no-repeat;
+	background: transparent url(graphics/vista-button-highlight-green.gif) no-repeat;
 }
 
 /* Left Column */
@@ -177,7 +177,7 @@ p {
 }
 
 .icon-delete {
-	background: #FBE3E4 url("/img/silk/icons/delete.png") no-repeat scroll 8px 10px;
+	background: #FBE3E4 url(img/silk/icons/delete.png) no-repeat scroll 8px 10px;
 	padding-left: 30px;
 }
 
