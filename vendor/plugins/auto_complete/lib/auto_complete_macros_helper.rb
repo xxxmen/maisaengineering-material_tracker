@@ -1,4 +1,4 @@
-module AutoCompleteMacrosHelper      
+module AutoCompleteMacrosHelper
   # Adds AJAX autocomplete functionality to the text input field with the 
   # DOM ID specified by +field_id+.
   #
@@ -60,7 +60,7 @@ module AutoCompleteMacrosHelper
     function << "'#{field_id}', "
     function << "'" + (options[:update] || "#{field_id}_auto_complete") + "', "
     function << "'#{url_for(options[:url])}'"
-    
+
     js_options = {}
     js_options[:tokens] = array_or_string_for_javascript(options[:tokens]) if options[:tokens]
     js_options[:callback]   = "function(element, value) { return #{options[:with]} }" if options[:with]
@@ -70,7 +70,7 @@ module AutoCompleteMacrosHelper
     js_options[:frequency]  = "#{options[:frequency]}" if options[:frequency]
     js_options[:method]     = "'#{options[:method].to_s}'" if options[:method]
 
-    { :after_update_element => :afterUpdateElement, 
+    { :after_update_element => :afterUpdateElement,
       :on_show => :onShow, :on_hide => :onHide, :min_chars => :minChars }.each do |k,v|
       js_options[v] = options[k] if options[k]
     end
@@ -79,7 +79,7 @@ module AutoCompleteMacrosHelper
 
     javascript_tag(function)
   end
-  
+
   # Use this method in your view to generate a return for the AJAX autocomplete requests.
   #
   # Example action:
@@ -95,15 +95,26 @@ module AutoCompleteMacrosHelper
   # auto_complete action if you need to decorate it further.
   def auto_complete_result(entries, field, phrase = nil)
     return unless entries
-    items = entries.map { |entry| content_tag("li", phrase ? highlight(entry[field], phrase) : h(entry[field])) }
-    content_tag("ul", items.uniq)
+    #items = entries.map { |entry| content_tag("li", phrase ? highlight(entry[field], phrase) : h(entry[field])) }
+    #content_tag("ul", items.uniq)
+
+    # To work with rails 3 comment above 2 lines and then write below
+    content_tag :ul do
+      entries.uniq.collect {|entry| concat(content_tag(:li, phrase ? highlight(entry[field], phrase) : h(entry[field])))}
+    end
   end
   def auto_complete_result_custom(entries, field, phrase = nil)
     return unless entries
+=begin
     items = entries.map { |entry| content_tag("li", phrase ? highlight(entry[field], phrase) : h(entry)) }
     content_tag("ul", items.uniq)
+=end
+    # To work with rails 3 comment above 2 lines and then write below
+    content_tag :ul do
+      entries.uniq.collect {|entry| concat(content_tag(:li, phrase ? highlight(entry[field], phrase) : h(entry)))}
+    end
   end
-  
+
   # Wrapper for text_field with added AJAX autocompletion functionality.
   #
   # In your controller, you'll need to define an action called
@@ -111,21 +122,21 @@ module AutoCompleteMacrosHelper
   # 
   def text_field_with_auto_complete(object, method, tag_options = {}, completion_options = {})
     (completion_options[:skip_style] ? "" : auto_complete_stylesheet) +
-    text_field(object, method, tag_options) +
-    content_tag("div", "", :id => "#{object}_#{method}_auto_complete", :class => "auto_complete") +
-    auto_complete_field("#{object}_#{method}", { :url => { :action => "auto_complete_for_#{object}_#{method}" } }.update(completion_options))
+        text_field(object, method, tag_options) +
+        content_tag("div", "", :id => "#{object}_#{method}_auto_complete", :class => "auto_complete") +
+        auto_complete_field("#{object}_#{method}", { :url => { :action => "auto_complete_for_#{object}_#{method}" } }.update(completion_options))
   end
-  
+
   def text_field_with_auto_complete_custom(object, method, tag_options = {}, completion_options = {})
     (completion_options[:skip_style] ? "" : auto_complete_stylesheet) +
-    text_field(object, method, tag_options) +
-    content_tag("div", "", :id => "#{object}_#{method}_auto_complete", :class => "auto_complete") +
-    auto_complete_field("#{object}_#{method}", { :url => { :action => "auto_complete_custom_for_#{object}_#{method}" } }.update(completion_options))
+        text_field(object, method, tag_options) +
+        content_tag("div", "", :id => "#{object}_#{method}_auto_complete", :class => "auto_complete") +
+        auto_complete_field("#{object}_#{method}", { :url => { :action => "auto_complete_custom_for_#{object}_#{method}" } }.update(completion_options))
   end
 
   private
-    def auto_complete_stylesheet
-      content_tag('style', <<-EOT, :type => Mime::CSS)
+  def auto_complete_stylesheet
+    content_tag('style', <<-EOT, :type => Mime::CSS)
         div.auto_complete {
           width: 350px;
           background: #fff;
@@ -151,7 +162,7 @@ module AutoCompleteMacrosHelper
           margin:0;
           padding:0;
         }
-      EOT
-    end
+    EOT
+  end
 
 end   
