@@ -84,7 +84,7 @@
 </div>
 
 <div id="fixed_pipe_builder">
-<% form_for RequestedLineItem.new, :html => { :class => "edit full", :id => "new_requested_line_item" } do |f| %>
+<%= form_for RequestedLineItem.new, :html => { :class => "edit full", :id => "new_requested_line_item" } do |f| %>
   <input type="hidden" id="material_request_id" name="material_request_id" value="<%= @material_request.id %>" />
   <table class="noprint information">
     <tr>

@@ -71,7 +71,7 @@
   }
 </style>
 <div id="fixed_bill">
-<% form_for :bill, @bill, :url => url_for(:action => :update), :html => { :class => "edit full"} do |f1| %>
+<%= form_for :bill, @bill, :url => url_for(:action => :update), :html => { :class => "edit full"} do |f1| %>
 	<%= f1.text_area :description %>
 	<%= submit_tag "Save Description" %>
 <% end %>
@@ -106,7 +106,7 @@
 </div>
 
 <div id="fixed_pipe_builder">
-<% form_for :bill_item, BillItem.new, :url => url_for(:action => :create), :html => { :class => "edit full", :id => "new_bill_item", :style => "display: none;" } do |f| %>
+<%= form_for :bill_item, BillItem.new, :url => url_for(:action => :create), :html => { :class => "edit full", :id => "new_bill_item", :style => "display: none;" } do |f| %>
   <input type="hidden" id="bill_id" name="bill_id" value="<%= @bill.id %>" />
   <table class="noprint information">
     <tr>

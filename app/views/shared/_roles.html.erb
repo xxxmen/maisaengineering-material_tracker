@@ -12,7 +12,7 @@
 </script>
 -->
 
-	<% form_for current_employee, :html => { :id => "role_form", :style => "position: absolute; top: 40px; right: 15px;" } do |f| %>
+	<%= form_for current_employee, :html => { :id => "role_form", :style => "position: absolute; top: 40px; right: 15px;" } do |f| %>
 		<% unless current_employee.popv_admin? %>
 			<% title = current_employee.popv_enabled? ? "Disable" : "Enable"  %>
 			<%= link_to "#{title} POPV User", nil, :onclick => "$(this).up('form').submit()" %>

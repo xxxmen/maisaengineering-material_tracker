@@ -131,7 +131,7 @@
 
 <div class="orders" style="width: 980px;">
 
-<% form_for @order, :html => { :class => "edit full main_form"} do |f| %>
+<%= form_for @order, :html => { :class => "edit full main_form"} do |f| %>
     <div id="addtl_info">
     	<div class="header"><h2>Purchase Info</h2></div>
         <table class="information" id="addtl">
@@ -283,7 +283,7 @@
     </div>
     
     <%= render :partial => 'ordered_line_item_form_header' %>
-    <% form_for :ordered_line_item, @ordered_line_item, 
+    <%= form_for :ordered_line_item, @ordered_line_item,
             :url => { :action => "create_ordered_line_item", :id => @order }, 
             :html => { :id => "ordered_line_item_form", :class => "edit ordered_line_item", :autocomplete => 'off' } do |f| 
     %>

@@ -67,7 +67,7 @@
     <td class="location">
       <%= h order.unit_name %> <br />
       <%= h order.status_description %> <br />
-      <% remote_form_for :order, order, :url => { :controller => "orders", :action => "set_location", :id => order }, :html => { :method => :put, :style => "display: none;", :id => dom_id(order, :edit), :class => "edit_order" } do |f| %>
+      <%= remote_form_for :order, order, :url => { :controller => "orders", :action => "set_location", :id => order }, :html => { :method => :put, :style => "display: none;", :id => dom_id(order, :edit), :class => "edit_order" } do |f| %>
 
         <%= f.text_field :location, :style => "width: 150px; font-size: 120%;", :id => dom_id(order, :location), :class => "text" %>
           <%= submit_tag "Save", :class => "submit" %> <%= link_to_toggle "Cancel", order, :edit, :show %>

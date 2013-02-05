@@ -1,4 +1,4 @@
-<% form_for @po_status, :html => { :class => "edit full" } do |f| %>
+<%= form_for @po_status, :html => { :class => "edit full" } do |f| %>
 
 
 <% if [PoStatus::FULLY_RECEIVED, PoStatus::PARTIALLY_RECEIVED, PoStatus::WAITING_PMI].include?(@po_status.status) %>
