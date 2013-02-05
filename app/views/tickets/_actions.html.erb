@@ -3,68 +3,69 @@
 
 <% if params[:action] == "index" and current_employee.admin? %>
 
-<li>
-	<select onchange="window.location=$F(this)" style="width: 120px;">
-		
-	    <% Ticket.list_category_for_select.each do |group| %>
-		    <option value="<%= filter_url(:category => group[1]) %>" <%= select_filter_if(params[:category].to_s == group[1].to_s) %>><%= group[0] %></option>   
-	    <% end %>
-	</select>
-</li>
+    <li>
+      <select onchange="window.location=$F(this)" style="width: 120px;">
+
+        <% Ticket.list_category_for_select.each do |group| %>
+            <option value="<%= filter_url(:category => group[1]) %>" <%= select_filter_if(params[:category].to_s == group[1].to_s) %>><%= group[0] %></option>
+        <% end %>
+      </select>
+    </li>
 
 
-<li>
-	<select onchange="window.location=$F(this)" style="width: 120px;">
-		
-	    <% Ticket.list_priority_for_select.each do |group| %>
-		    <option value="<%= filter_url(:priority => group[1]) %>" <%= select_filter_if(params[:priority].to_s == group[1].to_s) %>><%= group[0] %></option>   
-	    <% end %>
-	</select>
-</li>
-<li>
-	<select onchange="window.location=$F(this)" style="width: 120px;">
-		
-	    <% Ticket.list_state_for_select.each do |group| %>
-		    <option value="<%= filter_url(:state => group[1]) %>" <%= select_filter_if(params[:state].to_s == group[1].to_s) %>><%= group[0] %></option>   
-	    <% end %>
-	</select>
-</li>
+    <li>
+      <select onchange="window.location=$F(this)" style="width: 120px;">
+
+        <% Ticket.list_priority_for_select.each do |group| %>
+            <option value="<%= filter_url(:priority => group[1]) %>" <%= select_filter_if(params[:priority].to_s == group[1].to_s) %>><%= group[0] %></option>
+        <% end %>
+      </select>
+    </li>
+    <li>
+      <select onchange="window.location=$F(this)" style="width: 120px;">
+
+        <% Ticket.list_state_for_select.each do |group| %>
+            <option value="<%= filter_url(:state => group[1]) %>" <%= select_filter_if(params[:state].to_s == group[1].to_s) %>><%= group[0] %></option>
+        <% end %>
+      </select>
+    </li>
 <% end %>
 
 <% if params[:action] == "show" and current_employee.admin? %>
-	<li>
+    <li>
 		<span class="button">
 			<a href="/tickets/<%= @ticket.id %>/edit">
-		        <img src="/img/silk/icons/page_edit.png" alt=""/>
-		        Edit
-		    </a>
+              <%= image_tag('img/silk/icons/page_edit.png',alt: '') %>
+              Edit
+            </a>
 		</span>
-	</li>	
+    </li>
 <% end %>
 
 <% if params[:action] == "edit" or params[:action] == "new" or params[:action] == "create" %>
-	<li>
+    <li>
 		<span class="button">
 			<a href="#" onclick="<%= form_save(@ticket) %>" title="save">
-		        <img src="/assets/icons/order_save.png" alt=""/>
-		        Save
-		    </a>
+              <%= image_tag('icons/order_save.png',alt: '') %>
+              Save
+            </a>
 		</span>
-	</li>
-	<li>
+    </li>
+    <li>
 		<span class="button">
 			<a href="/tickets">
-		        <img src="/img/silk/icons/cross.png" alt=""/>
-		        Cancel
-		    </a>
+              <%= image_tag('img/silk/icons/cross.png') %>
+              Cancel
+            </a>
 		</span>
-	</li>
+    </li>
 <% end %>
 
 <% if params[:action] == "edit" %>
-	<li>
+    <li>
 		<span class="button">
-			<%= link_to '<img src="/assets/icons/delete.png" />Destroy', @ticket, :confirm => 'Are you sure?', :method => :delete %>
+          <%= link_to "#{image_tag('icons/delete.png')}Destroy", @ticket, :confirm => 'Are you sure?', :method => :delete %>
+
 		</span>
-	</li>
+    </li>
 <% end %>

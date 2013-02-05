@@ -1,62 +1,62 @@
 <div class="col-wrapper">
-	<div class="left-col">
-		<h1>New ticket</h1>
+  <div class="left-col">
+    <h1>New ticket</h1>
 
-		<%= form_for(@ticket, :html => {:multipart => true}) do |f| %>
-		  	<%= f.error_messages %>
-			<div>
-				<%= f.label 'Category' %>
-				<%= select_tag 'ticket[category]', category_options %>
-			</div>
-			<div>
-				<%= f.label 'Title' %><br />
-				<%= f.text_field :title %>
-			</div>
-			<div>
-				<%= f.label 'Describe the Problem' %><br />
-				<%= f.text_area :body %>
-			</div>
-			<div class="row">
-				<div class='left'>
-					<%= f.label :context %>
-					<%= select_tag 'ticket[context]', context_options(@ticket.context) %>
-				</div>
-				<div class='right'>
-					<%= f.label :priority %>
-					<%= select_tag 'ticket[priority]', priority_options %>
-				</div>
-				<br class="clear" />
-			</div>
-			<div>
-				<%= f.label :reported_by %><br />
-				<%= f.text_field :reported_by, {:value => current_employee.name_and_email }%>
-			</div>
-			<div>
-				<%= f.label 'Attach an Image or File' %><br />
-				<%= f.file_field :attachment %>
-			</div>
-			<br />
-		<% end %>
+    <%= form_for(@ticket, :html => {:multipart => true}) do |f| %>
+        <%= f.error_messages %>
+        <div>
+          <%= f.label 'Category' %>
+          <%= select_tag 'ticket[category]', category_options %>
+        </div>
+        <div>
+          <%= f.label 'Title' %><br />
+          <%= f.text_field :title %>
+        </div>
+        <div>
+          <%= f.label 'Describe the Problem' %><br />
+          <%= f.text_area :body %>
+        </div>
+        <div class="row">
+          <div class='left'>
+            <%= f.label :context %>
+            <%= select_tag 'ticket[context]', context_options(@ticket.context) %>
+          </div>
+          <div class='right'>
+            <%= f.label :priority %>
+            <%= select_tag 'ticket[priority]', priority_options %>
+          </div>
+          <br class="clear" />
+        </div>
+        <div>
+          <%= f.label :reported_by %><br />
+          <%= f.text_field :reported_by, {:value => current_employee.name_and_email }%>
+        </div>
+        <div>
+          <%= f.label 'Attach an Image or File' %><br />
+          <%= f.file_field :attachment %>
+        </div>
+        <br />
+    <% end %>
 
-	</div>
-	<div class="right-col info">
+  </div>
+  <div class="right-col info">
 
-		<h2>Leave us feedback!</h2>
-		<p>
+    <h2>Leave us feedback!</h2>
+    <p>
 
-			We always enjoy feedback from our users, so if you have suggestions, comments, or bugs to report, this is the place to do it!
-		</p>
-		<p>
-			Select the <span>Category</span> of comment you would like to give, and fill out the <span>Title</span> and <span>Description</span> of the issue. To help us focus on the problem, select a <span>Context</span> and <span>Priority</span>. If your issue doesn't fall within the available Contexts, just select the "General" option.
-		</p>
-		<p>
-			You can also change the contact information in the <span>Reported By</span> field if the information is not accurate. When you are done, hit <span>Create</span> and we will receive your input. You should hear from us shortly!
-		</p>
-		<p>
-			You can review the status of your submitted tickets by clicking on <%= link_to "List Tickets", tickets_path %> above or navigating to <span>Menu</span> and clicking <span>Tickets</span>.
+      We always enjoy feedback from our users, so if you have suggestions, comments, or bugs to report, this is the place to do it!
+    </p>
+    <p>
+      Select the <span>Category</span> of comment you would like to give, and fill out the <span>Title</span> and <span>Description</span> of the issue. To help us focus on the problem, select a <span>Context</span> and <span>Priority</span>. If your issue doesn't fall within the available Contexts, just select the "General" option.
+    </p>
+    <p>
+      You can also change the contact information in the <span>Reported By</span> field if the information is not accurate. When you are done, hit <span>Create</span> and we will receive your input. You should hear from us shortly!
+    </p>
+    <p>
+      You can review the status of your submitted tickets by clicking on <%= link_to "List Tickets", tickets_path %> above or navigating to <span>Menu</span> and clicking <span>Tickets</span>.
 
 
-		</p>
-	</div>
-	<br class="clear" />
+    </p>
+  </div>
+  <br class="clear" />
 </div>
