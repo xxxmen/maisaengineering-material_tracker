@@ -45,12 +45,12 @@ class Order < ActiveRecord::Base
   set_table_name "purchase_orders"
 
   attr_accessor :issued_to_employee,
-  				:issued_to_company,
-  				:issued_to_note,
-  				:issued_to_date,
-  				:issued_to_location,
-  				:status_set_to_fully_received,
-  				:eta_change_difference
+                :issued_to_company,
+                :issued_to_note,
+                :issued_to_date,
+                :issued_to_location,
+                :status_set_to_fully_received,
+                :eta_change_difference
 
   validates :po_no, :uniqueness => true, :allow_blank => true, :uniqueness => { :message => "is not a valid year" }
   validates :po_no, :on => :update, :presence => true
@@ -73,31 +73,29 @@ class Order < ActiveRecord::Base
   has_and_belongs_to_many :material_requests
 
 
-  	# Thinking Sphinx Config
-	define_index do
-		# Columns
-		indexes :po_no
-		indexes tracking
-		indexes ptm_no
-		indexes description
-		indexes issued_to_history
-		indexes location
-		indexes work_orders
+  # Thinking Sphinx Config
+  define_index do
+    # Columns
+    indexes :po_no
+    indexes tracking
+    indexes ptm_no
+    indexes description
+    indexes issued_to_history
+    indexes location
+    indexes work_orders
 
-		# Associations
-		indexes unit(:description), :as => :unit_name
-		indexes vendor(:name), :as => :supplier
+    # Associations
+    indexes unit(:description), :as => :unit_name
+    indexes vendor(:name), :as => :supplier
 
     set_property :delta => true
-	end
+  end
 
   has_and_belongs_to_many :material_requests
 
   # Temporarily assign a tracking for now to blank ones
-  before_validation do |o|
-    if o.tracking.blank?
-      o.tracking = Order.newest_tracking
-    end
+  before_validation(on: :update) do
+    self.tracking = Order.newest_tracking unless attribute_present?("tracking")
   end
   before_create { |o| o.created ||= Date.today }
   after_create { |o| o.po_no.blank? ? o.po_no = "WTMP#{o.id}" : nil; o.save }
@@ -123,16 +121,16 @@ class Order < ActiveRecord::Base
   # an instance variable "eta_change_difference". Used for updating the Reminders
   # attached to this Order after_update. See update_reminders_if_eta_has_changed
   def date_eta=(date)
-  	if !date.blank?
-	  	new_date = date.class == String ? Date.parse(date) : date
+    if !date.blank?
+      new_date = date.class == String ? Date.parse(date) : date
 
-		unless self[:date_eta].blank? || new_date.blank?
-		  difference = (self[:date_eta] - new_date).to_i
-		  self.eta_change_difference = difference unless difference == 0
-		end
- 	end
+      unless self[:date_eta].blank? || new_date.blank?
+        difference = (self[:date_eta] - new_date).to_i
+        self.eta_change_difference = difference unless difference == 0
+      end
+    end
 
-	self[:date_eta] = date
+    self[:date_eta] = date
   end
 
   def reminder_subject
@@ -153,7 +151,7 @@ class Order < ActiveRecord::Base
     self.activity ||= ""
     length = self.activity.length
     unless self.activity.blank? || [10,13].include?(self.activity[length - 1])
-        self.activity += "\n"
+      self.activity += "\n"
     end
     self.activity += text.strip
     return self.save
@@ -175,9 +173,9 @@ class Order < ActiveRecord::Base
       if ordered_items_for_this_po.size > 0
         #These items already exist for this po and this requested_line_item, for example, trying to add a second link to an existing item
         ordered_items_for_this_po.each do |line|
-	        line.order = self
-	        line.save
-    	end
+          line.order = self
+          line.save
+        end
 
       else # otherwise build a whole new one
         line = self.ordered_line_items.build
@@ -246,9 +244,9 @@ class Order < ActiveRecord::Base
       ordered_items_for_this_po = req_line.ordered_line_items.find_all_by_po_id(self.id)
       if !ordered_items_for_this_po.nil? && ordered_items_for_this_po.size > 0
         ordered_items_for_this_po.each do |line|
-			line.order = order
-			line.save
-    	end
+          line.order = order
+          line.save
+        end
       else
         line = order.ordered_line_items.build
         line.description = req_line.material_description
@@ -303,7 +301,7 @@ class Order < ActiveRecord::Base
         conditions.push(true)
         conditions.push(true)
       elsif state == "archived"
-      	conditions[0] += " AND archived = 1"
+        conditions[0] += " AND archived = 1"
       else # closed
         conditions[0] += " AND archived = 0 AND closed = ?"
         conditions.push(true)
@@ -387,34 +385,34 @@ class Order < ActiveRecord::Base
 
   def mark_remaining_as_received(date = Date.today)
     self.unreceived_line_items.each do |item|
-        item.mark_as_received(date)
-        item.save!
+      item.mark_as_received(date)
+      item.save!
     end
   end
 
   def mark_remaining_as_issued(issued_to_name, issued_to_company, date)
-      messages = []
+    messages = []
+    self.unissued_line_items.each do |item|
+      unless item.issueable?
+        messages << item.line_item_no
+      end
+    end
+    if messages.blank?
       self.unissued_line_items.each do |item|
-          unless item.issueable?
-              messages << item.line_item_no
-          end
+        item.mark_as_issued(issued_to_name, issued_to_company, date)
+        item.save!
       end
-      if messages.blank?
-          self.unissued_line_items.each do |item|
-              item.mark_as_issued(issued_to_name, issued_to_company, date)
-              item.save!
-          end
-      end
-      return messages
+    end
+    return messages
   end
 
   def get_next_ordered_line_item_no
-      item = self.ordered_line_items[0]
-      if item.blank?
-          return 1
-      else
-          item.last_position_in_list + 1
-      end
+    item = self.ordered_line_items[0]
+    if item.blank?
+      return 1
+    else
+      item.last_position_in_list + 1
+    end
   end
 
 
@@ -474,14 +472,14 @@ class Order < ActiveRecord::Base
   #
   def show_location
     if !self.location.blank?
-        return self.location
+      return self.location
     elsif !self.ordered_line_items.blank?
-        locations_array = []
-        self.ordered_line_items.each {|li| locations_array << li.location if !li.location.blank?}
-        locations = locations_array.join(', ')
-        return locations.blank? ? "No Location" : locations
+      locations_array = []
+      self.ordered_line_items.each {|li| locations_array << li.location if !li.location.blank?}
+      locations = locations_array.join(', ')
+      return locations.blank? ? "No Location" : locations
     else
-        return "No Location"
+      return "No Location"
     end
   end
 
@@ -525,10 +523,10 @@ class Order < ActiveRecord::Base
   end
 
   def self.all_units
-  	orders = Order.find(:all,
-    	:select => "unit_id",
-    	:group => "unit_id",
-    	:conditions => ['purchase_orders.unit_id IS NOT NULL']
+    orders = Order.find(:all,
+                        :select => "unit_id",
+                        :group => "unit_id",
+                        :conditions => ['purchase_orders.unit_id IS NOT NULL']
     )
     unit_ids = orders.map {|o| o.unit_id }
     units = Unit.find(unit_ids, :order => 'description')
@@ -536,9 +534,9 @@ class Order < ActiveRecord::Base
 
   def self.all_vendors
     orders = Order.find(:all,
-    	:select => "vendor_id",
-    	:group => "vendor_id",
-    	:conditions => ['purchase_orders.vendor_id IS NOT NULL']
+                        :select => "vendor_id",
+                        :group => "vendor_id",
+                        :conditions => ['purchase_orders.vendor_id IS NOT NULL']
     )
     vendor_ids = orders.map {|o| o.vendor_id }
     vendors = Vendor.find(vendor_ids, :order => 'name')
@@ -550,13 +548,13 @@ class Order < ActiveRecord::Base
 
   def year_selection
     if self.new_record?
-        (Time.now.year..(Time.now.year + 4)).map do |y|
-            [y.to_s,y.to_s]
-        end
+      (Time.now.year..(Time.now.year + 4)).map do |y|
+        [y.to_s,y.to_s]
+      end
     else
       early_year = self.turnaround_year.to_i - 2
       (early_year..(Time.now.year + 4)).map do |y|
-          [y.to_s,y.to_s]
+        [y.to_s,y.to_s]
       end
       # return Order.all_turnaround_years.map { |year| [year, year] }
     end
@@ -572,14 +570,14 @@ class Order < ActiveRecord::Base
     self.format_description
   end
 
-   	def get_group
-  		if self.group
-  			default_group = self.group
- 		else
- 			default_group = Group.get_default
- 		end
- 		return default_group ? default_group['id'] : nil
- 	end
+  def get_group
+    if self.group
+      default_group = self.group
+    else
+      default_group = Group.get_default
+    end
+    return default_group ? default_group['id'] : nil
+  end
 
   ##############################################################################
   private
@@ -621,13 +619,13 @@ class Order < ActiveRecord::Base
   end
 
   def update_reminders_if_eta_has_changed
-  	if self.eta_change_difference
-	  	upcoming_reminders = self.find_upcoming_reminders
-	  	upcoming_reminders.each do |reminder|
-  			reminder.send_reminder_on -= self.eta_change_difference
-  			reminder.save
- 		end
- 		self.eta_change_difference = nil
-	end
+    if self.eta_change_difference
+      upcoming_reminders = self.find_upcoming_reminders
+      upcoming_reminders.each do |reminder|
+        reminder.send_reminder_on -= self.eta_change_difference
+        reminder.save
+      end
+      self.eta_change_difference = nil
+    end
   end
 end
