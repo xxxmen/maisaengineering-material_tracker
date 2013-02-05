@@ -29,7 +29,7 @@
 
 
 <div id="new_line_item">
-  <% form_for :ordered_line_item, @ordered_line_item, :url => { :action => "create_ordered_line_item", :id => @order}, :html => { :id => dom_id(OrderedLineItem.new, :form), :class => "edit full" } do |f| %>
+  <%= form_for :ordered_line_item, @ordered_line_item, :url => { :action => "create_ordered_line_item", :id => @order}, :html => { :id => dom_id(OrderedLineItem.new, :form), :class => "edit full" } do |f| %>
     <table class="information">
         <tr>
             <th class="no">#</th>

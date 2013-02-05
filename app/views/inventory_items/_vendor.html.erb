@@ -36,7 +36,7 @@
       <td rowspan="3" class="description"><%= link_to order.show_description, edit_order_path(order) %></td>
       <td rowspan="3"><div id="<%= dom_id order, :location %>"><%= order.show_issued_to_history %></div></td>
       <td rowspan="3">
-        <% remote_form_for :order, order, :url => { :controller => "orders", :action => "set_location", :id => order }, :html => { :method => :put, :style => "display: none;", :id => dom_id(order, :edit), :class => "edit_order" } do |f| %>
+        <%= remote_form_for :order, order, :url => { :controller => "orders", :action => "set_location", :id => order }, :html => { :method => :put, :style => "display: none;", :id => dom_id(order, :edit), :class => "edit_order" } do |f| %>
           
           <%= f.text_field :location, :style => "width: 150px;", :id => dom_id(order, :location) %>
             <%= submit_tag "Save" %> <%= link_to_toggle "Cancel", order, :edit, :show %>

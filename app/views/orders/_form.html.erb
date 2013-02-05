@@ -1,7 +1,7 @@
 <%= error_messages_for :order, :header_tag => "div id='error'" %>
 
 
-<% form_for @order, :builder => EventFormBuilder, :html => { :class => "edit", :onsubmit => "Telaeris.parseMoney('order_total_cost')" } do |f| %>
+<%= form_for @order, :builder => EventFormBuilder, :html => { :class => "edit", :onsubmit => "Telaeris.parseMoney('order_total_cost')" } do |f| %>
 
 <table width="940" id="order-form" cellspacing="1">
   <tr>
@@ -246,7 +246,7 @@
       }
     </script>
     <td rowspan="2">
-      <% remote_form_for @order, :url => { :action => "update", :id => @order, :set_location => true }, :html => { :class => "edit full" } do |f| %>
+      <%= remote_form_for @order, :url => { :action => "update", :id => @order, :set_location => true }, :html => { :class => "edit full" } do |f| %>
       <table style="width: 98%;">
         <tr>
         <td style="width: 25%;"><label style="margin-left: 2px;">Name</label></td>
@@ -283,7 +283,7 @@
       <% end %>
     </td>
     <td rowspan="2" style="position: relative;">
-      <% remote_form_for @order, :html => { :id => "issued_to_history_form", :class => "edit full" } do |f| %>
+      <%= remote_form_for @order, :html => { :id => "issued_to_history_form", :class => "edit full" } do |f| %>
         <%= f.text_area :issued_to_history, :style => "width: 95%; height: 140px;", :id => "issue_to_history" %>
         <%= submit_tag "Save Issue To History", :disabled => @requesting %>
       <% end %>
@@ -292,7 +292,7 @@
   </tr>
   <tr>
     <td colspan="<%= col_for_warehouse %>" style="padding: 2px;">
-        <% form_for :order, @order, :url => { :action => "mark_remaining_as_received", :id => @order } do |f| %>
+        <%= form_for :order, @order, :url => { :action => "mark_remaining_as_received", :id => @order } do |f| %>
           Date
           <%= f.text_field :issued_to_date, :style => "width: 140px;", :id => "order_issued_to_date", :class => "text" %>
           <%= submit_tag "Set Items as Received", :disabled => @requesting %> <br />

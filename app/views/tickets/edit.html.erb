@@ -13,7 +13,7 @@
 	<div class="left-col" style="width: 800px;">
 		<h1>Editing Ticket #<%=h @ticket.number %></h1>
 		
-		<% form_for(@ticket, :html => {:multipart => true}) do |f| %>
+		<%= form_for(@ticket, :html => {:multipart => true}) do |f| %>
 		  	<%= f.error_messages %>
 		
 			<div class="row">

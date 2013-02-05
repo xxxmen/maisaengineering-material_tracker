@@ -1,7 +1,7 @@
 <% if @material_request.deleted %>
   <h2>This material request has been deleted</h2>
 <% else %>
-<% form_for @material_request, :html => { :class => "edit full validate main_form", :onsubmit =>  m_disabled_then('return false'), :enctype => "multipart/form-data" } do |f| %>
+<%= form_for @material_request, :html => { :class => "edit full validate main_form", :onsubmit =>  m_disabled_then('return false'), :enctype => "multipart/form-data" } do |f| %>
 
   <% if @material_request.new_record? %>
   <input type="hidden" value="0" id="material_request_id" name="material_request_id">
@@ -11,7 +11,7 @@
 
   <div id="errorExplanation" style="display: none;">
   </div>
-	
+
   <div class="left">
     <div class="left" style="width: 74%">
       <div class="left">
@@ -60,12 +60,12 @@
 
     <!--  Attachments -->
     <div>
-      
-	
+
+
     <% if @material_request.material_request_attachments.size > 0 %>
     <p class="clear">
-    <label>Attachments:</label>  
-      
+    <label>Attachments:</label>
+
           <ul style="margin-top: 0px; margin-left: 2px;">
           <% @material_request.material_request_attachments.each do |material_request_attachment| %>
             <li>
@@ -76,7 +76,7 @@
             </li>
           <% end %>
           </ul>
-      
+
     </p>
     <% end %>
       <div id="file-upload-fields">
@@ -369,7 +369,7 @@
       <br/>
       <br/>
       <ul class="directions" style="text-align:left">
-      
+
       <br/>
         <li><a href="/material_requests/sample_csv" onclick="Telaeris.skipConfirm = true;">Sample CSV</a></li>
           <li>The CSV should use the following format:
@@ -380,7 +380,7 @@
           </li>
         </ul>
         </p>
-    
+
     </div>
 
 	<!-- ui-dialog -->
@@ -459,8 +459,8 @@
 			return false;
 		});
 
-   
-    
+
+
     jQuery("#dialog-form").dialog({
       title:"Upload Multiple Items",
       autoOpen: false,
@@ -469,28 +469,28 @@
       modal: true,
       buttons: {
         "Upload": function() {
-           var options = { 
-              url:        '/material_requests/parse_new_line_item/', 
-              success:    function(responseText, statusText) { 
+           var options = {
+              url:        '/material_requests/parse_new_line_item/',
+              success:    function(responseText, statusText) {
                 var response = jQuery.parseJSON(responseText);
                 if(response.success == true){
                   var markup = response['markup'];
                   window.parent.addParsedRows(markup['markupa']);
                   window.parent.changeValuesFromCsvUploader(response.count);
                   Telaeris.formChange();
-                  
+
                 }
                 else{
                   alert(response.errors);
                 }
                 jQuery("#new_line_item_csv_file").val('');
-                
-              } 
+
+              }
             };
 
-            jQuery("#upload_form").ajaxSubmit(options);            
+            jQuery("#upload_form").ajaxSubmit(options);
             jQuery( this ).dialog( "close" );
-          
+
         },
         Cancel: function() {
           jQuery( this ).dialog( "close" );
@@ -501,7 +501,7 @@
       }
     });
     jQuery("#dialog-form").show();
-    
+
     jQuery( "#show-button" )
       .click(function() {
         jQuery( "#dialog-form" ).dialog( "open" );

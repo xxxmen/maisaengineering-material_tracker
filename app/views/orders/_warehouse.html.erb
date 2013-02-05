@@ -43,7 +43,7 @@
         <div id="<%= dom_id order, :location %>" style="font-size: 100%;"><%= order.show_issued_to_history %></div>
       </td>
       <td class="location">
-        <% remote_form_for :order, order, :url => { :controller => "orders", :action => "set_location", :id => order }, :html => { :method => :put, :style => "display: none;", :id => dom_id(order, :edit), :class => "edit_order" } do |f| %>
+        <%= remote_form_for :order, order, :url => { :controller => "orders", :action => "set_location", :id => order }, :html => { :method => :put, :style => "display: none;", :id => dom_id(order, :edit), :class => "edit_order" } do |f| %>
           
           <%= f.text_field :location, :class => "text", :style => "width: 150px; font-size: 120%;", :id => dom_id(order, :location) %>
             <%= submit_tag "Save", :class => "submit" %> <%= link_to_toggle "Cancel", order, :edit, :show %>

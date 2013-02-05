@@ -37,7 +37,7 @@
     
 </style>
 
-<% form_for @order, :html => { :class => "edit full" } do |f| %>
+<%= form_for @order, :html => { :class => "edit full" } do |f| %>
     <div id="addtl_info">
         <table class="information" id="addtl">
             <tr><th colspan="2">Additional Info</th></tr>
@@ -123,7 +123,7 @@
 
 <% unless @order.new_record? %>
 <div id="date_info">
-    <% form_for :order, @order, :url => { :action => "mark_remaining_as_received", :id => @order } do |f| %>
+    <%= form_for :order, @order, :url => { :action => "mark_remaining_as_received", :id => @order } do |f| %>
     <table class="information" style="margin: 0; padding: 0;">
         <tr> 
             <th style="width: 50%">Rec'd Dates</th>
@@ -163,7 +163,7 @@
         </tr>
         <tr>
             <td>
-                <% remote_form_for @order, :url => { :action => "update", :id => @order, :set_location => true }, :html => { :class => "edit full" } do |f| %>
+                <%= remote_form_for @order, :url => { :action => "update", :id => @order, :set_location => true }, :html => { :class => "edit full" } do |f| %>
                 <table style="width: 98%;">
                   <tr>
                   <td style="width: 25%;" class="lbl"><label style="margin-left: 2px;">Name</label></td>
@@ -196,7 +196,7 @@
                 <% end %>
             </td>
             <td style="position: relative;">
-              <% remote_form_for @order, :html => { :id => "issued_to_history_form", :class => "edit full" } do |f| %>
+              <%= remote_form_for @order, :html => { :id => "issued_to_history_form", :class => "edit full" } do |f| %>
                 <%= f.text_area :issued_to_history, :style => "width: 95%; height: 90px;", :id => "issue_to_history" %>
                 <%= submit_tag "Save Issue To History", :disabled => @requesting %>
               <% end %>

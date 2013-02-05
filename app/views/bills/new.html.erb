@@ -18,7 +18,7 @@
 <h2>Bill Description</h2>
 
 <h2>Manually Enter Item</h2>
-<% form_for :bill_item, @bill_item, :url => {:action => "create"}, :html => { :method => "post", :class => "edit full", :id => "new_bill_item" } do |f| %>
+<%= form_for :bill_item, @bill_item, :url => {:action => "create"}, :html => { :method => "post", :class => "edit full", :id => "new_bill_item" } do |f| %>
   <table class="noprint information">
     <tr>
     <th class="x-small">Qty</th>
