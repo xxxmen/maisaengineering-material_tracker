@@ -196,7 +196,7 @@ class MaterialRequest < ActiveRecord::Base
   validates_associated :planner
   validates_associated :requester
                 
-  def initialize(attributes = {})
+  def initialize(attributes = nil, options = {})
     super
     if self.new_record?
       self.date_need_by ||= 3.days.from_now.to_date
@@ -204,7 +204,7 @@ class MaterialRequest < ActiveRecord::Base
     end
     self.group_id ||= Group.get_default_id
     self.reference_number_type ||= ReferenceNumberType.get_default_type
-  end  
+  end
   
   def requester_name(with_id=false)
     if requester && with_id
