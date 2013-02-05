@@ -31,8 +31,8 @@
       <%= stylesheet_link_tag "base_packaged" %>
       <!-- We have to use seperate stylesheet for 'print' and 'yui'
                   because it can't be included for media='screen' -->
-      <%= stylesheet_link_tag "vendor/yui.css" %>
-      <%= stylesheet_link_tag "printer.css" %>
+      <%= stylesheet_link_tag "vendor/yui.css",media: 'all' %>
+      <%= stylesheet_link_tag "printer.css",media: 'print' %>
       <!-- This must come last. -->
 
       <%= javascript_include_tag 'application' %>
@@ -76,7 +76,7 @@
 
       <%#= javascript_include_merged :base %>
 
-     <%= javascript_include_tag 'popv_packaged' %>
+      <%= javascript_include_tag 'popv_packaged' %>
 
 
 
