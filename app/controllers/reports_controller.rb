@@ -81,10 +81,10 @@ class ReportsController < ApplicationController
 
   def sandbox
     if request.get?
-      if(!File.exists?("#{RAILS_ROOT}/sandbox.txt"))
+      if(!File.exists?("#{Rails.root}/sandbox.txt"))
         @log = []
   	  else
-        @log = IO.read("#{RAILS_ROOT}/sandbox.txt")
+        @log = IO.read("#{Rails.root}/sandbox.txt")
         @log = @log.split("\n").uniq.map { |line| line.split("/////") }.reverse[0..30]
       end
     end
@@ -95,19 +95,19 @@ class ReportsController < ApplicationController
       end
 
       filename = params[:report].original_filename
-      File.open("#{RAILS_ROOT}/reports/tmp/#{filename}", "w") do |f|
+      File.open("#{Rails.root}/reports/tmp/#{filename}", "w") do |f|
         f.write(params[:report].read)
       end
-      File.open("#{RAILS_ROOT}/sandbox.txt", "a+") do |f|
+      File.open("#{Rails.root}/sandbox.txt", "a+") do |f|
         f.write(params[:filepath] + "/////" + params[:params] + "\n")
       end
-      cmd = "/usr/local/reportman/printreptopdf #{params[:params]} #{RAILS_ROOT}/reports/tmp/#{filename} 2>> #{RAILS_ROOT}/stderr.txt"
-      RAILS_DEFAULT_LOGGER.info cmd
+      cmd = "/usr/local/reportman/printreptopdf #{params[:params]} #{Rails.root}/reports/tmp/#{filename} 2>> #{Rails.root}/stderr.txt"
+      Rails.logger.info cmd
       data = `#{cmd}`
 
 
       if data.blank?
-        render :text => "<pre>" + IO.read(RAILS_ROOT + "/stderr.txt") + "</pre>"
+        render :text => "<pre>" + IO.read(Rails.root + "/stderr.txt") + "</pre>"
       else
         send_data(data, :type => "application/pdf", :filename => filename + ".pdf")
       end
@@ -204,14 +204,18 @@ class ReportsController < ApplicationController
       return
     end
 
-    cmd = "#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf #{param_string} #{RAILS_ROOT}/reports/#{report}_linux.rep 2>> #{RAILS_ROOT}/stderr.txt"
-    RAILS_DEFAULT_LOGGER.info cmd
+    cmd = "#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf #{param_string} #{Rails.root}/reports/#{report}_linux.rep 2>> #{Rails.root}/stderr.txt"
+    Rails.logger.info cmd
     data = `#{cmd}`
     filename = report.include?("omni_orders") ? "orders" : report
-
+    puts "#############################1"
     if data.blank?
+      puts "#############################2"
+
       render :action => :no_data
     else
+      puts "#############################3"
+
       send_data(data, :type => "application/pdf", :filename => "#{filename}.pdf")
       return
     end
@@ -394,7 +398,7 @@ class ReportsController < ApplicationController
 
   def load_fixtures
     [Company, Employee, InventoryItem, LogEdit, MaterialRequest, Order, OrderedLineItem, PoStatus, RequestedLineItem, Unit, Vendor].each do |m|
-      path = "#{RAILS_ROOT}/db/#{m.table_name}.csv"
+      path = "#{Rails.root}/db/#{m.table_name}.csv"
       if File.exists?(path)
         m.load_from_file
         File.delete(path)
@@ -417,12 +421,12 @@ class ReportsController < ApplicationController
 
   def download_database
     [Company, Employee,InventoryItem, LogEdit, MaterialRequest, Order, OrderedLineItem, PoStatus, RequestedLineItem, Unit, Vendor].each do |m|
-      m.dump_to_file   # dumps to RAILS_ROOT/db/table_name.csv
+      m.dump_to_file   # dumps to Rails.root/db/table_name.csv
     end
-    `zip #{RAILS_ROOT}/tmp/csv.zip #{RAILS_ROOT}/db/*.csv`
-    `rm #{RAILS_ROOT}/db/*.csv`
+    `zip #{Rails.root}/tmp/csv.zip #{Rails.root}/db/*.csv`
+    `rm #{Rails.root}/db/*.csv`
 
-    send_file "#{RAILS_ROOT}/tmp/csv.zip", :type => "application/zip", :disposition => "attachment", :filename => "csv.zip"
+    send_file "#{Rails.root}/tmp/csv.zip", :type => "application/zip", :disposition => "attachment", :filename => "csv.zip"
   end
 
     def replace_foreign_key_ids_in_csv(model_to_export, csv_file_data)
