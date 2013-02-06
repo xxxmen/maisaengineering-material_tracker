@@ -255,10 +255,10 @@ class CreateAccessDbReplicas < ActiveRecord::Migration
   def self.import
   	if (RUBY_PLATFORM =~ /mswin32/) || (RUBY_PLATFORM =~ /i386-cygwin/)
     	fixtures_location = "r:/material_tracker/POPV_CONVERSION/"
-	elsif (RUBY_PLATFORM =~ /i686-linux/ && RAILS_ENV == 'development')
+	elsif (RUBY_PLATFORM =~ /i686-linux/ && Rails.env.development?)
 	    fixtures_location = "/tmp/POPV_CONVERSION/"
 	else
-		fixtures_location = "#{RAILS_ROOT}/POPV_CONVERSION/"
+		fixtures_location = "#{Rails.root}/POPV_CONVERSION/"
 	end
     table_infos = [
         {:table_name => 'temporary_archive_line_classes', :file_name =>'Archive_Line_Class.csv'},

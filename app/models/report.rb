@@ -55,8 +55,8 @@ class Report
 	def get_command(show_in_log = false)
 		command_array = [self.command_prefix, self.command, self.options, self.report_name, self.output]
 		cmd = command_array.select {|c| c.present? }.join(' ')
-		RAILS_DEFAULT_LOGGER.info cmd
-		puts cmd #if (RAILS_ENV == 'development' || show_in_log)
+		Rails.logger.info cmd
+		puts cmd #if (Rails.env == 'development' || show_in_log)
 		cmd
 	end
 

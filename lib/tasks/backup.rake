@@ -40,7 +40,7 @@ namespace :db do
 
 	desc "Create a backup and send via SFTP to a backup server"
 	task :send_backup do	
-		if(RAILS_ENV == "production")
+		if(Rails.env.production?)
 			load RAILS_ROOT + '/config/environment.rb'
 			timenow = Time.now
 			abcs = ActiveRecord::Base.configurations

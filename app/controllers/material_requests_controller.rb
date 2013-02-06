@@ -633,11 +633,11 @@ end
       notified = false
       if params[:notify_requester]
         requester_email = params[:requester_email]
-        RequestMailer.send_as_html('quote_change', @quote, requester_email, @vendor.email || "Material Tracker <no-reply@#{ENV['MAIL_DOMAIN']}>") if RAILS_ENV == 'production'
+        RequestMailer.send_as_html('quote_change', @quote, requester_email, @vendor.email || "Material Tracker <no-reply@#{ENV['MAIL_DOMAIN']}>") if Rails.env.production?
         notified = true
       elsif params[:notify_vendor]
         vendor_email = params[:vendor_email]
-        RequestMailer.send_as_html('quote_change', @quote, vendor_email, current_employee.name_and_email || "Material Tracker <no-reply@#{ENV['MAIL_DOMAIN']}>") if RAILS_ENV == 'production'
+        RequestMailer.send_as_html('quote_change', @quote, vendor_email, current_employee.name_and_email || "Material Tracker <no-reply@#{ENV['MAIL_DOMAIN']}>") if Rails.env.production?
         notified = true
       end
 
