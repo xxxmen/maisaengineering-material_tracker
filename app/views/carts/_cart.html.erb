@@ -19,7 +19,7 @@
       <tr class="<%= cycle(:odd, :even) %>" id="<%= dom_id cart_item %>">
         <td><%= cart_item.quantity %> <%= cart_item.inventory_item.unit_of_measure %></td>
         <td><%= link_to cart_item.inventory_item.description, inventory_item_path(:id => cart_item.inventory_item, :cart => true) %></td>
-        <td><%= link_to_remote "<img src='/images/icons/delete.png' />", :url => cart_item_path(cart_item), :method => :delete %></td>
+        <td><%= link_to_remote image_tag('icons/delete.png'), :url => cart_item_path(cart_item), :method => :delete %></td>
       </tr>
       <% end %>
     <% end %>
