@@ -87,11 +87,11 @@ class BomsController < SextController
 #	  	tracking = bill.id
 #
 #	    if RUBY_PLATFORM =~ /mswin32/
-#	        print_string = "\"c:\\Program Files\\Report Manager\\printreptopdf.exe\" -paramPSEARCHID=#{tracking} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 \"#{RAILS_ROOT}\\reports\\popv_bom_vert_windows.rep\" "
+#	        print_string = "\"c:\\Program Files\\Report Manager\\printreptopdf.exe\" -paramPSEARCHID=#{tracking} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 \"#{Rails.root}\\reports\\popv_bom_vert_windows.rep\" "
 #	    elsif RUBY_PLATFORM =~ /cygwin/
-#	        print_string = "\"/cygdrive/c/Program\ Files/Report\ Manager/printreptopdf.exe\" -paramPSEARCHID=#{tracking} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 \"#{RAILS_ROOT}\\reports\\popv_bom_vert_windows.rep\" 2>> #{RAILS_ROOT}\\stderr.txt"
+#	        print_string = "\"/cygdrive/c/Program\ Files/Report\ Manager/printreptopdf.exe\" -paramPSEARCHID=#{tracking} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 \"#{Rails.root}\\reports\\popv_bom_vert_windows.rep\" 2>> #{Rails.root}\\stderr.txt"
 #	    else
-#	        print_string = "#{ENV['REPORT_USER_COMMAND']}  /usr/local/reportman/printreptopdf -paramPSEARCHID=#{tracking} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 #{RAILS_ROOT}/reports/popv_bom_vert_linux.rep"
+#	        print_string = "#{ENV['REPORT_USER_COMMAND']}  /usr/local/reportman/printreptopdf -paramPSEARCHID=#{tracking} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 #{Rails.root}/reports/popv_bom_vert_linux.rep"
 #	    end
 #
 #	    logger.error "PDF Command: #{print_string}"
@@ -109,11 +109,11 @@ class BomsController < SextController
 #	  	tracking = bill.id
 
 #	    if RUBY_PLATFORM =~ /mswin32/
-#	        print_string = "\"c:\\Program Files\\Report Manager\\printreptopdf.exe\" -paramPSEARCHID=#{tracking} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 \"#{RAILS_ROOT}\\reports\\popv_bom_rfq_vert_windows.rep\" "
+#	        print_string = "\"c:\\Program Files\\Report Manager\\printreptopdf.exe\" -paramPSEARCHID=#{tracking} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 \"#{Rails.root}\\reports\\popv_bom_rfq_vert_windows.rep\" "
 #	    elsif RUBY_PLATFORM =~ /cygwin/
-#	        print_string = "\"/cygdrive/c/Program\ Files/Report\ Manager/printreptopdf.exe\" -paramPSEARCHID=#{tracking} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 \"#{RAILS_ROOT}\\reports\\popv_bom_rfq_vert_windows.rep\" 2>> #{RAILS_ROOT}\\stderr.txt"
+#	        print_string = "\"/cygdrive/c/Program\ Files/Report\ Manager/printreptopdf.exe\" -paramPSEARCHID=#{tracking} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 \"#{Rails.root}\\reports\\popv_bom_rfq_vert_windows.rep\" 2>> #{Rails.root}\\stderr.txt"
 #	    else
-#	        print_string = "#{ENV['REPORT_USER_COMMAND']}  /usr/local/reportman/printreptopdf -paramPSEARCHID=#{tracking} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 #{RAILS_ROOT}/reports/popv_bom_rfq_vert_linux.rep"
+#	        print_string = "#{ENV['REPORT_USER_COMMAND']}  /usr/local/reportman/printreptopdf -paramPSEARCHID=#{tracking} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 #{Rails.root}/reports/popv_bom_rfq_vert_linux.rep"
 #	    end
 
 #	    logger.error "PDF Command: #{print_string}"

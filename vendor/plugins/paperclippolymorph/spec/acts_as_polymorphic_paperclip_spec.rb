@@ -2,8 +2,8 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 describe MockEssay, :type => :model do
   before(:each) do
-    @uploaded_image = uploaded_jpeg("#{RAILS_ROOT}/vendor/plugins/paperclip_polymorph/spec/fixtures/assets/rails.png")
-    @uploaded_text = uploaded_txt("#{RAILS_ROOT}/vendor/plugins/paperclip_polymorph/spec/fixtures/assets/sample.txt")
+    @uploaded_image = uploaded_jpeg("#{Rails.root}/vendor/plugins/paperclip_polymorph/spec/fixtures/assets/rails.png")
+    @uploaded_text = uploaded_txt("#{Rails.root}/vendor/plugins/paperclip_polymorph/spec/fixtures/assets/sample.txt")
   end
   
   describe 'when being saved' do

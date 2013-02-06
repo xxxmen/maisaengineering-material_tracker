@@ -104,7 +104,7 @@ module Gruffer
         g.theme_bp
         
         g.title = title
-        g.font = File.expand_path('artwork/fonts/Vera.ttf', RAILS_ROOT) # Font selector
+        g.font = File.expand_path('artwork/fonts/Vera.ttf', Rails.root) # Font selector
         # Column labels
         g.labels = labels
 

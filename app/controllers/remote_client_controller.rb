@@ -47,12 +47,12 @@ class RemoteClientController < ApplicationController
   end
   
   def set_last_connected
-    File.open("#{RAILS_ROOT}/log/connection.log", "w") { |file| file.write Time.now.to_s(:db) }
+    File.open("#{Rails.root}/log/connection.log", "w") { |file| file.write Time.now.to_s(:db) }
     render :nothing => true
   end
 
   def get_last_connected
-    time = File.open("#{RAILS_ROOT}/log/connection.log") { |file| file.read }
+    time = File.open("#{Rails.root}/log/connection.log") { |file| file.read }
     render_json({:time => time}.to_json)
   end
   

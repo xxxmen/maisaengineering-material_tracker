@@ -126,9 +126,9 @@ module SextTask
     end
   end
 
-  # path is relative from RAILS_ROOT without the first slash
+  # path is relative from Rails.root without the first slash
   def self.generate_source(path)
-    abs_path = RAILS_ROOT + "/" + path
+    abs_path = Rails.root + "/" + path
     if File.exists?(abs_path)
       puts "File exists, failed to generate: #{path}"
       return
@@ -297,7 +297,7 @@ namespace :sext do
     end
     
     # figure out which number migration it is now
-    migrations = Dir.new(RAILS_ROOT + "/db/migrate").entries    
+    migrations = Dir.new(Rails.root + "/db/migrate").entries
     migration_numbers = migrations.find_all { |f| f =~ /^\d\d\d/ }.map { |f| f.slice(0, 3).to_i }
 
     new_num_int = (migration_numbers.max || 0) + 1
@@ -425,7 +425,7 @@ namespace :sext do
     puts "Generating files..."
     files.each do |new_path, old_path|
       full_old_path = TEMPLATE_ROOT + old_path
-      full_new_path = RAILS_ROOT + "/" + new_path
+      full_new_path = Rails.root + "/" + new_path
       FileUtils.mkdir_p(File.dirname(full_new_path))
       if(File.exists?(full_new_path))
       	puts "#{new_path} already exists."
@@ -454,9 +454,9 @@ namespace :sext do
     end
     
     puts "Removing index.html..."
-    FileUtils.rm_rf("#{RAILS_ROOT}/public/index.html")
+    FileUtils.rm_rf("#{Rails.root}/public/index.html")
     puts "Adding users, sessions, and a root url to routes.rb"
-    routes = IO.read(RAILS_ROOT + '/config/routes.rb')
+    routes = IO.read(Rails.root + '/config/routes.rb')
   
     sext_routes = "|map|\n "
     sext_routes += "  map.resources :sessions\n\n "
@@ -483,6 +483,6 @@ namespace :sext do
     sext_routes += "  map.connect ':controller/:resource/:action/:id'\n"
   
     routes = routes.sub("|map|\n",  sext_routes)
-    File.open(RAILS_ROOT + '/config/routes.rb', 'w') { |f| f.puts routes }
+    File.open(Rails.root + '/config/routes.rb', 'w') { |f| f.puts routes }
   end
 end

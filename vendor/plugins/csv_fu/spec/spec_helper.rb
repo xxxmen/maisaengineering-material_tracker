@@ -2,7 +2,7 @@ require 'rubygems'
 require "fastercsv"
 require File.dirname(__FILE__) + "/../lib/csv_fu"
 
-RAILS_ROOT = File.dirname(__FILE__) + "/../sandbox"
+Rails.root = File.dirname(__FILE__) + "/../sandbox"
 
 class User
   extend CsvFu::ClassMethods

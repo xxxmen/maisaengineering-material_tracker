@@ -51,9 +51,9 @@ schema.rb" db/'
     system "svn update tmp/"
     system "svn commit -m 'Setting ignore on all files in /tmp folder'"
     
-    # Set svn:ignore on current RAILS_ROOT
+    # Set svn:ignore on current Rails.root
     system 'svn propset svn:ignore ".rake_tasks" .'
-    system "svn commit -m 'Setting ignore on .rake_tasks for RAILS_ROOT.'"
+    system "svn commit -m 'Setting ignore on .rake_tasks for Rails.root.'"
   
     # Update Rails Javascript code
     system "rake rails:update"

@@ -570,7 +570,7 @@ if File.exists?("#{File.dirname(__FILE__)}/../../../../config/environment.rb")
     
     describe 'giving an exemplar path for an ActiveRecord model' do
       it 'should check if a spec directory exists' do
-        File.expects(:directory?).with(File.join(RAILS_ROOT, 'spec'))
+        File.expects(:directory?).with(File.join(Rails.root, 'spec'))
         Frobnitz.exemplar_path
       end
       
@@ -580,7 +580,7 @@ if File.exists?("#{File.dirname(__FILE__)}/../../../../config/environment.rb")
         end
         
         it 'should use the spec directory' do
-          Frobnitz.exemplar_path.should == File.join(RAILS_ROOT, 'spec', 'exemplars')
+          Frobnitz.exemplar_path.should == File.join(Rails.root, 'spec', 'exemplars')
         end
       end
       
@@ -590,7 +590,7 @@ if File.exists?("#{File.dirname(__FILE__)}/../../../../config/environment.rb")
         end
         
         it 'should use the test directory' do
-          Frobnitz.exemplar_path.should == File.join(RAILS_ROOT, 'test', 'exemplars')
+          Frobnitz.exemplar_path.should == File.join(Rails.root, 'test', 'exemplars')
         end
       end
     end

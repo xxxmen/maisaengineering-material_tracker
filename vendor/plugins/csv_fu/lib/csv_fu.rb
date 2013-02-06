@@ -36,12 +36,12 @@ module CsvFu::ClassMethods
   end
   
   def dump_to_file(path = nil)
-    path ||= "#{RAILS_ROOT}/db/#{table_name}.csv"
+    path ||= "#{Rails.root}/db/#{table_name}.csv"
     CsvFu.write_file(path, self.to_csv)
   end
   
   def load_from_file(path = nil)
-    path ||= "#{RAILS_ROOT}/db/#{table_name}.csv"      
+    path ||= "#{Rails.root}/db/#{table_name}.csv"
     CsvFu.reset_table(self, self.connection)
     
     csv = IO.read(path)

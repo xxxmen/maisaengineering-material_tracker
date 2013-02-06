@@ -10,7 +10,7 @@ namespace :db do
     		 exit 0
     	end
     end
-    puts "(This file is found in RAILS_ROOT/lib/tasks/db_helpers.rake)"
+    puts "(This file is found in Rails.root/lib/tasks/db_helpers.rake)"
     
     puts "::: Dropping Database :::"
     Rake::Task['db:drop'].invoke
@@ -30,7 +30,7 @@ namespace :db do
   	timenow = Time.now
 
   	abcs = ActiveRecord::Base.configurations
-		our_backup_filename = "#{RAILS_ROOT}/data/helpdesk_tickets.sql.dump"
+		our_backup_filename = "#{Rails.root}/data/helpdesk_tickets.sql.dump"
 		dump_options = "--add-drop-table=FALSE --complete-insert=TRUE --no-create-info=TRUE --insert-ignore=TRUE"
 		if(abcs[RAILS_ENV]['password'].blank?)
 				dump_command =  "mysqldump #{abcs[RAILS_ENV]['database']} helpdesk_tickets -u #{abcs[RAILS_ENV]['username']} >> #{our_backup_filename} #{dump_options}"
@@ -47,7 +47,7 @@ namespace :db do
   	timenow = Time.now
 
   	abcs = ActiveRecord::Base.configurations
-		our_backup_filename = "#{RAILS_ROOT}/data/helpdesk_tickets.sql.dump"
+		our_backup_filename = "#{Rails.root}/data/helpdesk_tickets.sql.dump"
 		
 		if(abcs[RAILS_ENV]['password'].blank?)
 				restore_command =  "mysql #{abcs[RAILS_ENV]['database']} -u #{abcs[RAILS_ENV]['username']} < #{our_backup_filename}"

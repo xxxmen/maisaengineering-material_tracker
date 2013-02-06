@@ -546,7 +546,7 @@ end
 
   def pdf
     tracking = MaterialRequest.find(params[:id]).tracking
-    data = `#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf -paramPSEARCHID=#{params[:id].to_s} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 #{RAILS_ROOT}/reports/material_request_horz_linux.rep 2>> #{RAILS_ROOT}/stderr.txt`
+    data = `#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf -paramPSEARCHID=#{params[:id].to_s} -paramPINSIDETRACKER=0 -paramPTRACKINGCOUNTER=0 #{Rails.root}/reports/material_request_horz_linux.rep 2>> #{Rails.root}/stderr.txt`
     send_data(data, :type => "application/pdf", :filename => "request_#{tracking}.pdf")
   end
 

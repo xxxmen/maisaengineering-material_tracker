@@ -178,13 +178,13 @@ calls (and support methods) can be written without polluting the model files
 with Object Daddy information.
 
 Object Daddy, when installed as a Rails plugin, will create
-*RAILS_ROOT/spec/exemplars/* as a place to hold __exemplar__ files for Rails model
+*Rails.root/spec/exemplars/* as a place to hold __exemplar__ files for Rails model
 classes.  (We are seeking perhaps some better terminology)
 
 An __exemplar__ for the User model would then be found in
-*RAILS_ROOT/spec/exemplars/user_exemplar.rb* (when you are using a testing tool
-which works from *RAILS_ROOT/test*, Object Daddy will create
-*RAILS_ROOT/test/exemplars* and look for your exemplars in that directory
+*Rails.root/spec/exemplars/user_exemplar.rb* (when you are using a testing tool
+which works from *Rails.root/test*, Object Daddy will create
+*Rails.root/test/exemplars* and look for your exemplars in that directory
 instead). Exemplar files are completely optional, and no model need have
 exemplar files. The `.generate` method will still exist and be callable, and
 `generator_for` can be declared in the model files themselves. If an exemplar

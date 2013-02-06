@@ -16,7 +16,7 @@ require 'action_controller/test_process'
 #just requiring action controller wasn't loading classes soon enough for SILENT_EXCEPTIONS
 ActionController::Base
 
-RAILS_ROOT = '.' unless defined?(RAILS_ROOT)
+Rails.root = '.' unless defined?(Rails.root)
 RAILS_ENV = 'test' unless defined?(RAILS_ENV)
 RAILS_DEFAULT_LOGGER = Logger.new(StringIO.new) unless defined?(RAILS_DEFAULT_LOGGER)
 #$:.unshift File.join(File.dirname(__FILE__), '../lib')

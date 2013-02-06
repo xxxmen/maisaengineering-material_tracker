@@ -93,15 +93,15 @@ class ExceptionNotification::Notifier < ActionMailer::Base
 
   # Check the usual suspects
   def self.get_view_path(file_name, verbose = false)
-    if File.exist?("#{RAILS_ROOT}/public/#{file_name}.html")
-      logger.info("[FOUND FILE:A] #{RAILS_ROOT}/public/#{file_name}.html") if verbose
-      "#{RAILS_ROOT}/public/#{file_name}.html"
-    elsif !config[:view_path].nil? && File.exist?("#{RAILS_ROOT}/#{config[:view_path]}/#{file_name}.html.erb")
-      logger.info("[FOUND FILE:B] #{RAILS_ROOT}/#{config[:view_path]}/#{file_name}.html.erb") if verbose
-      "#{RAILS_ROOT}/#{config[:view_path]}/#{file_name}.html.erb"
-    elsif !config[:view_path].nil? && File.exist?("#{RAILS_ROOT}/#{config[:view_path]}/#{file_name}.html")
-      logger.info("[FOUND FILE:C] #{RAILS_ROOT}/#{config[:view_path]}/#{file_name}.html") if verbose
-      "#{RAILS_ROOT}/#{config[:view_path]}/#{file_name}.html"
+    if File.exist?("#{Rails.root}/public/#{file_name}.html")
+      logger.info("[FOUND FILE:A] #{Rails.root}/public/#{file_name}.html") if verbose
+      "#{Rails.root}/public/#{file_name}.html"
+    elsif !config[:view_path].nil? && File.exist?("#{Rails.root}/#{config[:view_path]}/#{file_name}.html.erb")
+      logger.info("[FOUND FILE:B] #{Rails.root}/#{config[:view_path]}/#{file_name}.html.erb") if verbose
+      "#{Rails.root}/#{config[:view_path]}/#{file_name}.html.erb"
+    elsif !config[:view_path].nil? && File.exist?("#{Rails.root}/#{config[:view_path]}/#{file_name}.html")
+      logger.info("[FOUND FILE:C] #{Rails.root}/#{config[:view_path]}/#{file_name}.html") if verbose
+      "#{Rails.root}/#{config[:view_path]}/#{file_name}.html"
     elsif File.exist?("#{File.dirname(__FILE__)}/../../rails/app/views/exception_notifiable/#{file_name}.html.erb")
       logger.info("[FOUND FILE:D] #{File.dirname(__FILE__)}/../../rails/app/views/exception_notifiable/#{file_name}.html.erb") if verbose
       "#{File.dirname(__FILE__)}/../../rails/app/views/exception_notifiable/#{file_name}.html.erb"
@@ -164,11 +164,11 @@ class ExceptionNotification::Notifier < ActionMailer::Base
 
     def sanitize_backtrace(trace)
       re = Regexp.new(/^#{Regexp.escape(rails_root)}/)
-      trace.map { |line| Pathname.new(line.gsub(re, "[RAILS_ROOT]")).cleanpath.to_s }
+      trace.map { |line| Pathname.new(line.gsub(re, "[Rails.root]")).cleanpath.to_s }
     end
 
     def rails_root
-      @rails_root ||= Pathname.new(RAILS_ROOT).cleanpath.to_s
+      @rails_root ||= Pathname.new(Rails.root).cleanpath.to_s
     end
 
 end

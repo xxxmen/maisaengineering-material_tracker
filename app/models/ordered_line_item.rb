@@ -157,7 +157,7 @@ class OrderedLineItem < ActiveRecord::Base
     
     # Updates the line item and splits it into duplicate line items with the same line item number but different quantities.
     # This allows for easier line item partial-ization based on the ordered, received, and issued quantities.
-    # See RAILS_ROOT/spec/models/ordered_line_item_spec.rb for test cases.
+    # See Rails.root/spec/models/ordered_line_item_spec.rb for test cases.
     def update_attributes_with_splitting(attrs = {})
         self.attributes = attrs
         raise ActiveRecord::RecordInvalid, self unless self.valid?

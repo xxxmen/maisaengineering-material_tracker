@@ -7,7 +7,7 @@ module SpecHelper
   end
   
   def kill_index
-    `rm -rf #{RAILS_ROOT}/index/test`
+    `rm -rf #{Rails.root}/index/test`
   end
 end
 

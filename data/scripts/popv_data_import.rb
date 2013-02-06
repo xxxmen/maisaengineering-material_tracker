@@ -265,7 +265,7 @@ class POPVImportData < ActiveRecord::Migration
 		if (RUBY_PLATFORM =~ /mswin32/) || (RUBY_PLATFORM =~ /i386-cygwin/)
 			fixtures_location = "c:/INSTANT_RAILS/rails_apps/material_tracker/data/csvs/popv_bpcherrypoint/"
 		else
-			fixtures_location = "#{RAILS_ROOT}/data/csvs/#{ENV['FIXTURES_LOCATION']}/"
+			fixtures_location = "#{Rails.root}/data/csvs/#{ENV['FIXTURES_LOCATION']}/"
 		end
 		
 		table_infos = [
@@ -338,7 +338,7 @@ class POPVImportData < ActiveRecord::Migration
         @fitting = PipingComponent.find(:first, :conditions => {:piping_component => 'FITTINGS'})
         
         # Log file for the notes it creates.
-        log_file = File.new(File.join(RAILS_ROOT,"log", "piping_notes_creation.log"), 'w')
+        log_file = File.new(File.join(Rails.root,"log", "piping_notes_creation.log"), 'w')
         
         @piping_classes.each do |piping_class|
            log_string = StringIO.new
@@ -442,7 +442,7 @@ class POPVImportData < ActiveRecord::Migration
 		Object.class_eval do
 		remove_const PipingClass.to_s
 		end
-		load "#{RAILS_ROOT}/app/models/piping_class.rb"
+		load "#{Rails.root}/app/models/piping_class.rb"
 		
 		execute "delete from piping_classes"
 		size = TemporaryPipingClassIndex.count
@@ -1024,7 +1024,7 @@ class POPVImportData < ActiveRecord::Migration
 	end
 	
 	def self.reload
-		load "#{RAILS_ROOT}/lib/access_temp_migration.rb"
+		load "#{Rails.root}/lib/access_temp_migration.rb"
 	end
 	
 	def self.execute_sql(command)

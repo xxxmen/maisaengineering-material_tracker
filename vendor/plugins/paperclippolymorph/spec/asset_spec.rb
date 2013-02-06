@@ -3,8 +3,8 @@ require File.dirname(__FILE__) + '/spec_helper'
 describe Asset do
   before(:each) do
     @asset = Asset.new
-    @uploaded_image = uploaded_jpeg("#{RAILS_ROOT}/vendor/plugins/paperclip_polymorph/spec/fixtures/assets/rails.png")
-    @uploaded_text = uploaded_txt("#{RAILS_ROOT}/vendor/plugins/paperclip_polymorph/spec/fixtures/assets/sample.txt")
+    @uploaded_image = uploaded_jpeg("#{Rails.root}/vendor/plugins/paperclip_polymorph/spec/fixtures/assets/rails.png")
+    @uploaded_text = uploaded_txt("#{Rails.root}/vendor/plugins/paperclip_polymorph/spec/fixtures/assets/sample.txt")
   end
   it "should save the uploaded attachment data" do
     @asset = create_asset(:data => @uploaded_image)

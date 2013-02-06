@@ -17,7 +17,7 @@ class POPVImportRevisionHistory < ActiveRecord::Migration
 	
 	def self.import_history
 		["Class_Code", "Rev_Date", "Piping_Comp_Name", "Rev_Desc", "Last_Updt_Id", "Last_Updt_Date"]
-		filepath = File.join(RAILS_ROOT, 'data', 'csvs', 'popv_bpcherrypoint', 'Revision_History.csv')
+		filepath = File.join(Rails.root, 'data', 'csvs', 'popv_bpcherrypoint', 'Revision_History.csv')
 		csv = FasterCSV.open(filepath, {:headers => true, :force_quotes => true})
 		i = 1
 		csv.each do |row|

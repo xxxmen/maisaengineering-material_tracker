@@ -311,7 +311,7 @@ class CreateAccessDbReplicas < ActiveRecord::Migration
     Object.class_eval do
       remove_const PipingClass.to_s
     end
-    load "#{RAILS_ROOT}/app/models/piping_class.rb"
+    load "#{Rails.root}/app/models/piping_class.rb"
     
     execute "delete from piping_classes"
     size = TemporaryPipingClassIndex.count
@@ -770,7 +770,7 @@ PipingSubcomponent.create(:piping_component_id => pipe.id,:description => 'swage
   
   
   def self.reload
-    load "#{RAILS_ROOT}/lib/access_temp_migration.rb"
+    load "#{Rails.root}/lib/access_temp_migration.rb"
   end
   
   def self.execute_sql(command)

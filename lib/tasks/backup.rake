@@ -15,7 +15,7 @@ namespace :db do
 	#
 	
 	#Arguemts
-	#This rakefile can be called from the RAILS_ROOT location of your server
+	#This rakefile can be called from the Rails.root location of your server
 	#To manually call this file, do something like:
 	#rake db:send_backup RAILS_ENV=production SERVER_LOCATION="root@backupserver.com"
 	
@@ -27,13 +27,13 @@ namespace :db do
 	#     This is the location the zip files will end up in
 	#
 	#Step 2
-	#Load this rake task into RAILS_ROOT/lib/tasks
+	#Load this rake task into Rails.root/lib/tasks
 	#
 	#Step 3
 	#Set up a crontab similar to the following to run the rake task daily at 3am
 	#
 	#MAILTO=""
-	#* 3 * * * /usr/local/bin/rake db:send_backup RAILS_ENV=production -f /home/applications/newmans/Rakefile RAILS_ROOT=/home/applications/YOURAPPLICATION SERVER_LOCATION=YOURUSER@YOURROOT
+	#* 3 * * * /usr/local/bin/rake db:send_backup RAILS_ENV=production -f /home/applications/newmans/Rakefile Rails.root=/home/applications/YOURAPPLICATION SERVER_LOCATION=YOURUSER@YOURROOT
 	# 
 	#
 	#
@@ -41,7 +41,7 @@ namespace :db do
 	desc "Create a backup and send via SFTP to a backup server"
 	task :send_backup do	
 		if(Rails.env.production?)
-			load RAILS_ROOT + '/config/environment.rb'
+			load Rails.root + '/config/environment.rb'
 			timenow = Time.now
 			abcs = ActiveRecord::Base.configurations
 			our_backup_filename = "#{abcs[RAILS_ENV]['database']}.#{timenow.month}.#{timenow.day}.#{timenow.year}.dump"
@@ -62,14 +62,14 @@ namespace :db do
 			our_old_backup_zipname = "#{abcs[RAILS_ENV]['database']}.#{time_a_month_ago.month}.#{time_a_month_ago.day}.#{time_a_month_ago.year}.zip"
 			data = "put #{our_backup_zipname} #{abcs[RAILS_ENV]['database']}/#{our_backup_zipname}\r\n"
 			data += "rm #{abcs[RAILS_ENV]['database']}/#{our_old_backup_zipname}"
-			File.open(RAILS_ROOT + "/ftp_send_current.ftp",  "w+") do  |f| 
+			File.open(Rails.root + "/ftp_send_current.ftp",  "w+") do  |f|
 				f.write(data)
 			end
-			system "sftp -b #{RAILS_ROOT + "/ftp_send_current.ftp"} #{ENV['SERVER_LOCATION']}"
+			system "sftp -b #{Rails.root + "/ftp_send_current.ftp"} #{ENV['SERVER_LOCATION']}"
 			
 			#clean up the zipfile + ftp batch file
 			system "rm -f #{our_backup_zipname}"
-			system "rm -f #{RAILS_ROOT + "/ftp_send_current.ftp"}"
+			system "rm -f #{Rails.root + "/ftp_send_current.ftp"}"
 		end
 	end
 	

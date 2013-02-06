@@ -15,7 +15,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 #       :marker_color => 'white',
 #       :background_colors => ['black', '#333333']
 #     }
-#     g.font = File.expand_path('artwork/fonts/VeraBd.ttf', RAILS_ROOT)
+#     g.font = File.expand_path('artwork/fonts/VeraBd.ttf', Rails.root)
 
     g.title = "Gruff-o-Rama"
     

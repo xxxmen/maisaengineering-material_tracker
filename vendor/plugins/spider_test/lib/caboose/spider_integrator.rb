@@ -203,8 +203,8 @@ module Caboose::SpiderIntegrator
       next if spider_should_ignore_url?(next_link.uri)
 
       if next_link.uri =~ /\.(html|png|jpg|gif)$/ # static file, probably.
-        if File.exist?("#{RAILS_ROOT}/public/#{next_link.uri}")
-          @response.body = File.open("#{RAILS_ROOT}/public/#{next_link.uri}").read
+        if File.exist?("#{Rails.root}/public/#{next_link.uri}")
+          @response.body = File.open("#{Rails.root}/public/#{next_link.uri}").read
           console  ". #{next_link.uri}"
         else
           console  "? #{next_link.uri} ( File not found from #{next_link.source} )"

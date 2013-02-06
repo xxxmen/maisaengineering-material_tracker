@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 module PipingReferenceSpecHelper
 	
 	def temp_file
-		ActionController::TestUploadedFile.new("#{RAILS_ROOT}/spec/test_data/sample_piping_reference.txt", "text/text")
+		ActionController::TestUploadedFile.new("#{Rails.root}/spec/test_data/sample_piping_reference.txt", "text/text")
 	end
 	
   	def new_piping_reference(attrs = {})

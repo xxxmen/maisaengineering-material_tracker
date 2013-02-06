@@ -210,7 +210,7 @@ class PipingReference < ActiveRecord::Base
 	def replace_style(style, file)
 		style = style.downcase.to_sym
 		if data.styles.keys.include?(style)
-		    if File.exist?(RAILS_ROOT + '/public' + a.data(style))
+		    if File.exist?(Rails.root + '/public' + a.data(style))
 		    end
 		end
 	end

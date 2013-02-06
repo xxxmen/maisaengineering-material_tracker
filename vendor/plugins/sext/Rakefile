@@ -53,12 +53,12 @@ task :build do
     'app/views/sessions/new.html.erb' => 'erb/new.html.erb'
   }
   
-  RAILS_ROOT = File.dirname(__FILE__) + "/../../.."
+  Rails.root = File.dirname(__FILE__) + "/../../.."
   
   files.each do |old_path, new_path|
   	puts "cp -r #{old_path} #{new_path}"
-    old_file = "#{RAILS_ROOT}/#{old_path}"
-    new_file = "#{RAILS_ROOT}/vendor/plugins/sext/templates/#{new_path}"
+    old_file = "#{Rails.root}/#{old_path}"
+    new_file = "#{Rails.root}/vendor/plugins/sext/templates/#{new_path}"
     FileUtils.cp_r(old_file, new_file)
   end
 end

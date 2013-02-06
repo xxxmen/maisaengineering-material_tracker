@@ -2,7 +2,7 @@ require 'pp'
 
 module ExceptionNotification::NotifierHelper
   VIEW_PATH = "views/exception_notification/notifier" unless defined?(VIEW_PATH)
-  APP_PATH = "#{RAILS_ROOT}/app/#{VIEW_PATH}" unless defined?(APP_PATH)
+  APP_PATH = "#{Rails.root}/app/#{VIEW_PATH}" unless defined?(APP_PATH)
   PARAM_FILTER_REPLACEMENT = "[FILTERED]" unless defined?(PARAM_FILTER_REPLACEMENT)
 
   def render_section(section)

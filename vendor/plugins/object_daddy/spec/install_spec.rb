@@ -11,12 +11,12 @@ describe 'the plugin install.rb script' do
     eval File.read(File.join(File.dirname(__FILE__), *%w[.. install.rb ]))
   end
   
-  describe 'when there is a spec directory under RAILS_ROOT' do
+  describe 'when there is a spec directory under Rails.root' do
     before :each do
       File.stubs(:directory?).with('./../../../spec').returns(true)      
     end
     
-    describe 'and there is a spec/exemplars directory under RAILS_ROOT' do
+    describe 'and there is a spec/exemplars directory under Rails.root' do
       before :each do
         File.stubs(:directory?).with('./../../../spec/exemplars').returns(true)      
       end
@@ -27,29 +27,29 @@ describe 'the plugin install.rb script' do
       end
     end
     
-    describe 'but there is no spec/exemplars directory under RAILS_ROOT' do
+    describe 'but there is no spec/exemplars directory under Rails.root' do
       before :each do
         File.stubs(:directory?).with('./../../../spec/exemplars').returns(false)      
       end
             
-      it 'should create a spec/exemplars directory under RAILS_ROOT' do        
+      it 'should create a spec/exemplars directory under Rails.root' do
         FileUtils.expects(:mkdir).with('./../../../spec/exemplars')
         do_install
       end
     end
   end
   
-  describe 'when there is no spec directory under RAILS_ROOT' do
+  describe 'when there is no spec directory under Rails.root' do
     before :each do
       File.stubs(:directory?).with('./../../../spec').returns(false)      
     end
     
-    describe 'and there is a test directory under RAILS_ROOT' do
+    describe 'and there is a test directory under Rails.root' do
       before :each do
         File.stubs(:directory?).with('./../../../test').returns(true)      
       end
 
-      describe 'and there is a test/exemplars directory under RAILS_ROOT' do
+      describe 'and there is a test/exemplars directory under Rails.root' do
         before :each do
           File.stubs(:directory?).with('./../../../test/exemplars').returns(true)      
         end
@@ -60,29 +60,29 @@ describe 'the plugin install.rb script' do
         end
       end
       
-      describe 'but there is no test/exemplars directory under RAILS_ROOT' do
+      describe 'but there is no test/exemplars directory under Rails.root' do
         before :each do
           File.stubs(:directory?).with('./../../../test/exemplars').returns(false)      
         end
 
-        it 'should create a test/exemplars directory under RAILS_ROOT' do
+        it 'should create a test/exemplars directory under Rails.root' do
           FileUtils.expects(:mkdir).with('./../../../test/exemplars')
           do_install
         end
       end
     end
     
-    describe 'and there is no test directory under RAILS_ROOT' do
+    describe 'and there is no test directory under Rails.root' do
       before :each do
         File.stubs(:directory?).with('./../../../test').returns(false)      
       end
 
-      it 'should create a spec directory under RAILS_ROOT' do
+      it 'should create a spec directory under Rails.root' do
         FileUtils.expects(:mkdir).with('./../../../spec')
         do_install
       end
       
-      it 'should create a spec/exemplars directory under RAILS_ROOT' do
+      it 'should create a spec/exemplars directory under Rails.root' do
         FileUtils.expects(:mkdir).with('./../../../spec/exemplars')
         do_install
       end

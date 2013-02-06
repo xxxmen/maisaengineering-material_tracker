@@ -6,7 +6,7 @@ User.all = [  User.new("hughd", "hugh", "secret"),
 
 describe CsvFu do  
   before(:each) do
-    @path = RAILS_ROOT + "/db/users.csv"
+    @path = Rails.root + "/db/users.csv"
   end
   
   after(:each) do

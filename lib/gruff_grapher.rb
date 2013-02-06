@@ -201,7 +201,7 @@ module GruffGrapher
         @p.theme_bp
           @g.data(@g_data_title, g_data)
         @p.data(@p_data_title, p_data)
-        @g.font = @p.font = File.expand_path('artwork/fonts/Vera.ttf', RAILS_ROOT) # Font selector
+        @g.font = @p.font = File.expand_path('artwork/fonts/Vera.ttf', Rails.root) # Font selector
         
         # Modify this to represent your actual data models
         #g.maximum_value = rounding(max)
@@ -259,7 +259,7 @@ module GruffGrapher
         end
         
         # Adds the Vera font
-        @graph.font = File.expand_path('artwork/fonts/Vera.ttf', RAILS_ROOT) # Font selector      
+        @graph.font = File.expand_path('artwork/fonts/Vera.ttf', Rails.root) # Font selector
       
     end
     
@@ -312,7 +312,7 @@ module GruffGrapher
     
     # Adds the BP Logo stored in public/graphics/bp-big.gif
     def add_logo
-        bp_logo = "#{RAILS_ROOT}/public/graphics/bp-big.gif" 
+        bp_logo = "#{Rails.root}/public/graphics/bp-big.gif"
         x_pos = 20
         y_pos = 20
         # Resizes it to 60x80 pixels

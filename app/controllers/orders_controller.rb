@@ -490,7 +490,7 @@ class OrdersController < ApplicationController
   
   def print
     order = Order.find(params[:id])
-    data = `#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf -paramPSEARCHID=#{params[:id].to_s} #{RAILS_ROOT}/reports/print_purchase_order_linux.rep 2>> #{RAILS_ROOT}/stderr.txt`
+    data = `#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf -paramPSEARCHID=#{params[:id].to_s} #{Rails.root}/reports/print_purchase_order_linux.rep 2>> #{Rails.root}/stderr.txt`
 
     send_data(data, :type => "application/pdf", :filename => "order_#{order.po_no}.pdf")
   end
@@ -507,7 +507,7 @@ class OrdersController < ApplicationController
       @orders = Order.ids_for_pos(params[:psearchids])
       ponos = @orders.join(",")
       if params[:commit] == "Print Selected POs"
-        data = `#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf -paramPSEARCHID=\"#{ponos}\" #{RAILS_ROOT}/reports/print_purchase_order_linux.rep 2>> #{RAILS_ROOT}/stderr.txt`
+        data = `#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf -paramPSEARCHID=\"#{ponos}\" #{Rails.root}/reports/print_purchase_order_linux.rep 2>> #{Rails.root}/stderr.txt`
         send_data(data, :type => "application/pdf", :filename => "purchase_orders.pdf")
       else
         redirect_to :action => "email_pos", :id => ponos

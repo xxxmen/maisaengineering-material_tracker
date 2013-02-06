@@ -14,7 +14,7 @@ class PopvController < ApplicationController
     end
     
     def popv_user_guide
-    	filepath = File.join(RAILS_ROOT, "docs", "WebPOPV_Guide.pdf")
+    	filepath = File.join(Rails.root, "docs", "WebPOPV_Guide.pdf")
     	send_file(filepath)
    	end
     

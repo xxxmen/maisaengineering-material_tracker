@@ -5,7 +5,7 @@ namespace :popv do
 
 		ENV['POPV_DB_NAME'] = "#{ActiveRecord::Base.configurations[RAILS_ENV]['database']}"
 		ENV['FIXTURES_LOCATION'] = "popv_carson"
-		load "#{RAILS_ROOT}/data/scripts/popv_data_import.rb"
+		load "#{Rails.root}/data/scripts/popv_data_import.rb"
 		POPVImportData.up
 	end
 
@@ -14,7 +14,7 @@ namespace :popv do
 		
 		ENV['POPV_DB_NAME'] = "#{ActiveRecord::Base.configurations[RAILS_ENV]['database']}"
 		ENV['FIXTURES_LOCATION'] = "popv_bpcherrypoint"
-		load "#{RAILS_ROOT}/data/scripts/popv_data_import.rb"
+		load "#{Rails.root}/data/scripts/popv_data_import.rb"
 		POPVImportData.up
 	end
 	
@@ -22,7 +22,7 @@ namespace :popv do
 	task :import_history_from_bpcp => :environment do
 		ENV['POPV_DB_NAME'] = "#{ActiveRecord::Base.configurations[RAILS_ENV]['database']}"
 		ENV['FIXTURES_LOCATION'] = "popv_bpcherrypoint"
-		load "#{RAILS_ROOT}/data/scripts/import_revision_history.rb"
+		load "#{Rails.root}/data/scripts/import_revision_history.rb"
 		POPVImportRevisionHistory.up
 	end
 	
@@ -64,7 +64,7 @@ namespace :popv do
 		ENV['POPV_DB_NAME'] = "#{ActiveRecord::Base.configurations[RAILS_ENV]['database']}"
 		
 		
-		load "#{RAILS_ROOT}/data/scripts/create_subcomponents.rb"
+		load "#{Rails.root}/data/scripts/create_subcomponents.rb"
 	end
 	
 	desc "Create the Piping Subcomponents (BPCarson)"
@@ -102,7 +102,7 @@ namespace :popv do
 		ENV['POPV_DB_NAME'] = "#{ActiveRecord::Base.configurations[RAILS_ENV]['database']}"
 		
 		
-		load "#{RAILS_ROOT}/data/scripts/create_subcomponents.rb"
+		load "#{Rails.root}/data/scripts/create_subcomponents.rb"
 		
 		
 	end

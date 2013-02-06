@@ -72,7 +72,7 @@ class PipingController < SextController
 
 #  	piping_class = PipingClass.find(params[:id])
 
-#    print_string = "#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf -paramPCLASSIDS='#{params[:id]}' #{RAILS_ROOT}/reports/piping_class_details_linux.rep 2>> #{RAILS_ROOT}/log/stderr.txt"
+#    print_string = "#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf -paramPCLASSIDS='#{params[:id]}' #{Rails.root}/reports/piping_class_details_linux.rep 2>> #{Rails.root}/log/stderr.txt"
 
 #    logger.error "PDF Command: #{print_string}"
 #    data = `#{print_string}`
@@ -111,7 +111,7 @@ class PipingController < SextController
   	@report = PipingClassReport.notes_pdf
     send_data(@report.generate, :type => @report.content_type, :filename => @report.title)
 
-#    print_string = "#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf #{RAILS_ROOT}/reports/piping_notes_linux.rep 2>> #{RAILS_ROOT}/log/stderr.txt"
+#    print_string = "#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf #{Rails.root}/reports/piping_notes_linux.rep 2>> #{Rails.root}/log/stderr.txt"
 
 #    logger.error "PDF Command: #{print_string}"
 #    data = `#{print_string}`

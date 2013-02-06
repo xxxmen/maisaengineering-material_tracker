@@ -98,7 +98,7 @@ class ValvesController < SextController
   	@report = ValvesReport.all_pdf(params)
     send_data(@report.generate, :type => @report.content_type, :filename => @report.title)
 
-#    print_string = "#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf -paramPVALVEIDS='0' #{RAILS_ROOT}/reports/valve_sheet_linux.rep"
+#    print_string = "#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf -paramPVALVEIDS='0' #{Rails.root}/reports/valve_sheet_linux.rep"
 #
 #    logger.error "PDF Command: #{print_string}"
 #    data = `#{print_string}`
@@ -119,7 +119,7 @@ class ValvesController < SextController
 #  	valve = Valve.find(params[:id])
 #
 
-#    print_string = "#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf -paramPVALVEIDS='#{params[:id]}' #{RAILS_ROOT}/reports/valve_sheet_linux.rep"
+#    print_string = "#{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf -paramPVALVEIDS='#{params[:id]}' #{Rails.root}/reports/valve_sheet_linux.rep"
 #
 #    logger.error "PDF Command: #{print_string}"
 #    data = `#{print_string}`

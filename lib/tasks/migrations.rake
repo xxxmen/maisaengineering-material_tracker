@@ -3,7 +3,7 @@ namespace :data do
 		desc "Loads the BP Cherrypoint Manufacturers"
 		task :manufacturers => :environment do
 			manufacturers = ""
-	  		manufacturers_file = "#{RAILS_ROOT}/db/data_files/bpcherrypoint_manufacturers.csv"
+	  		manufacturers_file = "#{Rails.root}/db/data_files/bpcherrypoint_manufacturers.csv"
 	  		File.open(manufacturers_file, 'r') do |f|
 	  			manufacturers = f.read	
   			end

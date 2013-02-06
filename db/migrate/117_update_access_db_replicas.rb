@@ -1,5 +1,5 @@
 #Uses migration 104's up and down methods.
-load "#{RAILS_ROOT}/db/migrate/104_create_access_db_replicas.rb"
+load "#{Rails.root}/db/migrate/104_create_access_db_replicas.rb"
 
 class UpdateAccessDbReplicas < CreateAccessDbReplicas 
     def self.convert_all

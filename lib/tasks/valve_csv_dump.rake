@@ -10,7 +10,7 @@ namespace :popv do
 	desc "Dumps all the valves and components to a CSV"
 	task :dump_valves => :environment do
 		
-		VALVES_DUMP_PATH = File.join(RAILS_ROOT, "tmp", "valves_dump.csv")
+		VALVES_DUMP_PATH = File.join(Rails.root, "tmp", "valves_dump.csv")
 		
 		begin
 			require 'fastercsv'
@@ -83,7 +83,7 @@ namespace :popv do
 	# against their internal set.
 	task :dump_valve_manufacturers => :environment do
 
-		MANUFACTURERS_VALVES_DUMP_PATH = File.join(RAILS_ROOT, "tmp", "manufacturers_valves_dump.csv")
+		MANUFACTURERS_VALVES_DUMP_PATH = File.join(Rails.root, "tmp", "manufacturers_valves_dump.csv")
 		
 		begin
 			require 'fastercsv'

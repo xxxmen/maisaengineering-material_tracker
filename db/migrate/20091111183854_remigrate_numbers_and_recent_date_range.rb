@@ -13,7 +13,7 @@ class RemigrateNumbersAndRecentDateRange < ActiveRecord::Migration
 	    end
 	    
 	    sql_string = ''
-		File.open(File.join(RAILS_ROOT, 'db', 'recent_date_range.sql'), 'r') do |f|
+		File.open(File.join(Rails.root, 'db', 'recent_date_range.sql'), 'r') do |f|
 			sql_string = f.read
 		end
 		@conn = ActiveRecord::Base.connection

@@ -17,7 +17,7 @@ module ExceptionNotification::GitBlame
           unless(file.nil?)
             line_number = line[/:\d+:/].gsub(/[^\d]/,'')
             # Use relative path or weird stuff happens
-            blame = blame_output(line_number, file.gsub(Regexp.new("#{RAILS_ROOT}/"),''))
+            blame = blame_output(line_number, file.gsub(Regexp.new("#{Rails.root}/"),''))
             error[:author] = blame[/^author\s.+$/].sub(/author\s/,'')
             error[:line]   = line_number
             error[:file]   = file
@@ -40,7 +40,7 @@ module ExceptionNotification::GitBlame
 
   def exception_in_project?(path) # should be a path like /path/to/broken/thingy.rb
     dir = File.split(path).first rescue ''
-    if(File.directory?(dir) and !(path =~ /vendor\/plugins/) and !(path =~ /vendor\/gems/) and path.include?(RAILS_ROOT))
+    if(File.directory?(dir) and !(path =~ /vendor\/plugins/) and !(path =~ /vendor\/gems/) and path.include?(Rails.root))
       path
     else
       nil
