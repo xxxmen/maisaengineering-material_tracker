@@ -34,6 +34,8 @@
     </tr>
   <% end %>
 </table>
+  <%= render 'shared/will_paginate',collection: @piping_classes %>
+
 </div>
 
-<%= render :partial => "shared/paginate", :locals => { :collection => @piping_classes } %>
+<%#= render :partial => "shared/paginate", :locals => { :collection => @piping_classes } %>

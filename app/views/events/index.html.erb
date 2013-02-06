@@ -67,6 +67,8 @@
   </tr>
   <% end %>
 </table>
+  <%= render 'shared/will_paginate', collection: @events %>
+
 </div>
 
-<%= render :partial => "shared/paginate", :locals => { :collection => @events } %>
+<%#= render :partial => "shared/paginate", :locals => { :collection => @events } %>

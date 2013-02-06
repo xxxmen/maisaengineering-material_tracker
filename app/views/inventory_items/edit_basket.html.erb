@@ -54,9 +54,11 @@
        </tr>
     <% end %>
 </table>
+  <%= render 'shared/will_paginate', collection: @inventory_items %>
 </div>
 </div>
 
 <%= render :partial => "basket", :locals => { :basket => @basket } %>
 
-<%= render :partial => "shared/paginate", :locals => { :collection => @inventory_items } %>
+
+<%#= render :partial => "shared/paginate", :locals => { :collection => @inventory_items } %>

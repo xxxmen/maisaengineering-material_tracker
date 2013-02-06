@@ -111,5 +111,5 @@
     
 <!-- End spreadsheet -->
 
-
- <%= render :partial => "shared/paginate", :locals => { :collection => @ordered_line_items } %>
+ <%= render 'shared/will_paginate',collection: @ordered_line_items %>
+ <%#= render :partial => "shared/paginate", :locals => { :collection => @ordered_line_items } %>

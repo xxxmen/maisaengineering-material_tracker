@@ -84,6 +84,6 @@
 <% end %>
 
 </table>
-
-<%= render :partial => "shared/paginate_remote", :locals => { :collection => @customers, :top => false} %>
+<%= render 'shared/will_paginate', collection: @customers %>
+<%#= render :partial => "shared/paginate_remote", :locals => { :collection => @customers, :top => false} %>
 <% end %>

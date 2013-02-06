@@ -39,5 +39,5 @@
     </tr>
   <% end %>
 </table>
-
-<%= render :partial => "shared/paginate", :locals => { :collection => @bills } %>
+<%= render 'shared/will_paginate', collection: @bills %>
+<%#= render :partial => "shared/paginate", :locals => { :collection => @bills } %>
