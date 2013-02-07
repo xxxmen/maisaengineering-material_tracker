@@ -7,6 +7,7 @@ require 'rails/all'
 if defined?(Bundler)
   Bundler.require *Rails.groups(:assets => %w(development test))
 end
+load(File.expand_path('../rails3_env_constants.rb', __FILE__))
 
 module MaterialTracker
   class Application < Rails::Application

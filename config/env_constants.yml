@@ -1,0 +1,23 @@
+apps:
+  staging: material-tracking-staging
+  production: material-tracking
+
+development: &defaults
+  mail_domain: maisasolutions.com
+  deploy_site_name: MAISADEPLOY
+  report_user_command: /home/maisapride9 #{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf
+  material_tracker_version: 3.1.0
+  warehouse_email: upender.devulapally@gmail.com
+  #fixtures_location: popv_carson
+  #popv_db_name: po_tracker
+  #server_location: root@backupserver.com or IP
+  #fit_name: CA
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults
