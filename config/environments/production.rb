@@ -62,6 +62,21 @@ MaterialTracker::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w( base_packaged.js vendor/yui.css printer.css base_packaged.css popv_packaged.js popv_packaged.css )
 
+
+  config.action_mailer.default_url_options = { :host => 'mt-new31.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  # ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
+  ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
+
+  config.action_mailer.smtp_settings = {
+      enable_starttls_auto: true,
+      address: 'smtp.gmail.com',
+      port: 587,
+      authentication: 'plain',
+      user_name: 'maisa.engineers@gmail.com',
+      password: 'maisa123'
+  }
+
   # Force all access to the app over SSL, use Strict-Transport-Security, and use s1.2.6ecure cookies.
   # config.force_ssl = true
 
