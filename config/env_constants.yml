@@ -4,11 +4,12 @@ apps:
 
 development: &defaults
   domain: localhost:3000
-  mail_domain: maisasolutions.com
-  deploy_site_name: MAISADEPLOY
+  mail_domain: sukendharreddy.info
+  deploy_site_name: DEPLOY-SITE-NAME
   report_user_command: /home/maisapride9 #{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf
   material_tracker_version: 3.1.0
-  warehouse_email: upender.devulapally@gmail.com
+  warehouse_email: no-reply@sukendharreddy.info
+  support_email: no-reply@sukendharreddy.info
   #fixtures_location: popv_carson
   #popv_db_name: po_tracker
   #server_location: root@backupserver.com or IP
@@ -19,6 +20,8 @@ test:
 
 staging:
   <<: *defaults
+  domain: mt-new31.herokuapp.com
 
 production:
   <<: *defaults
+  domain: mt-new31.herokuapp.com

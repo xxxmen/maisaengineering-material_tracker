@@ -43,7 +43,7 @@ module MaterialRequestsHelper
   	  else
   	  	""
   	  end
-	end.join(", ")
+	end.join(", ").html_safe
 
   end
 
@@ -60,10 +60,10 @@ module MaterialRequestsHelper
           link_to(quote.vendor.name + quote.filled_count + " ($" + number_with_precision(quote.total_price, {:precision => 2}) + ")", url_for(:controller => "material_requests", :action => "quote", :vendor_id => quote.vendor_id, :access_key => quote.vendor.access_key, :id => material_request_id))
         end
       end
-    end.join(", ")
+    end.join(", ").html_safe
   end
 
   def link_to_quotes_comparison(material_request)
-      link_to("<span style='font-size:10px;'>Compare Quotes</span>", url_for(:controller => "material_requests", :action => "quote_comparison", :id => material_request.id))
+      link_to("<span style='font-size:10px;'>Compare Quotes</span>".html_safe, url_for(:controller => "material_requests", :action => "quote_comparison", :id => material_request.id))
   end
 end

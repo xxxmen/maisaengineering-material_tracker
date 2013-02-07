@@ -7,7 +7,7 @@
 
 <% if @is_vendor %>
 	<h2 style="padding: 10px; background-color: #99FF99; color: #FFF; text-align: center; margin-top: 0px;">
-		<a href="http://<%= DOMAIN %>/material_requests/quote/<%= @request.id %>?vendor_id=<%= @vendor.id %>&amp;access_key=<%= @vendor.access_key %>">
+		<a href="http://<%= ENV['DOMAIN'] %>/material_requests/quote/<%= @request.id %>?vendor_id=<%= @vendor.id %>&amp;access_key=<%= @vendor.access_key %>">
 			Click here to fill in a quote
 		</a>
 	</h2>
@@ -58,7 +58,7 @@
     <% @quote.quote_attachments.each do |quote_attachment| %>
     	<tr>
       		<th align="left" width="180px" style="border-bottom: 1px solid #222; padding: 10px;"><%= quote_attachment.filename %></th>
-         	<td style="border-bottom: 1px solid #222; padding: 10px;"><a href="http://<%= DOMAIN %>/material_requests/quote_file/<%= quote_attachment.id %>?vendor_id=<%= @vendor.id %>&amp;access_key=<%= @vendor.access_key %>">
+         	<td style="border-bottom: 1px solid #222; padding: 10px;"><a href="http://<%= ENV['DOMAIN'] %>/material_requests/quote_file/<%= quote_attachment.id %>?vendor_id=<%= @vendor.id %>&amp;access_key=<%= @vendor.access_key %>">
          		Download Attachment</a></td>
          </tr>
       <%- end %>

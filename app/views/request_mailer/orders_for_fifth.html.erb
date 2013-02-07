@@ -28,7 +28,7 @@
 </table>
 <br />
 <% @orders.each do |order| %>
-<h2>Please issue items below for <a href="http://<%= DOMAIN %>/orders/<%= order.id %>/edit/">PO #<%= order.po_no %></a> 
+<h2>Please issue items below for <a href="http://<%= ENV['DOMAIN'] %>/orders/<%= order.id %>/edit/">PO #<%= order.po_no %></a>
     (<%= @params[:line_items][order.id.to_s].size %> of <%= order.ordered_line_items.size %>)</h2>
 
 <table cellspacing="1" border="1" width="100%">

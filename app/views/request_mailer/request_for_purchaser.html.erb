@@ -6,8 +6,8 @@
 </b></p>
 
 
-<p><a href="http://<%= DOMAIN %>/material_requests/<%= @request.id %>/edit">See this Request</a></p>
-<p><a href="http://<%= DOMAIN %>/material_requests/acknowledge/<%= @request.id %>">Acknowledge this Request</a></p>
+<p><a href="http://<%= ENV['DOMAIN'] %>/material_requests/<%= @request.id %>/edit">See this Request</a></p>
+<p><a href="http://<%= ENV['DOMAIN'] %>/material_requests/acknowledge/<%= @request.id %>">Acknowledge this Request</a></p>
 
 
 <table cellspacing="1" border="1">

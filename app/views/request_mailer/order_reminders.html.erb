@@ -9,7 +9,7 @@
     <%= reminder.creator %> requested that you follow up on this critical Purchase Order.
     <br/>
     <br/>
-    <a href="http://<%= DOMAIN %>/orders/print/<%= order.id %>">Click here to download in printable format: PO #<%= order.po_no %></a>
+    <a href="http://<%= ENV['DOMAIN'] %>/orders/print/<%= order.id %>">Click here to download in printable format: PO #<%= order.po_no %></a>
     <br/>
     <br/>
 

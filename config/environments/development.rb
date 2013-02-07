@@ -29,6 +29,20 @@ MaterialTracker::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  # ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
+  ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
+
+  config.action_mailer.smtp_settings = {
+      enable_starttls_auto: true,
+      address: 'smtp.gmail.com',
+      port: 587,
+      authentication: 'plain',
+      user_name: 'maisa.engineers@gmail.com',
+      password: 'maisa123'
+  }
+
 
 end
 

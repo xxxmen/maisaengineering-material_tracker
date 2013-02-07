@@ -1,5 +1,5 @@
 <!--start-->
-<h1><a href="http://<%= DOMAIN %>/material_requests/quote/<%= @material_request.id %>?vendor_id=<%= @vendor.id %>&amp;access_key=<%= @vendor.access_key %>">Request #<%= @material_request.tracking %> (<%= @vendor.name %>)</a></h1>
+<h1><a href="http://<%= ENV['DOMAIN'] %>/material_requests/quote/<%= @material_request.id %>?vendor_id=<%= @vendor.id %>&amp;access_key=<%= @vendor.access_key %>">Request #<%= @material_request.tracking %> (<%= @vendor.name %>)</a></h1>
 
 <p>
     Some updates were recently made for quote #<%= @material_request.tracking %> (<%= @vendor.name %>).  Please click on the link above to see the changes.

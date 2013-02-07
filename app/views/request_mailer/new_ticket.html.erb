@@ -4,9 +4,7 @@
 </h1>
 
 <h2 style="padding: 10px; background-color: #99FF99; color: #FFF; text-align: center; margin-top: 0px;">
-	<a href="http://<%= DOMAIN %>/tickets/<%= @ticket.id %>">
-		Click here to view the new ticket
-	</a>
+  <%= link_to 'Click here to view the new ticket',ticket_url(@ticket) %>
 </h2>
 
 <table cellspacing="0" width="100%" style="border: 1px solid #222; padding: 10px; border-collapse: collapse;">

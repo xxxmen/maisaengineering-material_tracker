@@ -107,7 +107,7 @@ class ApplicationController < ActionController::Base
 
   def msg_for(name, display, value)
     edit_path = url_for(:action => :edit, :id => value)
-    "#{name} <a href=\"#{edit_path}\">'#{display}'</a> saved successfully at #{current_time}"
+    "#{name} <a href=\"#{edit_path}\">'#{display}'</a> saved successfully at #{current_time}".html_safe
   end
 
   # Filters used in all controllers go here
