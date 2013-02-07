@@ -3,6 +3,7 @@ apps:
   production: material-tracking
 
 development: &defaults
+  domain: localhost:3000
   mail_domain: maisasolutions.com
   deploy_site_name: MAISADEPLOY
   report_user_command: /home/maisapride9 #{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf
