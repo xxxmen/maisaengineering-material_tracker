@@ -283,7 +283,7 @@
     </div>
 
     <%= render :partial => 'ordered_line_item_form_header' %>
-    <%= form_for :ordered_line_item, @ordered_line_item,
+    <%= form_for @ordered_line_item,
                  :url => { :action => "create_ordered_line_item", :id => @order },
                  :html => { :id => "ordered_line_item_form", :class => "edit ordered_line_item", :autocomplete => 'off' } do |f|
     %>
