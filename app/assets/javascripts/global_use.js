@@ -302,7 +302,7 @@ function checkSelection() {
     }
 }
 
-var Telaeris = {};
+Telaeris = {};
 
 
 
