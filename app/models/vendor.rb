@@ -97,7 +97,7 @@ class Vendor < ActiveRecord::Base
 		    ["purchase_orders.date_eta IS NOT NULL AND 
 		    purchase_orders.completed = ? AND 
 		    po_statuses.status <> ? AND 
-		    purchase_orders.date_eta <= CURRENT_DATE() AND
+		    purchase_orders.date_eta <= CURRENT_DATE AND
 		    purchase_orders.vendor_id IS NOT NULL", false, 'INACTIVE'], 
 		    :include => [:status, :vendor], :order => "vendors.name")
 		vendors = vendors.delete_if { |o| o.blank? || o.vendor.blank? }
