@@ -6,7 +6,7 @@ development: &defaults
   domain: localhost:3000
   mail_domain: sukendharreddy.info
   deploy_site_name: DEPLOY-SITE-NAME
-  report_user_command: /home/maisapride9 #{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf
+  report_user_command: sudo -u apache -H #{ENV['REPORT_USER_COMMAND']} /usr/local/reportman/printreptopdf
   material_tracker_version: 3.1.0
   warehouse_email: no-reply@sukendharreddy.info
   support_email: no-reply@sukendharreddy.info
