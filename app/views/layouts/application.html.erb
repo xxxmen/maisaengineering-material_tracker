@@ -4,9 +4,6 @@
 <html>
 <head>
 
-<%#=  javascript_include_tag 'prototype' %>
-<%#= stylesheet_link_tag    "application" %>
-<%#= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
 
   <link rel="icon" href="/favicon.ico" type="image/ico" />
@@ -83,7 +80,9 @@ because it can't be included for media='screen' -->
 
 
   <% end %>
-
+  <script type="text/javascript">
+      jQuery.noConflict();
+  </script>
 </head>
 
 <body>
