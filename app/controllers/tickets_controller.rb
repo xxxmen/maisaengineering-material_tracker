@@ -37,7 +37,7 @@ class TicketsController < ApplicationController
         elsif @tickets.size == 1
           flash.now[:notice] = "Found 1 ticket"
         else
-          flash.now[:notice] = "<div id='result_msg'>Found #{@tickets.size} results for <span style='color: orangered;'>'#{params[:q]}'</span>
+          flash.now[:notice] = "<div id='result_msg'>Found #{@tickets.count} results for <span style='color: orangered;'>'#{params[:q]}'</span>
           <a href='#' onclick=\"$('refine').toggle(); $('refine').down('input').focus(); $('result_msg').hide(); \">Filter Results</a></div>".html_safe
         end        
         render :action => :index
