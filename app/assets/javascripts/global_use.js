@@ -1,4 +1,3 @@
-
 var BrowserDetect = {
     init: function () {
         this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
@@ -787,4 +786,3 @@ Telaeris.updateGroupFromPurchaser = function () {
     jQuery.get("/material_requests/get_purchaser_group/" + purchaserId, {}, callback, 'json');
 
 };
-

@@ -60,7 +60,7 @@ MaterialTracker::Application.configure do
   # config.assets.manifest = YOUR_PATH
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( base_packaged.js vendor/yui.css printer.css base_packaged.css popv_packaged.js popv_packaged.css )
+  config.assets.precompile += %w( base_packaged.js global_use.js vendor/yui.css printer.css base_packaged.css popv_packaged.js popv_packaged.css )
 
 
   config.action_mailer.default_url_options = { :host => 'mt-new31.herokuapp.com' }
