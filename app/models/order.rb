@@ -301,9 +301,9 @@ class Order < ActiveRecord::Base
         conditions.push(true)
         conditions.push(true)
       elsif state == "archived"
-        conditions[0] += " AND archived = 1"
+        conditions[0] += " AND archived = true"
       else # closed
-        conditions[0] += " AND archived = 0 AND closed = ?"
+        conditions[0] += " AND archived = false AND closed = ?"
         conditions.push(true)
       end
     end
