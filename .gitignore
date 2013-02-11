@@ -1,6 +1,12 @@
 /.bundle
+/db/sphinx
+
 /db/*.sqlite3
+
 /log/*.log
+/log
 /tmp
 /.idea
 /public/assets
+
+/config/development.sphinx.conf
