@@ -1,0 +1,14 @@
+#THinking Sphinx
+
+1)rake thinking_sphinx:configure
+2)rake ts:index
+3)rake ts:start
+  OR
+  rake ts:rebuild
+4)rake thinking_sphinx:index:delta   #for delta index
+
+If
+Failed to start searchd daemon then
+
+$# ps -efa | grep sphinx
+$# kill pid

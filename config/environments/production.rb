@@ -79,5 +79,5 @@ MaterialTracker::Application.configure do
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use s1.2.6ecure cookies.
   # config.force_ssl = true
-
+  ThinkingSphinx.suppress_delta_output = true
 end
