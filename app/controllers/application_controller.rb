@@ -121,12 +121,14 @@ class ApplicationController < ActionController::Base
   def return_search(results, options={})
     if results.size == 0
       flash[:error] = "There were no search results for '#{params[:q]}'"
-      redirect_to({:action => :index}.merge(options)) and return
+      #  redirect_to({:action => :index}.merge(options)) and return
+      redirect_to :back
+
     elsif results.size == 1 && current_employee.direct_search?
       flash[:notice] = "Found one record and redirected to your search result"
       redirect_to(:action => :edit, :id => results.to_a[0])
     else
-      flash.now[:notice] = "Found #{results.size} result(s) for '#{params[:q]}'"
+      flash.now[:notice] = "Found #{results.count} result(s) for '#{params[:q]}'"
       render(:action => :index)
     end
   end

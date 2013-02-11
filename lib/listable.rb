@@ -25,8 +25,8 @@
 #   Person.search(params)
 #   Person.list(params)
 
-module Listable   
-    
+module Listable
+
   module ViewHelper
     def link_to_sort(name, order, options = {})
       def_sort = options[:sort] || "asc"
@@ -64,19 +64,19 @@ module Listable
       end
     end
   end
-  
+
   module ModelHelper
     # In case a class includes this instead of extending it
     # This will force an 'extend' and add 'search_for' as a class method
     @@order_only = []
-    
+
     def order_only(*columns)
       @@order_only = []
       columns.each do |c|
         @@order_only << c.to_s
       end
     end
-    
+
     # Options include:
     # :order => is your default column to order by
     # :sort => is your default sort order if the :order option matches current order
@@ -86,21 +86,21 @@ module Listable
       if @@order_only.size > 0 && !@@order_only.include?(params[:o])
         params[:o] = nil
       end
-      
+
       order = params[:o] || options[:order] || "#{table_name}.id"
       options[:sort] = nil if order != options[:order]
-      
+
       # Get rid of params[:s] if someone's trying to do SQL injection
       params[:s] = nil if !params[:s].blank? && !["asc", "desc"].include?(params[:s])
-      
+
       sort = params[:s] || options[:sort] || "asc"
       #page = params[:p] || 1
       # will_paginate by default passes page parameter to params
       page = params[:page] || params[:p] || 1
       includes = options[:include] || []
-      order = order.to_s + " " + sort   
+      order = order.to_s + " " + sort
       count = params[:c] && (params[:c].to_i > 0) ? params[:c].to_i : self::PERPAGE
-          
+
       #self.find(:all, :order => order, :page => { :size => count, :current => page }, :include => includes)
       self.includes(includes).order(order).paginate(page: page, per_page: 5)
     end
@@ -116,12 +116,11 @@ module Listable
 #      end
 #    end
 
-	
+
 	# New Sphinx Searching Method (2009-06-18)
-	def search(params = {}, options = {})
+	def global_search(params = {}, options = {})
       query = params[:q] || ""
- 
-      page = params[:p] || 1
+     page = params[:p] || 1
       #limit = params[:c] && (params[:c].to_i > 0) ? params[:c].to_i : self::PERPAGE
       # Searches using ThinkingSphinx indexes with match_mode == boolean for 
       # enhanced searching:
@@ -130,29 +129,34 @@ module Listable
       	 :match_mode => :all,
       	 :star => true,
       	 :page => 1,
-      	 :per_page => 20000,
-      	 :max_matches => 20000,
-      	 :comment => "#{self.class_name}")
-      	       
+      	 #:per_page => 20000,
+      	 #:max_matches => 20000,
+      	 #:comment => "#{self.class_name}") #http://apidock.com/rails/ActiveRecord/Base/class_name/class
+         # searchd error (status: 1): per-query max_matches=20000 out of bounds (per-server max_matches=1000)
+         # if you want 20000 configure it in sphinx.yml or production.sphinx.yml
+         :per_page => 1000,
+         :max_matches => 1000,
+         :comment => "#{self.table_name}")
+
 #      ids = records.map {|record| record[:id] unless record.nil? }
-      
+
       # This really isn't needed for Sphinx, since it can accept :conditions,
       # :includes, :order, etc. (anything that ActiveRecord can do pretty much)
-      # but we will use the existing methods that ferret used for compatability 
+      # but we will use the existing methods that ferret used for compatability
       # reasons.
-      with_scope(:find => { :conditions => ["#{self.table_name}.id in (?)", record_ids] }) do
-        self.list(params, options)
-      end
-		
+      #with_scope(:find => { :conditions => ["#{self.table_name}.id in (?)", record_ids] }) do
+       # self.list(params, options)
+      #end
+    where("#{self.table_name}.id in (?)", record_ids).list(params, options)
 	end
-    
+
     def self.escape_and_query(query)
       query.split(" AND ").map { |words| words.split(' ') }.flatten.map { |w| Listable::ModelHelper.escape_search(w) }.join(' AND ')
     end
-    
+
     def self.escape_search(string)
       string.gsub!(/#|\/|,/, '') # take out pound signs, slashes, and commas
-      
+
       if string =~ /^\d+$/
         return "(#{string} OR *#{string}*)"
       elsif ['AND', 'OR', 'NOT'].include?(string)
@@ -162,5 +166,5 @@ module Listable
       end
     end
   end
-   
+
 end
