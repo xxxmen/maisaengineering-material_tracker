@@ -19,7 +19,7 @@ class InventoryItemsController < ApplicationController
   
   def search
     InventoryItem.filter(params) do
-      @inventory_items = InventoryItem.search(params)
+      @inventory_items = InventoryItem.full_text_search(params)
       return_search(@inventory_items)
     end
   end

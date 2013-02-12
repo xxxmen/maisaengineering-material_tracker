@@ -7,7 +7,7 @@ class VendorsController < ApplicationController
   end
   
   def search
-    @vendors = Vendor.search(params)
+    @vendors = Vendor.full_text_search(params)
     return_search(@vendors)
   end
     

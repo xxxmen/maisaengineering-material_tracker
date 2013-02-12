@@ -497,7 +497,7 @@ class Order < ActiveRecord::Base
     options.merge!(:include => [:vendor, :unit, :status])
 
     with_scope(conditions) do
-      @orders = Order.search(params, options)
+      @orders = Order.full_text_search(params, options)
     end
 
     return @orders

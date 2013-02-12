@@ -286,7 +286,7 @@ end
 
   # Should only scope within the scope of employees with a login and password
   def self.search_users_only(*args)
-    Employee.with_scope(:find => { :conditions => "login IS NOT NULL AND crypted_password is NOT NULL"}) { self.search(*args) }
+    Employee.with_scope(:find => { :conditions => "login IS NOT NULL AND crypted_password is NOT NULL"}) { self.full_text_search(*args) }
   end
 
   # Find all the companies to which at least one employee belongs to

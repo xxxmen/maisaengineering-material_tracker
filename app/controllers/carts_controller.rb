@@ -56,20 +56,20 @@ class CartsController < ApplicationController
   end
 
   def search
-    @inventory_items = InventoryItem.search(params)
+    @inventory_items = InventoryItem.full_text_search(params)
     return_search(@inventory_items)
   end
 
   def recent_search
     Cart.send(:with_scope, :find => { :conditions => ["state = ? OR state = ?", Cart::SENT, Cart::RECEIVED] }) do
-      @carts = Cart.search(params, :order => "carts.created_at", :sort => "DESC", :include => [:employee, :unit])
+      @carts = Cart.full_text_search(params, :order => "carts.created_at", :sort => "DESC", :include => [:employee, :unit])
     end
 
     if @carts.size == 0
       flash[:error] = "There were no search results for '#{params[:q]}'"
       redirect_to(:action => :recent) and return
     else
-      flash.now[:notice] = "Found #{@carts.size} results for '#{params[:q]}'"
+      flash.now[:notice] = "Found #{@carts.count} results for '#{params[:q]}'"
       render(:action => :recent)
     end
   end
@@ -82,7 +82,7 @@ class CartsController < ApplicationController
       flash[:notice] = "Found one record and redirected to your search result"
       redirect_to(:action => :edit, :id => results.to_a[0])
     else
-      flash.now[:notice] = "#{refined_search} <div id='result_msg'>Found #{results.size} results for <span style='color: orangered;'>'#{params[:q]}'</span>  <a href='#' onclick=\"$('refine').toggle(); $('refine').down('input').focus(); $('result_msg').hide(); \">Filter Results</a></div>"
+      flash.now[:notice] = "#{refined_search} <div id='result_msg'>Found #{results.count} results for <span style='color: orangered;'>'#{params[:q]}'</span>  <a href='#' onclick=\"$('refine').toggle(); $('refine').down('input').focus(); $('result_msg').hide(); \">Filter Results</a></div>".html_safe
       render(:action => :index)
     end
   end

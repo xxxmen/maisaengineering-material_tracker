@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
   def search_line_items
     @order = Order.find(params[:id])
     OrderedLineItem.filter(params[:id]) do
-      @ordered_line_items = OrderedLineItem.search(params, :order => "line_item_no")
+      @ordered_line_items = OrderedLineItem.full_text_search(params, :order => "line_item_no")
       return_search_line_items
     end
   end
@@ -609,12 +609,12 @@ class OrdersController < ApplicationController
   end
   
   def return_search
-    year_string = params[:year].blank? ? "" : "for <span style='color: orangered;'>" + params[:year] + "</span> "
+    year_string = params[:year].blank? ? "" : "for <span style='color: orangered;'>" + params[:year] + "</span>".html_safe
     
     if @orders.size == 0
       
 
-      flash[:error] = "There were no search results for <span style='color: red;'>'#{params[:q]}'</span> #{year_string}"
+      flash[:error] = "There were no search results for <span style='color: red;'>'#{params[:q]}'</span> #{year_string}".html_safe
       redirect_to orders_path(params) and return
     elsif @orders.size == 1 && !current_employee.direct_search?
       flash.now[:notice] = "Found 1 purchase order"
@@ -650,7 +650,7 @@ class OrdersController < ApplicationController
       "<input type='hidden' name='year' value='#{params[:year]}' />" +
       "<input type='text' name='refined' style='width: 200px;' />" +
       "<input type='submit' value='Filter Results' />" +
-    "</form>"
+    "</form>".html_safe
   end
   
   def extract_unit_for_measure

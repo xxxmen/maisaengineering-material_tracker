@@ -102,7 +102,7 @@ module Listable
       count = params[:c] && (params[:c].to_i > 0) ? params[:c].to_i : self::PERPAGE
 
       #self.find(:all, :order => order, :page => { :size => count, :current => page }, :include => includes)
-      self.includes(includes).order(order).paginate(page: page, per_page: 5)
+      self.includes(includes).order(order).paginate(page: page, per_page: count)
     end
 
 # 	 Original Acts_as_ferret search method.  (2009-06-18)
@@ -118,7 +118,7 @@ module Listable
 
 
 	# New Sphinx Searching Method (2009-06-18)
-	def global_search(params = {}, options = {})
+	def full_text_search(params = {}, options = {})
       query = params[:q] || ""
      page = params[:p] || 1
       #limit = params[:c] && (params[:c].to_i > 0) ? params[:c].to_i : self::PERPAGE

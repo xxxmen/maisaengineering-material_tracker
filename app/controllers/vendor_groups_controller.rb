@@ -8,7 +8,7 @@ class VendorGroupsController < ApplicationController
     end
     
     def search
-        @vendor_groups = VendorGroup.search(params)
+        @vendor_groups = VendorGroup.full_text_search(params)
         return_search(@vendor_groups)
     end
     

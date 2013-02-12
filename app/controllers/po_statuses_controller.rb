@@ -7,7 +7,7 @@ class PoStatusesController < ApplicationController
   end
   
   def search
-    @po_statuses = PoStatus.search(params)
+    @po_statuses = PoStatus.full_text_search(params)
     return_search(@po_statuses)
   end
     

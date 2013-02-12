@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
   end
 
   def search
-    @companies = Company.search(params)
+    @companies = Company.full_text_search(params)
     return_search(@companies)
   end
 

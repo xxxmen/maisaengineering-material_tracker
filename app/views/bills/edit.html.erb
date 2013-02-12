@@ -71,7 +71,7 @@
   }
 </style>
 <div id="fixed_bill">
-<%= form_for :bill, @bill, :url => url_for(:action => :update), :html => { :class => "edit full"} do |f1| %>
+<%= form_for @bill, :url => url_for(:action => :update), :html => { :class => "edit full"} do |f1| %>
 	<%= f1.text_area :description %>
 	<%= submit_tag "Save Description" %>
 <% end %>

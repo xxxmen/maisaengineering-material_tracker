@@ -359,7 +359,7 @@ class MaterialRequest < ActiveRecord::Base
   
   def self.search(params={},options={})
     with_scope(:find => {:conditions => ["material_requests.deleted = ?", false] }) do
-      global_search(params,options)
+      full_text_search(params,options)
     end
   end
   
