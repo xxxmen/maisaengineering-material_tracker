@@ -629,7 +629,7 @@ class OrdersController < ApplicationController
   
   def return_search_line_items
     if @ordered_line_items.size == 0
-      flash[:error] = "There was no search results for <span style='color: red;'>'#{params[:q]}'</span>"
+      flash[:error] = "There was no search results for <span style='color: red;'>'#{params[:q]}'</span>".html_safe
       redirect_to :action => :edit_line_items, :id => @order
     else
       @ordered_line_item ||= OrderedLineItem.new
@@ -638,7 +638,7 @@ class OrdersController < ApplicationController
       @ordered_line_item.quantity_ordered = params[:qty_ordered] if params[:qty_ordered]
       @ordered_line_item.date_back_ordered = params[:bo_date] if params[:bo_date]
       @ordered_line_item.date_received = params[:recd_date] if params[:recd_date]
-      flash.now[:notice] = "Found #{@ordered_line_items.size} results for <span style='color: red;'>'#{params[:q]}'</span>"
+      flash.now[:notice] = "Found #{@ordered_line_items.size} results for <span style='color: red;'>'#{params[:q]}'</span>".html_safe
       render :action => :edit_line_items
     end
   end
