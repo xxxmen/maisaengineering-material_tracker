@@ -10,3 +10,12 @@
 /public/assets
 
 /config/development.sphinx.conf
+
+#attachments(uploaded)
+/db/general_references
+/db/material_request
+/db/material_request_attachments
+/db/piping_references
+/db/quote_attachments
+/db/changelog_attachments
+/db/tickets
