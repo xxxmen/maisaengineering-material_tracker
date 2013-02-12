@@ -47,7 +47,7 @@ class CartsController < ApplicationController
     @carts = Cart.filter(current_employee, params, params[:status])
     if params[:status] != 'all' && @carts.size == 0
       flash[:error] = "Could not find any web requests that matched the status '#{params[:status]}', redirected to 'all'" if !params[:status].blank?
-      redirect_to :action => :recent, :status => 'all'
+      render :action => :recent, :status => 'all'
     end
   end
 

@@ -121,12 +121,15 @@ class ApplicationController < ActionController::Base
   def return_search(results, options={})
     if results.size == 0
       flash[:error] = "There were no search results for '#{params[:q]}'"
-      #  redirect_to({:action => :index}.merge(options)) and return
+        #redirect_to({:action => :index}.merge(options)) and return
+        redirect_to(:action => :index) and return
+=begin
       begin
         redirect_to :back
       rescue ActionController::RedirectBackError #No HTTP_REFERER was set in the request to this action, so redirect_to :back
         redirect_to :action => :index
       end
+=end
     elsif results.size == 1 && current_employee.direct_search?
       flash[:notice] = "Found one record and redirected to your search result"
       redirect_to(:action => :edit, :id => results.to_a[0])

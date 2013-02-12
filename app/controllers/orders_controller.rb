@@ -612,10 +612,9 @@ class OrdersController < ApplicationController
     year_string = params[:year].blank? ? "" : "for <span style='color: orangered;'>" + params[:year] + "</span>".html_safe
     
     if @orders.size == 0
-      
-
       flash[:error] = "There were no search results for <span style='color: red;'>'#{params[:q]}'</span> #{year_string}".html_safe
-      redirect_to orders_path(params) and return
+      #redirect_to orders_path(params) and return  -- Not working in Rails 3 not route mateches search
+      redirect_to action: :index and return
     elsif @orders.size == 1 && !current_employee.direct_search?
       flash.now[:notice] = "Found 1 purchase order"
       render :action => "index"
@@ -623,7 +622,7 @@ class OrdersController < ApplicationController
       flash[:notice] = "Found 1 purchase order and redirected to search result"
       redirect_to edit_order_path(@orders.to_a[0])
     else
-      flash.now[:notice] = "#{refined_search} <div id='result_msg'>Found #{@orders.size} results for <span style='color: orangered;'>'#{params[:q]}'</span> #{year_string}  <a href='#' onclick=\"$('refine').toggle(); $('refine').down('input').focus(); $('result_msg').hide(); \">Filter Results</a></div>"
+      flash.now[:notice] = "#{refined_search} <div id='result_msg'>Found #{@orders.size} results for <span style='color: orangered;'>'#{params[:q]}'</span> #{year_string}  <a href='#' onclick=\"$('refine').toggle(); $('refine').down('input').focus(); $('result_msg').hide(); \">Filter Results</a></div>".html_safe
       render :action => "index"
     end
   end
