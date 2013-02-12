@@ -57,6 +57,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'json','1.7.7'
 end
 
 # Use unicorn as the web server
