@@ -54,10 +54,10 @@ group :development, :test do
   gem 'rspec', '~> 2.6'
   gem "factory_girl_rails"
 end
-
+gem 'json','1.7.7'
 group :production do
   gem 'pg'
-  gem 'json','1.7.7'
+
 end
 
 # Use unicorn as the web server
