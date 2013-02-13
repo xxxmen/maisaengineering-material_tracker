@@ -10,7 +10,7 @@
 <% @groups.each do |group| %>
   <tr>
     <td><%=h group.name %></td>
-    <td><%= group.default ? image_tag("/img/silk/icons/tick.png", :alt => 'True') : '' %></td>
+    <td><%= group.default ? image_tag("img/silk/icons/tick.png", :alt => 'True') : '' %></td>
     <td><%= link_to 'Show', group %> | <%= link_to 'Edit', edit_group_path(group) %> | <%= link_to 'Destroy', group, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
