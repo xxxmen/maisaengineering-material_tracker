@@ -208,14 +208,9 @@ class ReportsController < ApplicationController
     Rails.logger.info cmd
     data = `#{cmd}`
     filename = report.include?("omni_orders") ? "orders" : report
-    puts "#############################1"
     if data.blank?
-      puts "#############################2"
-
       render :action => :no_data
     else
-      puts "#############################3"
-
       send_data(data, :type => "application/pdf", :filename => "#{filename}.pdf")
       return
     end
