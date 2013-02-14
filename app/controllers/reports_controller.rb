@@ -1,55 +1,55 @@
 class ReportsController < ApplicationController
-    MODELS_AND_THEIR_RELATIONSHIPS = [
-        {
-            :model_name => Employee, 
-            :relationships => [
-                { :foreign_key_id => "company_id", :related_model => Company, :column_to_use_in_related_model => "name"},
-                { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"},
-                { :foreign_key_id => "current_bom_id", :related_model => Bill, :column_to_use_in_related_model => "description"}
-            ]
-        },
-        {
-            :model_name => Order, 
-            :relationships => [
-                { :foreign_key_id => "unit_id", :related_model => Unit, :column_to_use_in_related_model => "description"},
-                { :foreign_key_id => "vendor_id", :related_model => Vendor, :column_to_use_in_related_model => "name"},
-                { :foreign_key_id => "status_id", :related_model => PoStatus, :column_to_use_in_related_model => "status"},
-                { :foreign_key_id => "planner_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-                { :foreign_key_id => "requested_by_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-                { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"}
-            ]
-        },
-        {
-            :model_name => MaterialRequest, 
-            :relationships => [
-                { :foreign_key_id => "unit_id", :related_model => Unit, :column_to_use_in_related_model => "description"},
-                { :foreign_key_id => "planner_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-                { :foreign_key_id => "requested_by_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-                { :foreign_key_id => "purchaser_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-                { :foreign_key_id => "drafted_by", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-                { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"}
-            ]
-        },
-        {
-            :model_name => RequestedLineItem, 
-            :relationships => [
-                { :foreign_key_id => "material_request_id", :related_model => MaterialRequest, :column_to_use_in_related_model => "description"}
-            ]
-        },
-        {
-            :model_name => OrderedLineItem, 
-            :relationships => [
-                { :foreign_key_id => "po_id", :related_model => Order,:column_to_use_in_related_model => "po_no"},
-                { :foreign_key_id => "requested_line_item_id", :related_model => RequestedLineItem, :column_to_use_in_related_model => "material_description"}
-            ]
-        }
-    ]
+  MODELS_AND_THEIR_RELATIONSHIPS = [
+      {
+          :model_name => Employee,
+          :relationships => [
+              { :foreign_key_id => "company_id", :related_model => Company, :column_to_use_in_related_model => "name"},
+              { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"},
+              { :foreign_key_id => "current_bom_id", :related_model => Bill, :column_to_use_in_related_model => "description"}
+          ]
+      },
+      {
+          :model_name => Order,
+          :relationships => [
+              { :foreign_key_id => "unit_id", :related_model => Unit, :column_to_use_in_related_model => "description"},
+              { :foreign_key_id => "vendor_id", :related_model => Vendor, :column_to_use_in_related_model => "name"},
+              { :foreign_key_id => "status_id", :related_model => PoStatus, :column_to_use_in_related_model => "status"},
+              { :foreign_key_id => "planner_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+              { :foreign_key_id => "requested_by_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+              { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"}
+          ]
+      },
+      {
+          :model_name => MaterialRequest,
+          :relationships => [
+              { :foreign_key_id => "unit_id", :related_model => Unit, :column_to_use_in_related_model => "description"},
+              { :foreign_key_id => "planner_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+              { :foreign_key_id => "requested_by_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+              { :foreign_key_id => "purchaser_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+              { :foreign_key_id => "drafted_by", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+              { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"}
+          ]
+      },
+      {
+          :model_name => RequestedLineItem,
+          :relationships => [
+              { :foreign_key_id => "material_request_id", :related_model => MaterialRequest, :column_to_use_in_related_model => "description"}
+          ]
+      },
+      {
+          :model_name => OrderedLineItem,
+          :relationships => [
+              { :foreign_key_id => "po_id", :related_model => Order,:column_to_use_in_related_model => "po_no"},
+              { :foreign_key_id => "requested_line_item_id", :related_model => RequestedLineItem, :column_to_use_in_related_model => "material_description"}
+          ]
+      }
+  ]
   include GruffGrapher
 
   before_filter :resource_enabled?
   before_filter :admin_required, :only => [:load_fixtures, :csv, :download_database]
 
-  
+
   def admin_required
     if(!current_employee.admin?)
       flash[:error] = "You are not authorized to access this page."
@@ -60,30 +60,30 @@ class ReportsController < ApplicationController
   def index
   end
 
-  	def email
-  		if params[:report] && params[:email]
-  			report = params[:report]
-  			email = params[:email]
-  			if (report[:class].blank? || report[:method].blank?)
-  				raise "Error: The report information is faulty. Please try again."
- 			end
-  			if (email[:to].blank? || email[:subject].blank?)
-  				raise "Error: The email information is faulty. Please try again."
- 			end
-	  		RequestMailer.deliver_popv_reports(email, report)
- 		end
+  def email
+    if params[:report] && params[:email]
+      report = params[:report]
+      email = params[:email]
+      if (report[:class].blank? || report[:method].blank?)
+        raise "Error: The report information is faulty. Please try again."
+      end
+      if (email[:to].blank? || email[:subject].blank?)
+        raise "Error: The email information is faulty. Please try again."
+      end
+      RequestMailer.deliver_popv_reports(email, report)
+    end
 
-  		render :json => { :success => true }
-	rescue => e
-		error = e.message
-  		render :json => { :success => false, :message => error }
- 	end
+    render :json => { :success => true }
+  rescue => e
+    error = e.message
+    render :json => { :success => false, :message => error }
+  end
 
   def sandbox
     if request.get?
       if(!File.exists?("#{Rails.root}/sandbox.txt"))
         @log = []
-  	  else
+      else
         @log = IO.read("#{Rails.root}/sandbox.txt")
         @log = @log.split("\n").uniq.map { |line| line.split("/////") }.reverse[0..30]
       end
@@ -220,176 +220,149 @@ class ReportsController < ApplicationController
   def graphing
     #graph_gruff
     #send_data @image, :filename => "jobs.png", :type => "image/png", :disposition => "inline"
-     generate_gruff_pdf
-     send_data(@pdf, :type => "application/pdf", :filename => "bp.pdf", :disposition => "inline")
+    generate_gruff_pdf
+    send_data(@pdf, :type => "application/pdf", :filename => "bp.pdf", :disposition => "inline")
   end
 
   def csv
   end
 
   def import_export
-      
-  end
-  
-    def export_to_csv
-        model_to_export = params[:export_model].constantize
-        csv_file_data = nil
-        if(model_to_export.count == 0)
-          data = []
-          model_to_export.columns.each do |col|
-            data << col.name if col.name != 'delta'
-          end
-          csv_file_data = data.to_csv
-        else
-          if model_to_export.column_names.include?("delta") # To prevent delta details from being in the export
-              csv_file_data = model_to_export.to_csv 
-              parsed_rows = FasterCSV.parse(csv_file_data)
 
-              delta_column_index = 0
-              parsed_rows[0].each_with_index do |column_name, index|
-                  delta_column_index = index and break if column_name == "delta"
+  end
+
+  def export_to_csv
+    model_to_export = params[:export_model].constantize
+    render :csv => model_to_export.scoped, :filename => "#{params[:export_model]}"
+  end
+
+  def import_to_csv
+    if not current_employee.admin?
+      render :text => {:success => false, :errors => "You don't have permission to perform this action"}.to_json and return
+    end
+    if request.post? and params[:import_file]
+      model_to_import = params[:import_model].constantize
+      begin
+        parsed_rows = FasterCSV.parse(params[:import_file])
+        instances_of_model_for_each_row = []
+        indexes_of_columns_in_uploaded_file = {}
+        column_names = []
+        parsed_rows[0].each_with_index do |column_name, index|
+          indexes_of_columns_in_uploaded_file[column_name] = index and column_names.push column_name if column_name != "id" and column_name != "delta"
+        end
+
+        table_rows = []
+        is_there_a_relationship_to_be_created = false
+
+        parsed_rows.each_with_index do |row, index|
+          if index != 0 # First row is going to be headers only
+            table_row = {}
+            indexes_of_columns_in_uploaded_file.each do |column_name, index_in_row|
+              table_row[column_name] = {}
+              table_row[column_name][:cell_value]= row[index_in_row]
+              table_row[column_name][:cell_name] = "#{column_name}_#{index}_#{index_in_row}"
+              table_row[column_name][:cell_color] = "none"
+
+              if !row[index_in_row].nil? and !row[index_in_row].empty?
+                MODELS_AND_THEIR_RELATIONSHIPS.each do |model_with_association|
+                  if model_to_import == model_with_association[:model_name]
+                    model_with_association[:relationships].each do |relationship|
+                      model_to_import.column_names.each do |model_column_name|
+                        if model_column_name == relationship[:foreign_key_id]
+                          transformed_column_name = ""
+                          if model_column_name.index('id').nil?
+                            transformed_column_name = model_column_name + ('_' + relationship[:column_to_use_in_related_model])
+                          else
+                            transformed_column_name = model_column_name.gsub('_id','_' + relationship[:column_to_use_in_related_model])
+                          end
+
+                          if transformed_column_name == column_name
+                            if eval("#{relationship[:related_model]}.find_by_#{relationship[:column_to_use_in_related_model]}(\"#{row[index_in_row]}\")").nil?
+                              table_row[column_name][:cell_color] = "green"
+                              is_there_a_relationship_to_be_created = true
+                            else
+                              table_row[column_name][:cell_color] = "blue"
+                              is_there_a_relationship_to_be_created = true
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
               end
-              new_rows = parsed_rows.each{|row| row.delete_at(delta_column_index)}
-              csv_file_data = FasterCSV.generate do |csv|
-                  new_rows.each{|row| csv << row}
-              end
-          else
-              csv_file_data = model_to_export.to_csv    
+
+            end
+            table_rows.push table_row
           end
         end
-        
-        csv_file_data = replace_foreign_key_ids_in_csv(model_to_export, csv_file_data)
-        
-        send_data(csv_file_data, :type => "text/csv", :filename => "#{params[:export_model]}.csv")
+
+        render :text => {:success => true, :markup => render_to_string(:partial => "new_import_preview", :locals => {:model_to_import => params[:import_model], :column_names => column_names, :table_rows => table_rows, :is_there_a_relationship_to_be_created => is_there_a_relationship_to_be_created})}.to_json
+      rescue
+        render :text => {:success => false, :errors => "Kindly upload a proper CSV file for #{params[:import_model]}"}.to_json
+      end
+
+    else
+      render :text => {:success => false, :errors => "Kindly upload a CSV file"}.to_json
     end
-    
-    def import_to_csv
-    	if not current_employee.admin?
-    		render :text => {:success => false, :errors => "You don't have permission to perform this action"}.to_json and return
-    	end
-        if request.post? and params[:import_file]
-            model_to_import = params[:import_model].constantize
-            begin
-                parsed_rows = FasterCSV.parse(params[:import_file])
-                instances_of_model_for_each_row = []
-                indexes_of_columns_in_uploaded_file = {}
-                column_names = []
-                parsed_rows[0].each_with_index do |column_name, index|
-                    indexes_of_columns_in_uploaded_file[column_name] = index and column_names.push column_name if column_name != "id" and column_name != "delta"
-                end
-                
-                table_rows = []
-                is_there_a_relationship_to_be_created = false
-                
-                parsed_rows.each_with_index do |row, index|
-                    if index != 0 # First row is going to be headers only
-                        table_row = {}
-                        indexes_of_columns_in_uploaded_file.each do |column_name, index_in_row|
-                            table_row[column_name] = {}
-                            table_row[column_name][:cell_value]= row[index_in_row]
-                            table_row[column_name][:cell_name] = "#{column_name}_#{index}_#{index_in_row}"
-                            table_row[column_name][:cell_color] = "none"
-                            
-                            if !row[index_in_row].nil? and !row[index_in_row].empty?
-                                MODELS_AND_THEIR_RELATIONSHIPS.each do |model_with_association|
-                                    if model_to_import == model_with_association[:model_name]
-                                        model_with_association[:relationships].each do |relationship|
-                                            model_to_import.column_names.each do |model_column_name|
-                                                if model_column_name == relationship[:foreign_key_id]
-                                                    transformed_column_name = ""
-                                                    if model_column_name.index('id').nil?
-                                                        transformed_column_name = model_column_name + ('_' + relationship[:column_to_use_in_related_model])
-                                                    else
-                                                        transformed_column_name = model_column_name.gsub('_id','_' + relationship[:column_to_use_in_related_model])
-                                                    end
-                                                    
-                                                    if transformed_column_name == column_name
-                                                        if eval("#{relationship[:related_model]}.find_by_#{relationship[:column_to_use_in_related_model]}(\"#{row[index_in_row]}\")").nil?
-                                        table_row[column_name][:cell_color] = "green"
-                                                            is_there_a_relationship_to_be_created = true 
-                                    else
-                                        table_row[column_name][:cell_color] = "blue"
-                                        is_there_a_relationship_to_be_created = true
-                                    end
-                                                    end
-                                end 
+  end
+
+  def submit_import_preview
+    return if not request.post?
+    number_of_rows = params[:number_of_rows].to_i
+    model_to_import = params[:import_model].constantize
+    column_names = params[:column_names].split(',')
+    number_of_records_created = 0
+
+    begin
+      index = 0
+      while index < number_of_rows do
+        index = index + 1
+        if params["row_#{index}"] # Check if the row was not removed
+          attributes = {}
+          column_names.each_with_index do |column_name, column_count|
+            attributes[column_name] = params["#{column_name}_#{index}_#{column_count + 1}"] if model_to_import.column_names.include?(column_name)
+            MODELS_AND_THEIR_RELATIONSHIPS.each do |model_with_association|
+              if model_to_import == model_with_association[:model_name]
+                model_with_association[:relationships].each do |relationship|
+                  model_to_import.column_names.each do |model_column_name|
+                    if model_column_name == relationship[:foreign_key_id]
+                      transformed_column_name = ""
+                      if model_column_name.index('id').nil?
+                        transformed_column_name = model_column_name + ('_' + relationship[:column_to_use_in_related_model])
+                      else
+                        transformed_column_name = model_column_name.gsub('_id','_' + relationship[:column_to_use_in_related_model])
+                      end
+
+                      if transformed_column_name == column_name
+                        actual_param_value = params["#{transformed_column_name}_#{index}_#{column_count + 1}"]
+                        if !actual_param_value.nil? and !actual_param_value.empty?
+                          instance_in_db = eval("#{relationship[:related_model]}.find_by_#{relationship[:column_to_use_in_related_model]}(\"#{actual_param_value}\")")
+                          if instance_in_db.nil?
+                            new_instance = eval("#{relationship[:related_model]}.create!(:#{relationship[:column_to_use_in_related_model]} => \"#{actual_param_value}\")")
+                            attributes[model_column_name] = new_instance.id
+                          else
+                            attributes[model_column_name] = instance_in_db.id
+                          end
                         end
-                                        end
-                                    end
-                                end
-                            end
-                            
-                        end
-                        table_rows.push table_row
+                      end
                     end
+                  end
                 end
-                
-                render :text => {:success => true, :markup => render_to_string(:partial => "new_import_preview", :locals => {:model_to_import => params[:import_model], :column_names => column_names, :table_rows => table_rows, :is_there_a_relationship_to_be_created => is_there_a_relationship_to_be_created})}.to_json
-            rescue
-                render :text => {:success => false, :errors => "Kindly upload a proper CSV file for #{params[:import_model]}"}.to_json
+              end
             end
-            
-        else
-            render :text => {:success => false, :errors => "Kindly upload a CSV file"}.to_json
+          end
+          model_to_import.create!(attributes)
+          number_of_records_created = number_of_records_created + 1
         end
+      end
+      flash[:notice] = "#{number_of_records_created} item(s) added to #{model_to_import}"
+    rescue => error
+      flash.now[:error] = "Could not create because : #{error}"
     end
-    
-    def submit_import_preview
-        return if not request.post?
-        number_of_rows = params[:number_of_rows].to_i
-        model_to_import = params[:import_model].constantize
-        column_names = params[:column_names].split(',')
-        number_of_records_created = 0
-        
-        begin
-            index = 0        
-            while index < number_of_rows do
-                index = index + 1 
-                if params["row_#{index}"] # Check if the row was not removed
-                    attributes = {}
-                    column_names.each_with_index do |column_name, column_count|
-                        attributes[column_name] = params["#{column_name}_#{index}_#{column_count + 1}"] if model_to_import.column_names.include?(column_name)
-                        MODELS_AND_THEIR_RELATIONSHIPS.each do |model_with_association|
-                            if model_to_import == model_with_association[:model_name]
-                                model_with_association[:relationships].each do |relationship|
-                                    model_to_import.column_names.each do |model_column_name|
-                                        if model_column_name == relationship[:foreign_key_id]
-                                            transformed_column_name = ""
-                                            if model_column_name.index('id').nil?
-                                                transformed_column_name = model_column_name + ('_' + relationship[:column_to_use_in_related_model])
-                                            else
-                                                transformed_column_name = model_column_name.gsub('_id','_' + relationship[:column_to_use_in_related_model])
-                                            end
-                                            
-                                            if transformed_column_name == column_name
-                                                actual_param_value = params["#{transformed_column_name}_#{index}_#{column_count + 1}"]
-                                                if !actual_param_value.nil? and !actual_param_value.empty?
-                                                    instance_in_db = eval("#{relationship[:related_model]}.find_by_#{relationship[:column_to_use_in_related_model]}(\"#{actual_param_value}\")")
-                                if instance_in_db.nil?
-                                                        new_instance = eval("#{relationship[:related_model]}.create!(:#{relationship[:column_to_use_in_related_model]} => \"#{actual_param_value}\")")
-                                                        attributes[model_column_name] = new_instance.id
-                                else
-                                                        attributes[model_column_name] = instance_in_db.id
-                                end
-                            end
-                        end
-                                        end    
-                    end
-                                end
-                            end
-                        end
-                    end
-                    model_to_import.create!(attributes)
-                    number_of_records_created = number_of_records_created + 1
-                end
-            end
-            flash[:notice] = "#{number_of_records_created} item(s) added to #{model_to_import}"
-        rescue => error
-            flash.now[:error] = "Could not create because : #{error}"
-        end
-          
-        render :action => "import_export"
-    end
+
+    render :action => "import_export"
+  end
 
   def load_fixtures
     [Company, Employee, InventoryItem, LogEdit, MaterialRequest, Order, OrderedLineItem, PoStatus, RequestedLineItem, Unit, Vendor].each do |m|
@@ -424,35 +397,35 @@ class ReportsController < ApplicationController
     send_file "#{Rails.root}/tmp/csv.zip", :type => "application/zip", :disposition => "attachment", :filename => "csv.zip"
   end
 
-    def replace_foreign_key_ids_in_csv(model_to_export, csv_file_data)
-        MODELS_AND_THEIR_RELATIONSHIPS.each do |model_with_association|
-            if model_to_export == model_with_association[:model_name]
-                parsed_rows = FasterCSV.parse(csv_file_data)
-                model_with_association[:relationships].each do |relationship|
-                    foreign_key_index_in_row_for_relationship = nil
-                    parsed_rows[0].each_with_index do |column_name, index|
-                        foreign_key_index_in_row_for_relationship = index if column_name == relationship[:foreign_key_id]      
-                    end
-                    parsed_rows.each_with_index do |parsed_row, index|
-                        if index != 0 and !parsed_row[foreign_key_index_in_row_for_relationship].nil? and !parsed_row[foreign_key_index_in_row_for_relationship].empty?
-                            parsed_row[foreign_key_index_in_row_for_relationship] = eval("#{relationship[:related_model]}.find_by_id(#{parsed_row[foreign_key_index_in_row_for_relationship]}).#{relationship[:column_to_use_in_related_model]}")
-                        end
-                    end
-                    parsed_rows[0].each do |column_name|
-                        if column_name == relationship[:foreign_key_id]
-                            column_name << ('_' + relationship[:column_to_use_in_related_model]) if column_name.index('id').nil?
-                            column_name.gsub!('_id','_' + relationship[:column_to_use_in_related_model])                            
-                        end
-                    end
-                end
-                
-                csv_file_data = FasterCSV.generate do |csv|
-                    parsed_rows.each{|row| csv << row}
-                end
+  def replace_foreign_key_ids_in_csv(model_to_export, csv_file_data)
+    MODELS_AND_THEIR_RELATIONSHIPS.each do |model_with_association|
+      if model_to_export == model_with_association[:model_name]
+        parsed_rows = FasterCSV.parse(csv_file_data)
+        model_with_association[:relationships].each do |relationship|
+          foreign_key_index_in_row_for_relationship = nil
+          parsed_rows[0].each_with_index do |column_name, index|
+            foreign_key_index_in_row_for_relationship = index if column_name == relationship[:foreign_key_id]
+          end
+          parsed_rows.each_with_index do |parsed_row, index|
+            if index != 0 and !parsed_row[foreign_key_index_in_row_for_relationship].nil? and !parsed_row[foreign_key_index_in_row_for_relationship].empty?
+              parsed_row[foreign_key_index_in_row_for_relationship] = eval("#{relationship[:related_model]}.find_by_id(#{parsed_row[foreign_key_index_in_row_for_relationship]}).#{relationship[:column_to_use_in_related_model]}")
             end
+          end
+          parsed_rows[0].each do |column_name|
+            if column_name == relationship[:foreign_key_id]
+              column_name << ('_' + relationship[:column_to_use_in_related_model]) if column_name.index('id').nil?
+              column_name.gsub!('_id','_' + relationship[:column_to_use_in_related_model])
+            end
+          end
         end
-        
-        csv_file_data
+
+        csv_file_data = FasterCSV.generate do |csv|
+          parsed_rows.each{|row| csv << row}
+        end
+      end
     end
+
+    csv_file_data
+  end
 
 end

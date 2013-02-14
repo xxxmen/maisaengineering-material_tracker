@@ -30,7 +30,7 @@
 			      <input type="file" name="import_file" style="float:left;" />
 			    </form>
 			</div>
-			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Vendor"} %>
+			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Vendor"},:format=>:csv  %>
 		</td>
   	</tr>
 	<tr class="odd">
@@ -43,7 +43,7 @@
 			      <input type="file" name="import_file" style="float:left;" />
 			    </form>
 			</div>
-			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Employee"} %>
+			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Employee"}%>
 		</td>
 	</tr>
 	<tr>

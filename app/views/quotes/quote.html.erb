@@ -88,7 +88,7 @@
 			<th style="width: 150px;">Vendor Part Number</th>
 			<th style="width: 100px;">Unit Price</th>
 			<th style="width: 100px;">Line Price</th>
-			<th style="width: 100px;">Date Available<a/th>
+			<th style="width: 100px;">Date Available</th>
 	    </tr>
 
     	<!-- Quote Items -->
@@ -128,11 +128,11 @@
       		</tr>
     	<% end %>
     	<tr>
-        	<th colspan="6" style="text-align: right;">Total Price:</td>
+        	<th colspan="6" style="text-align: right;">Total Price:</th>
         	<th>
         		$<input type="text" value="<%= number_with_precision @quote.total_price, {:precision => 2} %>" style="width: 80px;" id="total_price" name="quote[total_price]" disabled="disabled" />
-        	</td>
-        	<th></td>
+        	</th>
+        	<th></th>
     	</tr>
   	</table>
 

@@ -40,58 +40,58 @@
 #
 
 class InventoryItem < ActiveRecord::Base
-	
-	# Using ThinkingSphinx now... (Adam - 2009-06-18)
-	#  acts_as_ferret :fields => [
-	#  	:warehouse_name, 
-	#  	:stock_no_id, 
-	#  	:stock_no, 
-	#  	:description, 
-	#  	:unit_of_measure, 
-	#  	:vendor_name, 
-	#  	:vendor_no, 
-	#  	:vendor_part_no, 
-	#  	:building, 
-	#  	:tag_terms
-	#  ]
-  
+
+  # Using ThinkingSphinx now... (Adam - 2009-06-18)
+  #  acts_as_ferret :fields => [
+  #  	:warehouse_name,
+  #  	:stock_no_id,
+  #  	:stock_no,
+  #  	:description,
+  #  	:unit_of_measure,
+  #  	:vendor_name,
+  #  	:vendor_no,
+  #  	:vendor_part_no,
+  #  	:building,
+  #  	:tag_terms
+  #  ]
+
   acts_as_taggable
-  
+
   extend Listable::ModelHelper
-  
+
   # Thinking Sphinx Config
   define_index do
-	indexes :warehouse_name
-	# indexes :stock_no_id
-	indexes :stock_no
-	indexes :description
-	indexes :unit_of_measure
-	indexes :vendor_name
-	indexes :vendor_no
-	indexes :vendor_part_no
-	indexes :building
-  set_property :delta => true
+    indexes :warehouse_name
+    # indexes :stock_no_id
+    indexes :stock_no
+    indexes :description
+    indexes :unit_of_measure
+    indexes :vendor_name
+    indexes :vendor_no
+    indexes :vendor_part_no
+    indexes :building
+    set_property :delta => true
   end
-    
+
   PERPAGE = 100
 
   validates_presence_of :description, :stock_no_id, :warehouse_name, :allow_blank => false
-  
+
   def self.all_vendor_names
     vendor_names = InventoryItem.find(:all, :select => "distinct(vendor_name)", :order => "vendor_name").map(&:vendor_name)
   end
-    
+
   def self.merge_update(attrs)
     item = InventoryItem.find(:first, :conditions => { :warehouse_name=> attrs['warehouse_name'], :stock_no_id => attrs['stock_no_id'] })
     if item # update record
-      item.update_attributes!(attrs)              
+      item.update_attributes!(attrs)
     else #create record
       item = self.create!(attrs)
     end
-    
+
     return item
   end
-  
+
   def self.filter(params)
     if params[:vendor_name]
       self.with_scope(:find => {:conditions => {:vendor_name => params[:vendor_name] }}) { yield }
@@ -99,7 +99,7 @@ class InventoryItem < ActiveRecord::Base
       yield
     end
   end
-  
+
   def quantity_available
     if self.consignment_count && self.on_hand
       return self.consignment_count + self.on_hand
@@ -111,21 +111,36 @@ class InventoryItem < ActiveRecord::Base
       return 0
     end
   end
-  
+
   def tag_terms
     self.tags.map(&:name).join(" ")
   end
-  
+
   def self.select_vendor_names(reorder = false)
     if reorder
       where_clause = "(consignment_count + total_count) <= low_level AND low_level > 0 AND requested_reorder_at IS NULL"
     else
       where_clause = "1=1"
     end
-    
-    vendor_names = InventoryItem.find(:all, :select => "distinct(vendor_name)", :order => "vendor_name", :conditions => where_clause).map do |i| 
+
+    vendor_names = InventoryItem.find(:all, :select => "distinct(vendor_name)", :order => "vendor_name", :conditions => where_clause).map do |i|
       i.vendor_name ? [i.vendor_name.upcase, i.vendor_name.upcase] : ["UNSPECIFIED", "UNSPECIFIED"]
     end.unshift(["ALL", ""])
   end
-  
+
+
+  # ===============
+  # = CSV support =
+  # ===============
+  comma do
+    InventoryItem.column_names.each do |n|
+      if n.eql?('updated_at') or n.eql?('created_at')
+        send(n){|n| n.strftime('%m/%d/%Y %H:%M %p') }
+      else
+        send(n) unless n.eql?('delta')
+      end
+    end
+  end
+
+
 end
