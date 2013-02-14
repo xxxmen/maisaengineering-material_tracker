@@ -3,11 +3,10 @@
 <% end %>
 <html>
 <head>
-
+  <%= favicon_link_tag 'favicon.ico', :rel =>'icon', :type => 'image/ico' %>
+  <%= favicon_link_tag 'favicon.ico', :rel =>'shortcut icon', :type => 'image/ico' %>
   <%= csrf_meta_tag %>
 
-  <link rel="icon" href="/favicon.ico" type="image/ico" />
-  <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
   <title>
     <% if @material_request && @material_request.tracking %>
         Req #<%= @material_request.tracking %> | Material Tracker
@@ -28,8 +27,8 @@
       <%= stylesheet_link_tag "base_packaged" %>
       <!-- We have to use seperate stylesheet for 'print' and 'yui'
 because it can't be included for media='screen' -->
-      <%= stylesheet_link_tag "vendor/yui.css",media: 'all' %>
-      <%= stylesheet_link_tag "printer.css",media: 'print' %>
+      <%= stylesheet_link_tag "vendor/yui.css",media: 'all', charset: 'utf-8' %>
+      <%= stylesheet_link_tag "printer.css",media: 'print', charset: 'utf-8' %>
       <!-- This must come last. -->
 
       <%= javascript_include_tag 'application' %>
