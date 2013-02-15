@@ -579,6 +579,48 @@ class Order < ActiveRecord::Base
     return default_group ? default_group['id'] : nil
   end
 
+
+
+=begin
+
+  { :foreign_key_id => "unit_id", :related_model => Unit, :column_to_use_in_related_model => "description"},
+      { :foreign_key_id => "vendor_id", :related_model => Vendor, :column_to_use_in_related_model => "name"},
+      { :foreign_key_id => "status_id", :related_model => PoStatus, :column_to_use_in_related_model => "status"},
+      { :foreign_key_id => "planner_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+      { :foreign_key_id => "requested_by_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+      { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"}
+=end
+
+
+  # ===============
+  # = CSV support =
+  # ===============
+  comma do
+    Order.column_names.each do |column_name|
+      case column_name
+        when 'delta'
+          #skip
+        when 'updated_at','created_at'
+          send(column_name){|column_name| column_name.strftime('%m/%d/%Y %H:%M %p') }
+        when 'unit_id'
+          unit 'Unit Description' do |u| u.try(:description)  end
+        when 'vendor_id'
+          vendor 'Vendor Name' do |v| v.try(:name) end
+        when 'status_id'
+          status 'Status' do |s| s.try(:status) end
+        when 'planner_id'
+          planner 'Planner First name' do |p| p.try(:first_name) end
+        when 'requested_by_id'
+          requester 'Requested by First name' do |r| r.try(:first_name) end
+        when 'group_id'
+          group 'Group Name' do |g| g.try(:name) end
+        else
+          send(column_name)
+      end
+    end
+  end
+
+
   ##############################################################################
   private
 
