@@ -556,7 +556,7 @@ class Employee < ActiveRecord::Base
         when 'delta'
           #skip
         when 'updated_at','created_at'
-          send(column_name){|column_name| column_name.strftime('%m/%d/%Y %H:%M %p') }
+          send(column_name){|column_name| column_name.try(:strftime,'%m/%d/%Y %H:%M %p') }
         when 'company_id'
           company 'Company Name' do |c| c.name  end
         when 'group_id'

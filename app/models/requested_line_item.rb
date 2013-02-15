@@ -14,29 +14,49 @@
 
 class RequestedLineItem < ActiveRecord::Base
   acts_as_list :scope => :material_request, :column => "item_no"
-    
+
   before_save :check_blank_entry
   belongs_to :material_request
   has_many :ordered_line_items
-  
+
   validates_presence_of :material_description
-  
+
   def initialize(*args)
     super
     self.unit_of_measure ||= "EA"
     self.quantity ||= 1
   end
-  
+
   def unqualified?
     self.material_description.blank?
   end
   def remove_ordered_item
-	self.ordered_line_item = nil
-	self.ordered_line_item_id = nil
-	self.save!
+    self.ordered_line_item = nil
+    self.ordered_line_item_id = nil
+    self.save!
   end
-  
-  private  
+
+
+
+  # ===============
+  # = CSV support =
+  # ===============
+  comma do
+    RequestedLineItem.column_names.each do |column_name|
+      case column_name
+        when 'delta'
+          #skip
+        when 'updated_at','created_at'
+          send(column_name){|column_name| column_name.try(:strftime,'%m/%d/%Y %H:%M %p') }
+        when 'material_request_id'
+          material_request 'Material_Request Description' do |m| m.try(:material_description)  end
+        else
+          send(column_name)
+      end
+    end
+  end
+
+  private
   # if the entry is blank, don't save it
   def check_blank_entry
     !self.material_description.blank?

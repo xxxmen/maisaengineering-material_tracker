@@ -129,11 +129,14 @@ class Vendor < ActiveRecord::Base
   # = CSV support =
   # ===============
   comma do
-    Vendor.column_names.each do |n|
-      if n.eql?('updated_at')
-        send(n){|n| n.strftime('%m/%d/%Y %H:%M %p') }
-      else
-        send(n) unless n.eql?('delta')
+    Vendor.column_names.each do |column_name|
+      case column_name
+        when 'delta'
+          #skip
+        when 'updated_at','created_at'
+          send(column_name){|column_name| column_name.try(:strftime,'%m/%d/%Y %H:%M %p') }
+        else
+          send(column_name)
       end
     end
   end
