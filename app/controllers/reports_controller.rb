@@ -1,49 +1,5 @@
 class ReportsController < ApplicationController
-  MODELS_AND_THEIR_RELATIONSHIPS = [
-      {
-          :model_name => Employee,
-          :relationships => [
-              { :foreign_key_id => "company_id", :related_model => Company, :column_to_use_in_related_model => "name"},
-              { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"},
-              { :foreign_key_id => "current_bom_id", :related_model => Bill, :column_to_use_in_related_model => "description"}
-          ]
-      },
-      {
-          :model_name => Order,
-          :relationships => [
-              { :foreign_key_id => "unit_id", :related_model => Unit, :column_to_use_in_related_model => "description"},
-              { :foreign_key_id => "vendor_id", :related_model => Vendor, :column_to_use_in_related_model => "name"},
-              { :foreign_key_id => "status_id", :related_model => PoStatus, :column_to_use_in_related_model => "status"},
-              { :foreign_key_id => "planner_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-              { :foreign_key_id => "requested_by_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-              { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"}
-          ]
-      },
-      {
-          :model_name => MaterialRequest,
-          :relationships => [
-              { :foreign_key_id => "unit_id", :related_model => Unit, :column_to_use_in_related_model => "description"},
-              { :foreign_key_id => "planner_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-              { :foreign_key_id => "requested_by_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-              { :foreign_key_id => "purchaser_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-              { :foreign_key_id => "drafted_by", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-              { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"}
-          ]
-      },
-      {
-          :model_name => RequestedLineItem,
-          :relationships => [
-              { :foreign_key_id => "material_request_id", :related_model => MaterialRequest, :column_to_use_in_related_model => "description"}
-          ]
-      },
-      {
-          :model_name => OrderedLineItem,
-          :relationships => [
-              { :foreign_key_id => "po_id", :related_model => Order,:column_to_use_in_related_model => "po_no"},
-              { :foreign_key_id => "requested_line_item_id", :related_model => RequestedLineItem, :column_to_use_in_related_model => "material_description"}
-          ]
-      }
-  ]
+
   include GruffGrapher
 
   before_filter :resource_enabled?
@@ -395,37 +351,6 @@ class ReportsController < ApplicationController
     `rm #{Rails.root}/db/*.csv`
 
     send_file "#{Rails.root}/tmp/csv.zip", :type => "application/zip", :disposition => "attachment", :filename => "csv.zip"
-  end
-
-  def replace_foreign_key_ids_in_csv(model_to_export, csv_file_data)
-    MODELS_AND_THEIR_RELATIONSHIPS.each do |model_with_association|
-      if model_to_export == model_with_association[:model_name]
-        parsed_rows = FasterCSV.parse(csv_file_data)
-        model_with_association[:relationships].each do |relationship|
-          foreign_key_index_in_row_for_relationship = nil
-          parsed_rows[0].each_with_index do |column_name, index|
-            foreign_key_index_in_row_for_relationship = index if column_name == relationship[:foreign_key_id]
-          end
-          parsed_rows.each_with_index do |parsed_row, index|
-            if index != 0 and !parsed_row[foreign_key_index_in_row_for_relationship].nil? and !parsed_row[foreign_key_index_in_row_for_relationship].empty?
-              parsed_row[foreign_key_index_in_row_for_relationship] = eval("#{relationship[:related_model]}.find_by_id(#{parsed_row[foreign_key_index_in_row_for_relationship]}).#{relationship[:column_to_use_in_related_model]}")
-            end
-          end
-          parsed_rows[0].each do |column_name|
-            if column_name == relationship[:foreign_key_id]
-              column_name << ('_' + relationship[:column_to_use_in_related_model]) if column_name.index('id').nil?
-              column_name.gsub!('_id','_' + relationship[:column_to_use_in_related_model])
-            end
-          end
-        end
-
-        csv_file_data = FasterCSV.generate do |csv|
-          parsed_rows.each{|row| csv << row}
-        end
-      end
-    end
-
-    csv_file_data
   end
 
 end
