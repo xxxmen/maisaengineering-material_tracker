@@ -1,4 +1,49 @@
 class ReportsController < ApplicationController
+  MODELS_AND_THEIR_RELATIONSHIPS = [
+      {
+          :model_name => Employee,
+          :relationships => [
+              { :foreign_key_id => "company_id", :related_model => Company, :column_to_use_in_related_model => "name"},
+              { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"},
+              { :foreign_key_id => "current_bom_id", :related_model => Bill, :column_to_use_in_related_model => "description"}
+          ]
+      },
+      {
+          :model_name => Order,
+          :relationships => [
+              { :foreign_key_id => "unit_id", :related_model => Unit, :column_to_use_in_related_model => "description"},
+              { :foreign_key_id => "vendor_id", :related_model => Vendor, :column_to_use_in_related_model => "name"},
+              { :foreign_key_id => "status_id", :related_model => PoStatus, :column_to_use_in_related_model => "status"},
+              { :foreign_key_id => "planner_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+              { :foreign_key_id => "requested_by_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+              { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"}
+          ]
+      },
+      {
+          :model_name => MaterialRequest,
+          :relationships => [
+              { :foreign_key_id => "unit_id", :related_model => Unit, :column_to_use_in_related_model => "description"},
+              { :foreign_key_id => "planner_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+              { :foreign_key_id => "requested_by_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+              { :foreign_key_id => "purchaser_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+              { :foreign_key_id => "drafted_by", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
+              { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"}
+          ]
+      },
+      {
+          :model_name => RequestedLineItem,
+          :relationships => [
+              { :foreign_key_id => "material_request_id", :related_model => MaterialRequest, :column_to_use_in_related_model => "description"}
+          ]
+      },
+      {
+          :model_name => OrderedLineItem,
+          :relationships => [
+              { :foreign_key_id => "po_id", :related_model => Order,:column_to_use_in_related_model => "po_no"},
+              { :foreign_key_id => "requested_line_item_id", :related_model => RequestedLineItem, :column_to_use_in_related_model => "material_description"}
+          ]
+      }
+  ]
 
   include GruffGrapher
 
@@ -193,13 +238,15 @@ class ReportsController < ApplicationController
   end
 
   def import_to_csv
+    require 'csv'
+
     if not current_employee.admin?
       render :text => {:success => false, :errors => "You don't have permission to perform this action"}.to_json and return
     end
     if request.post? and params[:import_file]
       model_to_import = params[:import_model].constantize
       begin
-        parsed_rows = FasterCSV.parse(params[:import_file])
+        parsed_rows = CSV.parse(params[:import_file].read)
         instances_of_model_for_each_row = []
         indexes_of_columns_in_uploaded_file = {}
         column_names = []
@@ -253,13 +300,15 @@ class ReportsController < ApplicationController
           end
         end
 
-        render :text => {:success => true, :markup => render_to_string(:partial => "new_import_preview", :locals => {:model_to_import => params[:import_model], :column_names => column_names, :table_rows => table_rows, :is_there_a_relationship_to_be_created => is_there_a_relationship_to_be_created})}.to_json
+
+        data = render_to_string(:partial => "new_import_preview", :locals => {:model_to_import => params[:import_model], :column_names => column_names, :table_rows => table_rows, :is_there_a_relationship_to_be_created => is_there_a_relationship_to_be_created})
+        render :json => { success: true, data: data  }
       rescue
-        render :text => {:success => false, :errors => "Kindly upload a proper CSV file for #{params[:import_model]}"}.to_json
+        render :json => {:success => false, :errors => "Kindly upload a proper CSV file for #{params[:import_model]}"}
       end
 
     else
-      render :text => {:success => false, :errors => "Kindly upload a CSV file"}.to_json
+      render :json => {:success => false, :errors => "Kindly upload a CSV file"}
     end
   end
 

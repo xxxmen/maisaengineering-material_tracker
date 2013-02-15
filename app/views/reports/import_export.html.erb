@@ -3,155 +3,155 @@
 </style>
 
 <table id="uxImportExportTable" class="information" style="font-size: 130%;">
-	<tr>
-    	<th class="resource">Resources</th>
-    	<th>Actions</th>
-  	</tr>
-	<tr class="odd">
-    	<td>Inventory items</td>
-		<td>
-			<a href="#" id="uxImportLink-InventoryItem">Import</a> /
-			<div id="uxImportDialog-InventoryItem">
-				<form id="uxImportUploadForm-InventoryItem" action="/reports/import_to_csv?import_model=InventoryItem" method="post" enctype="multipart/form-data">
-			      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-			      <input type="file" name="import_file" />
-			    </form>
-			</div>
-			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "InventoryItem"} %>
-		</td>
-  	</tr>
-	<tr>
-    	<td>Vendors</td>
-		<td>
-			<a href="#" id="uxImportLink-Vendor">Import</a> /
-			<div id="uxImportDialog-Vendor">
-				<form id="uxImportUploadForm-Vendor" name="uxImportUploadForm-Vendor" action="/reports/import_to_csv?import_model=Vendor" method="post" enctype="multipart/form-data">
-			      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-			      <input type="file" name="import_file" style="float:left;" />
-			    </form>
-			</div>
-			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Vendor"},:format=>:csv  %>
-		</td>
-  	</tr>
-	<tr class="odd">
-		<td>Employees</td>
-		<td>
-			<a href="#" id="uxImportLink-Employee">Import</a> /
-			<div id="uxImportDialog-Employee">
-				<form id="uxImportUploadForm-Employee" name="uxImportUploadForm-Employee" action="/reports/import_to_csv?import_model=Employee" method="post" enctype="multipart/form-data">
-			      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-			      <input type="file" name="import_file" style="float:left;" />
-			    </form>
-			</div>
-			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Employee"}%>
-		</td>
-	</tr>
-	<tr>
-		<td>Companies</td>
-		<td>
-			<a href="#" id="uxImportLink-Company">Import</a> /
-			<div id="uxImportDialog-Company">
-				<form id="uxImportUploadForm-Company" name="uxImportUploadForm-Company" action="/reports/import_to_csv?import_model=Company" method="post" enctype="multipart/form-data">
-			      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-			      <input type="file" name="import_file" style="float:left;" />
-			    </form>
-			</div>
-			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Company"} %>
-		</td>
-	</tr>
-	<tr class="odd">
-		<td>Orders</td>
-		<td>
-			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Order"} %>
-		</td>
-	</tr>
-	<tr>
-		<td>Requests</td>
-		<td>
-			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "MaterialRequest"} %>
-		</td>
-	</tr>
-	<tr class="odd">
-		<td>Request line items</td>
-		<td>
-			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "RequestedLineItem"} %>
-		</td>
-	</tr>
-	<tr>
-		<td>Order line items</td>
-		<td>
-			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "OrderedLineItem"} %>
-		</td>
-	</tr>
-</table>
+  <tr>
+    <th class="resource">Resources</th>
+    <th>Actions</th>
+  </tr>
+  <tr class="odd">
+    <td>Inventory items</td>
+    <td>
+      <a href="#" id="uxImportLink-InventoryItem">Import</a> /
+      <div id="uxImportDialog-InventoryItem">
+        <form id="uxImportUploadForm-InventoryItem" action="/reports/import_to_csv?import_model=InventoryItem" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+          <input type="file" name="import_file" />
+        </form>
+      </div>
+      <%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "InventoryItem"} %>
+    </td>
+  </tr>
+  <tr>
+    <td>Vendors</td>
+    <td>
+      <a href="#" id="uxImportLink-Vendor">Import</a> /
+      <div id="uxImportDialog-Vendor">
+        <%= form_tag({action: 'import_to_csv',import_model: 'Vendor'},{id: 'uxImportUploadForm-Vendor' ,name: 'uxImportUploadForm-Vendor'}) do %>
+            <input type="file" name="import_file" style="float:left;" />
+        <% end  %>
 
+      </div>
+      <%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Vendor"},:format=>:csv  %>
+    </td>
+  </tr>
+  <tr class="odd">
+    <td>Employees</td>
+    <td>
+      <a href="#" id="uxImportLink-Employee">Import</a> /
+      <div id="uxImportDialog-Employee">
+        <form id="uxImportUploadForm-Employee" name="uxImportUploadForm-Employee" action="/reports/import_to_csv?import_model=Employee" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+          <input type="file" name="import_file" style="float:left;" />
+        </form>
+      </div>
+      <%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Employee"}%>
+    </td>
+  </tr>
+  <tr>
+    <td>Companies</td>
+    <td>
+      <a href="#" id="uxImportLink-Company">Import</a> /
+      <div id="uxImportDialog-Company">
+        <form id="uxImportUploadForm-Company" name="uxImportUploadForm-Company" action="/reports/import_to_csv?import_model=Company" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+          <input type="file" name="import_file" style="float:left;" />
+        </form>
+      </div>
+      <%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Company"} %>
+    </td>
+  </tr>
+  <tr class="odd">
+    <td>Orders</td>
+    <td>
+      <%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Order"} %>
+    </td>
+  </tr>
+  <tr>
+    <td>Requests</td>
+    <td>
+      <%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "MaterialRequest"} %>
+    </td>
+  </tr>
+  <tr class="odd">
+    <td>Request line items</td>
+    <td>
+      <%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "RequestedLineItem"} %>
+    </td>
+  </tr>
+  <tr>
+    <td>Order line items</td>
+    <td>
+      <%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "OrderedLineItem"} %>
+    </td>
+  </tr>
+</table>
 <div id="uxImportPreviewContainer" class="left" style="display:none; width:100%;"></div>
 
 <script type="text/javascript">
-	var commonDialogOptions = {
-		autoOpen: false,
-      	height: 150,
-      	width: 430,
-      	modal: true
-	};
+    var commonDialogOptions = {
+        autoOpen: false,
+        height: 150,
+        width: 430,
+        modal: true
+    };
 
-	function addImportDialogFunctionalities(dialogElementId, importFormId, dialogBoxTitle, uploadUrl, importLinkId){
-	    jQuery("#" + dialogElementId).dialog(
-			jQuery.extend(commonDialogOptions, {
-		      title: dialogBoxTitle,
-		      buttons: {
-		        "Upload": function() {
-		           var uploadOptions = {
-		              url: uploadUrl,
-		              success: importDocumentUploadHandler
-		            };
-		            jQuery("#" + importFormId).ajaxSubmit(uploadOptions);
-		            jQuery(this).dialog( "close" );
+    function addImportDialogFunctionalities(dialogElementId, importFormId, dialogBoxTitle, uploadUrl, importLinkId){
+        jQuery("#" + dialogElementId).dialog(
+                jQuery.extend(commonDialogOptions, {
+                    title: dialogBoxTitle,
+                    buttons: {
+                        "Upload": function() {
+                            var uploadOptions = {
+                                dataType: 'json',
+                                url: uploadUrl,
+                                success: importDocumentUploadHandler
+                            };
+                            jQuery("#" + importFormId).ajaxSubmit(uploadOptions);
+                            jQuery(this).dialog( "close" );
 
-		        },
-		        Cancel: function() {
-		          jQuery(this).dialog( "close" );
-		        }
-		      }
-		    })
-		);
-	    jQuery("#" + importLinkId).show();
+                        },
+                        Cancel: function() {
+                            jQuery(this).dialog( "close" );
+                        }
+                    }
+                })
+        );
+        jQuery("#" + importLinkId).show();
 
-	    jQuery( "#" + importLinkId)
-	      .click(function() {
-	        jQuery("#" + dialogElementId).dialog( "open" );
-			return false;
-      	});
-	}
+        jQuery( "#" + importLinkId)
+                .click(function() {
+                    jQuery("#" + dialogElementId).dialog( "open" );
+                    return false;
+                });
+    }
 
-	function importDocumentUploadHandler(responseText, status){
-        alert(responseText)
-		var response = jQuery.parseJSON(responseText);
-        if(response.success == true){
-          jQuery('#uxImportExportTable').slideUp(function(){
-			jQuery('#uxImportPreviewContainer').html(response.markup).slideDown();
-		  })
+    function importDocumentUploadHandler(responseText, status){
+
+        if(responseText.success == true){
+            jQuery('#uxImportExportTable').slideUp(function(){
+
+                jQuery('#uxImportPreviewContainer').html(responseText.data).slideDown();
+            })
         }
         else{
-          alert(response.errors);
+            alert(responseText.errors);
         }
-	}
+    }
 
-	jQuery(function(){
-		addImportDialogFunctionalities("uxImportDialog-InventoryItem", "uxImportUploadForm-InventoryItem", "Import CSV - Inventory items", "/reports/import_to_csv?import_model=InventoryItem", "uxImportLink-InventoryItem");
-		addImportDialogFunctionalities("uxImportDialog-Vendor", "uxImportUploadForm-Vendor", "Import CSV - Vendors", "/reports/import_to_csv?import_model=Vendor", "uxImportLink-Vendor");
-		addImportDialogFunctionalities("uxImportDialog-Employee", "uxImportUploadForm-Employee", "Import CSV - Employees", "/reports/import_to_csv?import_model=Employee", "uxImportLink-Employee");
-		addImportDialogFunctionalities("uxImportDialog-Company", "uxImportUploadForm-Company", "Import CSV - Companies", "/reports/import_to_csv?import_model=Company", "uxImportLink-Company");
-	});
+    jQuery(function(){
+        addImportDialogFunctionalities("uxImportDialog-InventoryItem", "uxImportUploadForm-InventoryItem", "Import CSV - Inventory items", "/reports/import_to_csv?import_model=InventoryItem", "uxImportLink-InventoryItem");
+        addImportDialogFunctionalities("uxImportDialog-Vendor", "uxImportUploadForm-Vendor", "Import CSV - Vendors", "/reports/import_to_csv?import_model=Vendor", "uxImportLink-Vendor");
+        addImportDialogFunctionalities("uxImportDialog-Employee", "uxImportUploadForm-Employee", "Import CSV - Employees", "/reports/import_to_csv?import_model=Employee", "uxImportLink-Employee");
+        addImportDialogFunctionalities("uxImportDialog-Company", "uxImportUploadForm-Company", "Import CSV - Companies", "/reports/import_to_csv?import_model=Company", "uxImportLink-Company");
+    });
 
-	function removeRow(deleteRowLink) {
-		if(confirm('Are you sure?') == true){
-			jQuery(deleteRowLink).parents('tr').fadeOut().remove();
-		}
-	}
+    function removeRow(deleteRowLink) {
+        if(confirm('Are you sure?') == true){
+            jQuery(deleteRowLink).parents('tr').fadeOut().remove();
+        }
+    }
 
-	function hidePreview(){
-		jQuery("#uxImportPreviewContainer").slideUp().html('');
-		jQuery('#uxImportExportTable').slideDown();
-	}
+    function hidePreview(){
+        jQuery("#uxImportPreviewContainer").slideUp().html('');
+        jQuery('#uxImportExportTable').slideDown();
+    }
 </script>

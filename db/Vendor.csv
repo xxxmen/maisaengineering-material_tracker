@@ -1,0 +1,11 @@
+id,vendor_no,name,email,account_no,address,city,state,zip,country,telephone,fax,contact_name,contact_telephone,notes,lock_version,updated_at,access_key
+1,12341344,Big Pipes,bigpipes@telaeris.com,"",9123 Chesapeake Dr.,San Diego,CA,92123,USA,858-627-9703,8586279702,Joe Shmoe,8586279700,"",1,04/01/2011 01:20 AM,bf8d2150ce8f4487d95c67bde534e308cce7692d
+2,123123123,Small Connectors,david.carta@telaeris.com,"",9123 Chesapeake Dr.,San Diego,CA,92123,USA,8586279700,8586279702,"",8586279700,"",2,04/01/2011 01:20 AM,de3de9dcbd3451ca674bc398c291afe0fdcff708
+3,99342,Grainger,grainger@telaeris.com,"","","","","","","","",Big Joe Plumber,111-222-3333,"",1,04/01/2011 08:15 AM,22bac95ef1c8712ad291a8de140b228616a83b06
+4,"",McMaster ,mcmaster@telaeris.com,"","","","","","","","","","","",0,04/01/2011 01:17 AM,22bac95ef1c8712ad291a8de140b228616a83b06
+5,"",Amazon,amazon@telaeris.com,"","","","","","","","","","","",0,04/01/2011 01:18 AM,47fa6cae53b9cc96c03952b8a7bdc6c3178cfe18
+8,1123,Best Way,barcode@Telaeris.com,"",9123 Chesapeake Dr.,San Diego,CA,92123,United States,858-627-9700,858-627-9702,"",858-627-9700,"",4,07/14/2011 10:09 AM,bc5fedae962bdf4b8b605e093c52223d123a0f8d
+9,8586279700,Telaeris,support@Telaeris.com,"","","","","","",858-627-9708,"",Chris Stotts,858-627-9708,"",5,08/21/2012 04:48 PM,31800fbfa4cb2b04542452e98b6b3131491ef34b
+10,78954613358,Freedom,bd@Telaeris.com,"","","","","","",858-627-9700,"",John Free,"","",2,07/14/2011 11:00 AM,c95aac70e8486137148e1f5e29da2cbf284021e0
+11,789654,Barcodes-R-Us,barcodes@telaeris.com,"","","","","","","","",James Bar Code,"","",0,07/14/2011 09:58 AM,db4f09590b2d34f81fe8c4923b425a80c3c3c472
+12,"",New Vendor,"","","","","","","","","","","","",0,08/03/2012 07:34 AM,673b6a0862859bce855b5462e1a6f145adcc93c6

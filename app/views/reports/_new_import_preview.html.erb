@@ -1,8 +1,4 @@
-<style type="text/css">
-	.ImportPreviewTable TD,TH {
-		padding:5px!important;
-	}
-</style>
+
 
 <b>
 	<a href="#" onclick="hidePreview(); return false;">Import - Export</a>
@@ -11,6 +7,11 @@
 </b>
 
 <div class="left" style="width:100%; margin-top:20px;">
+  <style type="text/css">
+      .ImportPreviewTable TD,TH {
+          padding:5px!important;
+      }
+  </style>
 	<form action="/reports/submit_import_preview?import_model=<%= model_to_import %>" method="post">
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 		<input type="hidden" name="number_of_rows" value="<%= table_rows.length %>" />
@@ -43,7 +44,7 @@
 						<% end %>
 						<td>
 							<a href="#" title="Delete row" onclick="removeRow(this); return false;">
-								<img src="/images/icons/delete.png" width="16" height="16" />
+                              <%= image_tag('icons/delete.png',width: 16,height: 16) %>
 							</a>
 						</td>
 					</tr>
