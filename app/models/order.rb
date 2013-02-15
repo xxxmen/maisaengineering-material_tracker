@@ -579,19 +579,6 @@ class Order < ActiveRecord::Base
     return default_group ? default_group['id'] : nil
   end
 
-
-
-=begin
-
-  { :foreign_key_id => "unit_id", :related_model => Unit, :column_to_use_in_related_model => "description"},
-      { :foreign_key_id => "vendor_id", :related_model => Vendor, :column_to_use_in_related_model => "name"},
-      { :foreign_key_id => "status_id", :related_model => PoStatus, :column_to_use_in_related_model => "status"},
-      { :foreign_key_id => "planner_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-      { :foreign_key_id => "requested_by_id", :related_model => Employee, :column_to_use_in_related_model => "first_name"},
-      { :foreign_key_id => "group_id", :related_model => Group, :column_to_use_in_related_model => "name"}
-=end
-
-
   # ===============
   # = CSV support =
   # ===============
