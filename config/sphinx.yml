@@ -1,5 +1,7 @@
 development:
-  port: 9312
+  bin_path: "/usr/local/bin"
+  searchd_binary_name: searchd
+  indexer_binary_name: indexer
 test:
   port: 9313
 production:
