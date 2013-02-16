@@ -1,37 +1,37 @@
 <% if params[:action] == "edit" || params[:action] == "new" || params[:action] == "update" || params[:action] == "create" %>
-<li><%= img_button "List All", "order_list.png", url_for(:controller => "orders", :action => "index") %></li>
+    <li><%= img_button "List All", "order_list.png", url_for(:controller => "orders", :action => "index") %></li>
 <% else %>
-<li>
-	<select onchange="window.location=$F(this)" style="width: 120px;">
-	    <option value="<%= filter_url(:state => nil) %>">-- All Orders --</option>
-	    <option value="<%= filter_url(:state => 'open') %>" <%= select_filter_if(params[:state] == 'open') %>>open orders</option>
-	    <option value="<%= filter_url(:state => 'completed') %>" <%= select_filter_if(params[:state] == 'completed') %>>completed orders</option>
-	    <option value="<%= filter_url(:state => 'closed') %>" <%= select_filter_if(params[:state] == 'closed') %>>closed orders</option>
-	    <% if current_employee.admin? %>
-			<option value="<%= filter_url(:state => 'archived') %>" <%= select_filter_if(params[:state] == 'archived') %>>archived orders</option>
-		<% end %>
-	</select>
-</li>
-<li>
-	<select onchange="window.location=$F(this)" style="width: 120px;">
-	    <% Group.list_all_for_select.each do |group| %>
-		    <option value="<%= filter_url(:group => group[1]) %>" <%= select_filter_if(params[:group].to_s == group[1].to_s) %>><%= group[0] %></option>	    
-	    <% end %>
-	</select>
-</li>
+    <li>
+      <select onchange="window.location=$F(this)" style="width: 120px;">
+        <option value="<%= filter_url(:state => nil) %>">-- All Orders --</option>
+        <option value="<%= filter_url(:state => 'open') %>" <%= select_filter_if(params[:state] == 'open') %>>open orders</option>
+        <option value="<%= filter_url(:state => 'completed') %>" <%= select_filter_if(params[:state] == 'completed') %>>completed orders</option>
+        <option value="<%= filter_url(:state => 'closed') %>" <%= select_filter_if(params[:state] == 'closed') %>>closed orders</option>
+        <% if current_employee.admin? %>
+            <option value="<%= filter_url(:state => 'archived') %>" <%= select_filter_if(params[:state] == 'archived') %>>archived orders</option>
+        <% end %>
+      </select>
+    </li>
+    <li>
+      <select onchange="window.location=$F(this)" style="width: 120px;">
+        <% Group.list_all_for_select.each do |group| %>
+            <option value="<%= filter_url(:group => group[1]) %>" <%= select_filter_if(params[:group].to_s == group[1].to_s) %>><%= group[0] %></option>
+        <% end %>
+      </select>
+    </li>
 <% end %>
 
 
 
 <% unless ["line_item", "reminders"].include?(params[:action]) %>
-   <% if current_employee.admin? || current_employee.purchasing? || current_employee.planning? %>
-  <li><%= img_button "Create", "order_add.png", new_order_path %></li>
-  <% end %>
+    <% if current_employee.admin? || current_employee.purchasing? || current_employee.planning? %>
+        <li><%= img_button "Create", "order_add.png", new_order_path %></li>
+    <% end %>
 <% end %>
 
 <% if params[:action] == "edit_line_items" || params[:action] == "search_line_items" %>
-  <li><%= img_button_function "New Line Item", "line_item_add.png", "Element.toggle('new_line_item')" %></li>
-  <li><%= img_button "Save &amp; Back to Order", "order_show.png", edit_order_path(@order) %></li>
+    <li><%= img_button_function "New Line Item", "line_item_add.png", "Element.toggle('new_line_item')" %></li>
+    <li><%= img_button "Save &amp; Back to Order", "order_show.png", edit_order_path(@order) %></li>
 <% end %>
 
 <% if params[:action] == "edit_line_item" || params[:action] == "sort_line_items" %>
@@ -42,46 +42,46 @@
 
 
 <% if params[:action] == "edit" || params[:action] == "update" %>
-  <li><%= img_button "Duplicate", "order_list.png", url_for(:controller => "orders", :action => "new", :order_id => @order) %></li>
-  <li><%# Deprecated = img_button "Line Items", "order_show.png", url_for(:controller => "orders", :action => "edit_line_items", :id => @order) %></li>
-  <li><%= img_button("Print", "print.png", url_for(:controller => "orders", :action => "print", :id => @order)) %></li>
-  <% if @order && @order.location.blank? && !@order.received?
-	   email_options = { :confirm => "This item does not show as received or does not have a location in the system - do you wish to proceed?"} 
-     else
-	   email_options = { }
-	 end
-   %>
-  <li><%= img_button "Email", "email.png", url_for(:controller => "orders", :action => "email", :id => @order), email_options %></li>
+    <li><%= img_button "Duplicate", "order_list.png", url_for(:controller => "orders", :action => "new", :order_id => @order) %></li>
+    <li><%# Deprecated = img_button "Line Items", "order_show.png", url_for(:controller => "orders", :action => "edit_line_items", :id => @order) %></li>
+    <li><%= img_button("Print", "print.png", url_for(:controller => "orders", :action => "print", :id => @order)) %></li>
+    <% if @order && @order.location.blank? && !@order.received?
+         email_options = { :confirm => "This item does not show as received or does not have a location in the system - do you wish to proceed?"}
+       else
+         email_options = { }
+       end
+    %>
+    <li><%= img_button "Email", "email.png", url_for(:controller => "orders", :action => "email", :id => @order), email_options %></li>
 <% end %>
 
 <% if ["edit", "update", "new", "create"].include?(params[:action]) %>
- <% unless current_employee.warehouse? %>
- <li class="save-button"><%= img_button_function("Save", "save.png",  form_save(@order)) %></li>
- <% if @order.reminders.blank? %>
-  <li><%= img_button "Reminders", "email.png", url_for(:controller => "orders", :action => "reminders", :id => @order) %></li>
- <% else %>
-  <li><%= img_button "Reminders", "accept.png", url_for(:controller => "orders", :action => "reminders", :id => @order) %></li>
- <% end %>
- <% end %>
- 
+    <% unless current_employee.warehouse? %>
+        <li class="save-button"><%= img_button_function("Save", "save.png",  form_save(@order)) %></li>
+        <% if @order.reminders.blank? %>
+            <li><%= img_button "Reminders", "email.png", url_for(:controller => "orders", :action => "reminders", :id => @order) %></li>
+        <% else %>
+            <li><%= img_button "Reminders", "accept.png", url_for(:controller => "orders", :action => "reminders", :id => @order) %></li>
+        <% end %>
+    <% end %>
+
 <% end %>
 
 <% if ["reminders"].include?(params[:action]) %>
-  <li><%= img_button "Return to Order", "previous.png", url_for(:controller => "orders", :action => "edit", :id => @order) %></li>
- <!-- <li class="save-button"><%= img_button_function("Save Reminders", "save.png",  "$('deliver_form').submit();") %></li> -->
+    <li><%= img_button "Return to Order", "previous.png", url_for(:controller => "orders", :action => "edit", :id => @order) %></li>
+    <!-- <li class="save-button"><%= img_button_function("Save Reminders", "save.png",  "$('deliver_form').submit();") %></li> -->
 <% end %>
 
 <% if params[:action] == 'search' %>
     <li>
-        <%= img_button "Select POs to print or email", "order_list.png", url_for(params.merge(:controller => 'orders', :action => 'select_pos')) %>
+      <%= img_button "Select POs to print or email", "order_list.png", url_for(params.merge(:controller => 'orders', :action => 'select_pos')) %>
     </li>
 <% end %>
 
 <% if params[:action] == 'edit' && current_employee.admin? %>
-	<% if @order.archived %>
-		<li><%= img_button "Un-Archive", "order_delete.png", {:action => 'unarchive', :id => @order.id}%></li>
-	<% else %>
-		<li><%= img_button "Archive", "order_delete.png", {:action => 'archive', :id => @order.id}, :onclick => "if(confirm('Press OK to confirm you want to Archive this Order.')){return};" %></li>
-	<% end %>
-  <% end %>
+    <% if @order.archived %>
+        <li><%= img_button "Un-Archive", "order_delete.png", {:action => 'unarchive', :id => @order.id}%></li>
+    <% else %>
+        <li><%= img_button "Archive", "order_delete.png", {:action => 'archive', :id => @order.id}, :onclick => "if(confirm('Press OK to confirm you want to Archive this Order.')){return};" %></li>
+    <% end %>
+<% end %>
   

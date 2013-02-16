@@ -64,55 +64,55 @@ class Employee < ActiveRecord::Base
   POPV_VIEWER=13
 
   ROLE_NAMES=[ "Admin", "Warehouse", "Purchasing", "Planning", "Requesting", "Warehouse Admin", "Vendor",
-              "Receiving", "Foreman", "Engineer", "Estimator", "Requesting Admin", "POPV Admin", "POPV Viewer"]
+               "Receiving", "Foreman", "Engineer", "Estimator", "Requesting Admin", "POPV Admin", "POPV Viewer"]
 
-def state_for_role
-  return ROLE_NAMES[self.role]
-end
-def admin?
-  self.role == Employee::ADMIN
-end
-def warehouse?
-  self.role == Employee::WAREHOUSE
-end
-def purchasing?
-  self.role == Employee::PURCHASING
-end
+  def state_for_role
+    return ROLE_NAMES[self.role]
+  end
+  def admin?
+    self.role == Employee::ADMIN
+  end
+  def warehouse?
+    self.role == Employee::WAREHOUSE
+  end
+  def purchasing?
+    self.role == Employee::PURCHASING
+  end
 
-def planning?
-  self.role == Employee::PLANNING
-end
-def requesting?
-  self.role == Employee::REQUESTING
-end
-def warehouse_admin?
-  self.role == Employee::WAREHOUSE_ADMIN
-end
-def vendor?
-  self.role == Employee::VENDOR
-end
-def receiving?
-  self.role == Employee::RECEIVING
-end
-def foreman?
-  self.role == Employee::FOREMAN
-end
-def engineer?
-  self.role == Employee::ENGINEER
-end
-def estimator?
-  self.role == Employee::ESTIMATOR
-end
-def requesting_admin?
-  self.role == Employee::REQUESTING_ADMIN
-end
-def popv_admin?
-  self.role == Employee::POPV_ADMIN
-end
-def popv_viewer?
+  def planning?
+    self.role == Employee::PLANNING
+  end
+  def requesting?
+    self.role == Employee::REQUESTING
+  end
+  def warehouse_admin?
+    self.role == Employee::WAREHOUSE_ADMIN
+  end
+  def vendor?
+    self.role == Employee::VENDOR
+  end
+  def receiving?
+    self.role == Employee::RECEIVING
+  end
+  def foreman?
+    self.role == Employee::FOREMAN
+  end
+  def engineer?
+    self.role == Employee::ENGINEER
+  end
+  def estimator?
+    self.role == Employee::ESTIMATOR
+  end
+  def requesting_admin?
+    self.role == Employee::REQUESTING_ADMIN
+  end
+  def popv_admin?
+    self.role == Employee::POPV_ADMIN
+  end
+  def popv_viewer?
 
-  self.role == Employee::POPV_VIEWER
-end
+    self.role == Employee::POPV_VIEWER
+  end
 
   acts_as_log_edits
 
@@ -133,15 +133,15 @@ end
 
   # Thinking Sphinx Config
   define_index do
-  indexes :badge_no
-  indexes :first_name
-  indexes :mi
-  indexes :last_name
-  indexes :login
-  indexes :email
-  indexes :telephone
+    indexes :badge_no
+    indexes :first_name
+    indexes :mi
+    indexes :last_name
+    indexes :login
+    indexes :email
+    indexes :telephone
 
-  set_property :delta => true
+    set_property :delta => true
   end
 
   attr_accessor :password_confirmation, :password
@@ -167,26 +167,26 @@ end
   # that are specifically restricted to this public account.
   def verify_popv_open_user
     if !self.new_record? && self.id
-        employee = Employee.find_by_id(self.id)
-   	else
-   		employee = self
+      employee = Employee.find_by_id(self.id)
+    else
+      employee = self
     end
 
     if employee.login == 'popv'
-        self.login = 'popv'
-        self.first_name = 'POPV'
-        self.last_name = 'POPV'
-        self.role = Employee::POPV_VIEWER
-        self.popv_enabled = false
-        self.buyer = false
-        self.archived = false
-        self.start_page = POPV
-        self.remember_token_expires_at = nil
-        self.remember_token = nil
-        c = Company.find_by_name('Telaeris')
-        if c.present?
-        	self.company = c
-       	end
+      self.login = 'popv'
+      self.first_name = 'POPV'
+      self.last_name = 'POPV'
+      self.role = Employee::POPV_VIEWER
+      self.popv_enabled = false
+      self.buyer = false
+      self.archived = false
+      self.start_page = POPV
+      self.remember_token_expires_at = nil
+      self.remember_token = nil
+      c = Company.find_by_name('Telaeris')
+      if c.present?
+        self.company = c
+      end
     end
   end
 
@@ -197,7 +197,7 @@ end
 
   # is the role value even valid?
   def invalid_role?
-  	self.role.blank? || self.role < 0
+    self.role.blank? || self.role < 0
   end
 
   # Warehouse role should be the default and Warehouse Admins should be considered warehouse users
@@ -242,19 +242,19 @@ end
   end
 
   def self.current_employee_id
-  	self.current_employee ?	self.current_employee.id : nil
+    self.current_employee ?	self.current_employee.id : nil
   end
 
   def self.current_employee_name
-  	self.current_employee ?	self.current_employee.entire_full_name : ''
+    self.current_employee ?	self.current_employee.entire_full_name : ''
   end
 
   def self.find_or_create_popv_viewer
-  	 user = self.find_by_login('popv')
-  	 if user.blank?
-  	 	user = self.create(:login => 'popv')
- 	 end
- 	 return user
+    user = self.find_by_login('popv')
+    if user.blank?
+      user = self.create(:login => 'popv')
+    end
+    return user
   end
 
   # Returns an array for options in a select tag
@@ -286,7 +286,7 @@ end
 
   # Should only scope within the scope of employees with a login and password
   def self.search_users_only(*args)
-    Employee.with_scope(:find => { :conditions => "login IS NOT NULL AND crypted_password is NOT NULL"}) { self.search(*args) }
+    Employee.with_scope(:find => { :conditions => "login IS NOT NULL AND crypted_password is NOT NULL"}) { self.full_text_search(*args) }
   end
 
   # Find all the companies to which at least one employee belongs to
@@ -296,18 +296,18 @@ end
     Company.find(company_ids, :order => "name")
   end
 
-    # Finds all buyers
+  # Finds all buyers
   def self.find_buyers
-      find(:all, :conditions => {:buyer => true})
+    find(:all, :conditions => {:buyer => true})
   end
 
   # Builds up an array of arrays with name/email pairs for use in a drop-down select box
   def self.buyer_list_of_emails_for_select_tag
-      email_array = [["Buyer", "Buyer"], ["--", ""], ['All', '']]
-      all_emails_array = []
-      self.find_buyers.each {|b| email_array << [b.entire_full_name, b.email]; all_emails_array << b.email}
-      email_array[2][1] = all_emails_array.join(', ') # Adds a string of all emails to the 'All' array.
-      return email_array
+    email_array = [["Buyer", "Buyer"], ["--", ""], ['All', '']]
+    all_emails_array = []
+    self.find_buyers.each {|b| email_array << [b.entire_full_name, b.email]; all_emails_array << b.email}
+    email_array[2][1] = all_emails_array.join(', ') # Adds a string of all emails to the 'All' array.
+    return email_array
   end
 
   # Retrieves the 'current cart' for an employee, which is effectively like Amazon's shopping cart
@@ -458,17 +458,17 @@ end
   # If passed an employee id, it will add that employee to the box, in case they
   # need to be there but aren't a planner.
   def self.list_planners(extra_employee_id = nil)
-  	planners = []
+    planners = []
     with_scope(:find => { :conditions => ["role = ?", Employee::PLANNING]}) do
-      	planners = self.list_employees
+      planners = self.list_employees
     end
     if extra_employee_id
-	    extra_employee = Employee.find(extra_employee_id)
-	    if extra_employee.present?
-			planners.push([extra_employee.full_name, extra_employee.id])
-		else
-			planners.push(["This Employee could not be found.", extra_employee.id])
-		end
+      extra_employee = Employee.find(extra_employee_id)
+      if extra_employee.present?
+        planners.push([extra_employee.full_name, extra_employee.id])
+      else
+        planners.push(["This Employee could not be found.", extra_employee.id])
+      end
     end
     planners
   end
@@ -482,9 +482,9 @@ end
 
   # Shortcut for select_tag (list_employee_names), except only list out requesters
   def self.list_popv_admin_emails(options = {})
-      Employee.find(:all, :conditions => ["role = ?", Employee::POPV_ADMIN], :order => "last_name", :limit => 20).map do |e|
-        e.email
-      end
+    Employee.find(:all, :conditions => ["role = ?", Employee::POPV_ADMIN], :order => "last_name", :limit => 20).map do |e|
+      e.email
+    end
   end
 
   # Determines if a user can create new employees
@@ -535,14 +535,39 @@ end
     save(false)
   end
 
-  	def get_group
-  		if self.group
-  			default_group = self.group
- 		else
- 			default_group = Group.get_default
- 		end
- 		return default_group ? default_group['id'] : nil
- 	end
+  def get_group
+    if self.group
+      default_group = self.group
+    else
+      default_group = Group.get_default
+    end
+    return default_group ? default_group['id'] : nil
+  end
+
+
+
+
+  # ===============
+  # = CSV support =
+  # ===============
+  comma do
+    Employee.column_names.each do |column_name|
+      case column_name
+        when 'delta'
+          #skip
+        when 'updated_at','created_at'
+          send(column_name){|column_name| column_name.try(:strftime,'%m/%d/%Y %H:%M %p') }
+        when 'company_id'
+          company 'Company Name' do |c| c.name  end
+        when 'group_id'
+          group 'Group Name' do |g| g.try(:name) end
+        when 'current_bom_id'
+          current_bom 'Current Bom Description' do |b| b.try(:description) end
+        else
+          send(column_name)
+      end
+    end
+  end
 
 
   protected
@@ -558,7 +583,7 @@ end
   end
 
   def set_start_page
-  	if [Employee::REQUESTING, Employee::PLANNING, Employee::ADMIN].include?(self.role)
+    if [Employee::REQUESTING, Employee::PLANNING, Employee::ADMIN].include?(self.role)
       self.start_page = Employee::MATERIAL_REQUESTS
     else
       self.start_page = Employee::ORDERS

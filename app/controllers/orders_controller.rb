@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
   def search_line_items
     @order = Order.find(params[:id])
     OrderedLineItem.filter(params[:id]) do
-      @ordered_line_items = OrderedLineItem.search(params, :order => "line_item_no")
+      @ordered_line_items = OrderedLineItem.full_text_search(params, :order => "line_item_no")
       return_search_line_items
     end
   end
@@ -609,13 +609,12 @@ class OrdersController < ApplicationController
   end
   
   def return_search
-    year_string = params[:year].blank? ? "" : "for <span style='color: orangered;'>" + params[:year] + "</span> "
+    year_string = params[:year].blank? ? "" : "for <span style='color: orangered;'>" + params[:year] + "</span>".html_safe
     
     if @orders.size == 0
-      
-
-      flash[:error] = "There were no search results for <span style='color: red;'>'#{params[:q]}'</span> #{year_string}"
-      redirect_to orders_path(params) and return
+      flash[:error] = "There were no search results for <span style='color: red;'>'#{params[:q]}'</span> #{year_string}".html_safe
+      #redirect_to orders_path(params) and return  -- Not working in Rails 3 not route mateches search
+      redirect_to action: :index and return
     elsif @orders.size == 1 && !current_employee.direct_search?
       flash.now[:notice] = "Found 1 purchase order"
       render :action => "index"
@@ -623,14 +622,14 @@ class OrdersController < ApplicationController
       flash[:notice] = "Found 1 purchase order and redirected to search result"
       redirect_to edit_order_path(@orders.to_a[0])
     else
-      flash.now[:notice] = "#{refined_search} <div id='result_msg'>Found #{@orders.size} results for <span style='color: orangered;'>'#{params[:q]}'</span> #{year_string}  <a href='#' onclick=\"$('refine').toggle(); $('refine').down('input').focus(); $('result_msg').hide(); \">Filter Results</a></div>"
+      flash.now[:notice] = "#{refined_search} <div id='result_msg'>Found #{@orders.size} results for <span style='color: orangered;'>'#{params[:q]}'</span> #{year_string}  <a href='#' onclick=\"$('refine').toggle(); $('refine').down('input').focus(); $('result_msg').hide(); \">Filter Results</a></div>".html_safe
       render :action => "index"
     end
   end
   
   def return_search_line_items
     if @ordered_line_items.size == 0
-      flash[:error] = "There was no search results for <span style='color: red;'>'#{params[:q]}'</span>"
+      flash[:error] = "There was no search results for <span style='color: red;'>'#{params[:q]}'</span>".html_safe
       redirect_to :action => :edit_line_items, :id => @order
     else
       @ordered_line_item ||= OrderedLineItem.new
@@ -639,7 +638,7 @@ class OrdersController < ApplicationController
       @ordered_line_item.quantity_ordered = params[:qty_ordered] if params[:qty_ordered]
       @ordered_line_item.date_back_ordered = params[:bo_date] if params[:bo_date]
       @ordered_line_item.date_received = params[:recd_date] if params[:recd_date]
-      flash.now[:notice] = "Found #{@ordered_line_items.size} results for <span style='color: red;'>'#{params[:q]}'</span>"
+      flash.now[:notice] = "Found #{@ordered_line_items.size} results for <span style='color: red;'>'#{params[:q]}'</span>".html_safe
       render :action => :edit_line_items
     end
   end
@@ -650,7 +649,7 @@ class OrdersController < ApplicationController
       "<input type='hidden' name='year' value='#{params[:year]}' />" +
       "<input type='text' name='refined' style='width: 200px;' />" +
       "<input type='submit' value='Filter Results' />" +
-    "</form>"
+    "</form>".html_safe
   end
   
   def extract_unit_for_measure

@@ -7,7 +7,7 @@ class UnitsController < ApplicationController
   end
   
   def search
-    @units = Unit.search(params)
+    @units = Unit.full_text_search(params)
     return_search(@units)
   end
     

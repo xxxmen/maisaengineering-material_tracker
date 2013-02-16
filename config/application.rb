@@ -50,6 +50,11 @@ module MaterialTracker
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
+    #Rails default includes all the helpers(but if we give the same method names in multiple helpers which method will be called we don't know)
+    #Ruby doesn't support method overloading
+    #by putting false in below line, controller specific helpers will available to that controller only instead of all helpers
+    config.action_controller.include_all_helpers = false
+
 
   end
 end

@@ -21,9 +21,15 @@ gem 'libv8', '~> 3.11.8'
 # jQuery is the default JavaScript library in Rails 3.1
 gem 'jquery-rails'
 
-gem 'thinking-sphinx', '2.0.10', :require => 'thinking_sphinx'
+#gem 'thinking-sphinx'#, '~>2.0.10'#, :require => 'thinking_sphinx'
 
-gem 'ts-datetime-delta', '1.0.2', :require => 'thinking_sphinx/deltas/datetime_delta'
+gem 'thinking-sphinx',
+    :git => 'git://github.com/pat/thinking-sphinx.git',
+    :ref => '8f0e34b4a68494738d8dd5a1cb6bcf379adbf640'
+
+
+gem 'ts-datetime-delta', '1.0.2',
+    :require => 'thinking_sphinx/deltas/datetime_delta'
 
 #gem "rake", "~>0.8.3"
 
@@ -33,7 +39,8 @@ gem "prototype-rails"
 
 gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
 
-
+gem 'to-csv'
+gem "comma", "~> 3.0"
 
 #gem 'authlogic'
 
@@ -42,15 +49,16 @@ gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototyp
 #gem 'stringex'
 
 group :development, :test do
-	#gem "mocha"
-	gem 'ruby-debug19'
+  #gem "mocha"
+  gem 'ruby-debug19'
   gem 'rspec-rails', '~> 2.6.1.beta1'
   gem 'rspec', '~> 2.6'
   gem "factory_girl_rails"
 end
-
+gem 'json','1.7.7'
 group :production do
-	gem 'pg'
+  gem 'pg'
+
 end
 
 # Use unicorn as the web server

@@ -3,14 +3,10 @@
 <% end %>
 <html>
 <head>
-
-  <%#=  javascript_include_tag 'prototype' %>
-  <%#= stylesheet_link_tag    "application" %>
-  <%#= javascript_include_tag 'application' %>
+  <%= favicon_link_tag 'favicon.ico', :rel =>'icon', :type => 'image/ico' %>
+  <%= favicon_link_tag 'favicon.ico', :rel =>'shortcut icon', :type => 'image/ico' %>
   <%= csrf_meta_tag %>
 
-  <link rel="icon" href="/favicon.ico" type="image/ico" />
-  <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
   <title>
     <% if @material_request && @material_request.tracking %>
         Req #<%= @material_request.tracking %> | Material Tracker
@@ -30,14 +26,16 @@
   <% unless params[:controller] == 'popv' || params[:controller] == 'piping' %>
       <%= stylesheet_link_tag "base_packaged" %>
       <!-- We have to use seperate stylesheet for 'print' and 'yui'
-                  because it can't be included for media='screen' -->
-      <%= stylesheet_link_tag "vendor/yui.css",media: 'all' %>
-      <%= stylesheet_link_tag "printer.css",media: 'print' %>
+because it can't be included for media='screen' -->
+      <%= stylesheet_link_tag "vendor/yui.css",media: 'all', charset: 'utf-8' %>
+      <%= stylesheet_link_tag "printer.css",media: 'print', charset: 'utf-8' %>
       <!-- This must come last. -->
 
       <%= javascript_include_tag 'application' %>
       <%#= javascript_include_tag 'base' %>
       <%= javascript_include_tag 'base_packaged' %>
+      <%= javascript_include_tag 'global_use' %>
+
 
   <% else %>
       <%= stylesheet_link_tag "popv_packaged" %>
@@ -81,6 +79,9 @@
 
 
   <% end %>
+  <script type="text/javascript">
+      jQuery.noConflict();
+  </script>
 </head>
 
 <body>

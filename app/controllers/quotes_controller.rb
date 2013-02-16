@@ -19,7 +19,7 @@ class QuotesController < ApplicationController
         params[:o] = "quotes.updated_at"
         params[:s]= "desc"
       end
-      @quotes = Quote.search(params, {})
+      @quotes = Quote.full_text_search(params, {})
       return_search(@quotes)
     end
   end

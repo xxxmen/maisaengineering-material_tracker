@@ -7,7 +7,7 @@ class VendorsController < ApplicationController
   end
   
   def search
-    @vendors = Vendor.search(params)
+    @vendors = Vendor.full_text_search(params)
     return_search(@vendors)
   end
     
@@ -40,7 +40,7 @@ class VendorsController < ApplicationController
   def save_and_show!
     @vendor.attributes = params[:vendor]
     @vendor.save!
-    flash[:notice] = "<a href=\"#{edit_vendor_path(@vendor)}\">#{@vendor.name}</a> was saved successfully at #{current_time}"
+    flash[:notice] = "<a href=\"#{edit_vendor_path(@vendor)}\">#{@vendor.name}</a> was saved successfully at #{current_time}".html_safe
     redirect_to vendors_path   
   end
 

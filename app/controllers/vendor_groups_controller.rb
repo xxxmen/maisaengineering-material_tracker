@@ -8,7 +8,7 @@ class VendorGroupsController < ApplicationController
     end
     
     def search
-        @vendor_groups = VendorGroup.search(params)
+        @vendor_groups = VendorGroup.full_text_search(params)
         return_search(@vendor_groups)
     end
     
@@ -45,7 +45,7 @@ class VendorGroupsController < ApplicationController
         @vendor_group.vendors.clear
         @vendors.each{|v| @vendor_group.vendors.push v if params["vendor_#{v.id}"] }
         @vendor_group.save!
-        flash[:notice] = "<a href=\"#{edit_vendor_group_path(@vendor_group)}\">#{@vendor_group.name}</a> was saved successfully at #{current_time}"
+        flash[:notice] = "<a href=\"#{edit_vendor_group_path(@vendor_group)}\">#{@vendor_group.name}</a> was saved successfully at #{current_time}".html_safe
         redirect_to vendor_groups_path   
     end
     

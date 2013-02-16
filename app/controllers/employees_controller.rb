@@ -10,7 +10,7 @@ class EmployeesController < ApplicationController
   end
   
   def search
-    method = params.has_key?(:users_only) ? 'search_users_only' : 'search'
+    method = params.has_key?(:users_only) ? 'search_users_only' : 'full_text_search'
     @employees = Employee.send(method, params)
     return_search(@employees)    
   end

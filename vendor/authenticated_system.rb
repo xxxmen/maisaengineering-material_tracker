@@ -88,7 +88,9 @@ module AuthenticatedSystem
     # We can return to this location by calling #redirect_back_or_default.
     def store_location
       if request.get?
-        session[:return_to] = request.url
+        #For Rails 2: You want request.url instead of request.request_uri. This combines the protocol (usually http://) with the host, and request_uri to give you the full address.
+        #For Rails 3: You want "#{request.protocol}#{request.host_with_port}#{request.fullpath}", since request.url is now deprecated.
+        session[:return_to] = "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
       end
     end
 

@@ -97,7 +97,7 @@ class Vendor < ActiveRecord::Base
         ["purchase_orders.date_eta IS NOT NULL AND
 		    purchase_orders.completed = ? AND 
 		    po_statuses.status <> ? AND 
-		    purchase_orders.date_eta <= CURDATE() AND
+		    purchase_orders.date_eta <= CURRENT_DATE AND
 		    purchase_orders.vendor_id IS NOT NULL", false, 'INACTIVE'],
                          :include => [:status, :vendor], :order => "vendors.name")
     vendors = vendors.delete_if { |o| o.blank? || o.vendor.blank? }
@@ -123,6 +123,24 @@ class Vendor < ActiveRecord::Base
     end
     return phone
   end
+
+
+  # ===============
+  # = CSV support =
+  # ===============
+  comma do
+    Vendor.column_names.each do |column_name|
+      case column_name
+        when 'delta'
+          #skip
+        when 'updated_at','created_at'
+          send(column_name){|column_name| column_name.try(:strftime,'%m/%d/%Y %H:%M %p') }
+        else
+          send(column_name)
+      end
+    end
+  end
+
 
   ############################################################################
   # PRIVATE

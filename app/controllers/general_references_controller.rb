@@ -6,7 +6,7 @@ class GeneralReferencesController < ApplicationController
   end
   
   def search
-    @references = GeneralReference.search(params)
+    @references = GeneralReference.full_text_search(params)
     return_search(@references)
   end
   

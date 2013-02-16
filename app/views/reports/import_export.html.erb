@@ -8,7 +8,7 @@
     	<th>Actions</th>
   	</tr>
 	<tr class="odd">
-    	<td>Inventory items</td> 
+    	<td>Inventory items</td>
 		<td>
 			<a href="#" id="uxImportLink-InventoryItem">Import</a> /
 			<div id="uxImportDialog-InventoryItem">
@@ -16,7 +16,7 @@
 			      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 			      <input type="file" name="import_file" />
 			    </form>
-			</div>			
+			</div>
 			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "InventoryItem"} %>
 		</td>
   	</tr>
@@ -29,8 +29,8 @@
 			      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 			      <input type="file" name="import_file" style="float:left;" />
 			    </form>
-			</div>			
-			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Vendor"} %>
+			</div>
+			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Vendor"},:format=>:csv  %>
 		</td>
   	</tr>
 	<tr class="odd">
@@ -42,8 +42,8 @@
 			      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 			      <input type="file" name="import_file" style="float:left;" />
 			    </form>
-			</div>			
-			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Employee"} %>
+			</div>
+			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Employee"}%>
 		</td>
 	</tr>
 	<tr>
@@ -55,7 +55,7 @@
 			      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 			      <input type="file" name="import_file" style="float:left;" />
 			    </form>
-			</div>			
+			</div>
 			<%= link_to "Export",{:controller => "reports", :action => "export_to_csv", :export_model => "Company"} %>
 		</td>
 	</tr>
@@ -94,20 +94,20 @@
       	width: 430,
       	modal: true
 	};
-	
+
 	function addImportDialogFunctionalities(dialogElementId, importFormId, dialogBoxTitle, uploadUrl, importLinkId){
 	    jQuery("#" + dialogElementId).dialog(
 			jQuery.extend(commonDialogOptions, {
 		      title: dialogBoxTitle,
 		      buttons: {
 		        "Upload": function() {
-		           var uploadOptions = { 
-		              url: uploadUrl, 
+		           var uploadOptions = {
+		              url: uploadUrl,
 		              success: importDocumentUploadHandler
 		            };
 		            jQuery("#" + importFormId).ajaxSubmit(uploadOptions);
 		            jQuery(this).dialog( "close" );
-		          
+
 		        },
 		        Cancel: function() {
 		          jQuery(this).dialog( "close" );
@@ -116,15 +116,16 @@
 		    })
 		);
 	    jQuery("#" + importLinkId).show();
-	    
+
 	    jQuery( "#" + importLinkId)
 	      .click(function() {
 	        jQuery("#" + dialogElementId).dialog( "open" );
 			return false;
       	});
 	}
-	
+
 	function importDocumentUploadHandler(responseText, status){
+        alert(responseText)
 		var response = jQuery.parseJSON(responseText);
         if(response.success == true){
           jQuery('#uxImportExportTable').slideUp(function(){
@@ -135,20 +136,20 @@
           alert(response.errors);
         }
 	}
-	
+
 	jQuery(function(){
 		addImportDialogFunctionalities("uxImportDialog-InventoryItem", "uxImportUploadForm-InventoryItem", "Import CSV - Inventory items", "/reports/import_to_csv?import_model=InventoryItem", "uxImportLink-InventoryItem");
 		addImportDialogFunctionalities("uxImportDialog-Vendor", "uxImportUploadForm-Vendor", "Import CSV - Vendors", "/reports/import_to_csv?import_model=Vendor", "uxImportLink-Vendor");
 		addImportDialogFunctionalities("uxImportDialog-Employee", "uxImportUploadForm-Employee", "Import CSV - Employees", "/reports/import_to_csv?import_model=Employee", "uxImportLink-Employee");
 		addImportDialogFunctionalities("uxImportDialog-Company", "uxImportUploadForm-Company", "Import CSV - Companies", "/reports/import_to_csv?import_model=Company", "uxImportLink-Company");
 	});
-	
+
 	function removeRow(deleteRowLink) {
 		if(confirm('Are you sure?') == true){
 			jQuery(deleteRowLink).parents('tr').fadeOut().remove();
 		}
 	}
-	
+
 	function hidePreview(){
 		jQuery("#uxImportPreviewContainer").slideUp().html('');
 		jQuery('#uxImportExportTable').slideDown();

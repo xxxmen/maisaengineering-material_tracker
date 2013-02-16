@@ -57,9 +57,9 @@ class MaterialRequestsController < ApplicationController
 
   def filter_vendors
     if params[:query].blank?
-      @vendors = Vendor.find(:all, :order => :name)
+      @vendors = Vendor.order(:name)
     else
-      @vendors = Vendor.search(:q => '*' + params[:query] + '*', :limit => 2000, :order => :name)
+      @vendors = Vendor.full_text_search(:q => '*' + params[:query] + '*', :limit => 2000, :order => :name)
     end
     render :update do |page|
       page.replace "select", :partial => "select_vendor", :locals => { :vendors => @vendors }
@@ -186,7 +186,7 @@ class MaterialRequestsController < ApplicationController
   end
 
   def search
-    @material_requests = MaterialRequest.search(params, :include => [:requester, :unit, :items])
+    @material_requests = MaterialRequest.full_text_search(params, :include => [:requester, :unit, :items])
     if current_employee.admin? || current_employee.purchasing? || current_employee.warehouse? || current_employee.warehouse_admin?
       return_search(@material_requests, params)
     else

@@ -9,6 +9,7 @@
 //= require calendar/calendar
 //= require calendar/calendar-en
 //= require calendar/calendar-setup
-//= require jquery-ui/jquery-ui-1.6.custom.min
 //= require jquery-ui/jquery.bgiframe.min
-//= require global_use
+
+
+

@@ -43,6 +43,7 @@ MaterialTracker::Application.configure do
       password: 'maisa123'
   }
 
+  ThinkingSphinx.suppress_delta_output = true
 
 end
 

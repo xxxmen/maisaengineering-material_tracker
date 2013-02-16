@@ -32,13 +32,13 @@ class TicketsController < ApplicationController
         flash[:previous_filter_query] = params[:q]
         do_search
         if @tickets.size == 0
-          flash[:error] = "There were no search results for <span style='color: red;'>'#{params[:q]}'</span>"
+          flash[:error] = "There were no search results for <span style='color: red;'>'#{params[:q]}'</span>".html_safe
           redirect_to tickets_path and return
         elsif @tickets.size == 1
           flash.now[:notice] = "Found 1 ticket"
         else
-          flash.now[:notice] = "<div id='result_msg'>Found #{@tickets.size} results for <span style='color: orangered;'>'#{params[:q]}'</span>
-          <a href='#' onclick=\"$('refine').toggle(); $('refine').down('input').focus(); $('result_msg').hide(); \">Filter Results</a></div>"
+          flash.now[:notice] = "<div id='result_msg'>Found #{@tickets.count} results for <span style='color: orangered;'>'#{params[:q]}'</span>
+          <a href='#' onclick=\"$('refine').toggle(); $('refine').down('input').focus(); $('result_msg').hide(); \">Filter Results</a></div>".html_safe
         end        
         render :action => :index
     end
