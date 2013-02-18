@@ -13,7 +13,7 @@ class RequestMailer < ActionMailer::Base
 
   def self.preview(mail, *args)
     args = args.unshift(false)
-    preview = RequestMailer.send(mail.to_s, *args)
+    preview = self.send(mail.to_s, *args)
     preview.set_content_type('text/html')
     return preview.encoded
   end
@@ -97,7 +97,8 @@ class RequestMailer < ActionMailer::Base
     subject    = "[#{ENV['DEPLOY_SITE_NAME']} Material Tracker] PO ##{order.po_no}"
     #@body       = { :order => order, :params => params, :ordered_line_items => @ordered_line_items }
     @order = order
-    @prams = params
+    @params = params
+
     recipients = params[:email] # bp.carson.fifth@gmail.com
     bcc        = ALWAYS_SEND_TO_EMAILS
     from       = params[:from] || "no-reply@#{ENV['MAIL_DOMAIN']}"
