@@ -71,7 +71,7 @@ class ReportsController < ApplicationController
       if (email[:to].blank? || email[:subject].blank?)
         raise "Error: The email information is faulty. Please try again."
       end
-      RequestMailer.deliver_popv_reports(email, report)
+      RequestMailer.popv_reports(email, report).deliver
     end
 
     render :json => { :success => true }
@@ -241,7 +241,7 @@ class ReportsController < ApplicationController
     require 'csv'
 
     if not current_employee.admin?
-      render :text => {:success => false, :errors => "You don't have permission to perform this action"}.to_json and return
+      render :json => {:success => false, :errors => "You don't have permission to perform this action"} and return
     end
     if request.post? and params[:import_file]
       model_to_import = params[:import_model].constantize
@@ -299,8 +299,6 @@ class ReportsController < ApplicationController
             table_rows.push table_row
           end
         end
-
-
         data = render_to_string(:partial => "new_import_preview", :locals => {:model_to_import => params[:import_model], :column_names => column_names, :table_rows => table_rows, :is_there_a_relationship_to_be_created => is_there_a_relationship_to_be_created})
         render :json => { success: true, data: data  }
       rescue
