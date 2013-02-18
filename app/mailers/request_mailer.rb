@@ -6,14 +6,14 @@ class RequestMailer < ActionMailer::Base
 
   def self.send_as_html(mail, *args)
     args = args.unshift(true)
-    email = self.send("create_" + mail.to_s, *args)
-    email.set_content_type("text/html")
-    self.deliver(email)
+    email = self.send(mail.to_s, *args).deliver
+    #email.set_content_type("text/html")
+    #self.deliver(email)
   end
 
   def self.preview(mail, *args)
     args = args.unshift(false)
-    preview = RequestMailer.send("create_" + mail.to_s, *args)
+    preview = RequestMailer.send(mail.to_s, *args)
     preview.set_content_type('text/html')
     return preview.encoded
   end

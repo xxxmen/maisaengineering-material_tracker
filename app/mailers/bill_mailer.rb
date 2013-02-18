@@ -1,8 +1,8 @@
 class BillMailer < ActionMailer::Base
   def self.send_as_html(mail, *args)
-    email = self.send("create_" + mail.to_s, *args)
-    email.set_content_type("text/html")
-    self.deliver(email)
+    email = self.send(mail.to_s, *args).deliver
+    #email.set_content_type("text/html")
+    #self.deliver(email)
   end
 
   def quote(bill_id, params)
