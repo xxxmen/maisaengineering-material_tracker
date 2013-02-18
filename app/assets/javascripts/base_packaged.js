@@ -1,7 +1,7 @@
 //= require jQuery-1.2.6/jquery.color
 //= require jquery.form
 //= require prototype
-//= require prototype_ujs
+// require prototype_ujs
 //= require effects
 //= require dragdrop
 //= require controls
