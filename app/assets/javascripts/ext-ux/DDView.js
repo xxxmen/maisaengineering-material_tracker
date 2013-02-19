@@ -447,7 +447,7 @@ Ext.extend(Ext.ux.DDView, Ext.DataView, {
             } 
         }, this); 
         this.contextMenu.add({ 
-            icon: imageUrl || AU.resolveUrl("/images/delete.gif"), 
+            icon: imageUrl || AU.resolveUrl("/assets/delete.gif"),
             id: "delete", 
             text: AU.getMessage("deleteItem") 
         }); 

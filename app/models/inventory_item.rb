@@ -137,8 +137,6 @@ class InventoryItem < ActiveRecord::Base
       case column_name
         when 'delta'
           #skip
-        when 'updated_at','created_at'
-          send(column_name,column_name.underscore){|column_name| column_name.try(:strftime,'%m/%d/%Y %H:%M %p') }
         else
           send(column_name,column_name.underscore)
       end
