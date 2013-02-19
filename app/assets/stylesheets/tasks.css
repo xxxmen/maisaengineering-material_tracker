@@ -40,27 +40,27 @@
 .task-check {
     width:13px;
     height:13px;
-    background: transparent url(../images/default/form/checkbox.gif) no-repeat 0px 0px;
+    background: transparent url(default/form/checkbox.gif) no-repeat 0px 0px;
     cursor:pointer;
 }
 
 .task-completed .task-check {
-    background: transparent url(../images/default/form/checkbox.gif) no-repeat 0px -26px;
+    background: transparent url(default/form/checkbox.gif) no-repeat 0px -26px;
 }
 
 .task-check-over {
   width:13px;
   height:13px;
-    background: transparent url(../images/default/form/checkbox.gif) no-repeat 0px -13px;
+    background: transparent url(default/form/checkbox.gif) no-repeat 0px -13px;
 }
 
 
 .task-overdue .x-grid3-cell-inner {
-    color:#fb223a;
+    color: #fb223a;
 }
 
 .task-completed .x-grid3-cell-inner {
-    text-decoration:bold;
+    text-decoration: bold;
     color:green;
 }
 

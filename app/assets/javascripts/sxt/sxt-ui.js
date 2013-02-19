@@ -2,7 +2,7 @@
     Loads the main ExtJS POPV interface.
 */
 
-Ext.BLANK_IMAGE_URL = '../images/default/s.gif';
+Ext.BLANK_IMAGE_URL = '/assets/default/s.gif';
 
 Ext.QuickTips.init();
 

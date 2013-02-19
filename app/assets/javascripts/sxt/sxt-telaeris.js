@@ -331,7 +331,7 @@ var telaeris = function() {
         config.icon = config.icon || "document.png";
         // config.header = config.header || "Resources";
         $navigationLinks.push(resourceName);
-        $navigationLinksHtml[resourceName] = '<li><a href="#" onclick="telaeris.openResource(\'' + resourceName + '\'); return false;"><img src="/images/icons/' + config.icon + '" /> ' + telaeris.util.titleFor(resourceName) + '</a></li>';
+        $navigationLinksHtml[resourceName] = '<li><a href="#" onclick="telaeris.openResource(\'' + resourceName + '\'); return false;"><img src="/assets/icons/' + config.icon + '" /> ' + telaeris.util.titleFor(resourceName) + '</a></li>';
 
     }
 
@@ -1140,13 +1140,13 @@ var telaeris = function() {
         tbarItems.push({
          //   xtype: 'button',
             id: resourceName + '_minimize',
-            icon: '/images/minimize.gif',
+            icon: '/assets/minimize.gif',
             handler: config.minimizeForm
         });
         tbarItems.push({
            // xtype: 'button',
             id: resourceName + '_maximize',
-            icon: '/images/maximize.gif',
+            icon: '/assets/maximize.gif',
             handler: config.maximizeForm
         });
 
@@ -1154,7 +1154,7 @@ var telaeris = function() {
             //xtype: 'button',
             id: resourceName + '_restore',
             hidden: true,
-            icon: '/images/restore.gif',
+            icon: '/assets/restore.gif',
             handler: config.restoreForm
         });
 
