@@ -62,9 +62,9 @@ class Company < ActiveRecord::Base
         when 'delta'
           #skip
         when 'updated_at','created_at'
-          send(column_name){|column_name| column_name.try(:strftime,'%m/%d/%Y %H:%M %p') }
+          send(column_name,column_name.underscore){|column_name| column_name.try(:strftime,'%m/%d/%Y %H:%M %p') }
         else
-          send(column_name)
+          send(column_name,column_name.underscore)
       end
     end
   end

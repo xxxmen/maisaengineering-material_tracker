@@ -556,15 +556,15 @@ class Employee < ActiveRecord::Base
         when 'delta'
           #skip
         when 'updated_at','created_at'
-          send(column_name){|column_name| column_name.try(:strftime,'%m/%d/%Y %H:%M %p') }
+          send(column_name,column_name.underscore){|column_name| column_name.try(:strftime,'%m/%d/%Y %H:%M %p') }
         when 'company_id'
-          company 'Company Name' do |c| c.name  end
+          company 'company_name' do |c| c.name  end
         when 'group_id'
-          group 'Group Name' do |g| g.try(:name) end
+          group 'group_name' do |g| g.try(:name) end
         when 'current_bom_id'
-          current_bom 'Current Bom Description' do |b| b.try(:description) end
+          current_bom 'current_bom_description' do |b| b.try(:description) end
         else
-          send(column_name)
+          send(column_name,column_name.underscore)
       end
     end
   end
