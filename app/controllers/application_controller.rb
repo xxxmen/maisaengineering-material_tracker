@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   before_filter :login_required
   before_filter :set_cattr_employee
   before_filter :get_admin_message
+  before_filter :log_additional_data
 
   #Make it so it doesn't use a layout
 
@@ -147,10 +148,19 @@ class ApplicationController < ActionController::Base
     @admin_message = Admin::Message.get_message
   end
 
+  #protected
+  ##exception_data :additional_data
+  #def additional_data
+  #  { :document => @document,
+  #    :person => @person }
+  #end
+
+
   protected
-  #exception_data :additional_data
-  def additional_data
-    { :document => @document,
-      :person => @person }
+  def log_additional_data
+    request.env["exception_notifier.exception_data"] = {
+        :document => @document,
+        :person => @person
+    }
   end
 end
