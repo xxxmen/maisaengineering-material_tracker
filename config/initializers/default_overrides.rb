@@ -1,4 +1,4 @@
-MAIL_TEST_EMAIL = 'errors@telaeris.com'
+MAIL_TEST_EMAIL = 'no-reply@sukedharreddy.info'
 
 class Array
   def to_csv(options = {})

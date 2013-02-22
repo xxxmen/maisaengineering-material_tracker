@@ -38,6 +38,8 @@ gem 'to-csv'
 gem "comma", "~> 3.0"
 gem 'json','1.7.7'
 
+gem 'exception_notification'
+
 group :development, :test do
   gem 'ruby-debug19'
   gem 'rspec-rails', '~> 2.6.1.beta1'

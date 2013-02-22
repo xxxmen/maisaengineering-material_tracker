@@ -54,5 +54,10 @@ MaterialTracker::Application.configure do
 
   ThinkingSphinx.suppress_delta_output = true
 
+  config.middleware.use ExceptionNotifier,
+    sender_address: 'maisa.engineers@gmail.com',
+    exception_recipients: 'sukendhar555@gmail.com',
+    ignore_exceptions: ExceptionNotifier.default_ignore_exceptions # + [RuntimeError]
+
 end
 
