@@ -3,7 +3,7 @@
 <script type="text/javascript">
 
 	function updateRole () {
-	  	new Ajax.Request('<%= employee_path(current_employee) %>', {
+	  	new Ajax.Request('<%#= employee_path(current_employee) %>', {
 	    	method: 'put',
 	    	parameters: $('role_form').serialize(true)
 	  	});

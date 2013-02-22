@@ -94,7 +94,7 @@ because it can't be included for media='screen' -->
     </div>
 
     <div id="site-branding">
-      <h2><%= deploy_site_name %></h2>
+      <h2><%= "#{ENV['DEPLOY_SITE_NAME']}" %></h2>
     </div>
 
     <p id="telaeris-branding">
@@ -110,7 +110,8 @@ because it can't be included for media='screen' -->
     <% end %>
 
     <div id="version">
-      <!-- Version: <#%= ENV['MATERIAL_TRACKER_VERSION'] %> | <#%= render :partial => "shared/version" %> -->
+      <!-- Here i placed Revision no. as static as shared/version file is missing -->
+       Version: <%= ENV['MATERIAL_TRACKER_VERSION'] %> | Revision: 2264<%#= render :partial => "shared/version" %>
     </div>
 
     <% unless params[:controller] == 'home' && ['index', 'superuser'].include?(params[:action]) %>
