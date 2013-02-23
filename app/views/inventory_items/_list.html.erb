@@ -2,10 +2,10 @@
 <table class="information" id="table1">
       <tr class="inventory_items-list-header">
        <th align="left" class="small">
-       	  <%= 
+       	  <%=
        	  options = {
 	      :url => {
-		      :action => params[:action], 
+		      :action => params[:action],
 		      :order_by => "customer_number",
 		   	  :desc => get_order(params, "customer_number"),
 		   	  :q => params[:q],
@@ -17,17 +17,17 @@
 	      }
     	  html_options = {
     	  	:href => url_for(:action => params[:action])
-    	  }    
+    	  }
     	  link_to_remote("Customer #", options, html_options)
 	      %>
-	        
-	        
-      	</th>		
+
+
+      	</th>
         <th align="left">
-          <%= 
+          <%=
        	  options = {
 	      :url => {
-		      :action => params[:action], 
+		      :action => params[:action],
 		      :order_by => "company_name",
 		   	  :desc => get_order(params, "company_name"),
 		   	  :q => params[:q],
@@ -39,7 +39,7 @@
 	      }
     	  html_options = {
     	  	:href => url_for(:action => params[:action])
-    	  }    
+    	  }
     	  link_to_remote("Company Name", options, html_options)
 	      %>
         </th>
@@ -48,10 +48,10 @@
 <% if !@inventory_item.nil? %>
 <% @inventory_item.each_with_index do |inventory_item, index| %>
     <% tr_class = index % 2 == 1 ? "odd" : "even"  %>
-		
+
 	  <tr class="<%= tr_class %>" id="list-row">
-         
-                                          
+
+
 		<td class="name description">
          	<%= default_for(inventory_item.warehouse_name, "") %>
         </td>
@@ -75,11 +75,11 @@
          </td>
         <td>
 	    	<%=h inventory_item.aisle %> / <%=h inventory_item.bin %> / <%=h inventory_item.shelf %>
-         </td>         
+         </td>
 		<td>
 			<%= link_to "view", {:action => 'view', :id => inventory_item.id} %>
 		</td>
-         
+
       </tr>
 <% end %>
 

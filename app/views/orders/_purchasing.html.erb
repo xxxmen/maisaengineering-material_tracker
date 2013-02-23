@@ -7,75 +7,78 @@
 </style>
 
 <table class="information orders" cellspacing="0">
-    <tr class="header">
-        <th class="no">
-          <%= link_to_sort "PO #", "purchase_orders.po_no", :include => [:year, :state, :status, :location, :unit, :vendor, :requester] %> <br />
-          <%= link_to_sort "Track #", "purchase_orders.tracking", :include => [:year, :state, :status, :location, :unit, :vendor, :requester] %><br />
-          <%= link_to_sort "Reference #", "purchase_orders.ptm_no", :include => [:year, :state, :status, :location, :unit, :vendor, :requester] %>
-        </th>
-        <th class="desc">
-          <%= link_to_sort "Description", "purchase_orders.description", :include => [:year, :state, :status, :location, :unit, :vendor, :requester] %>
-          <%= render :partial => "year_filter" %> <br />
-		  <%= link_to_sort "ETA", "purchase_orders.date_eta", :include => [:year, :state, :status, :location, :unit, :vendor, :requester] %>
-        </th>
-        <th class="vendor">
-            <%= render :partial => "supplier_filter" %>
-        </th>
-        <th class="location">
-            <select onchange="window.location=$F(this)" style="width: 120px;">
-              <option value="<%= filter_url(:unit => nil) %>">-- UNITS --</option>
-              <% Order.all_units.each do |unit| %>
-                  <option value="<%= filter_url(:unit => unit.id) %>" <%= select_filter_if(params[:unit] == unit.id.to_s) %>><%= unit.description %></option>
-              <% end %>
-            </select><br />
-            <select onchange="window.location=$F(this)" style="width: 120px;">
-                <option value="<%= filter_url(:status => nil) %>">-- STATUS --</option>
-                <% Order.all_statuses.each do |status| %>
-                    <option value="<%= filter_url(:status => status[1]) %>" <%= select_filter_if(params[:status] == status[1].to_s) %>><%= status[0] %></option>
-                <% end %>
-            </select><br />
-            <!-- <select onchange="window.location=$F(this)" style="width: 120px;">
+  <tr class="header">
+    <th class="no">
+      <%= link_to_sort "PO #", "purchase_orders.po_no", :include => [:year, :state, :status, :location, :unit, :vendor, :requester] %>
+      <br/>
+      <%= link_to_sort "Track #", "purchase_orders.tracking", :include => [:year, :state, :status, :location, :unit, :vendor, :requester] %>
+      <br/>
+      <%= link_to_sort "Reference #", "purchase_orders.ptm_no", :include => [:year, :state, :status, :location, :unit, :vendor, :requester] %>
+    </th>
+    <th class="desc">
+      <%= link_to_sort "Description", "purchase_orders.description", :include => [:year, :state, :status, :location, :unit, :vendor, :requester] %>
+      <%= render :partial => "year_filter" %> <br/>
+      <%= link_to_sort "ETA", "purchase_orders.date_eta", :include => [:year, :state, :status, :location, :unit, :vendor, :requester] %>
+    </th>
+    <th class="vendor">
+      <%= render :partial => "supplier_filter" %>
+    </th>
+    <th class="location">
+      <select onchange="window.location=$F(this)" style="width: 120px;">
+        <option value="<%= filter_url(:unit => nil) %>">-- UNITS --</option>
+        <% Order.all_units.each do |unit| %>
+            <option value="<%= filter_url(:unit => unit.id) %>" <%= select_filter_if(params[:unit] == unit.id.to_s) %>><%= unit.description %></option>
+        <% end %>
+      </select><br/>
+      <select onchange="window.location=$F(this)" style="width: 120px;">
+        <option value="<%= filter_url(:status => nil) %>">-- STATUS --</option>
+        <% Order.all_statuses.each do |status| %>
+            <option value="<%= filter_url(:status => status[1]) %>" <%= select_filter_if(params[:status] == status[1].to_s) %>><%= status[0] %></option>
+        <% end %>
+      </select><br/>
+      <!-- <select onchange="window.location=$F(this)" style="width: 120px;">
                 <option value="<%= filter_url(:location => nil) %>">-- LOCATION --</option>
                 <% Order.all_locations.each do |location| %>
                     <option value="<%= filter_url(:location => location) %>" <%= select_filter_if(params[:location] == location.to_s) %>><%= location %></option>
                 <% end %>
             </select><br /> -->
-          <!-- <%= link_to_sort "Unit", "units.description", :include => [:year, :state] %> <br /> -->
-          <!-- <%= link_to_sort "Status", "po_statuses.status", :include => [:year, :state] %> <br /> -->
-           <!-- <%= link_to_sort "Location", "purchase_orders.location", :include => [:year, :state] %> <br /> -->
-        </th>
-    </tr>
+      <!-- <%= link_to_sort "Unit", "units.description", :include => [:year, :state] %> <br /> -->
+      <!-- <%= link_to_sort "Status", "po_statuses.status", :include => [:year, :state] %> <br /> -->
+      <!-- <%= link_to_sort "Location", "purchase_orders.location", :include => [:year, :state] %> <br /> -->
+    </th>
+  </tr>
 </table>
 
 <div id="maininfo">
-<table class="information orders" cellspacing="0">
-<% @orders.each_with_index do |order, index| %>
-<% order.format_description! %>
-<tr class="<%= cycle(:odd, :even) %>">
-    <td class="no">
-      <%= h order.po_no %> <br />
-      <%= h order.tracking %> <br />
-      <%= h order.ptm_no %>
-    </td>
-    <td class="desc">
-      <%= link_to( format_desc(order.show_description), edit_order_path(order), :title => "Shows the details for this order.") %>
-	  <span class="date">ETA <%= order.date_eta ? order.date_eta.strftime('%m/%d/%y') : 'None' %></span>
-    </td>
-    <td class="vendor">
-        <%= render :partial => "supplier_data", :locals => { :order => order } %>
-    </td>
-    <td class="location">
-      <%= h order.unit_name %> <br />
-      <%= h order.status_description %> <br />
-      <%= remote_form_for :order, order, :url => { :controller => "orders", :action => "set_location", :id => order }, :html => { :method => :put, :style => "display: none;", :id => dom_id(order, :edit), :class => "edit_order" } do |f| %>
+  <table class="information orders" cellspacing="0">
+    <% @orders.each_with_index do |order, index| %>
+        <% order.format_description! %>
+        <tr class="<%= cycle(:odd, :even) %>">
+          <td class="no">
+            <%= h order.po_no %> <br/>
+            <%= h order.tracking %> <br/>
+            <%= h order.ptm_no %>
+          </td>
+          <td class="desc">
+            <%= link_to(format_desc(order.show_description), edit_order_path(order), :title => "Shows the details for this order.") %>
+            <span class="date">ETA <%= order.date_eta ? order.date_eta.strftime('%m/%d/%y') : 'None' %></span>
+          </td>
+          <td class="vendor">
+            <%= render :partial => "supplier_data", :locals => {:order => order} %>
+          </td>
+          <td class="location">
+            <%= h order.unit_name %> <br/>
+            <%= h order.status_description %> <br/>
+            <%= remote_form_for :order, order, :url => {:controller => "orders", :action => "set_location", :id => order}, :html => {:method => :put, :style => "display: none;", :id => dom_id(order, :edit), :class => "edit_order"} do |f| %>
 
-        <%= f.text_field :location, :style => "width: 150px; font-size: 120%;", :id => dom_id(order, :location), :class => "text" %>
-          <%= submit_tag "Save", :class => "submit" %> <%= link_to_toggle "Cancel", order, :edit, :show %>
-      <% end %>
-      
-      <%= link_to_toggle truncate(order.show_location), order, :edit, :show, :id => dom_id(order, :show), :focus => order %>
-    </td>
-</tr>
-<% end %>
-</table><%= render "shared/will_paginate", collection: @orders %>
+                <%= f.text_field :location, :style => "width: 150px; font-size: 120%;", :id => dom_id(order, :location), :class => "text" %>
+                <%= submit_tag "Save", :class => "submit" %> <%= link_to_toggle "Cancel", order, :edit, :show %>
+            <% end %>
+
+            <%= link_to_toggle truncate(order.show_location), order, :edit, :show, :id => dom_id(order, :show), :focus => order %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
 </div>
+<%#= render "shared/will_paginate", collection: @orders %>

@@ -16,12 +16,12 @@
     <th class="time"><%= link_to_sort "Submitted", "carts.sent_at" %></th>
     <th class="desc">Description</th>
     <th class="unit">
-    <select onchange="window.location=$F(this)" style="width: 120px;">
-      <option value="<%= filter_url(:unit => nil) %>">-- UNITS --</option>
-      <% Cart.all_units.each do |unit| %>
-          <option value="<%= filter_url(:unit => unit.id) %>" <%= select_filter_if(params[:unit] == unit.id.to_s) %>><%= unit.description %></option>
-      <% end %>
-    </select>
+      <select onchange="window.location=$F(this)" style="width: 120px;">
+        <option value="<%= filter_url(:unit => nil) %>">-- UNITS --</option>
+        <% Cart.all_units.each do |unit| %>
+            <option value="<%= filter_url(:unit => unit.id) %>" <%= select_filter_if(params[:unit] == unit.id.to_s) %>><%= unit.description %></option>
+        <% end %>
+      </select>
     </th>
     <th class="requestor">
       <select onchange="window.location=$F(this)" style="width: 120px;">
@@ -37,30 +37,30 @@
 </table>
 
 <div id="maininfo">
-<table class="information" cellspacing="0">
-  <% @carts.each do |cart| %>
-  <tr class="<%= cycle :even, :odd %>">
-    <td class="tracking"><%= cart.tracking_no %></td>
-    <td class="time"><span class="date"><%= format_time(cart.sent_at) %></span></td>
-    <td class="desc"><%= link_to h(cart.description), edit_cart_path(cart) %></td>
-    <td class="unit"><%= cart.unit_description %></td>
-    <td class="requestor"><%= cart.requester_name %></td>
-    <td class="status">
-      <% if cart.sent? %>
-      <span style="color: green;">SUBMITTED</span>
-      <% else %>
-      <span style="color: red;">RECEIVED</span>
-      <% end %>
-    </td>
-    <td class="submit">
-      <% if cart.received? %>
-        <%= link_to "Re-submit", :action => "resend", :id => cart %>
-      <% end %>
-    </td>
-  </tr>
-  <% end %>
-</table>
-  <%= render 'shared/will_paginate', collection: @carts %>
+  <table class="information" cellspacing="0">
+    <% @carts.each do |cart| %>
+        <tr class="<%= cycle :even, :odd %>">
+          <td class="tracking"><%= cart.tracking_no %></td>
+          <td class="time"><span class="date"><%= format_time(cart.sent_at) %></span></td>
+          <td class="desc"><%= link_to h(cart.description), edit_cart_path(cart) %></td>
+          <td class="unit"><%= cart.unit_description %></td>
+          <td class="requestor"><%= cart.requester_name %></td>
+          <td class="status">
+            <% if cart.sent? %>
+                <span style="color: green;">SUBMITTED</span>
+            <% else %>
+                <span style="color: red;">RECEIVED</span>
+            <% end %>
+          </td>
+          <td class="submit">
+            <% if cart.received? %>
+                <%= link_to "Re-submit", :action => "resend", :id => cart %>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
 </div>
 
+<%= render 'shared/will_paginate', collection: @carts %>
 <%#= render :partial => "shared/paginate", :locals => { :collection => @carts } %>

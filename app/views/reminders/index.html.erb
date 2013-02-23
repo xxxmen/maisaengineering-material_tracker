@@ -20,33 +20,37 @@
 </style>
 
 <table class="information">
-	<tr>    
-	    <th class="tracking"><%= link_to_sort "Purchase Order", "purchase_orders.po_no" %></th>
-    	<th class="send_reminder_on"><%= link_to_sort "Scheduled For", "reminders.send_reminder_on" %></th>
-    	<th class="sent_on"><%= link_to_sort "Sent On", "reminders.sent_on" %></th>
-    	<th class="email_to"><%= link_to_sort "Email To", "reminders.email_to" %></th>
-    	<th class="updated_at"><%= link_to_sort "Updated", "reminders.updated_at" %></th>
-    	<th class="reminder_notes"><%= link_to_sort "Notes", "reminders.notes" %></th>
-    	<th class="scroll_filler"></th>
-	</tr>	
+  <tr>
+    <th class="tracking"><%= link_to_sort "Purchase Order", "purchase_orders.po_no" %></th>
+    <th class="send_reminder_on"><%= link_to_sort "Scheduled For", "reminders.send_reminder_on" %></th>
+    <th class="sent_on"><%= link_to_sort "Sent On", "reminders.sent_on" %></th>
+    <th class="email_to"><%= link_to_sort "Email To", "reminders.email_to" %></th>
+    <th class="updated_at"><%= link_to_sort "Updated", "reminders.updated_at" %></th>
+    <th class="reminder_notes"><%= link_to_sort "Notes", "reminders.notes" %></th>
+    <th class="scroll_filler"></th>
+  </tr>
 </table>
 
 
 <div id="maininfo">
-	<table class="information">
-		<% @reminders.each do |reminder| -%>
-			<tr class="<% if reminder.order_completed? -%>closed<% else %><%= cycle(:even, :odd) %><% end -%>">
-		    	<td class="tracking"><%= link_to "#{reminder.order.po_no} - #{reminder.order.tracking}", "/orders/reminders/#{reminder.order.id}" %> <% if reminder.order_completed? -%> <span class="closed_order">(CLOSED)</span><% end -%></td>
-		    	<td class="send_reminder_on"><%= reminder.send_reminder_on %></td>
-		    	<td class="sent_on"><%= reminder.sent_on %></td>
-		    	<td class="email_to"><%= reminder.email_to %></td>
-		    	<td class="updated_at"><%= reminder.updated_at %></td>
-		    	<td class="reminder_notes"><%= reminder.notes %></td>
-			</tr>
-		<% end -%>
-		
-	</table>
-  <%= render 'shared/will_paginate',collection: @reminders %>
-
+  <table class="information">
+    <% @reminders.each do |reminder| -%>
+        <tr class="
+          <% if reminder.order_completed? -%>closed
+          <% else %><%= cycle(:even, :odd) %>
+          <% end -%>">
+          <td class="tracking"><%= link_to "#{reminder.order.po_no} - #{reminder.order.tracking}", "/orders/reminders/#{reminder.order.id}" %>
+            <% if reminder.order_completed? -%> <span class="closed_order">(CLOSED)</span>
+            <% end -%></td>
+          <td class="send_reminder_on"><%= reminder.send_reminder_on %></td>
+          <td class="sent_on"><%= reminder.sent_on %></td>
+          <td class="email_to"><%= reminder.email_to %></td>
+          <td class="updated_at"><%= reminder.updated_at %></td>
+          <td class="reminder_notes"><%= reminder.notes %></td>
+        </tr>
+    <% end -%>
+  </table>
 </div>
+
+<%= render 'shared/will_paginate', collection: @reminders %>
 <%#= render :partial => "shared/paginate", :locals => { :collection => @reminders } %>

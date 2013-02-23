@@ -9,7 +9,7 @@
 
 <table class="information" cellspacing="0">
   <tr>
-    <th class="tracking"><%= link_to_sort "Tracking", "tracking", :include => ['status', 'group'] %></th> 
+    <th class="tracking"><%= link_to_sort "Tracking", "tracking", :include => ['status', 'group'] %></th>
     <th class="requested_on"><%= link_to_sort "Requested", "material_requests.date_requested", :include => ['status', 'group'] %></th>
     <th class="description"><%= link_to_sort "Description", "requested_line_items.material_description", :include => ['status', 'group'] %></th>
     <th class="unit">
@@ -32,29 +32,28 @@
     </th>
     <th class="status">Status</th>
   </tr>
-</table>  
+</table>
 
 <div id="maininfo">
-<table class="information" cellspacing="0">
-  <% @material_requests.each do |m| %>
-    <tr class="<%= cycle(:odd, :even) %>">
-      <td class="tracking"><%= h m.tracking %></td>
-      <td class="requested_on">
-		<% if m.is_draft? %>
-			<span style="color: gray;">Draft</span>
-		<% else %>
-			<%= m.date_requested.strftime('%m/%d/%y') %>
-		<% end %>
-	  </td>
-      <td class="desc"><%= link_to_desc m %></td>
-      <td class="unit"><%= h m.unit.description %></td>
-      <td class="requester"><%= h m.requester.short_name %></td>
-      <td class="status"><%= m.status.html_safe %></td>
-    </tr>
-  <% end %>
-    
-</table>
-  <%= render 'shared/will_paginate',collection: @material_requests %>
+  <table class="information" cellspacing="0">
+    <% @material_requests.each do |m| %>
+        <tr class="<%= cycle(:odd, :even) %>">
+          <td class="tracking"><%= h m.tracking %></td>
+          <td class="requested_on">
+            <% if m.is_draft? %>
+                <span style="color: gray;">Draft</span>
+            <% else %>
+                <%= m.date_requested.strftime('%m/%d/%y') %>
+            <% end %>
+          </td>
+          <td class="desc"><%= link_to_desc m %></td>
+          <td class="unit"><%= h m.unit.description %></td>
+          <td class="requester"><%= h m.requester.short_name %></td>
+          <td class="status"><%= m.status.html_safe %></td>
+        </tr>
+    <% end %>
+  </table>
 </div>
 
+<%= render 'shared/will_paginate', collection: @material_requests %>
 <%#= render :partial => "shared/paginate", :locals => { :collection => @material_requests } %>

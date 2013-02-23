@@ -12,25 +12,23 @@
     <th class="status">
       <%= link_to_sort "Status", "po_statuses.status" %>
     </th>
-    
   </tr>
 </table>
 
 <div id="maininfo">
-<table class="information" cellspacing="0">  
-  <% @po_statuses.each do |v| %>
-    <tr class="<%= cycle(:even, :odd) %>">
-        <td class="order">
-          <%= link_to_desc v, :default => "", :method => :order %>
-        </td>
-        <td class="status">
-          <%= link_to_desc v, :default => "", :method => :status %>
-        </td>
-    </tr>
-  <% end %>
-</table>
-  <%= render 'shared/will_paginate',collection: @po_statuses %>
-
+  <table class="information" cellspacing="0">
+    <% @po_statuses.each do |v| %>
+        <tr class="<%= cycle(:even, :odd) %>">
+          <td class="order">
+            <%= link_to_desc v, :default => "", :method => :order %>
+          </td>
+          <td class="status">
+            <%= link_to_desc v, :default => "", :method => :status %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
 </div>
 
+<%= render 'shared/will_paginate', collection: @po_statuses %>
 <%#= render :partial => "shared/paginate", :locals => { :collection => @po_statuses } %>

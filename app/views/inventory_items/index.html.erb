@@ -15,83 +15,89 @@
 </style>
 
 <table class="information" cellspacing="0">
-      <tr>
-       <th class="warehouse">
-         <%= link_to_sort "WHSE", "warehouse_name" %>
-      	</th>		
-       <th class="stock">
-         <%= link_to_sort "Stock #", "stock_no" %>
-      	</th>      	
-       <th class="desc">
-         <%= link_to_sort "Desc", "description" %>  <%= link_to_sort "Vendor", "vendor_name" %> 
-		 <select onchange="window.location=$F(this)" style="width: 120px;">
-	        <option value="<%= filter_url(:vendor_name => nil) %>">-- Vendor --</option>
-	        <% InventoryItem.all_vendor_names.each do |vendor_name| %>
-	            <option value="<%= filter_url(:vendor_name => vendor_name) %>" <%= select_filter_if(params[:vendor_name] == vendor_name) %>><%= vendor_name %></option>
-	        <% end %>
-	      </select>      
-      	</th>      	
-       <th class="unit">
-         <%= link_to_sort "UoM", "unit_of_measure" %>
-      	</th>      	
-       <th class="count">
-         <%= link_to_sort "Count", "consignment_count" %>
-      	</th>      	
-       <th class="on_hand">
-         <%= link_to_sort "On Hand", "on_hand" %>
-      	</th>      	
-        <th class="total">
-          <%= link_to_sort "Total", "total_count" %>
-        </th>
-        <th class="qty">
-          Available
-        </th>
-        <th class="location">
-          Location
-        </th>
-      </tr>
+  <tr>
+    <th class="warehouse">
+      <%= link_to_sort "WHSE", "warehouse_name" %>
+    </th>
+    <th class="stock">
+      <%= link_to_sort "Stock #", "stock_no" %>
+    </th>
+    <th class="desc">
+      <%= link_to_sort "Desc", "description" %>  <%= link_to_sort "Vendor", "vendor_name" %>
+      <select onchange="window.location=$F(this)" style="width: 120px;">
+        <option value="<%= filter_url(:vendor_name => nil) %>">-- Vendor --</option>
+        <% InventoryItem.all_vendor_names.each do |vendor_name| %>
+            <option value="<%= filter_url(:vendor_name => vendor_name) %>" <%= select_filter_if(params[:vendor_name] == vendor_name) %>><%= vendor_name %></option>
+        <% end %>
+      </select>
+    </th>
+    <th class="unit">
+      <%= link_to_sort "UoM", "unit_of_measure" %>
+    </th>
+    <th class="count">
+      <%= link_to_sort "Count", "consignment_count" %>
+    </th>
+    <th class="on_hand">
+      <%= link_to_sort "On Hand", "on_hand" %>
+    </th>
+    <th class="total">
+      <%= link_to_sort "Total", "total_count" %>
+    </th>
+    <th class="qty">
+      Available
+    </th>
+    <th class="location">
+      Location
+    </th>
+  </tr>
 </table>
 
 <div id="maininfo">
-<table class="information" cellspacing="0">
-    <% @inventory_items.each do |inventory_item| %>    		
-    	  <tr class="<%= cycle(:odd, :even) %>">
-                                     
-    		<td class="warehouse">
-           	<%= default_for(inventory_item.warehouse_name, "") %>
-        </td>
-  	    <td class="stock">
-    	    	<%= default_for(inventory_item.stock_no, "") %>
-       </td>
-            <td class="desc">
-                <%= link_to default_for(inventory_item.description, ""), {:action => 'edit', :id => inventory_item.id} %> <br />
-				<div class="vendor">
-				<%= inventory_item.vendor_name %> <% if !inventory_item.vendor_no.blank? %><span class="vendor_no">(<%= inventory_item.vendor_no %>)</span><% end %>
-				</div>
-             </td>
-            <td class="unit">
-    	    	<%= default_for(inventory_item.unit_of_measure, "") %>
-             </td>
-            <td class="count">
-    	    	<%= default_for(inventory_item.consignment_count, "") %>
-             </td>
-            <td class="on_hand">
-    	    	<%= default_for(inventory_item.on_hand, "") %>
-             </td>
-            <td class="total">
-    	    	<%= default_for(inventory_item.total_count, "") %>
-             </td>
-             <td class="qty">
-     	    	  <%= default_for(inventory_item.quantity_available.to_s, "") %>
-             </td>
-            <td class="location">
-    	    	<%=h inventory_item.aisle %> / <%=h inventory_item.bin %> / <%=h inventory_item.shelf %> / <%= h inventory_item.building %>
-             </td>                  
-          </tr>
-    <% end %>
-</table>
-  <%= render 'shared/will_paginate', collection: @inventory_items %>
+  <table class="information" cellspacing="0">
+    <% @inventory_items.each do |inventory_item| %>
+        <tr class="<%= cycle(:odd, :even) %>">
 
+          <td class="warehouse">
+            <%= default_for(inventory_item.warehouse_name, "") %>
+          </td>
+          <td class="stock">
+            <%= default_for(inventory_item.stock_no, "") %>
+          </td>
+          <td class="desc">
+            <%= link_to default_for(inventory_item.description, ""), {:action => 'edit', :id => inventory_item.id} %>
+            <br/>
+
+            <div class="vendor">
+              <%= inventory_item.vendor_name %>
+              <% if !inventory_item.vendor_no.blank? %>
+                  <span class="vendor_no">(<%= inventory_item.vendor_no %>)</span>
+              <% end %>
+            </div>
+          </td>
+          <td class="unit">
+            <%= default_for(inventory_item.unit_of_measure, "") %>
+          </td>
+          <td class="count">
+            <%= default_for(inventory_item.consignment_count, "") %>
+          </td>
+          <td class="on_hand">
+            <%= default_for(inventory_item.on_hand, "") %>
+          </td>
+          <td class="total">
+            <%= default_for(inventory_item.total_count, "") %>
+          </td>
+          <td class="qty">
+            <%= default_for(inventory_item.quantity_available.to_s, "") %>
+          </td>
+          <td class="location">
+            <%= h inventory_item.aisle %> / <%= h inventory_item.bin %> / <%= h inventory_item.shelf %>
+            / <%= h inventory_item.building %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
 </div>
+
+<%= render 'shared/will_paginate', collection: @inventory_items %>
 <%#= render :partial => "shared/paginate", :locals => { :collection => @inventory_items } %>
 

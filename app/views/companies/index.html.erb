@@ -2,22 +2,22 @@
   <tr>
     <th class="desc">
       <%= link_to_sort "Name", "name" %>
-    </th>        
+    </th>
   </tr>
 </table>
 
 <div id="maininfo">
-<table class="information" cellspacing="0">  
-  <% @companies.each do |c| %>
-    <tr class="<%= cycle(:even, :odd) %>">
-    <td class="desc">
-      <%= link_to_desc c, :default => "No Name", :method => :name, :html => { :onclick => toggle_edit(c), :id => dom_id(c, :anchor) } %>
-      <%= edit_for(c, :name) %>
-    </td>
-  </tr>
-  <% end %>
-</table>
-  <%= render 'shared/will_paginate', collection: @companies %>
+  <table class="information" cellspacing="0">
+    <% @companies.each do |c| %>
+        <tr class="<%= cycle(:even, :odd) %>">
+          <td class="desc">
+            <%= link_to_desc c, :default => "No Name", :method => :name, :html => {:onclick => toggle_edit(c), :id => dom_id(c, :anchor)} %>
+            <%= edit_for(c, :name) %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
 </div>
 
+<%= render 'shared/will_paginate', collection: @companies %>
 <%#= render :partial => "shared/paginate", :locals => { :collection => @companies } %>

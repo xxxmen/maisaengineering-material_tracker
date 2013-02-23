@@ -15,36 +15,33 @@
 <table class="information" cellspacing="0">
   <tr>
     <th class="tracking"><%= link_to_sort "Tracking #", "material_requests.tracking", :include => [:vendor, :status] %></th>
-    <th class="vendor"><%= link_to_sort "Vendor", "vendors.name", :include => [:vendor, :status]%></th> 
-    <th class="contact_name"><%= link_to_sort "Contact Name", "vendors.contact_name", :include => [:vendor, :status]%></th> 
-    <th class="contact_telephone"><%= link_to_sort "Telephone", "vendors.contact_telephone", :include => [:vendor, :status]%></th> 
+    <th class="vendor"><%= link_to_sort "Vendor", "vendors.name", :include => [:vendor, :status] %></th>
+    <th class="contact_name"><%= link_to_sort "Contact Name", "vendors.contact_name", :include => [:vendor, :status] %></th>
+    <th class="contact_telephone"><%= link_to_sort "Telephone", "vendors.contact_telephone", :include => [:vendor, :status] %></th>
     <th class="sent_by"><%= link_to_sort "Sent By", "emailed_by", :include => [:vendor] %></th>
     <th class="need_by"><%= link_to_sort "Need By", "material_requests.date_need_by", :include => [:vendor, :status] %></th>
     <th class="total_price">Total Price</th>
     <th class="updated_at"><%= link_to_sort "Last Modified", "quotes.updated_at", :include => [:vendor, :status] %></th>
-    
   </tr>
-</table>  
+</table>
 
 <div id="maininfo">
-<table class="information" cellspacing="0">
-  <% @quotes.each do |q| %>
-    <% @m = q.material_request  %>
-    
-    <tr class="<%= cycle(:odd, :even) %>">
-      <td class="tracking"><%= link_to_desc(@m, {:method => 'tracking', :path=> url_for(:action => :edit, :id => @m.id, :controller => :material_requests)}) %></td>
-      <td class="vendor"><%= link_to q.vendor.name,  url_for(:action => :quote, :id => @m.id, :controller => :material_requests, :vendor_id => q.vendor_id, :access_key => q.vendor.access_key) %></td>
-      <td class="contact_name"><%= h q.vendor.contact_name %></td>
-      <td class="contact_telephone"><%= h q.vendor.contact_telephone %></td>
-      <td class="sent_by"><%= h q.sender_full_name %></td>
-      <td class="need_by"><%= h q.needed_by %></td>
-      <td class="total_price"><%= "#{number_to_currency q.total_price}" %></td>
-      <td class="updated_at"><%= h q.updated_at %></td>
-    </tr>
-  <% end %>
-</table>
-  <%= render 'shared/will_paginate',collection: @quotes %>
-
+  <table class="information" cellspacing="0">
+    <% @quotes.each do |q| %>
+        <% @m = q.material_request %>
+        <tr class="<%= cycle(:odd, :even) %>">
+          <td class="tracking"><%= link_to_desc(@m, {:method => 'tracking', :path => url_for(:action => :edit, :id => @m.id, :controller => :material_requests)}) %></td>
+          <td class="vendor"><%= link_to q.vendor.name, url_for(:action => :quote, :id => @m.id, :controller => :material_requests, :vendor_id => q.vendor_id, :access_key => q.vendor.access_key) %></td>
+          <td class="contact_name"><%= h q.vendor.contact_name %></td>
+          <td class="contact_telephone"><%= h q.vendor.contact_telephone %></td>
+          <td class="sent_by"><%= h q.sender_full_name %></td>
+          <td class="need_by"><%= h q.needed_by %></td>
+          <td class="total_price"><%= "#{number_to_currency q.total_price}" %></td>
+          <td class="updated_at"><%= h q.updated_at %></td>
+        </tr>
+    <% end %>
+  </table>
 </div>
 
+<%= render 'shared/will_paginate', collection: @quotes %>
 <%#= render :partial => "shared/paginate", :locals => { :collection => @quotes } %>

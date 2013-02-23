@@ -11,7 +11,7 @@
     </th>
     <th class="name">
       <%= link_to_sort "Name", "vendors.name" %>
-    </th>        
+    </th>
     <th class="telephone">
       <%= link_to_sort "Telephone", "vendors.telephone" %>
     </th>
@@ -19,23 +19,22 @@
 </table>
 
 <div id="maininfo">
-<table class="information" cellspacing="0">  
-  <% @vendors.each do |v| %>
-    <tr class="<%= cycle(:even, :odd) %>">
-        <td class="no">
-          <%= h v.vendor_no %>
-        </td>
-        <td class="name">
-          <%= link_to_desc v, :default => "No Name", :method => :name %>
-        </td>
-        <td class="telephone">
-          <%= h v.telephone %>
-        </td>
-    </tr>
-  <% end %>
-</table>
-  <%= render 'shared/will_paginate',collection: @vendors %>
-
+  <table class="information" cellspacing="0">
+    <% @vendors.each do |v| %>
+        <tr class="<%= cycle(:even, :odd) %>">
+          <td class="no">
+            <%= h v.vendor_no %>
+          </td>
+          <td class="name">
+            <%= link_to_desc v, :default => "No Name", :method => :name %>
+          </td>
+          <td class="telephone">
+            <%= h v.telephone %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
 </div>
 
+<%= render 'shared/will_paginate', collection: @vendors %>
 <%#= render :partial => "shared/paginate", :locals => { :collection => @vendors } %>

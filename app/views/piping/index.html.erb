@@ -23,19 +23,18 @@
 </table>
 
 <div id="maininfo">
-<table class="information" cellspacing="0">
-  <% @piping_classes.each do |piping_class| %>
-    <tr class="<%= cycle(:even, :odd) %>" id="piping_class_<%="#{piping_class.id}"%>">
-      <td class="class_code">
-        <%= link_to piping_class.class_code, url_for( {:action => 'piping_class_details', :id => piping_class.id}) %>
-      </td>
-      <td class="maintenance_note"><%= h piping_class.maintenance_note %></td>
-      <td class="service"><%= h piping_class.service %></td>
-    </tr>
-  <% end %>
-</table>
-  <%= render 'shared/will_paginate',collection: @piping_classes %>
-
+  <table class="information" cellspacing="0">
+    <% @piping_classes.each do |piping_class| %>
+        <tr class="<%= cycle(:even, :odd) %>" id="piping_class_<%= "#{piping_class.id}" %>">
+          <td class="class_code">
+            <%= link_to piping_class.class_code, url_for({:action => 'piping_class_details', :id => piping_class.id}) %>
+          </td>
+          <td class="maintenance_note"><%= h piping_class.maintenance_note %></td>
+          <td class="service"><%= h piping_class.service %></td>
+        </tr>
+    <% end %>
+  </table>
 </div>
 
+<%= render 'shared/will_paginate', collection: @piping_classes %>
 <%#= render :partial => "shared/paginate", :locals => { :collection => @piping_classes } %>

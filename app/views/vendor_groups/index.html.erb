@@ -15,19 +15,19 @@
 </table>
 
 <div id="maininfo">
-<table class="information" cellspacing="0">  
-  <% @vendor_groups.each do |v| %>
-    <tr class="<%= cycle(:even, :odd) %>">
-        <td class="no">
-          <%= h v.id %>
-        </td>
-        <td class="name">
-          <%= link_to_desc v, :default => "No Name", :method => :name %>
-        </td>
-    </tr>
-  <% end %>
-</table>
-  <%= render 'shared/will_paginate',collection: @vendor_groups %>
+  <table class="information" cellspacing="0">
+    <% @vendor_groups.each do |v| %>
+        <tr class="<%= cycle(:even, :odd) %>">
+          <td class="no">
+            <%= h v.id %>
+          </td>
+          <td class="name">
+            <%= link_to_desc v, :default => "No Name", :method => :name %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
 </div>
 
+<%= render 'shared/will_paginate', collection: @vendor_groups %>
 <%#= render :partial => "shared/paginate", :locals => { :collection => @vendor_groups } %>

@@ -6,15 +6,15 @@
 </style>
 
 <%= render :partial => 'refine' %>
-  
+
 <% if warehouse_view? %>
-  <%= render :partial => "warehouse" %>
+    <%= render :partial => "warehouse" %>
 <% elsif receiving_view? %>
-  <%= render :partial => "receiving" %>
+    <%= render :partial => "receiving" %>
 <% else %>
-  <%= render :partial => 'purchasing' %>
+    <%= render :partial => 'purchasing' %>
 <% end %>
 
-<%#= render 'shared/will_paginate',collection: @orders %>
+<%= render 'shared/will_paginate', collection: @orders %>
 
 <%#= render :partial => "shared/paginate", :locals => { :collection => @orders } %>

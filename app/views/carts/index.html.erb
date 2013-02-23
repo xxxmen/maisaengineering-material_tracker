@@ -10,58 +10,57 @@
 </style>
 
 <div style="width: 63%; float: left;" id="main_cart">
-<table class="information">
-      <tr>
-        <th class="stock">
-          <%= link_to_sort "Stock #", "inventory_items.stock_no" %>
-        </th>
-       <th class="desc">
-         <%= link_to_sort "Desc", "inventory_items.description" %>
-      	</th>
-       <th class="avail">
-         Available
-      	</th>
-       <th class="unit">
-         <%= link_to_sort "Unit", "inventory_items.unit_of_measure" %>
-      	</th>
-      	<th class="qty">Qty</th>
-      	<th class="action"></th>
-      </tr>
-</table>
+  <table class="information">
+    <tr>
+      <th class="stock">
+        <%= link_to_sort "Stock #", "inventory_items.stock_no" %>
+      </th>
+      <th class="desc">
+        <%= link_to_sort "Desc", "inventory_items.description" %>
+      </th>
+      <th class="avail">
+        Available
+      </th>
+      <th class="unit">
+        <%= link_to_sort "Unit", "inventory_items.unit_of_measure" %>
+      </th>
+      <th class="qty">Qty</th>
+      <th class="action"></th>
+    </tr>
+  </table>
 
-<div id="maininfo">
-<table class="information">
-    <% @inventory_items.each do |inventory_item| %>
-  	  <tr class="<%= cycle(:odd, :even) %>">
-        <td class="stock">
-          <%= default_for(inventory_item.stock_no, '') %>
-        </td>
-        <td class="desc">
-          <%= link_to default_for(inventory_item.description, ""), inventory_item_path(:id => inventory_item, :cart => true) %>
-        </td>
-        <td class="avail">
-	    	  <%= default_for(inventory_item.quantity_available.to_s, "") %>
-        </td>
-        <td class="unit">
-	    	  <%= default_for(inventory_item.unit_of_measure, "") %>
-        </td>
-        <td class="qty">
-          <input type="text" name="cart_item[quantity]" id="inventory_item_<%= inventory_item.id %>_quantity" value="1" style="width: 20px;" class="text" />
-        </td>
-        <td class="action">
-          <input type="submit" value="Add" class="submit" onclick="Telaeris.addCartItem('<%= inventory_item.id %>'); return false;" />
-        </td>
-       </tr>
-    <% end %>
-</table>
-  <%= render 'shared/will_paginate', collection: @inventory_items %>
-</div>
+  <div id="maininfo">
+    <table class="information">
+      <% @inventory_items.each do |inventory_item| %>
+          <tr class="<%= cycle(:odd, :even) %>">
+            <td class="stock">
+              <%= default_for(inventory_item.stock_no, '') %>
+            </td>
+            <td class="desc">
+              <%= link_to default_for(inventory_item.description, ""), inventory_item_path(:id => inventory_item, :cart => true) %>
+            </td>
+            <td class="avail">
+              <%= default_for(inventory_item.quantity_available.to_s, "") %>
+            </td>
+            <td class="unit">
+              <%= default_for(inventory_item.unit_of_measure, "") %>
+            </td>
+            <td class="qty">
+              <input type="text" name="cart_item[quantity]" id="inventory_item_<%= inventory_item.id %>_quantity" value="1" style="width: 20px;" class="text"/>
+            </td>
+            <td class="action">
+              <input type="submit" value="Add" class="submit" onclick="Telaeris.addCartItem('<%= inventory_item.id %>'); return false;"/>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
 </div>
 
 
 <%= render :partial => 'refine' %>
 
-<%= render :partial => "cart", :locals => { :cart => @cart } %>
+<%= render :partial => "cart", :locals => {:cart => @cart} %>
 
-
+<%= render 'shared/will_paginate', collection: @inventory_items %>
 <%#= render :partial => "shared/paginate", :locals => { :collection => @inventory_items } %>
