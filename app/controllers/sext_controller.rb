@@ -146,9 +146,9 @@ class SextController < ApplicationController
       }
     end
     records = klass.find(:all)
-    report = StringIO.new
+    #report = StringIO.new
 
-    CSV::Writer.generate(report, ',', "\r\n") do |title|
+    csv_string = CSV.generate() do |title|
       title << column_headers
       records.each do |r|
         data = []
@@ -178,11 +178,12 @@ class SextController < ApplicationController
         title << data
       end
     end
-    report.rewind
-    send_data(report.read,:type=>'text/csv;charset=iso-8859-1;header=present',
+    #report.rewind
+    send_data csv_string,
+              :type=>'text/csv;charset=iso-8859-1;header=present',
               :filename=>"#{klass.name.pluralize}.csv",
               :disposition =>'attachment',
-              :encoding => 'utf8')
+              :encoding => 'utf8'
 
 
   end
