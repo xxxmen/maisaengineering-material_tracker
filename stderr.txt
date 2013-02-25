@@ -3,3 +3,5 @@ sh: /usr/local/reportman/printreptopdf: not found
 sh: /usr/local/reportman/printreptopdf: not found
 sh: /usr/local/reportman/printreptopdf: not found
 sh: /usr/local/reportman/printreptopdf: not found
+sudo: unknown user: apache
+sudo: unknown user: apache

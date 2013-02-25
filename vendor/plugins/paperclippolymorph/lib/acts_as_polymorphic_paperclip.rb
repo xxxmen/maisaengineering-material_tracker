@@ -11,11 +11,12 @@ module LocusFocus
         # This module needs the paperclip plugin to work
         # http://www.thoughtbot.com/projects/paperclip
         def acts_as_polymorphic_paperclip(options = {})
-          write_inheritable_attribute(:acts_as_polymorphic_paperclip_options, {
-            :counter_cache => options[:counter_cache],
-            :styles => options[:styles]
-          })
-          class_inheritable_reader :acts_as_polymorphic_paperclip_options
+          class_attribute :acts_as_polymorphic_paperclip_options
+                self.acts_as_polymorphic_paperclip_options ={
+                :counter_cache => options[:counter_cache],
+                :styles => options[:styles]
+                }
+          #class_inheritable_reader :acts_as_polymorphic_paperclip_options
 
           has_many :attachings, :as => :attachable, :dependent => :destroy
           has_many :assets, :through => :attachings do

@@ -61,7 +61,9 @@ module ExceptionNotification::ExceptionNotifiable
       addresses = read_inheritable_attribute(:local_addresses)
       unless addresses
         addresses = [IPAddr.new("127.0.0.1")]
-        write_inheritable_attribute(:local_addresses, addresses)
+        class_attribute :local_addresses
+        self.local_addresses = addresses
+        #write_inheritable_attribute(:local_addresses, addresses)
       end
       addresses
     end
@@ -69,9 +71,12 @@ module ExceptionNotification::ExceptionNotifiable
     # set the exception_data deliverer OR retrieve the exception_data
     def exception_data(deliverer = nil)
       if deliverer
-        write_inheritable_attribute(:exception_data, deliverer)
+        class_attribute :exception_data
+        self.exception_data = deliverer
+        #write_inheritable_attribute(:exception_data, deliverer)
       else
-        read_inheritable_attribute(:exception_data)
+        self.exception_data
+        #read_inheritable_attribute(:exception_data)
       end
     end
 

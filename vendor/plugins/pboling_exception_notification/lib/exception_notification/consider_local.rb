@@ -17,7 +17,9 @@ module ExceptionNotification::ConsiderLocal
       addresses = read_inheritable_attribute(:local_addresses)
       unless addresses
         addresses = [IPAddr.new("127.0.0.1")]
-        write_inheritable_attribute(:local_addresses, addresses)
+        class_attribute :local_addresses
+        self.local_addresses = addresses
+        #write_inheritable_attribute(:local_addresses, addresses)
       end
       addresses
     end
