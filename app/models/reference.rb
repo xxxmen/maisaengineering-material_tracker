@@ -25,7 +25,7 @@ class Reference < ActiveRecord::Base
   belongs_to :folder
   before_validation { |r| r.folder_id ||= 1 }
 
-  has_attached_file :storage => :file_system,
+  #has_attachment_file :storage => :file_system,
                 :path_prefix => "refs"
 
 
