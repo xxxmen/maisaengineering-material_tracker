@@ -36,21 +36,21 @@ MaterialTracker::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.log_tags = [:uuid, :remote_ip]
+  #config.log_tags = [:uuid, :remote_ip]
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :smtp
   # ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
-  ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
+  # ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
 
-  config.action_mailer.smtp_settings = {
-      enable_starttls_auto: true,
-      address: 'smtp.gmail.com',
-      port: 587,
-      authentication: 'plain',
-      user_name: 'maisa.engineers@gmail.com',
-      password: 'maisa123'
-  }
+  # config.action_mailer.smtp_settings = {
+  #     enable_starttls_auto: true,
+  #     address: 'smtp.gmail.com',
+  #     port: 587,
+  #     authentication: 'plain',
+  #     user_name: 'maisa.engineers@gmail.com',
+  #     password: 'maisa123'
+  # }
 
   ThinkingSphinx.suppress_delta_output = true
 

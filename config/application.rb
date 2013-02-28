@@ -9,6 +9,7 @@ if defined?(Bundler)
 end
 load(File.expand_path('../rails3_env_constants.rb', __FILE__))
 
+#require File.join(File.dirname(__FILE__), 'app_constants')
 
 module MaterialTracker
   class Application < Rails::Application
