@@ -77,7 +77,18 @@ MaterialTracker::Application.configure do
       password: 'maisa123'
   }
 
+  #config.action_mailer.delivery_method = :sendmail
+  #config.action_mailer.smtp_settings = {
+  #    :address => "localhost",
+  #    :port => 25,
+  #    :domain => ENV['MAIL_DOMAIN'],
+  #    :user_name => "errors@#{ENV['MAIL_DOMAIN']}",
+  #    :password => "none",
+  #    :authentication => :login
+  #}
+
   # Force all access to the app over SSL, use Strict-Transport-Security, and use s1.2.6ecure cookies.
   # config.force_ssl = true
   ThinkingSphinx.suppress_delta_output = true
+
 end
