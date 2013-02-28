@@ -26,7 +26,7 @@ class Reference < ActiveRecord::Base
   before_validation { |r| r.folder_id ||= 1 }
 
   #has_attachment_file :storage => :file_system,
-                :path_prefix => "refs"
+  #              :path_prefix => "refs"
 
 
   	# Thinking Sphinx Config
