@@ -23,7 +23,7 @@
 <%= error_messages_for :ordered_line_item %>
  <h1 id="po_no"><a href="<%= edit_order_path(@order) %>">PO #<%= @order.po_no %></a> <a href="<%= url_for(:action => "sort_line_items", :id => @order) %>">(sort line items)</a></h1>
 
-<% form_tag "/orders/search_line_items/#{@order.id}", :method => :get, :style => "position: absolute; top: 16px; right: 20px;" do -%>
+<%= form_tag "/orders/search_line_items/#{@order.id}", :method => :get, :style => "position: absolute; top: 16px; right: 20px;" do -%>
     <input type="text" value="Search Line Items" onfocus="InterfaceHelper.clear(this);" onblur="InterfaceHelper.reset(this);" style="font-style: italic; color: gray; width: 180px;" name="q" class="order-search" />
 <% end -%>
 

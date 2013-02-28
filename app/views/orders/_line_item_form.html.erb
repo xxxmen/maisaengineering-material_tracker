@@ -1,6 +1,6 @@
 
 
-<% form_remote_for :ordered_line_item, item, :url => {:action => "update_ordered_line_item", :id => item}, :html => { :id => dom_id(item, "form"), :class => "edit full"} do |f| %>
+<%= form_remote_for :ordered_line_item, item, :url => {:action => "update_ordered_line_item", :id => item}, :html => { :id => dom_id(item, "form"), :class => "edit full"} do |f| %>
   <table id="<%= dom_id item %>" class="information">
         <% if index == 0 %>
         <tr class="header">

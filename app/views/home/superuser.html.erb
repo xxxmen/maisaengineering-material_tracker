@@ -47,7 +47,7 @@
   
   
   <div id="login-form">
-  <% form_tag "/superuser", :class => "edit" do %>
+  <%= form_tag "/superuser", :class => "edit" do %>
   <p>
     <label>Username:</label>
     <%= text_field_tag :login, nil, :id => "login", :style => "width: 330px;" %>

@@ -60,7 +60,7 @@
 								page["piping_class_detail_add_#{piping_class_detail.id}"].hide
 							end %>
 				</span>
-					<% form_remote_tag :url => {:action => 'new_note'},
+					<%= form_remote_tag :url => {:action => 'new_note'},
 						:html => {:id => "new_note_#{piping_class_detail.id}",
 						:style => "display:none",
 						:before   => %(Element.show('ajax_loading')), 
