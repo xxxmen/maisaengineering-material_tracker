@@ -2,17 +2,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   include AuthenticatedSystem
-  include ExceptionNotification::ExceptionNotifiable
+  #include ExceptionNotification::ExceptionNotifiable
 
   before_filter :login_from_cookie
   before_filter :login_required
   before_filter :set_cattr_employee
   before_filter :get_admin_message
-  #before_filter :log_additional_data
+
+  #ExceptionNotification configuration for rails 3.2
+  before_filter :log_additional_data
 
   #Make it so it doesn't use a layout
 
-  self.error_layout = true
+  #self.error_layout = true
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   #protect_from_forgery # :secret => '74daedc5835bfdd5f15246381b0b7151'  
@@ -148,19 +150,19 @@ class ApplicationController < ActionController::Base
     @admin_message = Admin::Message.get_message
   end
 
-  protected
-  exception_data :additional_data
-  def additional_data
-    { :document => @document,
-      :person => @person }
-  end
-
-
   #protected
-  #def log_additional_data
-  #  request.env["exception_notifier.exception_data"] = {
-  #      :document => @document,
-  #      :person => @person
-  #  }
+  #exception_data :additional_data
+  #def additional_data
+  #  { :document => @document,
+  #    :person => @person }
   #end
+
+  #ExceptionNotification configuration for rails 3.2
+  protected
+  def log_additional_data
+    request.env["exception_notifier.exception_data"] = {
+        :document => @document,
+        :person => @person
+    }
+  end
 end

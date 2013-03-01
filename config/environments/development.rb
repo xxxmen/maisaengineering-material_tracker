@@ -39,25 +39,20 @@ MaterialTracker::Application.configure do
   #config.log_tags = [:uuid, :remote_ip]
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  # config.action_mailer.delivery_method = :smtp
-  # ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
-  # ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
-
-  # config.action_mailer.smtp_settings = {
+  #config.action_mailer.delivery_method = :smtp
+  ##ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
+  #ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
+  #
+  #config.action_mailer.smtp_settings = {
   #     enable_starttls_auto: true,
   #     address: 'smtp.gmail.com',
   #     port: 587,
   #     authentication: 'plain',
   #     user_name: 'maisa.engineers@gmail.com',
-  #     password: 'maisa123'
-  # }
+  #     password: 'MAISA@team777'
+  #}
 
   ThinkingSphinx.suppress_delta_output = true
-
-  #config.middleware.use ExceptionNotifier,
-  #  sender_address: 'maisa.engineers@gmail.com',
-  #  exception_recipients: 'sukendhar555@gmail.com',
-  #  ignore_exceptions: ExceptionNotifier.default_ignore_exceptions # + [RuntimeError]
 
 end
 
