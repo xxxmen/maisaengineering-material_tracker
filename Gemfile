@@ -37,17 +37,13 @@ gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototyp
 gem 'to-csv'
 gem "comma", "~> 3.0"
 gem 'json','1.7.7'
-
 gem 'exception_notification'
+gem 'thin'
 
 group :development, :test do
   gem 'ruby-debug19'
   gem 'rspec-rails', '~> 2.6.1.beta1'
   gem 'rspec', '~> 2.6'
   gem "factory_girl_rails"
-end
-
-group :production do
-  gem 'pg'
 end
 
