@@ -39,8 +39,8 @@ MaterialTracker::Application.configure do
   #config.log_tags = [:uuid, :remote_ip]
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
   #config.action_mailer.delivery_method = :smtp
-  ##ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
   #ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
   #
   #config.action_mailer.smtp_settings = {

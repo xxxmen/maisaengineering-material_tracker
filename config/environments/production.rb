@@ -29,7 +29,7 @@ MaterialTracker::Application.configure do
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -63,9 +63,9 @@ MaterialTracker::Application.configure do
   config.assets.precompile += %w( base_packaged.js global_use.js vendor/yui.css printer.css base_packaged.css popv_packaged.js popv_packaged.css )
 
 
-  config.action_mailer.default_url_options = { :host => 'mt-new31.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
   config.action_mailer.delivery_method = :smtp
-  # ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
   ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
 
   config.action_mailer.smtp_settings = {
@@ -87,9 +87,11 @@ MaterialTracker::Application.configure do
   #    :authentication => :login
   #}
 
+  #ThinkingSphinx
+  ThinkingSphinx.suppress_delta_output = true
+
   # Force all access to the app over SSL, use Strict-Transport-Security, and use s1.2.6ecure cookies.
   # config.force_ssl = true
-  ThinkingSphinx.suppress_delta_output = true
 
   #ExceptionNotification used as gem for rails 3.2
   ##ExceptionNotification.exception_recipients = %w(errors@telaeris.com)
