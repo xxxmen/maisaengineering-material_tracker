@@ -24,4 +24,4 @@ staging:
 
 production:
   <<: *defaults
-  domain: mt-new31.herokuapp.com
+  domain: potracker.rails.telaeris.com

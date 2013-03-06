@@ -63,7 +63,7 @@ MaterialTracker::Application.configure do
   config.assets.precompile += %w( base_packaged.js global_use.js vendor/yui.css printer.css base_packaged.css popv_packaged.js popv_packaged.css )
 
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'potracker.rails.telaeris.com' }
 
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.default :from => "MAISA <maisa.engineers@gmail.com>"
