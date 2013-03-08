@@ -47,3 +47,9 @@ group :development, :test do
   gem "factory_girl_rails"
 end
 
+# Vlad gem for deployment
+group :development do
+  gem 'vlad'
+  gem 'vlad-git'
+end
+

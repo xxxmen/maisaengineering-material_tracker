@@ -90,6 +90,7 @@ GEM
     mime-types (1.21)
     multi_json (1.6.1)
     mysql2 (0.3.11)
+    open4 (1.3.0)
     paperclip (3.4.1)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -122,6 +123,9 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (10.0.3)
+    rake-remote_task (2.2.0)
+      open4 (~> 1.0)
+      rake (>= 0.8, < 11.0)
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.2)
@@ -180,6 +184,11 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    vlad (2.4.1)
+      rake (>= 0.8, < 11.0)
+      rake-remote_task (~> 2.1)
+    vlad-git (2.2.0)
+      vlad (>= 2.1.0)
     will_paginate (3.0.4)
 
 PLATFORMS
@@ -209,4 +218,6 @@ DEPENDENCIES
   to-csv
   ts-datetime-delta (= 1.0.2)
   uglifier (>= 1.0.3)
+  vlad
+  vlad-git
   will_paginate (>= 3.0.pre2)
