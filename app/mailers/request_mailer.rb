@@ -32,12 +32,12 @@ class RequestMailer < ActionMailer::Base
   def note_submitted(if_log, user_note)
     emails = Employee.list_popv_admin_emails
     emails << user_note.submitting_user.email
-    emails_comma_separated = emails.join(', ') || "maisa.engineers@gmail.com"
+    emails_comma_separated = emails.join(', ')
 
     @user_note = user_note
     subject    = "[#{ENV['DEPLOY_SITE_NAME']} Material Tracker] POPV User Note Submitted"
     #@body       = {:user_note => user_note}
-    recipients =  emails || "maisa.engineers@gmail.com"
+    recipients =  emails || "cstotts@gmail.com"
     bcc        = ALWAYS_SEND_TO_EMAILS
     from       = "no-reply@#{ENV['MAIL_DOMAIN']}"
     if if_log
